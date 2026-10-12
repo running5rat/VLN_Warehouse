@@ -1,0 +1,5 @@
+# Isolated environment only. See docs/landmark_comparison.md for inheritance.
+paddleocr==3.3.2
+paddlepaddle==3.2.2
+transformers==4.49.0
+timm==1.0.22

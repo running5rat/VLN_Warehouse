@@ -1,0 +1,9 @@
+{
+  "purpose": "Manually checked ROIs in the fixed Isaac mapping fixture; never derived from GT masks",
+  "objects": [
+    {"name": "brown-box", "category": "box", "roi": [80, 185, 265, 380], "evaluation_prim": "/World/BoxA", "evaluation_bounds": [[2.55, 0.575, 0.0], [3.45, 1.425, 1.1]]},
+    {"name": "blue-box", "category": "box", "roi": [338, 125, 450, 305], "evaluation_prim": "/World/BoxB", "evaluation_bounds": [[4.05, -1.15, 0.0], [4.95, -0.25, 1.6]]},
+    {"name": "red-box", "category": "box", "roi": [272, 188, 342, 270], "evaluation_prim": "/World/BoxC", "evaluation_bounds": [[5.45, -0.25, 0.0], [6.55, 0.55, 0.8]]}
+  ],
+  "acceptance": {"minimum_mask_iou": 0.70, "maximum_surface_centroid_error_m": 0.15, "maximum_geometry_surface_p95_error_m": 0.10, "maximum_registration_translation_error_m": 0.10, "maximum_registration_yaw_error_rad": 0.05}
+}

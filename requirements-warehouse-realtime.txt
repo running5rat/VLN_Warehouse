@@ -1,0 +1,6 @@
+# Installed in /data/ticvla/envs/warehouse-realtime only; inherited ML packages are locked in run artifacts.
+tensorrt-cu12==10.13.3.9
+onnxslim==0.1.71
+onnxruntime-gpu==1.22.0
+transformers==4.57.6
+tokenizers==0.22.2

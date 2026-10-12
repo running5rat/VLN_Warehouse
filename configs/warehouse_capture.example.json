@@ -1,0 +1,17 @@
+{
+  "layout_family": "warehouse-layout-a",
+  "episode_id": "warehouse-a-run-001",
+  "task": {
+    "task_id": "local-task-001",
+    "instruction": "Move straight through the visible free passage and stop.",
+    "hard_constraints": ["Stay in observed free space."]
+  },
+  "camera_prim": "/World/Robots/Nova_Carter/chassis_link/front_hawk/left_camera/left_camera",
+  "body_prim": "/World/Robots/Nova_Carter/chassis_link",
+  "resolution": [640, 480],
+  "capture_hz": 10,
+  "supervision": {
+    "local_goal_odom": [4.0, 0.0, 0.0],
+    "actions_task_aligned": false
+  }
+}

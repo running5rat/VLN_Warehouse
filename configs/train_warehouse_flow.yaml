@@ -1,0 +1,16 @@
+pipeline: warehouse_mvp
+model_path: "${TICVLA_BASE_MODEL_PATH}"
+reference_checkpoint: "${TICVLA_OUTPUT_DIR}/warehouse/reference/best.pt"
+manifest: "${TICVLA_WAREHOUSE_DATA}/manifest.json"
+cache_dir: "${TICVLA_WAREHOUSE_DATA}/cache"
+output_dir: "${TICVLA_OUTPUT_DIR}/warehouse"
+device: cuda
+action_head: flow
+batch_size: 16
+epochs: 10
+learning_rate: 1.0e-4
+delay_seconds: [0.0, 0.5, 1.0, 2.0, 4.0]
+max_snapshot_age: 3.0
+reference_noise_std: 0.1
+condition_dropout: 0.1
+seed: 42

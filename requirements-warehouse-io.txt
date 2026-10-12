@@ -1,0 +1,7 @@
+# Install into an isolated venv on top of the existing tic-vla training environment.
+# Isaac Sim keeps its own Python/dependency set.
+ultralytics==8.3.203
+lm-format-enforcer==0.11.3
+opencv-python==4.11.0.86
+numpy>=1.26,<2
+clip @ git+https://github.com/ultralytics/CLIP.git@a13192f8cb767260d7dfd98c843b0716593169e7

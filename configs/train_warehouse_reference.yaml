@@ -1,0 +1,13 @@
+pipeline: warehouse_mvp
+model_path: "${TICVLA_BASE_MODEL_PATH}"
+vlm_checkpoint: "${TICVLA_CHECKPOINT_PATH}"
+manifest: "${TICVLA_WAREHOUSE_DATA}/manifest.json"
+cache_dir: "${TICVLA_WAREHOUSE_DATA}/cache"
+output_dir: "${TICVLA_OUTPUT_DIR}/warehouse"
+device: cuda
+batch_size: 2
+epochs: 10
+reference_learning_rate: 3.0e-5
+lora_rank: 16
+lora_alpha: 32
+seed: 42
