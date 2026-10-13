@@ -1,0 +1,644 @@
+{
+  "updated_wall": 1791862396.553486,
+  "image_id": "demo-original-20261013-1133:00000447",
+  "t_obs": 102.23333866521716,
+  "source_publish_latency_s": 4.27852988243103,
+  "raw_answer": "{\n  \"selected_instances\": [\n    {\n      \"instance_id\": \"d0\",\n      \"purpose\": \"spatial_reference\"\n    },\n    {\n      \"instance_id\": \"d1\",\n      \"purpose\": \"spatial_reference\"\n    }\n  ],\n  \"missed_categories\": [\n    \"sign\"\n  ]\n}",
+  "llm_valid": true,
+  "llm_error": null,
+  "category_selection": {
+    "selection_mode": "instances",
+    "status": "valid",
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "spatial_reference"
+      },
+      {
+        "instance_id": "d1",
+        "purpose": "spatial_reference"
+      }
+    ],
+    "missed_categories": [
+      "sign"
+    ],
+    "selected_categories": [],
+    "request_id": "8856d4ec48630e3373386f8a",
+    "batch_id": "38269bb3ad2722e3de02c1096aa5ddd096f674191366a8854efde70be4c55b0c",
+    "source_image_id": "demo-original-20261013-1133:00000447",
+    "rgb_hash": "87563e31b577d02b619c0e128649a8e15a75ca7ffcb400068b0701a4808d89e2",
+    "source_time": 102.23333866521716
+  },
+  "instances": [
+    {
+      "instance_id": "d0",
+      "origin": "core vocabulary",
+      "category": "sign",
+      "name": "71/4R",
+      "confidence": 0.4244120717048645,
+      "bbox": [
+        717.8353881835938,
+        135.1022186279297,
+        878.91357421875,
+        225.0710906982422
+      ],
+      "status": "accepted",
+      "reason": null,
+      "landmark_uid": "3022622ebeb94ac4af58f21c72b847e0",
+      "landmark_status": "tentative",
+      "identity_status": "candidate",
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      },
+      "resolved_identity": {
+        "text": "71/4R",
+        "status": "candidate",
+        "candidates": [
+          "71/4R"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "71/4R"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000000",
+          "demo-original-20261013-1133:00000447"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000000",
+            "text": "71/4R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000447",
+            "text": "71/4R",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ]
+    },
+    {
+      "instance_id": "d1",
+      "origin": "core vocabulary",
+      "category": "storage rack",
+      "name": null,
+      "confidence": 0.5165955424308777,
+      "bbox": [
+        1.984130859375,
+        9.057426452636719,
+        434.6404724121094,
+        695.3592529296875
+      ],
+      "status": "accepted",
+      "reason": null,
+      "landmark_uid": "a419529d2abd42eb8048bb58d3e18c9c",
+      "landmark_status": "tentative",
+      "identity_status": "conflict",
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "text_on_repeated_structure_requires_carrier_check",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      },
+      "resolved_identity": {
+        "text": null,
+        "status": "conflict",
+        "candidates": [
+          "3",
+          "E"
+        ],
+        "registration_status": "rejected",
+        "maximal_candidates": [
+          "3",
+          "E"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000000",
+            "text": "3",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000447",
+            "text": "E",
+            "relation": "rejected_noncontaining_reading"
+          }
+        ],
+        "reason": "noncontaining_readings_rejected"
+      },
+      "reobservation_reasons": [
+        "noncontaining_readings_rejected",
+        "text_on_repeated_structure_requires_carrier_check"
+      ]
+    }
+  ],
+  "filtered_categories": [],
+  "perception_failures": [],
+  "texts": [
+    {
+      "text": "E",
+      "confidence": 0.9641706943511963,
+      "polygon": [
+        [
+          3,
+          14
+        ],
+        [
+          10,
+          14
+        ],
+        [
+          10,
+          21
+        ],
+        [
+          3,
+          21
+        ]
+      ],
+      "normalized": "E",
+      "candidate_instances": [
+        1
+      ],
+      "owner_instance": 1,
+      "status": "bound"
+    },
+    {
+      "text": "3",
+      "confidence": 0.9975453019142151,
+      "polygon": [
+        [
+          0,
+          29
+        ],
+        [
+          30,
+          29
+        ],
+        [
+          30,
+          78
+        ],
+        [
+          0,
+          78
+        ]
+      ],
+      "normalized": "3",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "unassigned"
+    },
+    {
+      "text": "GP\u00b7MB3O0",
+      "confidence": 0.598254382610321,
+      "polygon": [
+        [
+          52,
+          25
+        ],
+        [
+          70,
+          25
+        ],
+        [
+          70,
+          94
+        ],
+        [
+          52,
+          94
+        ]
+      ],
+      "normalized": "GP\u00b7MB3O0",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    },
+    {
+      "text": "210",
+      "confidence": 0.3055444657802582,
+      "polygon": [
+        [
+          666,
+          52
+        ],
+        [
+          676,
+          52
+        ],
+        [
+          676,
+          82
+        ],
+        [
+          666,
+          82
+        ]
+      ],
+      "normalized": "210",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    },
+    {
+      "text": "U51",
+      "confidence": 0.6531081795692444,
+      "polygon": [
+        [
+          0,
+          95
+        ],
+        [
+          31,
+          95
+        ],
+        [
+          31,
+          183
+        ],
+        [
+          0,
+          183
+        ]
+      ],
+      "normalized": "U51",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    },
+    {
+      "text": "-",
+      "confidence": 0.1922522783279419,
+      "polygon": [
+        [
+          927,
+          133
+        ],
+        [
+          932,
+          133
+        ],
+        [
+          932,
+          138
+        ],
+        [
+          927,
+          138
+        ]
+      ],
+      "normalized": "-",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    },
+    {
+      "text": "71",
+      "confidence": 0.9995847940444946,
+      "polygon": [
+        [
+          730,
+          160
+        ],
+        [
+          795,
+          160
+        ],
+        [
+          795,
+          205
+        ],
+        [
+          730,
+          205
+        ]
+      ],
+      "normalized": "71",
+      "candidate_instances": [
+        0
+      ],
+      "owner_instance": 0,
+      "status": "bound"
+    },
+    {
+      "text": "/4R",
+      "confidence": 0.9634725451469421,
+      "polygon": [
+        [
+          818,
+          167
+        ],
+        [
+          870,
+          167
+        ],
+        [
+          870,
+          199
+        ],
+        [
+          818,
+          199
+        ]
+      ],
+      "normalized": "/4R",
+      "candidate_instances": [
+        0
+      ],
+      "owner_instance": 0,
+      "status": "bound"
+    },
+    {
+      "text": "QE\u00b7HHSGG",
+      "confidence": 0.6508961915969849,
+      "polygon": [
+        [
+          914,
+          180
+        ],
+        [
+          939,
+          180
+        ],
+        [
+          939,
+          258
+        ],
+        [
+          914,
+          258
+        ]
+      ],
+      "normalized": "QE\u00b7HHSGG",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    },
+    {
+      "text": "FRAGILE",
+      "confidence": 0.9880937933921814,
+      "polygon": [
+        [
+          855,
+          227
+        ],
+        [
+          889,
+          242
+        ],
+        [
+          882,
+          259
+        ],
+        [
+          848,
+          244
+        ]
+      ],
+      "normalized": "FRAGILE",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "unassigned"
+    },
+    {
+      "text": "FRAGLE",
+      "confidence": 0.8687035441398621,
+      "polygon": [
+        [
+          811,
+          249
+        ],
+        [
+          835,
+          265
+        ],
+        [
+          827,
+          277
+        ],
+        [
+          803,
+          262
+        ]
+      ],
+      "normalized": "FRAGLE",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "unassigned"
+    },
+    {
+      "text": "/4R",
+      "confidence": 0.9625284075737,
+      "polygon": [
+        [
+          645,
+          297
+        ],
+        [
+          666,
+          297
+        ],
+        [
+          666,
+          309
+        ],
+        [
+          645,
+          309
+        ]
+      ],
+      "normalized": "/4R",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "unassigned"
+    },
+    {
+      "text": "\u4e2d",
+      "confidence": 0.12513680756092072,
+      "polygon": [
+        [
+          858,
+          288
+        ],
+        [
+          866,
+          288
+        ],
+        [
+          866,
+          299
+        ],
+        [
+          858,
+          299
+        ]
+      ],
+      "normalized": "\u4e2d",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    },
+    {
+      "text": "UG",
+      "confidence": 0.43325716257095337,
+      "polygon": [
+        [
+          805,
+          300
+        ],
+        [
+          820,
+          300
+        ],
+        [
+          820,
+          313
+        ],
+        [
+          805,
+          313
+        ]
+      ],
+      "normalized": "UG",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    },
+    {
+      "text": "F4R",
+      "confidence": 0.6237316131591797,
+      "polygon": [
+        [
+          594,
+          332
+        ],
+        [
+          607,
+          332
+        ],
+        [
+          607,
+          342
+        ],
+        [
+          594,
+          342
+        ]
+      ],
+      "normalized": "F4R",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    },
+    {
+      "text": "'AXNON",
+      "confidence": 0.5567958950996399,
+      "polygon": [
+        [
+          36,
+          342
+        ],
+        [
+          55,
+          341
+        ],
+        [
+          57,
+          392
+        ],
+        [
+          38,
+          393
+        ]
+      ],
+      "normalized": "'AXNON",
+      "candidate_instances": [],
+      "owner_instance": null,
+      "status": "low_confidence"
+    }
+  ],
+  "text_source_image_id": "demo-original-20261013-1133:00000447",
+  "categories": [
+    {
+      "request": {
+        "category": "sign"
+      },
+      "status": "selected",
+      "instances": 1,
+      "accepted": 1,
+      "reason": null
+    },
+    {
+      "request": {
+        "category": "label"
+      },
+      "status": "not_selected",
+      "instances": 0,
+      "accepted": 0,
+      "reason": null
+    },
+    {
+      "request": {
+        "category": "storage rack"
+      },
+      "status": "selected",
+      "instances": 1,
+      "accepted": 1,
+      "reason": null
+    },
+    {
+      "request": {
+        "category": "door"
+      },
+      "status": "not_selected",
+      "instances": 0,
+      "accepted": 0,
+      "reason": null
+    },
+    {
+      "request": {
+        "category": "pillar"
+      },
+      "status": "not_selected",
+      "instances": 0,
+      "accepted": 0,
+      "reason": null
+    },
+    {
+      "request": {
+        "category": "fire extinguisher"
+      },
+      "status": "not_selected",
+      "instances": 0,
+      "accepted": 0,
+      "reason": null
+    },
+    {
+      "request": {
+        "category": "electrical cabinet"
+      },
+      "status": "not_selected",
+      "instances": 0,
+      "accepted": 0,
+      "reason": null
+    }
+  ]
+}

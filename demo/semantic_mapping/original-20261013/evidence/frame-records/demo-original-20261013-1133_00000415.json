@@ -1,0 +1,935 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000415",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000415.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000415.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.02899661781533124,
+        -0.9995781857160189,
+        0.0016268976439289618,
+        0.05799098760815902
+      ],
+      [
+        0.9995781899717049,
+        -0.02899918588842363,
+        -0.0015777676312609594,
+        -2.0111259899638476
+      ],
+      [
+        0.0016242808135350415,
+        0.001580461477183128,
+        0.9999974319233816,
+        -9.113103031251936e-05
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t_obs": 95.016671622172,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "6e4d3cdc2f7cf4e33e1302de361efd35fc19915866f825d800696766d103b6a6",
+    "depth_hash": "c23d39267bacb81c4ff193c92b49e23723523a79a80d2eff8839e5a49400e1e7",
+    "geometry": "arrays/3f27fdc0b69e4242a0ecc2121f2b47f6.npz",
+    "submitted_wall": 1791862385.8515744
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "not_sampled",
+    "selected_instances": [],
+    "selected_categories": [],
+    "source_image_id": "demo-original-20261013-1133:00000415"
+  },
+  "instances": [
+    {
+      "category": "fire extinguisher",
+      "confidence": 0.29583969712257385,
+      "bbox": [
+        280.6983642578125,
+        375.68389892578125,
+        304.3182678222656,
+        423.07305908203125
+      ],
+      "texts": []
+    },
+    {
+      "category": "fire extinguisher",
+      "confidence": 0.2743517756462097,
+      "bbox": [
+        283.3228759765625,
+        391.25830078125,
+        302.35040283203125,
+        421.8240966796875
+      ],
+      "texts": []
+    },
+    {
+      "category": "fire extinguisher",
+      "confidence": 0.4474601149559021,
+      "bbox": [
+        672.803955078125,
+        383.662353515625,
+        685.9111328125,
+        423.3485412597656
+      ],
+      "texts": []
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "fire extinguisher",
+      "bbox": [
+        280.6983642578125,
+        375.68389892578125,
+        304.3182678222656,
+        423.07305908203125
+      ],
+      "confidence": 0.29583969712257385,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000415:0",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 1,
+      "category": "fire extinguisher",
+      "bbox": [
+        283.3228759765625,
+        391.25830078125,
+        302.35040283203125,
+        421.8240966796875
+      ],
+      "confidence": 0.2743517756462097,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000415:1",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 2,
+      "category": "fire extinguisher",
+      "bbox": [
+        672.803955078125,
+        383.662353515625,
+        685.9111328125,
+        423.3485412597656
+      ],
+      "confidence": 0.4474601149559021,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000415:2",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.018464088439941406,
+  "candidate_request": null,
+  "ocr": {
+    "texts": [
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            254,
+            93
+          ],
+          [
+            300,
+            148
+          ],
+          [
+            287,
+            159
+          ],
+          [
+            241,
+            105
+          ]
+        ]
+      },
+      {
+        "text": "03",
+        "confidence": 0.9849991798400879,
+        "polygon": [
+          [
+            918,
+            127
+          ],
+          [
+            957,
+            127
+          ],
+          [
+            957,
+            176
+          ],
+          [
+            918,
+            176
+          ]
+        ]
+      },
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            867,
+            152
+          ],
+          [
+            911,
+            153
+          ],
+          [
+            909,
+            274
+          ],
+          [
+            865,
+            273
+          ]
+        ]
+      },
+      {
+        "text": "BOXE",
+        "confidence": 0.9926283359527588,
+        "polygon": [
+          [
+            920,
+            221
+          ],
+          [
+            952,
+            206
+          ],
+          [
+            959,
+            223
+          ],
+          [
+            927,
+            237
+          ]
+        ]
+      },
+      {
+        "text": "G-",
+        "confidence": 0.6734009385108948,
+        "polygon": [
+          [
+            932,
+            230
+          ],
+          [
+            955,
+            230
+          ],
+          [
+            955,
+            248
+          ],
+          [
+            932,
+            248
+          ]
+        ]
+      },
+      {
+        "text": "/3R",
+        "confidence": 0.7961764335632324,
+        "polygon": [
+          [
+            924,
+            244
+          ],
+          [
+            951,
+            244
+          ],
+          [
+            951,
+            266
+          ],
+          [
+            924,
+            266
+          ]
+        ]
+      },
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            694,
+            300
+          ],
+          [
+            704,
+            300
+          ],
+          [
+            704,
+            332
+          ],
+          [
+            694,
+            332
+          ]
+        ]
+      },
+      {
+        "text": "司",
+        "confidence": 0.4832265377044678,
+        "polygon": [
+          [
+            288,
+            346
+          ],
+          [
+            297,
+            346
+          ],
+          [
+            297,
+            356
+          ],
+          [
+            288,
+            356
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000415.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            254,
+            93
+          ],
+          [
+            300,
+            148
+          ],
+          [
+            287,
+            159
+          ],
+          [
+            241,
+            105
+          ]
+        ],
+        [
+          [
+            918,
+            127
+          ],
+          [
+            957,
+            127
+          ],
+          [
+            957,
+            176
+          ],
+          [
+            918,
+            176
+          ]
+        ],
+        [
+          [
+            867,
+            152
+          ],
+          [
+            911,
+            153
+          ],
+          [
+            909,
+            274
+          ],
+          [
+            865,
+            273
+          ]
+        ],
+        [
+          [
+            920,
+            221
+          ],
+          [
+            952,
+            206
+          ],
+          [
+            959,
+            223
+          ],
+          [
+            927,
+            237
+          ]
+        ],
+        [
+          [
+            932,
+            230
+          ],
+          [
+            955,
+            230
+          ],
+          [
+            955,
+            248
+          ],
+          [
+            932,
+            248
+          ]
+        ],
+        [
+          [
+            924,
+            244
+          ],
+          [
+            951,
+            244
+          ],
+          [
+            951,
+            266
+          ],
+          [
+            924,
+            266
+          ]
+        ],
+        [
+          [
+            694,
+            300
+          ],
+          [
+            704,
+            300
+          ],
+          [
+            704,
+            332
+          ],
+          [
+            694,
+            332
+          ]
+        ],
+        [
+          [
+            288,
+            346
+          ],
+          [
+            297,
+            346
+          ],
+          [
+            297,
+            356
+          ],
+          [
+            288,
+            356
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "",
+        "03",
+        "",
+        "BOXE",
+        "G-",
+        "/3R",
+        "",
+        "司"
+      ],
+      "rec_scores": [
+        0.0,
+        0.9849991798400879,
+        0.0,
+        0.9926283359527588,
+        0.6734009385108948,
+        0.7961764335632324,
+        0.0,
+        0.4832265377044678
+      ],
+      "rec_polys": [
+        [
+          [
+            254,
+            93
+          ],
+          [
+            300,
+            148
+          ],
+          [
+            287,
+            159
+          ],
+          [
+            241,
+            105
+          ]
+        ],
+        [
+          [
+            918,
+            127
+          ],
+          [
+            957,
+            127
+          ],
+          [
+            957,
+            176
+          ],
+          [
+            918,
+            176
+          ]
+        ],
+        [
+          [
+            867,
+            152
+          ],
+          [
+            911,
+            153
+          ],
+          [
+            909,
+            274
+          ],
+          [
+            865,
+            273
+          ]
+        ],
+        [
+          [
+            920,
+            221
+          ],
+          [
+            952,
+            206
+          ],
+          [
+            959,
+            223
+          ],
+          [
+            927,
+            237
+          ]
+        ],
+        [
+          [
+            932,
+            230
+          ],
+          [
+            955,
+            230
+          ],
+          [
+            955,
+            248
+          ],
+          [
+            932,
+            248
+          ]
+        ],
+        [
+          [
+            924,
+            244
+          ],
+          [
+            951,
+            244
+          ],
+          [
+            951,
+            266
+          ],
+          [
+            924,
+            266
+          ]
+        ],
+        [
+          [
+            694,
+            300
+          ],
+          [
+            704,
+            300
+          ],
+          [
+            704,
+            332
+          ],
+          [
+            694,
+            332
+          ]
+        ],
+        [
+          [
+            288,
+            346
+          ],
+          [
+            297,
+            346
+          ],
+          [
+            297,
+            356
+          ],
+          [
+            288,
+            356
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          241,
+          93,
+          300,
+          159
+        ],
+        [
+          918,
+          127,
+          957,
+          176
+        ],
+        [
+          865,
+          152,
+          911,
+          274
+        ],
+        [
+          920,
+          206,
+          959,
+          237
+        ],
+        [
+          932,
+          230,
+          955,
+          248
+        ],
+        [
+          924,
+          244,
+          951,
+          266
+        ],
+        [
+          694,
+          300,
+          704,
+          332
+        ],
+        [
+          288,
+          346,
+          297,
+          356
+        ]
+      ]
+    },
+    "elapsed_s": 0.28020358085632324,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000415",
+    "rgb_hash": "6e4d3cdc2f7cf4e33e1302de361efd35fc19915866f825d800696766d103b6a6"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "03",
+        "confidence": 0.9849991798400879,
+        "polygon": [
+          [
+            918,
+            127
+          ],
+          [
+            957,
+            127
+          ],
+          [
+            957,
+            176
+          ],
+          [
+            918,
+            176
+          ]
+        ],
+        "normalized": "03",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "BOXE",
+        "confidence": 0.9926283359527588,
+        "polygon": [
+          [
+            920,
+            221
+          ],
+          [
+            952,
+            206
+          ],
+          [
+            959,
+            223
+          ],
+          [
+            927,
+            237
+          ]
+        ],
+        "normalized": "BOXE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "G-",
+        "confidence": 0.6734009385108948,
+        "polygon": [
+          [
+            932,
+            230
+          ],
+          [
+            955,
+            230
+          ],
+          [
+            955,
+            248
+          ],
+          [
+            932,
+            248
+          ]
+        ],
+        "normalized": "G-",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "/3R",
+        "confidence": 0.7961764335632324,
+        "polygon": [
+          [
+            924,
+            244
+          ],
+          [
+            951,
+            244
+          ],
+          [
+            951,
+            266
+          ],
+          [
+            924,
+            266
+          ]
+        ],
+        "normalized": "/3R",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "司",
+        "confidence": 0.4832265377044678,
+        "polygon": [
+          [
+            288,
+            346
+          ],
+          [
+            297,
+            346
+          ],
+          [
+            297,
+            356
+          ],
+          [
+            288,
+            356
+          ]
+        ],
+        "normalized": "司",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": []
+  }
+}

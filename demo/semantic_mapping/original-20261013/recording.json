@@ -1,0 +1,11 @@
+{
+  "run": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133",
+  "fps": 5,
+  "frames": 475,
+  "duration_s": 95.0,
+  "first_wall": 1791862303.220867,
+  "pipeline_exit": 0,
+  "encoder_exit": 0,
+  "error": null,
+  "scope": "Actual live panel sampling; held frames included; not a desktop screen recording"
+}

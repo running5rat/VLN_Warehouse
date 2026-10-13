@@ -1,0 +1,2181 @@
+#usda 1.0
+(
+    endTimeCode = 1000000
+    metersPerUnit = 1
+    startTimeCode = 0
+    subLayers = [
+        @https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.0/Isaac/Environments/Simple_Warehouse/full_warehouse.usd@
+    ]
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+def "Render" (
+    hide_in_stage_window = true
+    no_delete = true
+)
+{
+    def "OmniverseKit"
+    {
+        def "HydraTextures" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            def RenderProduct "omni_kit_widget_viewport_ViewportTexture_0" (
+                prepend apiSchemas = ["OmniRtxSettingsCommonAdvancedAPI_1", "OmniRtxSettingsRtAdvancedAPI_1", "OmniRtxSettingsPtAdvancedAPI_1", "OmniRtxPostColorGradingAPI_1", "OmniRtxPostChromaticAberrationAPI_1", "OmniRtxPostBloomPhysicalAPI_1", "OmniRtxPostMatteObjectAPI_1", "OmniRtxPostCompositingAPI_1", "OmniRtxPostDofAPI_1", "OmniRtxPostMotionBlurAPI_1", "OmniRtxPostTvNoiseAPI_1", "OmniRtxPostTonemapIrayReinhardAPI_1", "OmniRtxPostDebugSettingsAPI_1", "OmniRtxDebugSettingsAPI_1"]
+                hide_in_stage_window = true
+                no_delete = true
+            )
+            {
+                rel camera = </OmniverseKit_Persp>
+                token omni:rtx:background:source:texture:textureMode = "repeatMirrored"
+                token omni:rtx:background:source:type = "domeLight"
+                bool omni:rtx:dlss:frameGeneration = 0
+                string omni:rtx:material:db:rtSensorNameToIdMap = "DefaultMaterial:0;AsphaltStandardMaterial:1;AsphaltWeatheredMaterial:2;VegetationGrassMaterial:3;WaterStandardMaterial:4;GlassStandardMaterial:5;FiberGlassMaterial:6;MetalAlloyMaterial:7;MetalAluminumMaterial:8;MetalAluminumOxidizedMaterial:9;PlasticStandardMaterial:10;RetroMarkingsMaterial:11;RetroSignMaterial:12;RubberStandardMaterial:13;SoilClayMaterial:14;ConcreteRoughMaterial:15;ConcreteSmoothMaterial:16;OakTreeBarkMaterial:17;FabricStandardMaterial:18;PlexiGlassStandardMaterial:19;MetalSilverMaterial:20"
+                bool omni:rtx:material:db:syncLoads = 1
+                bool omni:rtx:post:registeredCompositing:invertColorCorrection = 1
+                bool omni:rtx:post:registeredCompositing:invertToneMap = 1
+                int omni:rtx:pt:clampSpp = 64
+                bool omni:rtx:pt:lightcache:cached:dontResolveConflicts = 1
+                int omni:rtx:pt:maxSamplesPerLaunch = 2073600
+                int omni:rtx:pt:maxVolumeBounces = 4
+                int omni:rtx:pt:mgpu:maxPixelsPerRegionExponent = 12
+                int omni:rtx:pt:samplesPerIteration = 64
+                int omni:rtx:pt:samplesPerPixel = 64
+                color3f omni:rtx:rt:ambientLight:color = (0.1, 0.1, 0.1)
+                bool omni:rtx:rt:demoire = 0
+                bool omni:rtx:rt:lightcache:spatialCache:dontResolveConflicts = 1
+                bool omni:rtx:scene:hydra:materialSyncLoads = 1
+                bool omni:rtx:scene:hydra:mdlMaterialWarmup = 1
+                uint omni:rtx:viewTile:limit = 4294967295
+                rel orderedVars = </Render/Vars/LdrColor>
+                custom bool overrideClipRange = 0
+                uniform int2 resolution = (960, 720)
+            }
+        }
+    }
+
+    def RenderSettings "OmniverseGlobalRenderSettings" (
+        prepend apiSchemas = ["OmniRtxSettingsGlobalRtAdvancedAPI_1", "OmniRtxSettingsGlobalPtAdvancedAPI_1"]
+        no_delete = true
+    )
+    {
+        rel products = </Render/OmniverseKit/HydraTextures/omni_kit_widget_viewport_ViewportTexture_0>
+    }
+
+    def "Vars"
+    {
+        def RenderVar "LdrColor" (
+            hide_in_stage_window = true
+            no_delete = true
+        )
+        {
+            uniform string sourceName = "LdrColor"
+        }
+    }
+}
+
+def "ShelfLabels"
+{
+    def Xform "R01_B01"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R01_B01/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R01_B01/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R01_B01/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R01_B01.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R01_B01/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R01_B01/Material>
+            point3f[] points = [(-24.841612, 9.393994, 2.35), (-24.04161, 9.393994, 2.35), (-24.04161, 9.393994, 2.75), (-24.841612, 9.393994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R01_B01/Material>
+            point3f[] points = [(-24.04161, 9.405994, 2.35), (-24.841612, 9.405994, 2.35), (-24.841612, 9.405994, 2.75), (-24.04161, 9.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-24.441611210473603, 9.399994421316697, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R01_B02"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R01_B02/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R01_B02/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R01_B02/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R01_B02.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R01_B02/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R01_B02/Material>
+            point3f[] points = [(-24.841612, 13.393994, 2.35), (-24.04161, 13.393994, 2.35), (-24.04161, 13.393994, 2.75), (-24.841612, 13.393994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R01_B02/Material>
+            point3f[] points = [(-24.04161, 13.405994, 2.35), (-24.841612, 13.405994, 2.35), (-24.841612, 13.405994, 2.75), (-24.04161, 13.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-24.441611210473603, 13.3999944213167, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R01_B03"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R01_B03/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R01_B03/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R01_B03/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R01_B03.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R01_B03/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R01_B03/Material>
+            point3f[] points = [(-24.841612, 17.393995, 2.35), (-24.04161, 17.393995, 2.35), (-24.04161, 17.393995, 2.75), (-24.841612, 17.393995, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R01_B03/Material>
+            point3f[] points = [(-24.04161, 17.405994, 2.35), (-24.841612, 17.405994, 2.35), (-24.841612, 17.405994, 2.75), (-24.04161, 17.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-24.441611210473603, 17.3999944213167, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R01_B04"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R01_B04/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R01_B04/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R01_B04/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R01_B04.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R01_B04/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R01_B04/Material>
+            point3f[] points = [(-24.841612, 21.393995, 2.35), (-24.04161, 21.393995, 2.35), (-24.04161, 21.393995, 2.75), (-24.841612, 21.393995, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R01_B04/Material>
+            point3f[] points = [(-24.04161, 21.405994, 2.35), (-24.841612, 21.405994, 2.35), (-24.841612, 21.405994, 2.75), (-24.04161, 21.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-24.441611210473603, 21.3999944213167, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R02_B01"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R02_B01/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R02_B01/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R02_B01/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R02_B01.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R02_B01/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R02_B01/Material>
+            point3f[] points = [(-21.644688, 9.397722, 2.35), (-20.844688, 9.397722, 2.35), (-20.844688, 9.397722, 2.75), (-21.644688, 9.397722, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R02_B01/Material>
+            point3f[] points = [(-20.844688, 9.409722, 2.35), (-21.644688, 9.409722, 2.35), (-21.644688, 9.409722, 2.75), (-20.844688, 9.409722, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-21.244688522523997, 9.403722674871082, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R02_B02"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R02_B02/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R02_B02/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R02_B02/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R02_B02.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R02_B02/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R02_B02/Material>
+            point3f[] points = [(-21.644701, 13.397728, 2.35), (-20.844702, 13.397728, 2.35), (-20.844702, 13.397728, 2.75), (-21.644701, 13.397728, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R02_B02/Material>
+            point3f[] points = [(-20.844702, 13.409727, 2.35), (-21.644701, 13.409727, 2.35), (-21.644701, 13.409727, 2.75), (-20.844702, 13.409727, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-21.244701950258374, 13.403727557683583, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R02_B03"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R02_B03/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R02_B03/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R02_B03/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R02_B03.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R02_B03/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R02_B03/Material>
+            point3f[] points = [(-21.644718, 17.397732, 2.35), (-20.844717, 17.397732, 2.35), (-20.844717, 17.397732, 2.75), (-21.644718, 17.397732, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R02_B03/Material>
+            point3f[] points = [(-20.844717, 17.409733, 2.35), (-21.644718, 17.409733, 2.35), (-21.644718, 17.409733, 2.75), (-20.844717, 17.409733, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-21.244717819398996, 17.403732440496075, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R02_B04"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R02_B04/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R02_B04/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R02_B04/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R02_B04.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R02_B04/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R02_B04/Material>
+            point3f[] points = [(-21.644733, 21.397732, 2.35), (-20.844734, 21.397732, 2.35), (-20.844734, 21.397732, 2.75), (-21.644733, 21.397732, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R02_B04/Material>
+            point3f[] points = [(-20.844734, 21.409733, 2.35), (-21.644733, 21.409733, 2.35), (-21.644733, 21.409733, 2.75), (-20.844734, 21.409733, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-21.244733688539622, 21.403732440496075, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R03_B01"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R03_B01/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R03_B01/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R03_B01/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R03_B01.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R03_B01/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R03_B01/Material>
+            point3f[] points = [(-16.69135, 9.393994, 2.35), (-15.891352, 9.393994, 2.35), (-15.891352, 9.393994, 2.75), (-16.69135, 9.393994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R03_B01/Material>
+            point3f[] points = [(-15.891352, 9.405994, 2.35), (-16.69135, 9.405994, 2.35), (-16.69135, 9.405994, 2.75), (-15.891352, 9.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-16.29135124527588, 9.399994421316697, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R03_B02"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R03_B02/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R03_B02/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R03_B02/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R03_B02.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R03_B02/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R03_B02/Material>
+            point3f[] points = [(-16.69135, 13.393994, 2.35), (-15.891352, 13.393994, 2.35), (-15.891352, 13.393994, 2.75), (-16.69135, 13.393994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R03_B02/Material>
+            point3f[] points = [(-15.891352, 13.405994, 2.35), (-16.69135, 13.405994, 2.35), (-16.69135, 13.405994, 2.75), (-15.891352, 13.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-16.29135124527588, 13.399994421316698, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R03_B03"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R03_B03/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R03_B03/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R03_B03/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R03_B03.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R03_B03/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R03_B03/Material>
+            point3f[] points = [(-16.69135, 17.393995, 2.35), (-15.891352, 17.393995, 2.35), (-15.891352, 17.393995, 2.75), (-16.69135, 17.393995, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R03_B03/Material>
+            point3f[] points = [(-15.891352, 17.405994, 2.35), (-16.69135, 17.405994, 2.35), (-16.69135, 17.405994, 2.75), (-15.891352, 17.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-16.291351245275884, 17.399994421316695, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R03_B04"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R03_B04/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R03_B04/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R03_B04/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R03_B04.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R03_B04/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R03_B04/Material>
+            point3f[] points = [(-16.69135, 21.393995, 2.35), (-15.891352, 21.393995, 2.35), (-15.891352, 21.393995, 2.75), (-16.69135, 21.393995, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R03_B04/Material>
+            point3f[] points = [(-15.891352, 21.405994, 2.35), (-16.69135, 21.405994, 2.35), (-16.69135, 21.405994, 2.75), (-15.891352, 21.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-16.291351245275884, 21.399994421316695, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R04_B01"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R04_B01/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R04_B01/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R04_B01/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R04_B01.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R04_B01/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R04_B01/Material>
+            point3f[] points = [(-11.73839, 9.393994, 2.35), (-10.93839, 9.393994, 2.35), (-10.93839, 9.393994, 2.75), (-11.73839, 9.393994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R04_B01/Material>
+            point3f[] points = [(-10.93839, 9.405994, 2.35), (-11.73839, 9.405994, 2.35), (-11.73839, 9.405994, 2.75), (-10.93839, 9.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-11.338389819494633, 9.399994421316697, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R04_B02"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R04_B02/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R04_B02/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R04_B02/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R04_B02.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R04_B02/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R04_B02/Material>
+            point3f[] points = [(-11.73839, 13.393994, 2.35), (-10.93839, 13.393994, 2.35), (-10.93839, 13.393994, 2.75), (-11.73839, 13.393994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R04_B02/Material>
+            point3f[] points = [(-10.93839, 13.405994, 2.35), (-11.73839, 13.405994, 2.35), (-11.73839, 13.405994, 2.75), (-10.93839, 13.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-11.338389819494633, 13.399994421316698, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R04_B03"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R04_B03/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R04_B03/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R04_B03/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R04_B03.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R04_B03/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R04_B03/Material>
+            point3f[] points = [(-11.73839, 17.393995, 2.35), (-10.93839, 17.393995, 2.35), (-10.93839, 17.393995, 2.75), (-11.73839, 17.393995, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R04_B03/Material>
+            point3f[] points = [(-10.93839, 17.405994, 2.35), (-11.73839, 17.405994, 2.35), (-11.73839, 17.405994, 2.75), (-10.93839, 17.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-11.338389819494633, 17.3999944213167, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R04_B04"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R04_B04/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R04_B04/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R04_B04/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R04_B04.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R04_B04/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R04_B04/Material>
+            point3f[] points = [(-11.73839, 21.393995, 2.35), (-10.93839, 21.393995, 2.35), (-10.93839, 21.393995, 2.75), (-11.73839, 21.393995, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R04_B04/Material>
+            point3f[] points = [(-10.93839, 21.405994, 2.35), (-11.73839, 21.405994, 2.35), (-11.73839, 21.405994, 2.75), (-10.93839, 21.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-11.338389819494633, 21.3999944213167, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R05_B01"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R05_B01/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R05_B01/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R05_B01/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R05_B01.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R05_B01/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R05_B01/Material>
+            point3f[] points = [(-6.778408, 9.292937, 2.35), (-5.978408, 9.292937, 2.35), (-5.978408, 9.292937, 2.75), (-6.778408, 9.292937, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R05_B01/Material>
+            point3f[] points = [(-5.978408, 9.304937, 2.35), (-6.778408, 9.304937, 2.35), (-6.778408, 9.304937, 2.75), (-5.978408, 9.304937, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-6.378408004945878, 9.298937518621083, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R05_B02"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R05_B02/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R05_B02/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R05_B02/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R05_B02.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R05_B02/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R05_B02/Material>
+            point3f[] points = [(-6.7784286, 13.2929325, 2.35), (-5.978429, 13.2929325, 2.35), (-5.978429, 13.2929325, 2.75), (-6.7784286, 13.2929325, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R05_B02/Material>
+            point3f[] points = [(-5.978429, 13.304933, 2.35), (-6.7784286, 13.304933, 2.35), (-6.7784286, 13.304933, 2.75), (-5.978429, 13.304933, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-6.378428756899003, 13.298932635808583, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R05_B03"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R05_B03/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R05_B03/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R05_B03/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R05_B03.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R05_B03/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R05_B03/Material>
+            point3f[] points = [(-6.778432, 17.292942, 2.35), (-5.9784317, 17.292942, 2.35), (-5.9784317, 17.292942, 2.75), (-6.778432, 17.292942, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R05_B03/Material>
+            point3f[] points = [(-5.9784317, 17.304943, 2.35), (-6.778432, 17.304943, 2.35), (-6.778432, 17.304943, 2.75), (-5.9784317, 17.304943, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-6.378431808656815, 17.298942401433578, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R05_B04"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R05_B04/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R05_B04/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R05_B04/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R05_B04.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R05_B04/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R05_B04/Material>
+            point3f[] points = [(-6.7784567, 21.292942, 2.35), (-5.978457, 21.292942, 2.35), (-5.978457, 21.292942, 2.75), (-6.7784567, 21.292942, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R05_B04/Material>
+            point3f[] points = [(-5.978457, 21.304943, 2.35), (-6.7784567, 21.304943, 2.35), (-6.7784567, 21.304943, 2.75), (-5.978457, 21.304943, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-6.378456833070876, 21.298942401433578, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R06_B01"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R06_B01/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R06_B01/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R06_B01/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R06_B01.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R06_B01/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R06_B01/Material>
+            point3f[] points = [(-1.8283898, 9.393994, 2.35), (-1.0283898, 9.393994, 2.35), (-1.0283898, 9.393994, 2.75), (-1.8283898, 9.393994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R06_B01/Material>
+            point3f[] points = [(-1.0283898, 9.405994, 2.35), (-1.8283898, 9.405994, 2.35), (-1.8283898, 9.405994, 2.75), (-1.0283898, 9.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-1.428389819494633, 9.399994421316697, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R06_B02"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R06_B02/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R06_B02/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R06_B02/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R06_B02.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R06_B02/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R06_B02/Material>
+            point3f[] points = [(-1.8283898, 13.393994, 2.35), (-1.0283898, 13.393994, 2.35), (-1.0283898, 13.393994, 2.75), (-1.8283898, 13.393994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R06_B02/Material>
+            point3f[] points = [(-1.0283898, 13.405994, 2.35), (-1.8283898, 13.405994, 2.35), (-1.8283898, 13.405994, 2.75), (-1.0283898, 13.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-1.428389819494633, 13.3999944213167, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R06_B03"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R06_B03/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R06_B03/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R06_B03/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R06_B03.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R06_B03/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R06_B03/Material>
+            point3f[] points = [(-1.8283898, 17.393995, 2.35), (-1.0283898, 17.393995, 2.35), (-1.0283898, 17.393995, 2.75), (-1.8283898, 17.393995, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R06_B03/Material>
+            point3f[] points = [(-1.0283898, 17.405994, 2.35), (-1.8283898, 17.405994, 2.35), (-1.8283898, 17.405994, 2.75), (-1.0283898, 17.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-1.428389819494633, 17.399994421316695, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R06_B04"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R06_B04/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R06_B04/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R06_B04/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R06_B04.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R06_B04/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R06_B04/Material>
+            point3f[] points = [(-1.8283898, 21.393995, 2.35), (-1.0283898, 21.393995, 2.35), (-1.0283898, 21.393995, 2.75), (-1.8283898, 21.393995, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R06_B04/Material>
+            point3f[] points = [(-1.0283898, 21.405994, 2.35), (-1.8283898, 21.405994, 2.35), (-1.8283898, 21.405994, 2.75), (-1.0283898, 21.405994, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (-1.428389819494633, 21.399994421316695, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R07_B01"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R07_B01/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R07_B01/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R07_B01/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R07_B01.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R07_B01/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R07_B01/Material>
+            point3f[] points = [(3.1353114, 9.397722, 2.35), (3.9353116, 9.397722, 2.35), (3.9353116, 9.397722, 2.75), (3.1353114, 9.397722, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R07_B01/Material>
+            point3f[] points = [(3.9353116, 9.409722, 2.35), (3.1353114, 9.409722, 2.35), (3.1353114, 9.409722, 2.75), (3.9353116, 9.409722, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (3.5353114774759975, 9.403722674871085, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R07_B02"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R07_B02/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R07_B02/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R07_B02/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R07_B02.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R07_B02/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R07_B02/Material>
+            point3f[] points = [(3.135298, 13.397728, 2.35), (3.935298, 13.397728, 2.35), (3.935298, 13.397728, 2.75), (3.135298, 13.397728, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R07_B02/Material>
+            point3f[] points = [(3.935298, 13.409727, 2.35), (3.135298, 13.409727, 2.35), (3.135298, 13.409727, 2.75), (3.935298, 13.409727, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (3.5352980497416224, 13.403727557683583, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R07_B03"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R07_B03/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R07_B03/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R07_B03/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R07_B03.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R07_B03/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R07_B03/Material>
+            point3f[] points = [(3.1352823, 17.397732, 2.35), (3.9352822, 17.397732, 2.35), (3.9352822, 17.397732, 2.75), (3.1352823, 17.397732, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R07_B03/Material>
+            point3f[] points = [(3.9352822, 17.409733, 2.35), (3.1352823, 17.409733, 2.35), (3.1352823, 17.409733, 2.75), (3.9352822, 17.409733, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (3.5352821806009977, 17.403732440496075, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+
+    def Xform "R07_B04"
+    {
+        def Material "Material"
+        {
+            token outputs:surface.connect = </ShelfLabels/R07_B04/Material/Surface.outputs:surface>
+
+            def Shader "Surface"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor.connect = </ShelfLabels/R07_B04/Material/Texture.outputs:rgb>
+                color3f inputs:emissiveColor.connect = </ShelfLabels/R07_B04/Material/Texture.outputs:rgb>
+                float inputs:roughness = 0.8
+                token outputs:surface
+            }
+
+            def Shader "Texture"
+            {
+                uniform token info:id = "UsdUVTexture"
+                asset inputs:file = @/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/textures/R07_B04.png@
+                token inputs:sourceColorSpace = "sRGB"
+                float2 inputs:st.connect = </ShelfLabels/R07_B04/Material/UV.outputs:result>
+                float3 outputs:rgb
+            }
+
+            def Shader "UV"
+            {
+                uniform token info:id = "UsdPrimvarReader_float2"
+                token inputs:varname = "st"
+                float2 outputs:result
+            }
+        }
+
+        def Mesh "South" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R07_B04/Material>
+            point3f[] points = [(3.1352663, 21.397732, 2.35), (3.9352663, 21.397732, 2.35), (3.9352663, 21.397732, 2.75), (3.1352663, 21.397732, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Mesh "North" (
+            prepend apiSchemas = ["MaterialBindingAPI", "SemanticsAPI:Semantics"]
+        )
+        {
+            uniform bool doubleSided = 0
+            int[] faceVertexCounts = [4]
+            int[] faceVertexIndices = [0, 1, 2, 3]
+            rel material:binding = </ShelfLabels/R07_B04/Material>
+            point3f[] points = [(3.9352663, 21.409733, 2.35), (3.1352663, 21.409733, 2.35), (3.1352663, 21.409733, 2.75), (3.9352663, 21.409733, 2.75)]
+            texCoord2f[] primvars:st = [(0, 0), (1, 0), (1, 1), (0, 1)] (
+                interpolation = "vertex"
+            )
+            string semantic:Semantics:params:semanticData = "shelf_marker"
+            string semantic:Semantics:params:semanticType = "class"
+            uniform token subdivisionScheme = "none"
+        }
+
+        def Cube "Bracket"
+        {
+            color3f[] primvars:displayColor = [(0.2, 0.2, 0.2)]
+            float3 xformOp:scale = (0.4, 0.022, 0.022)
+            double3 xformOp:translate = (3.535266311460372, 21.403732440496075, 2.79)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+        }
+    }
+}
+

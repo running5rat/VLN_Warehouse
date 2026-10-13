@@ -1,0 +1,160 @@
+{
+  "source_image_id": "demo-original-20261013-1133:00000330",
+  "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+  "depth_hash": "bd49f49665035e1565430476941e64280dd06dad6ba4d5f825a9788e221379ab",
+  "source_geometry": {
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.9999741754805426,
+        0.006454845895529151,
+        0.0031596418267847625,
+        6.765018500161321
+      ],
+      [
+        -0.006454845004652378,
+        -0.9999791672160694,
+        1.0479585709806797e-05,
+        -4.953840282800648
+      ],
+      [
+        0.0031596436467605255,
+        -9.915683182586735e-06,
+        0.9999950082643935,
+        -0.010693719177240097
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "odom_epoch": "demo-original-20261013-1133",
+    "t_obs": 78.0166707355529
+  },
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "candidates": [
+    {
+      "instance_id": "d0",
+      "category": "electrical cabinet",
+      "bbox": [
+        910.56005859375,
+        545.1865234375,
+        960.0,
+        692.5694580078125
+      ],
+      "bbox_normalized": [
+        0.9485000610351563,
+        0.7572035047743055,
+        1.0,
+        0.9619020250108506
+      ],
+      "confidence": 0.30033546686172485,
+      "mask_sha256": "8164e1e881b915b860822828323626f0db98d7ec0a7225359205f58f06ce6003"
+    },
+    {
+      "instance_id": "d1",
+      "category": "sign",
+      "bbox": [
+        92.9889907836914,
+        147.74588012695312,
+        245.6754913330078,
+        231.02041625976562
+      ],
+      "bbox_normalized": [
+        0.09686353206634521,
+        0.2052026112874349,
+        0.2559119701385498,
+        0.32086168924967445
+      ],
+      "confidence": 0.41016557812690735,
+      "mask_sha256": "912b7f72c5f13c953a43c93d92e9c2eda9de50b8617ccb84f598de3ae42adf86"
+    },
+    {
+      "instance_id": "d2",
+      "category": "sign",
+      "bbox": [
+        891.6260375976562,
+        146.51513671875,
+        959.9342651367188,
+        289.365966796875
+      ],
+      "bbox_normalized": [
+        0.9287771224975586,
+        0.20349324544270833,
+        0.999931526184082,
+        0.40189717610677084
+      ],
+      "confidence": 0.3548809587955475,
+      "mask_sha256": "687dc07391f038061368d5a55f8469515b3e159820b2faf4c71a9fb39b4c1c69"
+    }
+  ],
+  "batch_id": "a22f2692f409e7851194a7dbae8cc0bc40ad49df070743c46694f310905c187b",
+  "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000330/candidates.png",
+  "overlay_hash": "52c6ecda9d4d40890a3770fb1adf32f21e66090a97a336ff216b14c9454ddf27",
+  "possibly_truncated": false
+}

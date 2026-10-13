@@ -1,0 +1,1332 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000110",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000110.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000110.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.9999999770762175,
+        -0.00021411878433086722,
+        8.426504343841176e-07,
+        14.266137389808993
+      ],
+      [
+        0.00021411878302861554,
+        0.9999999770753788,
+        1.5453506365970167e-06,
+        -0.003354756984663254
+      ],
+      [
+        -8.429813035935353e-07,
+        -1.5451701739129083e-06,
+        0.9999999999984508,
+        -0.022554358435076784
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 34.01666844077408,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "69a249772367fd1d7414abfb6f21b997a9be72066ab2c5b427479baa0097c896",
+    "depth_hash": "1e5aac52e2600628b56c6636989b2c3fcbb64feb119ee040fb46df5fb1e9b436",
+    "geometry": "arrays/a4006e7bb4e045e6a702146236003a5b.npz",
+    "submitted_wall": 1791862324.87797
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "valid",
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "spatial_reference"
+      }
+    ],
+    "missed_categories": [],
+    "selected_categories": [],
+    "request_id": "57bbb301511713d38270f416",
+    "batch_id": "58bc6fd9abee2b6942c38baa40cacb0249848ae647d6540896394adc1979604b",
+    "source_image_id": "demo-original-20261013-1133:00000110",
+    "rgb_hash": "69a249772367fd1d7414abfb6f21b997a9be72066ab2c5b427479baa0097c896",
+    "source_time": 34.01666844077408
+  },
+  "instances": [
+    {
+      "category": "storage rack",
+      "confidence": 0.5156199336051941,
+      "bbox": [
+        0.0,
+        1.748748779296875,
+        223.53704833984375,
+        657.2784423828125
+      ],
+      "texts": []
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "storage rack",
+      "bbox": [
+        0.0,
+        1.748748779296875,
+        223.53704833984375,
+        657.2784423828125
+      ],
+      "confidence": 0.5156199336051941,
+      "selected": true,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000110:0",
+      "result": {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000110:0",
+          "image_id": "demo-original-20261013-1133:00000110",
+          "category": "storage rack",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "57bbb301511713d38270f416",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "d4c64d51e9fa4a998b0822d8f8147f69",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "category_selection": {
+            "selection_mode": "instances",
+            "status": "valid",
+            "selected_instances": [
+              {
+                "instance_id": "d0",
+                "purpose": "spatial_reference"
+              }
+            ],
+            "missed_categories": [],
+            "selected_categories": [],
+            "request_id": "57bbb301511713d38270f416",
+            "batch_id": "58bc6fd9abee2b6942c38baa40cacb0249848ae647d6540896394adc1979604b",
+            "source_image_id": "demo-original-20261013-1133:00000110",
+            "rgb_hash": "69a249772367fd1d7414abfb6f21b997a9be72066ab2c5b427479baa0097c896",
+            "source_time": 34.01666844077408
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 73338,
+          "valid_interior_depth_points": 69102,
+          "filtered_depth_points": 68280,
+          "voxel_points": 2596,
+          "depth_retention": 0.9881045411131371
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map/arrays/ce4d312b99bb4387980e383c38517694.npz"
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.03137397766113281,
+  "candidate_request": {
+    "source_image_id": "demo-original-20261013-1133:00000110",
+    "rgb_hash": "69a249772367fd1d7414abfb6f21b997a9be72066ab2c5b427479baa0097c896",
+    "depth_hash": "1e5aac52e2600628b56c6636989b2c3fcbb64feb119ee040fb46df5fb1e9b436",
+    "source_geometry": {
+      "K": [
+        [
+          640.0,
+          0.0,
+          480.0
+        ],
+        [
+          0.0,
+          640.0,
+          360.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_body_camera": [
+        [
+          -1.033458777808439e-21,
+          0.06237828615518053,
+          0.9980525784828886,
+          0.14999999999999947
+        ],
+        [
+          -1.0,
+          -5.293955920339377e-23,
+          -7.411538288475128e-22,
+          0.0
+        ],
+        [
+          5.293955920339377e-23,
+          -0.9980525784828889,
+          0.06237828615518054,
+          1.45
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_odom_body": [
+        [
+          0.9999999770762175,
+          -0.00021411878433086722,
+          8.426504343841176e-07,
+          14.266137389808993
+        ],
+        [
+          0.00021411878302861554,
+          0.9999999770753788,
+          1.5453506365970167e-06,
+          -0.003354756984663254
+        ],
+        [
+          -8.429813035935353e-07,
+          -1.5451701739129083e-06,
+          0.9999999999984508,
+          -0.022554358435076784
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999999999998
+        ]
+      ],
+      "odom_epoch": "demo-original-20261013-1133",
+      "t_obs": 34.01666844077408
+    },
+    "provenance": {
+      "categories": [
+        "sign",
+        "label",
+        "storage rack",
+        "door",
+        "pillar",
+        "fire extinguisher",
+        "electrical cabinet"
+      ],
+      "vocabulary_version": "warehouse-static-candidates-v1",
+      "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+      "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+      "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+      "tensorrt": "10.13.3.9",
+      "torch": "2.8.0+cu128",
+      "dtype": "fp16",
+      "imgsz": 640,
+      "parameters": 15417846,
+      "runtime": "tensorrt-fp16",
+      "backend": "yoloe-realtime"
+    },
+    "candidates": [
+      {
+        "instance_id": "d0",
+        "category": "storage rack",
+        "bbox": [
+          0.0,
+          1.748748779296875,
+          223.53704833984375,
+          657.2784423828125
+        ],
+        "bbox_normalized": [
+          0.0,
+          0.0024288177490234377,
+          0.23285109202067059,
+          0.912886725531684
+        ],
+        "confidence": 0.5156199336051941,
+        "mask_sha256": "3099fab47ce5039245329ce1bb02bf5e1cb6bab451ce477173f14340ad4d8871"
+      }
+    ],
+    "batch_id": "58bc6fd9abee2b6942c38baa40cacb0249848ae647d6540896394adc1979604b",
+    "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000110/candidates.png",
+    "overlay_hash": "0078075e349bfaa3bd4aaeb01bf5fe8af6bde6d44b0aed2f796da36661cbe8cf",
+    "possibly_truncated": false
+  },
+  "ocr": {
+    "texts": [
+      {
+        "text": "0+Ea nom",
+        "confidence": 0.35929760336875916,
+        "polygon": [
+          [
+            747,
+            96
+          ],
+          [
+            762,
+            96
+          ],
+          [
+            762,
+            142
+          ],
+          [
+            747,
+            142
+          ]
+        ]
+      },
+      {
+        "text": "AE的",
+        "confidence": 0.20799857378005981,
+        "polygon": [
+          [
+            213,
+            168
+          ],
+          [
+            227,
+            168
+          ],
+          [
+            227,
+            199
+          ],
+          [
+            213,
+            199
+          ]
+        ]
+      },
+      {
+        "text": "1",
+        "confidence": 0.26787951588630676,
+        "polygon": [
+          [
+            785,
+            267
+          ],
+          [
+            799,
+            267
+          ],
+          [
+            799,
+            274
+          ],
+          [
+            785,
+            274
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9959143400192261,
+        "polygon": [
+          [
+            889,
+            263
+          ],
+          [
+            933,
+            284
+          ],
+          [
+            925,
+            303
+          ],
+          [
+            880,
+            282
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.8677324056625366,
+        "polygon": [
+          [
+            833,
+            280
+          ],
+          [
+            866,
+            301
+          ],
+          [
+            856,
+            319
+          ],
+          [
+            822,
+            297
+          ]
+        ]
+      },
+      {
+        "text": "xNO",
+        "confidence": 0.2971492409706116,
+        "polygon": [
+          [
+            755,
+            304
+          ],
+          [
+            766,
+            304
+          ],
+          [
+            766,
+            348
+          ],
+          [
+            755,
+            348
+          ]
+        ]
+      },
+      {
+        "text": "CE",
+        "confidence": 0.6959087252616882,
+        "polygon": [
+          [
+            823,
+            334
+          ],
+          [
+            851,
+            334
+          ],
+          [
+            851,
+            356
+          ],
+          [
+            823,
+            356
+          ]
+        ]
+      },
+      {
+        "text": "CE",
+        "confidence": 0.6340535879135132,
+        "polygon": [
+          [
+            874,
+            326
+          ],
+          [
+            911,
+            320
+          ],
+          [
+            915,
+            344
+          ],
+          [
+            878,
+            350
+          ]
+        ]
+      },
+      {
+        "text": "ACE",
+        "confidence": 0.8123309016227722,
+        "polygon": [
+          [
+            934,
+            385
+          ],
+          [
+            954,
+            385
+          ],
+          [
+            954,
+            396
+          ],
+          [
+            934,
+            396
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9910930395126343,
+        "polygon": [
+          [
+            831,
+            483
+          ],
+          [
+            879,
+            542
+          ],
+          [
+            861,
+            557
+          ],
+          [
+            813,
+            498
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000110.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            747,
+            96
+          ],
+          [
+            762,
+            96
+          ],
+          [
+            762,
+            142
+          ],
+          [
+            747,
+            142
+          ]
+        ],
+        [
+          [
+            213,
+            168
+          ],
+          [
+            227,
+            168
+          ],
+          [
+            227,
+            199
+          ],
+          [
+            213,
+            199
+          ]
+        ],
+        [
+          [
+            785,
+            267
+          ],
+          [
+            799,
+            267
+          ],
+          [
+            799,
+            274
+          ],
+          [
+            785,
+            274
+          ]
+        ],
+        [
+          [
+            889,
+            263
+          ],
+          [
+            933,
+            284
+          ],
+          [
+            925,
+            303
+          ],
+          [
+            880,
+            282
+          ]
+        ],
+        [
+          [
+            833,
+            280
+          ],
+          [
+            866,
+            301
+          ],
+          [
+            856,
+            319
+          ],
+          [
+            822,
+            297
+          ]
+        ],
+        [
+          [
+            755,
+            304
+          ],
+          [
+            766,
+            304
+          ],
+          [
+            766,
+            348
+          ],
+          [
+            755,
+            348
+          ]
+        ],
+        [
+          [
+            823,
+            334
+          ],
+          [
+            851,
+            334
+          ],
+          [
+            851,
+            356
+          ],
+          [
+            823,
+            356
+          ]
+        ],
+        [
+          [
+            874,
+            326
+          ],
+          [
+            911,
+            320
+          ],
+          [
+            915,
+            344
+          ],
+          [
+            878,
+            350
+          ]
+        ],
+        [
+          [
+            934,
+            385
+          ],
+          [
+            954,
+            385
+          ],
+          [
+            954,
+            396
+          ],
+          [
+            934,
+            396
+          ]
+        ],
+        [
+          [
+            831,
+            483
+          ],
+          [
+            879,
+            542
+          ],
+          [
+            861,
+            557
+          ],
+          [
+            813,
+            498
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "0+Ea nom",
+        "AE的",
+        "1",
+        "FRAGILE",
+        "FRAGILE",
+        "xNO",
+        "CE",
+        "CE",
+        "ACE",
+        "FRAGILE"
+      ],
+      "rec_scores": [
+        0.35929760336875916,
+        0.20799857378005981,
+        0.26787951588630676,
+        0.9959143400192261,
+        0.8677324056625366,
+        0.2971492409706116,
+        0.6959087252616882,
+        0.6340535879135132,
+        0.8123309016227722,
+        0.9910930395126343
+      ],
+      "rec_polys": [
+        [
+          [
+            747,
+            96
+          ],
+          [
+            762,
+            96
+          ],
+          [
+            762,
+            142
+          ],
+          [
+            747,
+            142
+          ]
+        ],
+        [
+          [
+            213,
+            168
+          ],
+          [
+            227,
+            168
+          ],
+          [
+            227,
+            199
+          ],
+          [
+            213,
+            199
+          ]
+        ],
+        [
+          [
+            785,
+            267
+          ],
+          [
+            799,
+            267
+          ],
+          [
+            799,
+            274
+          ],
+          [
+            785,
+            274
+          ]
+        ],
+        [
+          [
+            889,
+            263
+          ],
+          [
+            933,
+            284
+          ],
+          [
+            925,
+            303
+          ],
+          [
+            880,
+            282
+          ]
+        ],
+        [
+          [
+            833,
+            280
+          ],
+          [
+            866,
+            301
+          ],
+          [
+            856,
+            319
+          ],
+          [
+            822,
+            297
+          ]
+        ],
+        [
+          [
+            755,
+            304
+          ],
+          [
+            766,
+            304
+          ],
+          [
+            766,
+            348
+          ],
+          [
+            755,
+            348
+          ]
+        ],
+        [
+          [
+            823,
+            334
+          ],
+          [
+            851,
+            334
+          ],
+          [
+            851,
+            356
+          ],
+          [
+            823,
+            356
+          ]
+        ],
+        [
+          [
+            874,
+            326
+          ],
+          [
+            911,
+            320
+          ],
+          [
+            915,
+            344
+          ],
+          [
+            878,
+            350
+          ]
+        ],
+        [
+          [
+            934,
+            385
+          ],
+          [
+            954,
+            385
+          ],
+          [
+            954,
+            396
+          ],
+          [
+            934,
+            396
+          ]
+        ],
+        [
+          [
+            831,
+            483
+          ],
+          [
+            879,
+            542
+          ],
+          [
+            861,
+            557
+          ],
+          [
+            813,
+            498
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          747,
+          96,
+          762,
+          142
+        ],
+        [
+          213,
+          168,
+          227,
+          199
+        ],
+        [
+          785,
+          267,
+          799,
+          274
+        ],
+        [
+          880,
+          263,
+          933,
+          303
+        ],
+        [
+          822,
+          280,
+          866,
+          319
+        ],
+        [
+          755,
+          304,
+          766,
+          348
+        ],
+        [
+          823,
+          334,
+          851,
+          356
+        ],
+        [
+          874,
+          320,
+          915,
+          350
+        ],
+        [
+          934,
+          385,
+          954,
+          396
+        ],
+        [
+          813,
+          483,
+          879,
+          557
+        ]
+      ]
+    },
+    "elapsed_s": 0.362210750579834,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000110",
+    "rgb_hash": "69a249772367fd1d7414abfb6f21b997a9be72066ab2c5b427479baa0097c896"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "0+Ea nom",
+        "confidence": 0.35929760336875916,
+        "polygon": [
+          [
+            747,
+            96
+          ],
+          [
+            762,
+            96
+          ],
+          [
+            762,
+            142
+          ],
+          [
+            747,
+            142
+          ]
+        ],
+        "normalized": "0+Ea nom",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "AE的",
+        "confidence": 0.20799857378005981,
+        "polygon": [
+          [
+            213,
+            168
+          ],
+          [
+            227,
+            168
+          ],
+          [
+            227,
+            199
+          ],
+          [
+            213,
+            199
+          ]
+        ],
+        "normalized": "AE的",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "1",
+        "confidence": 0.26787951588630676,
+        "polygon": [
+          [
+            785,
+            267
+          ],
+          [
+            799,
+            267
+          ],
+          [
+            799,
+            274
+          ],
+          [
+            785,
+            274
+          ]
+        ],
+        "normalized": "1",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9959143400192261,
+        "polygon": [
+          [
+            889,
+            263
+          ],
+          [
+            933,
+            284
+          ],
+          [
+            925,
+            303
+          ],
+          [
+            880,
+            282
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.8677324056625366,
+        "polygon": [
+          [
+            833,
+            280
+          ],
+          [
+            866,
+            301
+          ],
+          [
+            856,
+            319
+          ],
+          [
+            822,
+            297
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "xNO",
+        "confidence": 0.2971492409706116,
+        "polygon": [
+          [
+            755,
+            304
+          ],
+          [
+            766,
+            304
+          ],
+          [
+            766,
+            348
+          ],
+          [
+            755,
+            348
+          ]
+        ],
+        "normalized": "xNO",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "CE",
+        "confidence": 0.6959087252616882,
+        "polygon": [
+          [
+            823,
+            334
+          ],
+          [
+            851,
+            334
+          ],
+          [
+            851,
+            356
+          ],
+          [
+            823,
+            356
+          ]
+        ],
+        "normalized": "CE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "CE",
+        "confidence": 0.6340535879135132,
+        "polygon": [
+          [
+            874,
+            326
+          ],
+          [
+            911,
+            320
+          ],
+          [
+            915,
+            344
+          ],
+          [
+            878,
+            350
+          ]
+        ],
+        "normalized": "CE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "ACE",
+        "confidence": 0.8123309016227722,
+        "polygon": [
+          [
+            934,
+            385
+          ],
+          [
+            954,
+            385
+          ],
+          [
+            954,
+            396
+          ],
+          [
+            934,
+            396
+          ]
+        ],
+        "normalized": "ACE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9910930395126343,
+        "polygon": [
+          [
+            831,
+            483
+          ],
+          [
+            879,
+            542
+          ],
+          [
+            861,
+            557
+          ],
+          [
+            813,
+            498
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      }
+    ],
+    "updates": []
+  }
+}

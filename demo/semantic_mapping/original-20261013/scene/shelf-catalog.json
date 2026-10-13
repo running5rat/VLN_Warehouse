@@ -1,0 +1,932 @@
+[
+  {
+    "label": "71/1R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R01_B01",
+    "center_world": [
+      -24.441611210473603,
+      9.399994421316697,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -25.85838981949463,
+      8.899994421316697,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -24.781611210473603,
+      12.899995813057469,
+      4.323758143810778
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_156",
+      "/Root/SM_RackShelf_157",
+      "/Root/SM_RackShelf_158"
+    ]
+  },
+  {
+    "label": "72/1R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R01_B02",
+    "center_world": [
+      -24.441611210473603,
+      13.3999944213167,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -25.85838981949463,
+      12.8999944213167,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -24.781611210473603,
+      16.899995813057473,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_159",
+      "/Root/SM_RackShelf_160",
+      "/Root/SM_RackShelf_161"
+    ]
+  },
+  {
+    "label": "73/1R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R01_B03",
+    "center_world": [
+      -24.441611210473603,
+      17.3999944213167,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -25.85838981949463,
+      16.8999944213167,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -24.781611210473603,
+      20.89999581305747,
+      5.987366542248278
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_162",
+      "/Root/SM_RackShelf_163",
+      "/Root/SM_RackShelf_164",
+      "/Root/SM_RackShelf_170"
+    ]
+  },
+  {
+    "label": "74/1R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R01_B04",
+    "center_world": [
+      -24.441611210473603,
+      21.3999944213167,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -25.85838981949463,
+      20.8999944213167,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -24.781611210473603,
+      24.89999581305747,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_165",
+      "/Root/SM_RackShelf_166",
+      "/Root/SM_RackShelf_167"
+    ]
+  },
+  {
+    "label": "71/2R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R02_B01",
+    "center_world": [
+      -21.244688522523997,
+      9.403722674871082,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -20.904688522523998,
+      8.903722674871082,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -19.827893455320257,
+      12.903728497008988,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_179",
+      "/Root/SM_RackShelf_180",
+      "/Root/SM_RackShelf_181"
+    ]
+  },
+  {
+    "label": "72/2R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R02_B02",
+    "center_world": [
+      -21.244701950258374,
+      13.403727557683583,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -20.904701950258374,
+      12.903727557683583,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -19.827906883054634,
+      16.90373337982149,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_1071",
+      "/Root/SM_RackShelf_177",
+      "/Root/SM_RackShelf_178"
+    ]
+  },
+  {
+    "label": "73/2R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R02_B03",
+    "center_world": [
+      -21.244717819398996,
+      17.403732440496075,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -20.904717819398996,
+      16.903732440496075,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -19.827922752195256,
+      20.903738262633986,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_1066",
+      "/Root/SM_RackShelf_1067",
+      "/Root/SM_RackShelf_1068"
+    ]
+  },
+  {
+    "label": "74/2R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R02_B04",
+    "center_world": [
+      -21.244733688539622,
+      21.403732440496075,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -20.904733688539622,
+      20.903732440496075,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -19.827938621335882,
+      24.903738262633986,
+      5.987366542248278
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_1061",
+      "/Root/SM_RackShelf_1062",
+      "/Root/SM_RackShelf_1063",
+      "/Root/SM_RackShelf_182"
+    ]
+  },
+  {
+    "label": "71/3R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R03_B01",
+    "center_world": [
+      -16.29135124527588,
+      9.399994421316697,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -15.95135124527588,
+      8.899994421316697,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -14.874572636254854,
+      12.899995813057469,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_135",
+      "/Root/SM_RackShelf_136",
+      "/Root/SM_RackShelf_137"
+    ]
+  },
+  {
+    "label": "72/3R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R03_B02",
+    "center_world": [
+      -16.29135124527588,
+      13.399994421316698,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -15.95135124527588,
+      12.899994421316698,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -14.874572636254854,
+      16.89999581305747,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_138",
+      "/Root/SM_RackShelf_139",
+      "/Root/SM_RackShelf_140"
+    ]
+  },
+  {
+    "label": "",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": false,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R03_B03",
+    "center_world": [
+      -16.291351245275884,
+      17.399994421316695,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -15.951351245275882,
+      16.899994421316695,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -14.874572636254856,
+      20.899995813057465,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_141",
+      "/Root/SM_RackShelf_142",
+      "/Root/SM_RackShelf_143"
+    ]
+  },
+  {
+    "label": "74/3R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R03_B04",
+    "center_world": [
+      -16.291351245275884,
+      21.399994421316695,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -15.951351245275882,
+      20.899994421316695,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -14.874572636254856,
+      24.899995813057465,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_144",
+      "/Root/SM_RackShelf_145",
+      "/Root/SM_RackShelf_146"
+    ]
+  },
+  {
+    "label": "71/4R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R04_B01",
+    "center_world": [
+      -11.338389819494633,
+      9.399994421316697,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -10.998389819494633,
+      8.899994421316697,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -9.921611210473607,
+      12.899995813057469,
+      4.323758143810778
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_2966",
+      "/Root/SM_RackShelf_2967",
+      "/Root/SM_RackShelf_2968"
+    ]
+  },
+  {
+    "label": "72/4R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R04_B02",
+    "center_world": [
+      -11.338389819494633,
+      13.399994421316698,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -10.998389819494633,
+      12.899994421316698,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -9.921611210473607,
+      16.89999581305747,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_2970",
+      "/Root/SM_RackShelf_2971",
+      "/Root/SM_RackShelf_2972"
+    ]
+  },
+  {
+    "label": "73/4R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R04_B03",
+    "center_world": [
+      -11.338389819494633,
+      17.3999944213167,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -10.998389819494633,
+      16.8999944213167,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -9.921611210473607,
+      20.89999581305747,
+      5.987366542248278
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_2975",
+      "/Root/SM_RackShelf_2976",
+      "/Root/SM_RackShelf_2977",
+      "/Root/SM_RackShelf_3143"
+    ]
+  },
+  {
+    "label": "CAUTION",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": false,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R04_B04",
+    "center_world": [
+      -11.338389819494633,
+      21.3999944213167,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -10.998389819494633,
+      20.8999944213167,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -9.921611210473607,
+      24.89999581305747,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_2980",
+      "/Root/SM_RackShelf_2981",
+      "/Root/SM_RackShelf_2982"
+    ]
+  },
+  {
+    "label": "71/5R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R05_B01",
+    "center_world": [
+      -6.378408004945878,
+      9.298937518621083,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -6.038408004945878,
+      8.798937518621083,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -4.961612937742134,
+      12.798943340758989,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_4485",
+      "/Root/SM_RackShelf_4486",
+      "/Root/SM_RackShelf_4487"
+    ]
+  },
+  {
+    "label": "72/5R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R05_B02",
+    "center_world": [
+      -6.378428756899003,
+      13.298932635808583,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -6.038428756899003,
+      12.798932635808583,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -4.961633689695259,
+      16.79893845794649,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_4480",
+      "/Root/SM_RackShelf_4481",
+      "/Root/SM_RackShelf_4482"
+    ]
+  },
+  {
+    "label": "73/5R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R05_B03",
+    "center_world": [
+      -6.378431808656815,
+      17.298942401433578,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -6.038431808656815,
+      16.798942401433578,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -4.961636741453072,
+      20.79894822357149,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_4475",
+      "/Root/SM_RackShelf_4476",
+      "/Root/SM_RackShelf_4477"
+    ]
+  },
+  {
+    "label": "CAUTION",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": false,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R05_B04",
+    "center_world": [
+      -6.378456833070876,
+      21.298942401433578,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -6.038456833070876,
+      20.798942401433578,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -4.961661765867133,
+      24.79894822357149,
+      5.987366542248278
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_4470",
+      "/Root/SM_RackShelf_4471",
+      "/Root/SM_RackShelf_4472",
+      "/Root/SM_RackShelf_4561"
+    ]
+  },
+  {
+    "label": "71/6R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R06_B01",
+    "center_world": [
+      -1.428389819494633,
+      9.399994421316697,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -1.0883898194946329,
+      8.899994421316697,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -0.011611210473605693,
+      12.899995813057469,
+      4.323758143810778
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_3822",
+      "/Root/SM_RackShelf_3823",
+      "/Root/SM_RackShelf_3824"
+    ]
+  },
+  {
+    "label": "72/6R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R06_B02",
+    "center_world": [
+      -1.428389819494633,
+      13.3999944213167,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -1.0883898194946329,
+      12.8999944213167,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -0.011611210473605693,
+      16.899995813057473,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_3827",
+      "/Root/SM_RackShelf_3828",
+      "/Root/SM_RackShelf_3829"
+    ]
+  },
+  {
+    "label": "73/6R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R06_B03",
+    "center_world": [
+      -1.428389819494633,
+      17.399994421316695,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -1.0883898194946329,
+      16.899994421316695,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -0.011611210473605693,
+      20.899995813057465,
+      5.987366542248278
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_3832",
+      "/Root/SM_RackShelf_3833",
+      "/Root/SM_RackShelf_3834",
+      "/Root/SM_RackShelf_3912"
+    ]
+  },
+  {
+    "label": "74/6R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R06_B04",
+    "center_world": [
+      -1.428389819494633,
+      21.399994421316695,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      -1.0883898194946329,
+      20.899994421316695,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      -0.011611210473605693,
+      24.899995813057465,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_3837",
+      "/Root/SM_RackShelf_3838",
+      "/Root/SM_RackShelf_3839"
+    ]
+  },
+  {
+    "label": "71/7R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R07_B01",
+    "center_world": [
+      3.5353114774759975,
+      9.403722674871085,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      3.8753114774759974,
+      8.903722674871085,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      4.952106544679741,
+      12.903728497008991,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_230",
+      "/Root/SM_RackShelf_231",
+      "/Root/SM_RackShelf_232"
+    ]
+  },
+  {
+    "label": "72/7R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R07_B02",
+    "center_world": [
+      3.5352980497416224,
+      13.403727557683583,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      3.8752980497416223,
+      12.903727557683583,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      4.952093116945366,
+      16.90373337982149,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_227",
+      "/Root/SM_RackShelf_228",
+      "/Root/SM_RackShelf_229"
+    ]
+  },
+  {
+    "label": "73/7R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R07_B03",
+    "center_world": [
+      3.5352821806009977,
+      17.403732440496075,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      3.8752821806009976,
+      16.903732440496075,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      4.952077247804741,
+      20.903738262633986,
+      4.125405482677966
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_224",
+      "/Root/SM_RackShelf_225",
+      "/Root/SM_RackShelf_226"
+    ]
+  },
+  {
+    "label": "74/7R",
+    "variant": "original",
+    "category": "shelf_marker",
+    "identity_expected_unique": true,
+    "text_fully_visible": true,
+    "prim": "/ShelfLabels/R07_B04",
+    "center_world": [
+      3.535266311460372,
+      21.403732440496075,
+      2.55
+    ],
+    "size_m": [
+      0.8,
+      0.012,
+      0.4
+    ],
+    "rack_min": [
+      3.875266311460372,
+      20.903732440496075,
+      0.9551064377626557
+    ],
+    "rack_max": [
+      4.952061378664116,
+      24.903738262633986,
+      5.987366542248278
+    ],
+    "shelf_prims": [
+      "/Root/SM_RackShelf_221",
+      "/Root/SM_RackShelf_222",
+      "/Root/SM_RackShelf_223",
+      "/Root/SM_RackShelf_233"
+    ]
+  }
+]

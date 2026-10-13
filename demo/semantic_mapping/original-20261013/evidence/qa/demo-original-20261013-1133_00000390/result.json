@@ -1,0 +1,34 @@
+{
+  "selection_mode": "instances",
+  "request_id": "d7b9495a7256836d96fb8b4b",
+  "source_image_id": "demo-original-20261013-1133:00000390",
+  "rgb_hash": "691efe73861bd307aad52398cce20930d425a08e48036ab19801cb120f541216",
+  "batch_id": "b3d82af00d399c8ffebd5a8d0d2b6fcf74e9185df929c9ad61d2d1b7abc0663e",
+  "source_time": 90.01667136140168,
+  "valid": true,
+  "parsed": {
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "spatial_reference"
+      }
+    ],
+    "missed_categories": []
+  },
+  "error": null,
+  "llm_calls": 1,
+  "structured_inference_executed": false,
+  "navigation_task_included": false,
+  "prompt": "Image-1: <image>\nImage-2: <image>\nBuild a semantic map from this observation. Image-1 is the original RGB; Image-2 shows detector boxes with instance IDs. The candidate table below uses those IDs and normalized coordinates. Detector labels are suggestions, not truth. Which candidate instances are worth recording as map observations or inspecting for distinguishing identity information? Prioritize markers or surfaces that may carry text or symbols, and facilities with distinctive appearance or spatial context. Do not select ordinary repeated structures merely because they are large or stationary. Do not reject repeated markers: their identifiers may differ. Do not read or output any identifier text. Do not claim global uniqueness or permanent staticness. Select only visible candidate IDs; identity_candidate means inspect for identity evidence, spatial_reference means useful distinctive spatial context. Report useful visible object categories missing from the detections in missed_categories for diagnosis only. Empty lists are allowed. Return JSON with selected_instances (each has instance_id and purpose) and missed_categories. No explanation.\nCandidates: [{\"instance_id\":\"d0\",\"category\":\"fire extinguisher\",\"bbox_normalized\":[0.733912467956543,0.5348993937174479,0.7543521881103515,0.5824642181396484]}]",
+  "max_new_tokens": 2048,
+  "format_constraint": "JSON schema; one generation; two 448px images",
+  "input_images": [
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000390.png",
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000390/candidates.png"
+  ],
+  "text": "{\n  \"selected_instances\": [\n    {\n      \"instance_id\": \"d0\",\n      \"purpose\": \"spatial_reference\"\n    }\n  ],\n  \"missed_categories\": []\n}",
+  "token_count": 39,
+  "started": 1791862381.2355983,
+  "finished": 1791862382.1165798,
+  "elapsed_s": 0.8809816837310791
+}

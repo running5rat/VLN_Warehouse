@@ -1,0 +1,39 @@
+{
+  "source_map": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map",
+  "source_database_sha256": "d23bb4adda58c10b137337c6f580cc622aa23071516e606b62fad4b61ddc1251",
+  "source_database_unchanged": true,
+  "restart_identical": true,
+  "model_calls": 0,
+  "incremental_evidence_replay_identical": true,
+  "incremental_updates": 57,
+  "incremental_processing_p50_ms": 0.9722779941512272,
+  "incremental_processing_p95_ms": 1.5109510044567274,
+  "processing_seconds": 0.0017176620021928102,
+  "counts": {
+    "raw": 27,
+    "decisions": {
+      "keep": 8,
+      "hide": 10,
+      "review": 9
+    },
+    "identity_states": {
+      "candidate": 11,
+      "unknown": 13,
+      "duplicate_text": 1,
+      "identity_confirmed": 1,
+      "conflict": 1
+    }
+  },
+  "geometry_observations": 448,
+  "events": 57,
+  "text_events": 29,
+  "recovered_conflicts": 5,
+  "unresolved_conflicts": 1,
+  "static_flags_unchanged": true,
+  "hidden_categories": {
+    "sign": 3,
+    "storage rack": 6,
+    "electrical cabinet": 1
+  },
+  "scope": "Derived view validation; no new perception, accuracy or live-rate claim."
+}

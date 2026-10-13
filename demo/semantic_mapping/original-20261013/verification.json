@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "videos": {
+    "mapping_live.mp4": {
+      "codec_name": "h264",
+      "width": 1920,
+      "height": 1200,
+      "r_frame_rate": "5/1",
+      "duration": "95.000000",
+      "nb_read_frames": "475"
+    },
+    "isaac_camera.mp4": {
+      "codec_name": "h264",
+      "width": 960,
+      "height": 720,
+      "r_frame_rate": "5/1",
+      "duration": "89.600000",
+      "nb_read_frames": "448"
+    }
+  },
+  "manifest_files_verified": 807,
+  "html_links_exist": true,
+  "timeline_frames": 475,
+  "map_restart_identical": true,
+  "map_observations": 448,
+  "map_geometry_points": 13671188,
+  "map_version": 534,
+  "scope": "Artifact integrity and recovery; not model accuracy or real-time acceptance."
+}

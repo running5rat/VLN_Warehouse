@@ -1,0 +1,179 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000313",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000313.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000313.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.9999743040404584,
+        0.006439226063140285,
+        0.0031508136262996924,
+        8.978948833893302
+      ],
+      [
+        -0.00643922344153276,
+        -0.9999792679255824,
+        1.0976567556437758e-05,
+        -4.938865714281853
+      ],
+      [
+        0.0031508189839970667,
+        -9.312507459384397e-06,
+        0.9999950361141835,
+        -0.014194108079921344
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999996
+      ]
+    ],
+    "t_obs": 74.61667055822909,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "f2814e1c13338487a75ac0a4a5e3f05ef97ca9925ee4ec2c68747821334c4bfe",
+    "depth_hash": "520d6810278087dc694bbcf4958bb6acc69abc087e53497b304db1d9f0ec2a7a",
+    "geometry": "arrays/7cf3ee9537724072a6f03a7d6c35aad9.npz",
+    "submitted_wall": 1791862365.4768667
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "not_sampled",
+    "selected_instances": [],
+    "selected_categories": [],
+    "source_image_id": "demo-original-20261013-1133:00000313"
+  },
+  "instances": [
+    {
+      "category": "sign",
+      "confidence": 0.30074605345726013,
+      "bbox": [
+        244.97222900390625,
+        247.1217041015625,
+        339.15435791015625,
+        298.1847839355469
+      ]
+    },
+    {
+      "category": "storage rack",
+      "confidence": 0.2544153928756714,
+      "bbox": [
+        662.3622436523438,
+        0.0,
+        960.0,
+        716.3076171875
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "sign",
+      "bbox": [
+        244.97222900390625,
+        247.1217041015625,
+        339.15435791015625,
+        298.1847839355469
+      ],
+      "confidence": 0.30074605345726013,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000313:0",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 1,
+      "category": "storage rack",
+      "bbox": [
+        662.3622436523438,
+        0.0,
+        960.0,
+        716.3076171875
+      ],
+      "confidence": 0.2544153928756714,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000313:1",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.02034616470336914,
+  "candidate_request": null,
+  "ocr": null,
+  "binding": null
+}

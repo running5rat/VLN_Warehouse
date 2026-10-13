@@ -1,0 +1,1302 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000065",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000065.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000065.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.9999999992764058,
+        3.7598845580243115e-05,
+        5.789189753867968e-06,
+        8.409982620805238
+      ],
+      [
+        -3.7598849181957447e-05,
+        0.9999999992929693,
+        6.220345445390282e-07,
+        -0.0055577080616426855
+      ],
+      [
+        -5.7891663620189635e-06,
+        -6.22252210831312e-07,
+        0.999999999983049,
+        -0.013296008087675013
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 25.016667971387506,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "592a72713173ec77631e260bd096116416011aee379b0f3954a6a1e2935a232d",
+    "depth_hash": "410fc068e8e72959aceded2d58e633de2ead6cb4418928531fc8ffbd2eca7719",
+    "geometry": "arrays/042b0b6f909642b2b2eb36c37cc64543.npz",
+    "submitted_wall": 1791862315.878197
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "not_sampled",
+    "selected_instances": [],
+    "selected_categories": [],
+    "source_image_id": "demo-original-20261013-1133:00000065"
+  },
+  "instances": [
+    {
+      "category": "sign",
+      "confidence": 0.30239152908325195,
+      "bbox": [
+        596.2724609375,
+        277.7146911621094,
+        672.4686279296875,
+        319.2981262207031
+      ],
+      "texts": [
+        {
+          "text": "CAUTION",
+          "confidence": 0.9990024566650391,
+          "polygon": [
+            [
+              608,
+              290
+            ],
+            [
+              658,
+              290
+            ],
+            [
+              658,
+              305
+            ],
+            [
+              608,
+              305
+            ]
+          ],
+          "normalized": "CAUTION",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.4717099368572235,
+      "bbox": [
+        755.479248046875,
+        102.66380310058594,
+        934.9956665039062,
+        201.99888610839844
+      ],
+      "texts": [
+        {
+          "text": "73",
+          "confidence": 0.9943585395812988,
+          "polygon": [
+            [
+              769,
+              128
+            ],
+            [
+              840,
+              128
+            ],
+            [
+              840,
+              176
+            ],
+            [
+              769,
+              176
+            ]
+          ],
+          "normalized": "73",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        },
+        {
+          "text": "/4R",
+          "confidence": 0.9770023822784424,
+          "polygon": [
+            [
+              867,
+              140
+            ],
+            [
+              924,
+              140
+            ],
+            [
+              924,
+              172
+            ],
+            [
+              867,
+              172
+            ]
+          ],
+          "normalized": "/4R",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.31997090578079224,
+      "bbox": [
+        903.216796875,
+        313.76458740234375,
+        959.983154296875,
+        437.701171875
+      ],
+      "texts": [
+        {
+          "text": "FRAGILE",
+          "confidence": 0.9924217462539673,
+          "polygon": [
+            [
+              917,
+              343
+            ],
+            [
+              960,
+              373
+            ],
+            [
+              952,
+              389
+            ],
+            [
+              907,
+              358
+            ]
+          ],
+          "normalized": "FRAGILE",
+          "candidate_instances": [
+            2
+          ],
+          "owner_instance": 2,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "storage rack",
+      "confidence": 0.6548952460289001,
+      "bbox": [
+        0.15547943115234375,
+        0.0,
+        365.5093688964844,
+        712.4923095703125
+      ],
+      "texts": []
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "sign",
+      "bbox": [
+        596.2724609375,
+        277.7146911621094,
+        672.4686279296875,
+        319.2981262207031
+      ],
+      "confidence": 0.30239152908325195,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000065:0",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 1,
+      "category": "sign",
+      "bbox": [
+        755.479248046875,
+        102.66380310058594,
+        934.9956665039062,
+        201.99888610839844
+      ],
+      "confidence": 0.4717099368572235,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000065:1",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 2,
+      "category": "sign",
+      "bbox": [
+        903.216796875,
+        313.76458740234375,
+        959.983154296875,
+        437.701171875
+      ],
+      "confidence": 0.31997090578079224,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000065:2",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 3,
+      "category": "storage rack",
+      "bbox": [
+        0.15547943115234375,
+        0.0,
+        365.5093688964844,
+        712.4923095703125
+      ],
+      "confidence": 0.6548952460289001,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000065:3",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.042627573013305664,
+  "candidate_request": null,
+  "ocr": {
+    "texts": [
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            665,
+            35
+          ],
+          [
+            681,
+            35
+          ],
+          [
+            681,
+            66
+          ],
+          [
+            665,
+            66
+          ]
+        ]
+      },
+      {
+        "text": "73",
+        "confidence": 0.9943585395812988,
+        "polygon": [
+          [
+            769,
+            128
+          ],
+          [
+            840,
+            128
+          ],
+          [
+            840,
+            176
+          ],
+          [
+            769,
+            176
+          ]
+        ]
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.9770023822784424,
+        "polygon": [
+          [
+            867,
+            140
+          ],
+          [
+            924,
+            140
+          ],
+          [
+            924,
+            172
+          ],
+          [
+            867,
+            172
+          ]
+        ]
+      },
+      {
+        "text": "74",
+        "confidence": 0.9996213912963867,
+        "polygon": [
+          [
+            142,
+            284
+          ],
+          [
+            176,
+            284
+          ],
+          [
+            176,
+            309
+          ],
+          [
+            142,
+            309
+          ]
+        ]
+      },
+      {
+        "text": "CAUTION",
+        "confidence": 0.9990024566650391,
+        "polygon": [
+          [
+            608,
+            290
+          ],
+          [
+            658,
+            290
+          ],
+          [
+            658,
+            305
+          ],
+          [
+            608,
+            305
+          ]
+        ]
+      },
+      {
+        "text": "ACE",
+        "confidence": 0.6268506646156311,
+        "polygon": [
+          [
+            856,
+            319
+          ],
+          [
+            879,
+            316
+          ],
+          [
+            881,
+            332
+          ],
+          [
+            858,
+            335
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9924217462539673,
+        "polygon": [
+          [
+            917,
+            343
+          ],
+          [
+            960,
+            373
+          ],
+          [
+            952,
+            389
+          ],
+          [
+            907,
+            358
+          ]
+        ]
+      },
+      {
+        "text": "ACE",
+        "confidence": 0.6436777710914612,
+        "polygon": [
+          [
+            906,
+            407
+          ],
+          [
+            941,
+            407
+          ],
+          [
+            941,
+            431
+          ],
+          [
+            906,
+            431
+          ]
+        ]
+      },
+      {
+        "text": "LL",
+        "confidence": 0.4434635043144226,
+        "polygon": [
+          [
+            821,
+            590
+          ],
+          [
+            828,
+            591
+          ],
+          [
+            825,
+            605
+          ],
+          [
+            818,
+            603
+          ]
+        ]
+      },
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            929,
+            631
+          ],
+          [
+            956,
+            631
+          ],
+          [
+            956,
+            685
+          ],
+          [
+            929,
+            685
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000065.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            665,
+            35
+          ],
+          [
+            681,
+            35
+          ],
+          [
+            681,
+            66
+          ],
+          [
+            665,
+            66
+          ]
+        ],
+        [
+          [
+            769,
+            128
+          ],
+          [
+            840,
+            128
+          ],
+          [
+            840,
+            176
+          ],
+          [
+            769,
+            176
+          ]
+        ],
+        [
+          [
+            867,
+            140
+          ],
+          [
+            924,
+            140
+          ],
+          [
+            924,
+            172
+          ],
+          [
+            867,
+            172
+          ]
+        ],
+        [
+          [
+            142,
+            284
+          ],
+          [
+            176,
+            284
+          ],
+          [
+            176,
+            309
+          ],
+          [
+            142,
+            309
+          ]
+        ],
+        [
+          [
+            608,
+            290
+          ],
+          [
+            658,
+            290
+          ],
+          [
+            658,
+            305
+          ],
+          [
+            608,
+            305
+          ]
+        ],
+        [
+          [
+            856,
+            319
+          ],
+          [
+            879,
+            316
+          ],
+          [
+            881,
+            332
+          ],
+          [
+            858,
+            335
+          ]
+        ],
+        [
+          [
+            917,
+            343
+          ],
+          [
+            960,
+            373
+          ],
+          [
+            952,
+            389
+          ],
+          [
+            907,
+            358
+          ]
+        ],
+        [
+          [
+            906,
+            407
+          ],
+          [
+            941,
+            407
+          ],
+          [
+            941,
+            431
+          ],
+          [
+            906,
+            431
+          ]
+        ],
+        [
+          [
+            821,
+            590
+          ],
+          [
+            828,
+            591
+          ],
+          [
+            825,
+            605
+          ],
+          [
+            818,
+            603
+          ]
+        ],
+        [
+          [
+            929,
+            631
+          ],
+          [
+            956,
+            631
+          ],
+          [
+            956,
+            685
+          ],
+          [
+            929,
+            685
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "",
+        "73",
+        "/4R",
+        "74",
+        "CAUTION",
+        "ACE",
+        "FRAGILE",
+        "ACE",
+        "LL",
+        ""
+      ],
+      "rec_scores": [
+        0.0,
+        0.9943585395812988,
+        0.9770023822784424,
+        0.9996213912963867,
+        0.9990024566650391,
+        0.6268506646156311,
+        0.9924217462539673,
+        0.6436777710914612,
+        0.4434635043144226,
+        0.0
+      ],
+      "rec_polys": [
+        [
+          [
+            665,
+            35
+          ],
+          [
+            681,
+            35
+          ],
+          [
+            681,
+            66
+          ],
+          [
+            665,
+            66
+          ]
+        ],
+        [
+          [
+            769,
+            128
+          ],
+          [
+            840,
+            128
+          ],
+          [
+            840,
+            176
+          ],
+          [
+            769,
+            176
+          ]
+        ],
+        [
+          [
+            867,
+            140
+          ],
+          [
+            924,
+            140
+          ],
+          [
+            924,
+            172
+          ],
+          [
+            867,
+            172
+          ]
+        ],
+        [
+          [
+            142,
+            284
+          ],
+          [
+            176,
+            284
+          ],
+          [
+            176,
+            309
+          ],
+          [
+            142,
+            309
+          ]
+        ],
+        [
+          [
+            608,
+            290
+          ],
+          [
+            658,
+            290
+          ],
+          [
+            658,
+            305
+          ],
+          [
+            608,
+            305
+          ]
+        ],
+        [
+          [
+            856,
+            319
+          ],
+          [
+            879,
+            316
+          ],
+          [
+            881,
+            332
+          ],
+          [
+            858,
+            335
+          ]
+        ],
+        [
+          [
+            917,
+            343
+          ],
+          [
+            960,
+            373
+          ],
+          [
+            952,
+            389
+          ],
+          [
+            907,
+            358
+          ]
+        ],
+        [
+          [
+            906,
+            407
+          ],
+          [
+            941,
+            407
+          ],
+          [
+            941,
+            431
+          ],
+          [
+            906,
+            431
+          ]
+        ],
+        [
+          [
+            821,
+            590
+          ],
+          [
+            828,
+            591
+          ],
+          [
+            825,
+            605
+          ],
+          [
+            818,
+            603
+          ]
+        ],
+        [
+          [
+            929,
+            631
+          ],
+          [
+            956,
+            631
+          ],
+          [
+            956,
+            685
+          ],
+          [
+            929,
+            685
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          665,
+          35,
+          681,
+          66
+        ],
+        [
+          769,
+          128,
+          840,
+          176
+        ],
+        [
+          867,
+          140,
+          924,
+          172
+        ],
+        [
+          142,
+          284,
+          176,
+          309
+        ],
+        [
+          608,
+          290,
+          658,
+          305
+        ],
+        [
+          856,
+          316,
+          881,
+          335
+        ],
+        [
+          907,
+          343,
+          960,
+          389
+        ],
+        [
+          906,
+          407,
+          941,
+          431
+        ],
+        [
+          818,
+          590,
+          828,
+          605
+        ],
+        [
+          929,
+          631,
+          956,
+          685
+        ]
+      ]
+    },
+    "elapsed_s": 0.4222111701965332,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000065",
+    "rgb_hash": "592a72713173ec77631e260bd096116416011aee379b0f3954a6a1e2935a232d"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "73",
+        "confidence": 0.9943585395812988,
+        "polygon": [
+          [
+            769,
+            128
+          ],
+          [
+            840,
+            128
+          ],
+          [
+            840,
+            176
+          ],
+          [
+            769,
+            176
+          ]
+        ],
+        "normalized": "73",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.9770023822784424,
+        "polygon": [
+          [
+            867,
+            140
+          ],
+          [
+            924,
+            140
+          ],
+          [
+            924,
+            172
+          ],
+          [
+            867,
+            172
+          ]
+        ],
+        "normalized": "/4R",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "74",
+        "confidence": 0.9996213912963867,
+        "polygon": [
+          [
+            142,
+            284
+          ],
+          [
+            176,
+            284
+          ],
+          [
+            176,
+            309
+          ],
+          [
+            142,
+            309
+          ]
+        ],
+        "normalized": "74",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "CAUTION",
+        "confidence": 0.9990024566650391,
+        "polygon": [
+          [
+            608,
+            290
+          ],
+          [
+            658,
+            290
+          ],
+          [
+            658,
+            305
+          ],
+          [
+            608,
+            305
+          ]
+        ],
+        "normalized": "CAUTION",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "ACE",
+        "confidence": 0.6268506646156311,
+        "polygon": [
+          [
+            856,
+            319
+          ],
+          [
+            879,
+            316
+          ],
+          [
+            881,
+            332
+          ],
+          [
+            858,
+            335
+          ]
+        ],
+        "normalized": "ACE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9924217462539673,
+        "polygon": [
+          [
+            917,
+            343
+          ],
+          [
+            960,
+            373
+          ],
+          [
+            952,
+            389
+          ],
+          [
+            907,
+            358
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [
+          2
+        ],
+        "owner_instance": 2,
+        "status": "bound"
+      },
+      {
+        "text": "ACE",
+        "confidence": 0.6436777710914612,
+        "polygon": [
+          [
+            906,
+            407
+          ],
+          [
+            941,
+            407
+          ],
+          [
+            941,
+            431
+          ],
+          [
+            906,
+            431
+          ]
+        ],
+        "normalized": "ACE",
+        "candidate_instances": [
+          2
+        ],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "LL",
+        "confidence": 0.4434635043144226,
+        "polygon": [
+          [
+            821,
+            590
+          ],
+          [
+            828,
+            591
+          ],
+          [
+            825,
+            605
+          ],
+          [
+            818,
+            603
+          ]
+        ],
+        "normalized": "LL",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": []
+  }
+}

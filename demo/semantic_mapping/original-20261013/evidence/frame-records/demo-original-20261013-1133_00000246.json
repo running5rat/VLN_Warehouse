@@ -1,0 +1,208 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000246",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000246.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000246.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.999973833650458,
+        0.006506935022747897,
+        0.003160982602857647,
+        17.6960652148853
+      ],
+      [
+        -0.006506937552777335,
+        -0.999978829612777,
+        9.48389874080469e-06,
+        -4.88044843349666
+      ],
+      [
+        0.0031609773947448164,
+        -1.1084665820433106e-05,
+        0.9999950040370402,
+        -0.027975579010212435
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 61.21666985936463,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "d9b4bafc0e22a68a9cfe61f2e449673b91e18777f473b964ff3e070adc878865",
+    "depth_hash": "b25ea8e999bf0ca189d6a7e0e37cbc39150ca516dbb288d2cd2c758a7131ad4a",
+    "geometry": "arrays/68190427f20345d5a1b9dd68c548e4c9.npz",
+    "submitted_wall": 1791862352.0494561
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "not_sampled",
+    "selected_instances": [],
+    "selected_categories": [],
+    "source_image_id": "demo-original-20261013-1133:00000246"
+  },
+  "instances": [
+    {
+      "category": "electrical cabinet",
+      "confidence": 0.3086065649986267,
+      "bbox": [
+        784.3533325195312,
+        463.3442687988281,
+        932.763427734375,
+        696.6806640625
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.38121965527534485,
+      "bbox": [
+        0.031757354736328125,
+        33.52302932739258,
+        116.94346618652344,
+        152.376708984375
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.2833843231201172,
+      "bbox": [
+        267.31634521484375,
+        265.5475158691406,
+        350.54925537109375,
+        310.4389343261719
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "electrical cabinet",
+      "bbox": [
+        784.3533325195312,
+        463.3442687988281,
+        932.763427734375,
+        696.6806640625
+      ],
+      "confidence": 0.3086065649986267,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000246:0",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 1,
+      "category": "sign",
+      "bbox": [
+        0.031757354736328125,
+        33.52302932739258,
+        116.94346618652344,
+        152.376708984375
+      ],
+      "confidence": 0.38121965527534485,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000246:1",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 2,
+      "category": "sign",
+      "bbox": [
+        267.31634521484375,
+        265.5475158691406,
+        350.54925537109375,
+        310.4389343261719
+      ],
+      "confidence": 0.2833843231201172,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000246:2",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.042845964431762695,
+  "candidate_request": null,
+  "ocr": null,
+  "binding": null
+}

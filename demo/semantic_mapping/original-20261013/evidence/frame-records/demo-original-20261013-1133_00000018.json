@@ -1,0 +1,150 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000018",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000018.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000018.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.9999998300151947,
+        0.0005830618832576209,
+        2.90192597135518e-06,
+        2.2890787077956682
+      ],
+      [
+        -0.0005830618880740825,
+        0.9999998300180261,
+        1.6591726216329848e-06,
+        -0.0006547973542385677
+      ],
+      [
+        -2.9009580778149077e-06,
+        -1.6608643420219018e-06,
+        0.9999999999944129,
+        -0.003619100157770965
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 15.616667481139302,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "ec72eda65d9097757886cc779347229c9873824833da33ac635c0cc9585480af",
+    "depth_hash": "ccc60110b35034023104997b161886a6d37328d8ba15f5698bd75a2bc0b937be",
+    "geometry": "arrays/6d2b567b0dcd4f23822b23d6b88ccee9.npz",
+    "submitted_wall": 1791862306.4884841
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "not_sampled",
+    "selected_instances": [],
+    "selected_categories": [],
+    "source_image_id": "demo-original-20261013-1133:00000018"
+  },
+  "instances": [
+    {
+      "category": "storage rack",
+      "confidence": 0.32939231395721436,
+      "bbox": [
+        0.2118072509765625,
+        16.161231994628906,
+        408.0738525390625,
+        704.3757934570312
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "storage rack",
+      "bbox": [
+        0.2118072509765625,
+        16.161231994628906,
+        408.0738525390625,
+        704.3757934570312
+      ],
+      "confidence": 0.32939231395721436,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000018:0",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.01922321319580078,
+  "candidate_request": null,
+  "ocr": null,
+  "binding": null
+}

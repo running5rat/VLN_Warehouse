@@ -1,0 +1,160 @@
+{
+  "source_image_id": "demo-original-20261013-1133:00000320",
+  "rgb_hash": "ebe8e3a7a12d9c85a3367961f6a6b42f09eeb4c0a42ba6be563128f0c057eca6",
+  "depth_hash": "da9114d7501fa67e56ce9b1d7467e9eb50415c18a71ac4c19ded015083466091",
+  "source_geometry": {
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.9999731426667102,
+        0.006616668634483198,
+        0.0031517679870880335,
+        8.067331695136186
+      ],
+      [
+        -0.006616669605724196,
+        -0.9999781095508703,
+        1.0119086119259958e-05,
+        -4.945043605972504
+      ],
+      [
+        0.003151765948111039,
+        -1.0735393096886217e-05,
+        0.9999950331157449,
+        -0.01275285055419328
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "odom_epoch": "demo-original-20261013-1133",
+    "t_obs": 76.01667063124478
+  },
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "candidates": [
+    {
+      "instance_id": "d0",
+      "category": "electrical cabinet",
+      "bbox": [
+        899.5951538085938,
+        539.5797729492188,
+        960.0,
+        694.5914306640625
+      ],
+      "bbox_normalized": [
+        0.9370782852172852,
+        0.7494163513183594,
+        1.0,
+        0.9647103203667535
+      ],
+      "confidence": 0.2594488263130188,
+      "mask_sha256": "f895d33290f60d71191797e3cf427ca592e50c1ff43508fe95cf7efd8e7f19c5"
+    },
+    {
+      "instance_id": "d1",
+      "category": "sign",
+      "bbox": [
+        200.07806396484375,
+        216.8668212890625,
+        311.1814270019531,
+        277.9203186035156
+      ],
+      "bbox_normalized": [
+        0.2084146499633789,
+        0.30120391845703126,
+        0.32414731979370115,
+        0.3860004425048828
+      ],
+      "confidence": 0.37845903635025024,
+      "mask_sha256": "b5b2f81cbd8068739b1e4dd5d10b3319b5849e25b5d176dfd4a0f9dc241b804f"
+    },
+    {
+      "instance_id": "d2",
+      "category": "storage rack",
+      "bbox": [
+        690.5653076171875,
+        3.377655029296875,
+        960.0,
+        716.1245727539062
+      ],
+      "bbox_normalized": [
+        0.719338862101237,
+        0.004691187540690104,
+        1.0,
+        0.9946174621582031
+      ],
+      "confidence": 0.25201523303985596,
+      "mask_sha256": "1647d7a5997c3de37e694f2534148dfda9234c8fde33fb9c2aa3e8b19b7753c4"
+    }
+  ],
+  "batch_id": "a5c448ad8290dc1ddfa15f05deb236de7cb82037c7627af5702fa4351bd37d77",
+  "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000320/candidates.png",
+  "overlay_hash": "3f44471bab4b622866ec7bd36374e488a63902e6799e1ef1d0a2c4ce3e49c53b",
+  "possibly_truncated": false
+}

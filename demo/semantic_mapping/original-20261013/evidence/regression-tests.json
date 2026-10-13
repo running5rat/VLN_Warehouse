@@ -1,0 +1,7 @@
+{
+  "command": "/data/ticvla/envs/warehouse-realtime/bin/python -m unittest discover -s tests/warehouse -q",
+  "tests": 134,
+  "seconds": 9.241,
+  "result": "OK",
+  "execution_commit": "9cbc125e374c6a1272a4d2edf32bf1dda395be0c"
+}

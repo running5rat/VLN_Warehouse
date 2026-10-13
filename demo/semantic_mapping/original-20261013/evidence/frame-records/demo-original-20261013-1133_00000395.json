@@ -1,0 +1,529 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000395",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000395.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000395.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.06128403013584252,
+        -0.9981192594569801,
+        0.0014871285615904212,
+        0.10455692600944211
+      ],
+      [
+        0.9981194212039007,
+        0.061281852576526144,
+        -0.001468182678820144,
+        -4.613541416410325
+      ],
+      [
+        0.0013742874148576967,
+        0.0015743080506842025,
+        0.9999978164417475,
+        -0.00016413910015757385
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 91.01667141355574,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "b9a8c12b001374254be9c9bf13eea36b62d2aa6be8e7db727577a970a98eeb53",
+    "depth_hash": "7189c5ba6b794c067cc62f853d17f50a488d52b54625e21bf83ac51d4c3e374e",
+    "geometry": "arrays/13fd6981ce144eeeb707a871dc281f0c.npz",
+    "submitted_wall": 1791862381.881714
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "not_sampled",
+    "selected_instances": [],
+    "selected_categories": [],
+    "source_image_id": "demo-original-20261013-1133:00000395"
+  },
+  "instances": [
+    {
+      "category": "fire extinguisher",
+      "confidence": 0.49023550748825073,
+      "bbox": [
+        246.38232421875,
+        377.68890380859375,
+        267.2122802734375,
+        419.5090026855469
+      ],
+      "texts": []
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "fire extinguisher",
+      "bbox": [
+        246.38232421875,
+        377.68890380859375,
+        267.2122802734375,
+        419.5090026855469
+      ],
+      "confidence": 0.49023550748825073,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000395:0",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.027870893478393555,
+  "candidate_request": null,
+  "ocr": {
+    "texts": [
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            239,
+            150
+          ],
+          [
+            274,
+            188
+          ],
+          [
+            263,
+            199
+          ],
+          [
+            228,
+            160
+          ]
+        ]
+      },
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            667,
+            247
+          ],
+          [
+            684,
+            246
+          ],
+          [
+            686,
+            319
+          ],
+          [
+            669,
+            319
+          ]
+        ]
+      },
+      {
+        "text": "园",
+        "confidence": 0.1319453865289688,
+        "polygon": [
+          [
+            253,
+            351
+          ],
+          [
+            261,
+            351
+          ],
+          [
+            261,
+            361
+          ],
+          [
+            253,
+            361
+          ]
+        ]
+      },
+      {
+        "text": "U",
+        "confidence": 0.12257443368434906,
+        "polygon": [
+          [
+            232,
+            392
+          ],
+          [
+            241,
+            392
+          ],
+          [
+            241,
+            402
+          ],
+          [
+            232,
+            402
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000395.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            239,
+            150
+          ],
+          [
+            274,
+            188
+          ],
+          [
+            263,
+            199
+          ],
+          [
+            228,
+            160
+          ]
+        ],
+        [
+          [
+            667,
+            247
+          ],
+          [
+            684,
+            246
+          ],
+          [
+            686,
+            319
+          ],
+          [
+            669,
+            319
+          ]
+        ],
+        [
+          [
+            253,
+            351
+          ],
+          [
+            261,
+            351
+          ],
+          [
+            261,
+            361
+          ],
+          [
+            253,
+            361
+          ]
+        ],
+        [
+          [
+            232,
+            392
+          ],
+          [
+            241,
+            392
+          ],
+          [
+            241,
+            402
+          ],
+          [
+            232,
+            402
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "",
+        "",
+        "园",
+        "U"
+      ],
+      "rec_scores": [
+        0.0,
+        0.0,
+        0.1319453865289688,
+        0.12257443368434906
+      ],
+      "rec_polys": [
+        [
+          [
+            239,
+            150
+          ],
+          [
+            274,
+            188
+          ],
+          [
+            263,
+            199
+          ],
+          [
+            228,
+            160
+          ]
+        ],
+        [
+          [
+            667,
+            247
+          ],
+          [
+            684,
+            246
+          ],
+          [
+            686,
+            319
+          ],
+          [
+            669,
+            319
+          ]
+        ],
+        [
+          [
+            253,
+            351
+          ],
+          [
+            261,
+            351
+          ],
+          [
+            261,
+            361
+          ],
+          [
+            253,
+            361
+          ]
+        ],
+        [
+          [
+            232,
+            392
+          ],
+          [
+            241,
+            392
+          ],
+          [
+            241,
+            402
+          ],
+          [
+            232,
+            402
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          228,
+          150,
+          274,
+          199
+        ],
+        [
+          667,
+          246,
+          686,
+          319
+        ],
+        [
+          253,
+          351,
+          261,
+          361
+        ],
+        [
+          232,
+          392,
+          241,
+          402
+        ]
+      ]
+    },
+    "elapsed_s": 0.23992323875427246,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000395",
+    "rgb_hash": "b9a8c12b001374254be9c9bf13eea36b62d2aa6be8e7db727577a970a98eeb53"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "园",
+        "confidence": 0.1319453865289688,
+        "polygon": [
+          [
+            253,
+            351
+          ],
+          [
+            261,
+            351
+          ],
+          [
+            261,
+            361
+          ],
+          [
+            253,
+            361
+          ]
+        ],
+        "normalized": "园",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "U",
+        "confidence": 0.12257443368434906,
+        "polygon": [
+          [
+            232,
+            392
+          ],
+          [
+            241,
+            392
+          ],
+          [
+            241,
+            402
+          ],
+          [
+            232,
+            402
+          ]
+        ],
+        "normalized": "U",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": []
+  }
+}

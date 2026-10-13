@@ -1,0 +1,160 @@
+{
+  "source_image_id": "demo-original-20261013-1133:00000430",
+  "rgb_hash": "2eadb45a1e63afe4dc82f0b4c3f78a763a11239e9442d6cbbddaef2d07e2e477",
+  "depth_hash": "2868eceb8bc9233afed708f4bdfd7b599e42b69a7c7fcc1e854be8023dae2d48",
+  "source_geometry": {
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.03000483105467029,
+        -0.9995484297903007,
+        0.001626842685884315,
+        0.005819161313180388
+      ],
+      [
+        0.9995484433165933,
+        -0.03000738741273337,
+        -0.001570402507670054,
+        -0.21574120021824683
+      ],
+      [
+        0.0016185106594153063,
+        0.0015789884122662094,
+        0.9999974436061521,
+        -9.360564718058698e-06
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "odom_epoch": "demo-original-20261013-1133",
+    "t_obs": 98.01667177863419
+  },
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "candidates": [
+    {
+      "instance_id": "d0",
+      "category": "fire extinguisher",
+      "bbox": [
+        254.30474853515625,
+        370.329345703125,
+        281.47027587890625,
+        425.199462890625
+      ],
+      "bbox_normalized": [
+        0.26490077972412107,
+        0.5143463134765625,
+        0.2931982040405273,
+        0.5905548095703125
+      ],
+      "confidence": 0.4130036234855652,
+      "mask_sha256": "4cb9066ccf451bfd0a660348218e75dbfcc59611683f152240bbb909e5673174"
+    },
+    {
+      "instance_id": "d1",
+      "category": "fire extinguisher",
+      "bbox": [
+        720.246337890625,
+        373.1702880859375,
+        734.3333740234375,
+        428.39385986328125
+      ],
+      "bbox_normalized": [
+        0.750256601969401,
+        0.5182920667860244,
+        0.7649305979410808,
+        0.594991472032335
+      ],
+      "confidence": 0.37845903635025024,
+      "mask_sha256": "4915fbf33ba553b2af2d8bb87e408cd76be2e67810032395a57f1eec80f10223"
+    },
+    {
+      "instance_id": "d2",
+      "category": "storage rack",
+      "bbox": [
+        639.1279296875,
+        210.92852783203125,
+        736.7685546875,
+        480.9403381347656
+      ],
+      "bbox_normalized": [
+        0.6657582600911458,
+        0.292956288655599,
+        0.7674672444661458,
+        0.6679726918538411
+      ],
+      "confidence": 0.2615181803703308,
+      "mask_sha256": "dc2331aa02388aee60e7714f127b47d866e1b5caab2bc6c2d6299f0f26f63532"
+    }
+  ],
+  "batch_id": "fbadbabf69f063a21081158e7bf781147a4a533c995fbfc2435a1eb7618d4794",
+  "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000430/candidates.png",
+  "overlay_hash": "58675bf813717e2af7750cc1e4ead3f5702916bfefd619f5e1705a10b940cbcc",
+  "possibly_truncated": false
+}

@@ -1,0 +1,38 @@
+{
+  "selection_mode": "instances",
+  "request_id": "6d905b904702f6e09cbc5c0b",
+  "source_image_id": "demo-original-20261013-1133:00000400",
+  "rgb_hash": "181c0d1cfd9244f7418c7091d9734be134623c7bf4d0cdb562013d80d6866ac1",
+  "batch_id": "f3de6160f6b5d27cbf771f85ae09b8f40188c9b681a7ab7762a3fcf2f1615b78",
+  "source_time": 92.0166714657098,
+  "valid": true,
+  "parsed": {
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "identity_candidate"
+      },
+      {
+        "instance_id": "d1",
+        "purpose": "identity_candidate"
+      }
+    ],
+    "missed_categories": []
+  },
+  "error": null,
+  "llm_calls": 1,
+  "structured_inference_executed": false,
+  "navigation_task_included": false,
+  "prompt": "Image-1: <image>\nImage-2: <image>\nBuild a semantic map from this observation. Image-1 is the original RGB; Image-2 shows detector boxes with instance IDs. The candidate table below uses those IDs and normalized coordinates. Detector labels are suggestions, not truth. Which candidate instances are worth recording as map observations or inspecting for distinguishing identity information? Prioritize markers or surfaces that may carry text or symbols, and facilities with distinctive appearance or spatial context. Do not select ordinary repeated structures merely because they are large or stationary. Do not reject repeated markers: their identifiers may differ. Do not read or output any identifier text. Do not claim global uniqueness or permanent staticness. Select only visible candidate IDs; identity_candidate means inspect for identity evidence, spatial_reference means useful distinctive spatial context. Report useful visible object categories missing from the detections in missed_categories for diagnosis only. Empty lists are allowed. Return JSON with selected_instances (each has instance_id and purpose) and missed_categories. No explanation.\nCandidates: [{\"instance_id\":\"d0\",\"category\":\"fire extinguisher\",\"bbox_normalized\":[0.31386057535807294,0.5386887868245442,0.334345022837321,0.5834070841471354]},{\"instance_id\":\"d1\",\"category\":\"storage rack\",\"bbox_normalized\":[0.7833575566609701,0.2847297668457031,0.9999874114990235,0.7971164279513889]}]",
+  "max_new_tokens": 2048,
+  "format_constraint": "JSON schema; one generation; two 448px images",
+  "input_images": [
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000400.png",
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000400/candidates.png"
+  ],
+  "text": "{\n  \"selected_instances\": [\n    {\n      \"instance_id\": \"d0\",\n      \"purpose\": \"identity_candidate\"\n    },\n    {\n      \"instance_id\": \"d1\",\n      \"purpose\": \"identity_candidate\"\n    }\n  ],\n  \"missed_categories\": []\n}",
+  "token_count": 59,
+  "started": 1791862383.2828724,
+  "finished": 1791862384.6271079,
+  "elapsed_s": 1.3442356586456299
+}

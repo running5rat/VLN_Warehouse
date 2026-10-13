@@ -1,0 +1,160 @@
+{
+  "source_image_id": "demo-original-20261013-1133:00000060",
+  "rgb_hash": "1aaf1a1e41e02762ebed62d43e17c7f6e9f578bc0e15aff0ddae3082366a7bb2",
+  "depth_hash": "84e9079c48576b33de92fdafbc36a936ccf8ca8a0267de360b7596ab509a31e9",
+  "source_geometry": {
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.9999999202865177,
+        0.0003991824800308636,
+        8.961326126296796e-06,
+        7.758819382053859
+      ],
+      [
+        -0.00039918249315146296,
+        0.9999999203255958,
+        1.4623928874578864e-06,
+        -0.0052267754918826625
+      ],
+      [
+        -8.960741650701053e-06,
+        -1.4659699753745904e-06,
+        0.9999999999587779,
+        -0.012266582942968594
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999996
+      ]
+    ],
+    "odom_epoch": "demo-original-20261013-1133",
+    "t_obs": 24.01666791923344
+  },
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "candidates": [
+    {
+      "instance_id": "d0",
+      "category": "sign",
+      "bbox": [
+        585.91845703125,
+        287.4560852050781,
+        657.9164428710938,
+        326.1834411621094
+      ],
+      "bbox_normalized": [
+        0.6103317260742187,
+        0.3992445627848307,
+        0.6853296279907226,
+        0.45303255716959634
+      ],
+      "confidence": 0.31912127137184143,
+      "mask_sha256": "298ae09ee471c1d5f868c88f87136f2b230e58d1a9f702768e32c1104a985fda"
+    },
+    {
+      "instance_id": "d1",
+      "category": "sign",
+      "bbox": [
+        704.5567016601562,
+        158.0792999267578,
+        850.223876953125,
+        238.96568298339844
+      ],
+      "bbox_normalized": [
+        0.7339132308959961,
+        0.21955458323160806,
+        0.8856498718261718,
+        0.3318967819213867
+      ],
+      "confidence": 0.3328525424003601,
+      "mask_sha256": "e3ac193ea5bcc802e7d86e482579013fdefb81fa649b8410479aa22e08fe4bc5"
+    },
+    {
+      "instance_id": "d2",
+      "category": "storage rack",
+      "bbox": [
+        0.0,
+        7.290802001953125,
+        375.1993713378906,
+        706.3665161132812
+      ],
+      "bbox_normalized": [
+        0.0,
+        0.010126113891601562,
+        0.3908326784769694,
+        0.9810646057128907
+      ],
+      "confidence": 0.6238355040550232,
+      "mask_sha256": "b7d82ed64b1115cff32c6deeba34e84472ae463d045ac924c54e11ba7abda04c"
+    }
+  ],
+  "batch_id": "d6af99ff075be4991a0f26802b9eaaf797c81bf3ce860c3a0d6a27cf4eb06334",
+  "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000060/candidates.png",
+  "overlay_hash": "810ef19697629578b92862c5111ae1b5c018381b4c5d6a335da56da57258b57b",
+  "possibly_truncated": false
+}

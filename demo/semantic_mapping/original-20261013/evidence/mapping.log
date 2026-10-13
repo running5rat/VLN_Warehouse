@@ -1,0 +1,55 @@
+Loading /data/ticvla/outputs/landmark-realtime-20261012/engines/v8s/model.engine for TensorRT inference...
+Connectivity check to the model hoster has been skipped because `DISABLE_MODEL_SOURCE_CHECK` is enabled.
+[10/13/2026-11:30:37] [TRT] [I] Loaded engine size: 26 MiB
+[10/13/2026-11:30:37] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +21, now: CPU 0, GPU 43 (MiB)
+Creating model: ('PP-OCRv5_mobile_det', None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `/root/.paddlex/official_models/PP-OCRv5_mobile_det`.
+/data/ticvla/envs/landmark-perception/lib/python3.11/site-packages/paddle/utils/cpp_extension/extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+WARNING: OMP_NUM_THREADS set to 2, not 1. The computation speed will not be optimized if you use data parallel. It will fail if this PaddlePaddle binary is compiled with OpenBlas since OpenBlas does not support multi-threads.
+PLEASE USE OMP_NUM_THREADS WISELY.
+Creating model: ('PP-OCRv5_mobile_rec', None)
+Model files already exist. Using cached files. To redownload, please delete the directory manually: `/root/.paddlex/official_models/PP-OCRv5_mobile_rec`.
+`torch_dtype` is deprecated! Use `dtype` instead!
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+Setting `pad_token_id` to `eos_token_id`:151645 for open-end generation.
+REALTIME {"selection_mode": "instances", "navigation_task_included": false, "geometry_all_consumed": true, "motion_seconds": 89.46048140525818, "selection_completed_hz": 0.4024123214463727, "geometry_hz": 4.98544153791895, "mask_hz": 4.247685615267267, "candidate_hz": 4.247685615267267, "mask_p95_s": 0.566458594799042, "admission_hz": 0.2906311210446025, "admission_p95_s": 3.3686287999153137, "ocr_p95_s": 3.5581160187721252, "ocr_samples": 91, "qa_samples": 46, "candidate_all_completed_p95_s": 0.5894264459609986, "text_all_completed_p95_s": 3.7845581054687494, "candidate_completed_total": 383, "candidate_deadline_misses": 34, "text_deadline_misses": 26, "ocr_binding_eligible_samples": 29, "ocr_binding_completed_eligible": 29, "ocr_binding_completed_eligible_fraction": 1.0, "ocr_binding_timely_during_motion_fraction": 0.10344827586206896, "ocr_model_completed": 91, "ocr_model_completed_during_motion": 89, "ocr_binding_applicable_during_motion": 26, "ocr_binding_not_applicable_during_motion": 47, "ocr_bindings_fraction_all_samples": 0.2857142857142857, "ocr_model_completion_fraction_during_motion": 0.978021978021978, "text_updates_during_motion": 26, "source_frame_only": true, "mask_completed": 380, "drops": {"seg": 65, "qa": 0, "ocr": 0}, "formal_admitted_instances_during_motion": 50, "browser_paint_latency_measured": false, "publication_boundary": "files ready to read; candidate and admitted separate", "candidate_timing_pass": false, "ocr_timing_pass": false, "timing_pass": false}
+FlashAttention2 is not installed.

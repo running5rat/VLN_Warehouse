@@ -1,0 +1,1665 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000305",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000305.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000305.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.9999743182252042,
+        0.006434683775766178,
+        0.0031555878601156285,
+        10.020575467683411
+      ],
+      [
+        -0.006434683780972209,
+        -0.999979297156493,
+        1.0151085593010249e-05,
+        -4.931886736044966
+      ],
+      [
+        0.0031555878494998277,
+        -1.015438512781538e-05,
+        0.9999950210687114,
+        -0.015840624027543253
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t_obs": 73.01667047478259,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "eae79fe7e19a85725942dbac60dcdfb8eabe3a40516c395af3aec9f89fcc2f77",
+    "depth_hash": "6cc807a298afa0bfe7b710ecaec0f200fed83502a359f0f54337fd570042a324",
+    "geometry": "arrays/3716673f4f0e4dc2a66a54634c3899af.npz",
+    "submitted_wall": 1791862363.858541
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "not_sampled",
+    "selected_instances": [],
+    "selected_categories": [],
+    "source_image_id": "demo-original-20261013-1133:00000305"
+  },
+  "instances": [
+    {
+      "category": "sign",
+      "confidence": 0.29992520809173584,
+      "bbox": [
+        0.09719467163085938,
+        83.28836059570312,
+        172.89161682128906,
+        181.77951049804688
+      ],
+      "texts": [
+        {
+          "text": "72",
+          "confidence": 0.9997532367706299,
+          "polygon": [
+            [
+              1,
+              104
+            ],
+            [
+              68,
+              104
+            ],
+            [
+              68,
+              156
+            ],
+            [
+              1,
+              156
+            ]
+          ],
+          "normalized": "72",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        },
+        {
+          "text": "/5R",
+          "confidence": 0.9921393394470215,
+          "polygon": [
+            [
+              99,
+              115
+            ],
+            [
+              160,
+              115
+            ],
+            [
+              160,
+              150
+            ],
+            [
+              99,
+              150
+            ]
+          ],
+          "normalized": "/5R",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.32252585887908936,
+      "bbox": [
+        282.582763671875,
+        270.6297607421875,
+        361.09136962890625,
+        315.1773681640625
+      ],
+      "texts": [
+        {
+          "text": "/5R",
+          "confidence": 0.9924018383026123,
+          "polygon": [
+            [
+              330,
+              285
+            ],
+            [
+              355,
+              285
+            ],
+            [
+              355,
+              302
+            ],
+            [
+              330,
+              302
+            ]
+          ],
+          "normalized": "/5R",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.4144247770309448,
+      "bbox": [
+        877.9096069335938,
+        63.60113525390625,
+        959.9511108398438,
+        452.1539611816406
+      ],
+      "texts": []
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "sign",
+      "bbox": [
+        0.09719467163085938,
+        83.28836059570312,
+        172.89161682128906,
+        181.77951049804688
+      ],
+      "confidence": 0.29992520809173584,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000305:0",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 1,
+      "category": "sign",
+      "bbox": [
+        282.582763671875,
+        270.6297607421875,
+        361.09136962890625,
+        315.1773681640625
+      ],
+      "confidence": 0.32252585887908936,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000305:1",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 2,
+      "category": "sign",
+      "bbox": [
+        877.9096069335938,
+        63.60113525390625,
+        959.9511108398438,
+        452.1539611816406
+      ],
+      "confidence": 0.4144247770309448,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000305:2",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.022042512893676758,
+  "candidate_request": null,
+  "ocr": {
+    "texts": [
+      {
+        "text": "0u寸",
+        "confidence": 0.5197399854660034,
+        "polygon": [
+          [
+            864,
+            5
+          ],
+          [
+            878,
+            5
+          ],
+          [
+            878,
+            38
+          ],
+          [
+            864,
+            38
+          ]
+        ]
+      },
+      {
+        "text": "FRAGLE",
+        "confidence": 0.8915396332740784,
+        "polygon": [
+          [
+            806,
+            21
+          ],
+          [
+            839,
+            17
+          ],
+          [
+            842,
+            36
+          ],
+          [
+            808,
+            41
+          ]
+        ]
+      },
+      {
+        "text": "中",
+        "confidence": 0.44096747040748596,
+        "polygon": [
+          [
+            300,
+            73
+          ],
+          [
+            311,
+            73
+          ],
+          [
+            311,
+            101
+          ],
+          [
+            300,
+            101
+          ]
+        ]
+      },
+      {
+        "text": "=a1 +0g",
+        "confidence": 0.2609088718891144,
+        "polygon": [
+          [
+            643,
+            69
+          ],
+          [
+            653,
+            69
+          ],
+          [
+            653,
+            96
+          ],
+          [
+            643,
+            96
+          ]
+        ]
+      },
+      {
+        "text": "72",
+        "confidence": 0.9997532367706299,
+        "polygon": [
+          [
+            1,
+            104
+          ],
+          [
+            68,
+            104
+          ],
+          [
+            68,
+            156
+          ],
+          [
+            1,
+            156
+          ]
+        ]
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9921393394470215,
+        "polygon": [
+          [
+            99,
+            115
+          ],
+          [
+            160,
+            115
+          ],
+          [
+            160,
+            150
+          ],
+          [
+            99,
+            150
+          ]
+        ]
+      },
+      {
+        "text": "t -B",
+        "confidence": 0.42971476912498474,
+        "polygon": [
+          [
+            646,
+            206
+          ],
+          [
+            656,
+            206
+          ],
+          [
+            656,
+            235
+          ],
+          [
+            646,
+            235
+          ]
+        ]
+      },
+      {
+        "text": "FRAGLE",
+        "confidence": 0.9290551543235779,
+        "polygon": [
+          [
+            817,
+            236
+          ],
+          [
+            846,
+            250
+          ],
+          [
+            839,
+            265
+          ],
+          [
+            810,
+            251
+          ]
+        ]
+      },
+      {
+        "text": "XX+AC309",
+        "confidence": 0.5361381769180298,
+        "polygon": [
+          [
+            874,
+            265
+          ],
+          [
+            891,
+            265
+          ],
+          [
+            891,
+            331
+          ],
+          [
+            874,
+            331
+          ]
+        ]
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9924018383026123,
+        "polygon": [
+          [
+            330,
+            285
+          ],
+          [
+            355,
+            285
+          ],
+          [
+            355,
+            302
+          ],
+          [
+            330,
+            302
+          ]
+        ]
+      },
+      {
+        "text": "创",
+        "confidence": 0.1570170521736145,
+        "polygon": [
+          [
+            913,
+            315
+          ],
+          [
+            960,
+            328
+          ],
+          [
+            951,
+            382
+          ],
+          [
+            899,
+            369
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9590075612068176,
+        "polygon": [
+          [
+            100,
+            494
+          ],
+          [
+            153,
+            525
+          ],
+          [
+            138,
+            551
+          ],
+          [
+            85,
+            521
+          ]
+        ]
+      },
+      {
+        "text": "DB",
+        "confidence": 0.9964965581893921,
+        "polygon": [
+          [
+            3,
+            524
+          ],
+          [
+            34,
+            524
+          ],
+          [
+            34,
+            559
+          ],
+          [
+            3,
+            559
+          ]
+        ]
+      },
+      {
+        "text": "心",
+        "confidence": 0.17496301233768463,
+        "polygon": [
+          [
+            769,
+            562
+          ],
+          [
+            783,
+            562
+          ],
+          [
+            783,
+            571
+          ],
+          [
+            769,
+            571
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000305.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            864,
+            5
+          ],
+          [
+            878,
+            5
+          ],
+          [
+            878,
+            38
+          ],
+          [
+            864,
+            38
+          ]
+        ],
+        [
+          [
+            806,
+            21
+          ],
+          [
+            839,
+            17
+          ],
+          [
+            842,
+            36
+          ],
+          [
+            808,
+            41
+          ]
+        ],
+        [
+          [
+            300,
+            73
+          ],
+          [
+            311,
+            73
+          ],
+          [
+            311,
+            101
+          ],
+          [
+            300,
+            101
+          ]
+        ],
+        [
+          [
+            643,
+            69
+          ],
+          [
+            653,
+            69
+          ],
+          [
+            653,
+            96
+          ],
+          [
+            643,
+            96
+          ]
+        ],
+        [
+          [
+            1,
+            104
+          ],
+          [
+            68,
+            104
+          ],
+          [
+            68,
+            156
+          ],
+          [
+            1,
+            156
+          ]
+        ],
+        [
+          [
+            99,
+            115
+          ],
+          [
+            160,
+            115
+          ],
+          [
+            160,
+            150
+          ],
+          [
+            99,
+            150
+          ]
+        ],
+        [
+          [
+            646,
+            206
+          ],
+          [
+            656,
+            206
+          ],
+          [
+            656,
+            235
+          ],
+          [
+            646,
+            235
+          ]
+        ],
+        [
+          [
+            817,
+            236
+          ],
+          [
+            846,
+            250
+          ],
+          [
+            839,
+            265
+          ],
+          [
+            810,
+            251
+          ]
+        ],
+        [
+          [
+            874,
+            265
+          ],
+          [
+            891,
+            265
+          ],
+          [
+            891,
+            331
+          ],
+          [
+            874,
+            331
+          ]
+        ],
+        [
+          [
+            330,
+            285
+          ],
+          [
+            355,
+            285
+          ],
+          [
+            355,
+            302
+          ],
+          [
+            330,
+            302
+          ]
+        ],
+        [
+          [
+            913,
+            315
+          ],
+          [
+            960,
+            328
+          ],
+          [
+            951,
+            382
+          ],
+          [
+            899,
+            369
+          ]
+        ],
+        [
+          [
+            100,
+            494
+          ],
+          [
+            153,
+            525
+          ],
+          [
+            138,
+            551
+          ],
+          [
+            85,
+            521
+          ]
+        ],
+        [
+          [
+            3,
+            524
+          ],
+          [
+            34,
+            524
+          ],
+          [
+            34,
+            559
+          ],
+          [
+            3,
+            559
+          ]
+        ],
+        [
+          [
+            769,
+            562
+          ],
+          [
+            783,
+            562
+          ],
+          [
+            783,
+            571
+          ],
+          [
+            769,
+            571
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "0u寸",
+        "FRAGLE",
+        "中",
+        "=a1 +0g",
+        "72",
+        "/5R",
+        "t -B",
+        "FRAGLE",
+        "XX+AC309",
+        "/5R",
+        "创",
+        "FRAGILE",
+        "DB",
+        "心"
+      ],
+      "rec_scores": [
+        0.5197399854660034,
+        0.8915396332740784,
+        0.44096747040748596,
+        0.2609088718891144,
+        0.9997532367706299,
+        0.9921393394470215,
+        0.42971476912498474,
+        0.9290551543235779,
+        0.5361381769180298,
+        0.9924018383026123,
+        0.1570170521736145,
+        0.9590075612068176,
+        0.9964965581893921,
+        0.17496301233768463
+      ],
+      "rec_polys": [
+        [
+          [
+            864,
+            5
+          ],
+          [
+            878,
+            5
+          ],
+          [
+            878,
+            38
+          ],
+          [
+            864,
+            38
+          ]
+        ],
+        [
+          [
+            806,
+            21
+          ],
+          [
+            839,
+            17
+          ],
+          [
+            842,
+            36
+          ],
+          [
+            808,
+            41
+          ]
+        ],
+        [
+          [
+            300,
+            73
+          ],
+          [
+            311,
+            73
+          ],
+          [
+            311,
+            101
+          ],
+          [
+            300,
+            101
+          ]
+        ],
+        [
+          [
+            643,
+            69
+          ],
+          [
+            653,
+            69
+          ],
+          [
+            653,
+            96
+          ],
+          [
+            643,
+            96
+          ]
+        ],
+        [
+          [
+            1,
+            104
+          ],
+          [
+            68,
+            104
+          ],
+          [
+            68,
+            156
+          ],
+          [
+            1,
+            156
+          ]
+        ],
+        [
+          [
+            99,
+            115
+          ],
+          [
+            160,
+            115
+          ],
+          [
+            160,
+            150
+          ],
+          [
+            99,
+            150
+          ]
+        ],
+        [
+          [
+            646,
+            206
+          ],
+          [
+            656,
+            206
+          ],
+          [
+            656,
+            235
+          ],
+          [
+            646,
+            235
+          ]
+        ],
+        [
+          [
+            817,
+            236
+          ],
+          [
+            846,
+            250
+          ],
+          [
+            839,
+            265
+          ],
+          [
+            810,
+            251
+          ]
+        ],
+        [
+          [
+            874,
+            265
+          ],
+          [
+            891,
+            265
+          ],
+          [
+            891,
+            331
+          ],
+          [
+            874,
+            331
+          ]
+        ],
+        [
+          [
+            330,
+            285
+          ],
+          [
+            355,
+            285
+          ],
+          [
+            355,
+            302
+          ],
+          [
+            330,
+            302
+          ]
+        ],
+        [
+          [
+            913,
+            315
+          ],
+          [
+            960,
+            328
+          ],
+          [
+            951,
+            382
+          ],
+          [
+            899,
+            369
+          ]
+        ],
+        [
+          [
+            100,
+            494
+          ],
+          [
+            153,
+            525
+          ],
+          [
+            138,
+            551
+          ],
+          [
+            85,
+            521
+          ]
+        ],
+        [
+          [
+            3,
+            524
+          ],
+          [
+            34,
+            524
+          ],
+          [
+            34,
+            559
+          ],
+          [
+            3,
+            559
+          ]
+        ],
+        [
+          [
+            769,
+            562
+          ],
+          [
+            783,
+            562
+          ],
+          [
+            783,
+            571
+          ],
+          [
+            769,
+            571
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          864,
+          5,
+          878,
+          38
+        ],
+        [
+          806,
+          17,
+          842,
+          41
+        ],
+        [
+          300,
+          73,
+          311,
+          101
+        ],
+        [
+          643,
+          69,
+          653,
+          96
+        ],
+        [
+          1,
+          104,
+          68,
+          156
+        ],
+        [
+          99,
+          115,
+          160,
+          150
+        ],
+        [
+          646,
+          206,
+          656,
+          235
+        ],
+        [
+          810,
+          236,
+          846,
+          265
+        ],
+        [
+          874,
+          265,
+          891,
+          331
+        ],
+        [
+          330,
+          285,
+          355,
+          302
+        ],
+        [
+          899,
+          315,
+          960,
+          382
+        ],
+        [
+          85,
+          494,
+          153,
+          551
+        ],
+        [
+          3,
+          524,
+          34,
+          559
+        ],
+        [
+          769,
+          562,
+          783,
+          571
+        ]
+      ]
+    },
+    "elapsed_s": 0.4988393783569336,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000305",
+    "rgb_hash": "eae79fe7e19a85725942dbac60dcdfb8eabe3a40516c395af3aec9f89fcc2f77"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "0u寸",
+        "confidence": 0.5197399854660034,
+        "polygon": [
+          [
+            864,
+            5
+          ],
+          [
+            878,
+            5
+          ],
+          [
+            878,
+            38
+          ],
+          [
+            864,
+            38
+          ]
+        ],
+        "normalized": "0u寸",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGLE",
+        "confidence": 0.8915396332740784,
+        "polygon": [
+          [
+            806,
+            21
+          ],
+          [
+            839,
+            17
+          ],
+          [
+            842,
+            36
+          ],
+          [
+            808,
+            41
+          ]
+        ],
+        "normalized": "FRAGLE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "中",
+        "confidence": 0.44096747040748596,
+        "polygon": [
+          [
+            300,
+            73
+          ],
+          [
+            311,
+            73
+          ],
+          [
+            311,
+            101
+          ],
+          [
+            300,
+            101
+          ]
+        ],
+        "normalized": "中",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "=a1 +0g",
+        "confidence": 0.2609088718891144,
+        "polygon": [
+          [
+            643,
+            69
+          ],
+          [
+            653,
+            69
+          ],
+          [
+            653,
+            96
+          ],
+          [
+            643,
+            96
+          ]
+        ],
+        "normalized": "=a1 +0g",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "72",
+        "confidence": 0.9997532367706299,
+        "polygon": [
+          [
+            1,
+            104
+          ],
+          [
+            68,
+            104
+          ],
+          [
+            68,
+            156
+          ],
+          [
+            1,
+            156
+          ]
+        ],
+        "normalized": "72",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9921393394470215,
+        "polygon": [
+          [
+            99,
+            115
+          ],
+          [
+            160,
+            115
+          ],
+          [
+            160,
+            150
+          ],
+          [
+            99,
+            150
+          ]
+        ],
+        "normalized": "/5R",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "t -B",
+        "confidence": 0.42971476912498474,
+        "polygon": [
+          [
+            646,
+            206
+          ],
+          [
+            656,
+            206
+          ],
+          [
+            656,
+            235
+          ],
+          [
+            646,
+            235
+          ]
+        ],
+        "normalized": "t -B",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGLE",
+        "confidence": 0.9290551543235779,
+        "polygon": [
+          [
+            817,
+            236
+          ],
+          [
+            846,
+            250
+          ],
+          [
+            839,
+            265
+          ],
+          [
+            810,
+            251
+          ]
+        ],
+        "normalized": "FRAGLE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "XX+AC309",
+        "confidence": 0.5361381769180298,
+        "polygon": [
+          [
+            874,
+            265
+          ],
+          [
+            891,
+            265
+          ],
+          [
+            891,
+            331
+          ],
+          [
+            874,
+            331
+          ]
+        ],
+        "normalized": "XX+AC309",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9924018383026123,
+        "polygon": [
+          [
+            330,
+            285
+          ],
+          [
+            355,
+            285
+          ],
+          [
+            355,
+            302
+          ],
+          [
+            330,
+            302
+          ]
+        ],
+        "normalized": "/5R",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "创",
+        "confidence": 0.1570170521736145,
+        "polygon": [
+          [
+            913,
+            315
+          ],
+          [
+            960,
+            328
+          ],
+          [
+            951,
+            382
+          ],
+          [
+            899,
+            369
+          ]
+        ],
+        "normalized": "创",
+        "candidate_instances": [
+          2
+        ],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9590075612068176,
+        "polygon": [
+          [
+            100,
+            494
+          ],
+          [
+            153,
+            525
+          ],
+          [
+            138,
+            551
+          ],
+          [
+            85,
+            521
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "DB",
+        "confidence": 0.9964965581893921,
+        "polygon": [
+          [
+            3,
+            524
+          ],
+          [
+            34,
+            524
+          ],
+          [
+            34,
+            559
+          ],
+          [
+            3,
+            559
+          ]
+        ],
+        "normalized": "DB",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "心",
+        "confidence": 0.17496301233768463,
+        "polygon": [
+          [
+            769,
+            562
+          ],
+          [
+            783,
+            562
+          ],
+          [
+            783,
+            571
+          ],
+          [
+            769,
+            571
+          ]
+        ],
+        "normalized": "心",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": []
+  }
+}

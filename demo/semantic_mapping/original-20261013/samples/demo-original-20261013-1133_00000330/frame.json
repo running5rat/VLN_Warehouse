@@ -1,0 +1,2143 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000330",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000330.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000330.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.9999741754805426,
+        0.006454845895529151,
+        0.0031596418267847625,
+        6.765018500161321
+      ],
+      [
+        -0.006454845004652378,
+        -0.9999791672160694,
+        1.0479585709806797e-05,
+        -4.953840282800648
+      ],
+      [
+        0.0031596436467605255,
+        -9.915683182586735e-06,
+        0.9999950082643935,
+        -0.010693719177240097
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 78.0166707355529,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+    "depth_hash": "bd49f49665035e1565430476941e64280dd06dad6ba4d5f825a9788e221379ab",
+    "geometry": "arrays/44f1cae170a64da982ef41077443c417.npz",
+    "submitted_wall": 1791862368.8827014
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "valid",
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "spatial_reference"
+      },
+      {
+        "instance_id": "d1",
+        "purpose": "spatial_reference"
+      },
+      {
+        "instance_id": "d2",
+        "purpose": "spatial_reference"
+      }
+    ],
+    "missed_categories": [],
+    "selected_categories": [],
+    "request_id": "dff7586b1a417ee426ad92f2",
+    "batch_id": "a22f2692f409e7851194a7dbae8cc0bc40ad49df070743c46694f310905c187b",
+    "source_image_id": "demo-original-20261013-1133:00000330",
+    "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+    "source_time": 78.0166707355529
+  },
+  "instances": [
+    {
+      "category": "electrical cabinet",
+      "confidence": 0.30033546686172485,
+      "bbox": [
+        910.56005859375,
+        545.1865234375,
+        960.0,
+        692.5694580078125
+      ],
+      "texts": []
+    },
+    {
+      "category": "sign",
+      "confidence": 0.41016557812690735,
+      "bbox": [
+        92.9889907836914,
+        147.74588012695312,
+        245.6754913330078,
+        231.02041625976562
+      ],
+      "texts": [
+        {
+          "text": "71",
+          "confidence": 0.9997700452804565,
+          "polygon": [
+            [
+              103,
+              168
+            ],
+            [
+              163,
+              165
+            ],
+            [
+              165,
+              207
+            ],
+            [
+              105,
+              210
+            ]
+          ],
+          "normalized": "71",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        },
+        {
+          "text": "/5R",
+          "confidence": 0.9829716086387634,
+          "polygon": [
+            [
+              187,
+              176
+            ],
+            [
+              238,
+              176
+            ],
+            [
+              238,
+              208
+            ],
+            [
+              187,
+              208
+            ]
+          ],
+          "normalized": "/5R",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.3548809587955475,
+      "bbox": [
+        891.6260375976562,
+        146.51513671875,
+        959.9342651367188,
+        289.365966796875
+      ],
+      "texts": [
+        {
+          "text": "FRAGILE",
+          "confidence": 0.9836937785148621,
+          "polygon": [
+            [
+              906,
+              190
+            ],
+            [
+              956,
+              205
+            ],
+            [
+              949,
+              229
+            ],
+            [
+              899,
+              214
+            ]
+          ],
+          "normalized": "FRAGILE",
+          "candidate_instances": [
+            2
+          ],
+          "owner_instance": 2,
+          "status": "bound"
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "electrical cabinet",
+      "bbox": [
+        910.56005859375,
+        545.1865234375,
+        960.0,
+        692.5694580078125
+      ],
+      "confidence": 0.30033546686172485,
+      "selected": true,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000330:0",
+      "result": {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000330:0",
+          "image_id": "demo-original-20261013-1133:00000330",
+          "category": "electrical cabinet",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "dff7586b1a417ee426ad92f2",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "f28befe23b334b19b193bad898dfef66",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "category_selection": {
+            "selection_mode": "instances",
+            "status": "valid",
+            "selected_instances": [
+              {
+                "instance_id": "d0",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d1",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d2",
+                "purpose": "spatial_reference"
+              }
+            ],
+            "missed_categories": [],
+            "selected_categories": [],
+            "request_id": "dff7586b1a417ee426ad92f2",
+            "batch_id": "a22f2692f409e7851194a7dbae8cc0bc40ad49df070743c46694f310905c187b",
+            "source_image_id": "demo-original-20261013-1133:00000330",
+            "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+            "source_time": 78.0166707355529
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 5620,
+          "valid_interior_depth_points": 5297,
+          "filtered_depth_points": 5282,
+          "voxel_points": 134,
+          "depth_retention": 0.9971682084198603
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map/arrays/3d8e2a3cadcd4ad5bc232166d92b7a94.npz"
+    },
+    {
+      "instance_index": 1,
+      "category": "sign",
+      "bbox": [
+        92.9889907836914,
+        147.74588012695312,
+        245.6754913330078,
+        231.02041625976562
+      ],
+      "confidence": 0.41016557812690735,
+      "selected": true,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000330:1",
+      "result": {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000330:1",
+          "image_id": "demo-original-20261013-1133:00000330",
+          "category": "sign",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "dff7586b1a417ee426ad92f2",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "54b9ff21bbda46a790dec40bdc6575bc",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "category_selection": {
+            "selection_mode": "instances",
+            "status": "valid",
+            "selected_instances": [
+              {
+                "instance_id": "d0",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d1",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d2",
+                "purpose": "spatial_reference"
+              }
+            ],
+            "missed_categories": [],
+            "selected_categories": [],
+            "request_id": "dff7586b1a417ee426ad92f2",
+            "batch_id": "a22f2692f409e7851194a7dbae8cc0bc40ad49df070743c46694f310905c187b",
+            "source_image_id": "demo-original-20261013-1133:00000330",
+            "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+            "source_time": 78.0166707355529
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 12732,
+          "valid_interior_depth_points": 12276,
+          "filtered_depth_points": 12102,
+          "voxel_points": 198,
+          "depth_retention": 0.9858260019550342
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map/arrays/060fe93143eb4da0b4605d0ccdf47627.npz"
+    },
+    {
+      "instance_index": 2,
+      "category": "sign",
+      "bbox": [
+        891.6260375976562,
+        146.51513671875,
+        959.9342651367188,
+        289.365966796875
+      ],
+      "confidence": 0.3548809587955475,
+      "selected": true,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000330:2",
+      "result": {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000330:2",
+          "image_id": "demo-original-20261013-1133:00000330",
+          "category": "sign",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "dff7586b1a417ee426ad92f2",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "d483d1d77dd14fdaae9c867788d3214f",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "category_selection": {
+            "selection_mode": "instances",
+            "status": "valid",
+            "selected_instances": [
+              {
+                "instance_id": "d0",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d1",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d2",
+                "purpose": "spatial_reference"
+              }
+            ],
+            "missed_categories": [],
+            "selected_categories": [],
+            "request_id": "dff7586b1a417ee426ad92f2",
+            "batch_id": "a22f2692f409e7851194a7dbae8cc0bc40ad49df070743c46694f310905c187b",
+            "source_image_id": "demo-original-20261013-1133:00000330",
+            "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+            "source_time": 78.0166707355529
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 8091,
+          "valid_interior_depth_points": 7728,
+          "filtered_depth_points": 7701,
+          "voxel_points": 106,
+          "depth_retention": 0.9965062111801242
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map/arrays/dd7bb0257f1d4b5f9ca252531661d034.npz"
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.04898238182067871,
+  "candidate_request": {
+    "source_image_id": "demo-original-20261013-1133:00000330",
+    "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+    "depth_hash": "bd49f49665035e1565430476941e64280dd06dad6ba4d5f825a9788e221379ab",
+    "source_geometry": {
+      "K": [
+        [
+          640.0,
+          0.0,
+          480.0
+        ],
+        [
+          0.0,
+          640.0,
+          360.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_body_camera": [
+        [
+          -1.033458777808439e-21,
+          0.06237828615518053,
+          0.9980525784828886,
+          0.14999999999999947
+        ],
+        [
+          -1.0,
+          -5.293955920339377e-23,
+          -7.411538288475128e-22,
+          0.0
+        ],
+        [
+          5.293955920339377e-23,
+          -0.9980525784828889,
+          0.06237828615518054,
+          1.45
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_odom_body": [
+        [
+          -0.9999741754805426,
+          0.006454845895529151,
+          0.0031596418267847625,
+          6.765018500161321
+        ],
+        [
+          -0.006454845004652378,
+          -0.9999791672160694,
+          1.0479585709806797e-05,
+          -4.953840282800648
+        ],
+        [
+          0.0031596436467605255,
+          -9.915683182586735e-06,
+          0.9999950082643935,
+          -0.010693719177240097
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999999999998
+        ]
+      ],
+      "odom_epoch": "demo-original-20261013-1133",
+      "t_obs": 78.0166707355529
+    },
+    "provenance": {
+      "categories": [
+        "sign",
+        "label",
+        "storage rack",
+        "door",
+        "pillar",
+        "fire extinguisher",
+        "electrical cabinet"
+      ],
+      "vocabulary_version": "warehouse-static-candidates-v1",
+      "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+      "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+      "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+      "tensorrt": "10.13.3.9",
+      "torch": "2.8.0+cu128",
+      "dtype": "fp16",
+      "imgsz": 640,
+      "parameters": 15417846,
+      "runtime": "tensorrt-fp16",
+      "backend": "yoloe-realtime"
+    },
+    "candidates": [
+      {
+        "instance_id": "d0",
+        "category": "electrical cabinet",
+        "bbox": [
+          910.56005859375,
+          545.1865234375,
+          960.0,
+          692.5694580078125
+        ],
+        "bbox_normalized": [
+          0.9485000610351563,
+          0.7572035047743055,
+          1.0,
+          0.9619020250108506
+        ],
+        "confidence": 0.30033546686172485,
+        "mask_sha256": "8164e1e881b915b860822828323626f0db98d7ec0a7225359205f58f06ce6003"
+      },
+      {
+        "instance_id": "d1",
+        "category": "sign",
+        "bbox": [
+          92.9889907836914,
+          147.74588012695312,
+          245.6754913330078,
+          231.02041625976562
+        ],
+        "bbox_normalized": [
+          0.09686353206634521,
+          0.2052026112874349,
+          0.2559119701385498,
+          0.32086168924967445
+        ],
+        "confidence": 0.41016557812690735,
+        "mask_sha256": "912b7f72c5f13c953a43c93d92e9c2eda9de50b8617ccb84f598de3ae42adf86"
+      },
+      {
+        "instance_id": "d2",
+        "category": "sign",
+        "bbox": [
+          891.6260375976562,
+          146.51513671875,
+          959.9342651367188,
+          289.365966796875
+        ],
+        "bbox_normalized": [
+          0.9287771224975586,
+          0.20349324544270833,
+          0.999931526184082,
+          0.40189717610677084
+        ],
+        "confidence": 0.3548809587955475,
+        "mask_sha256": "687dc07391f038061368d5a55f8469515b3e159820b2faf4c71a9fb39b4c1c69"
+      }
+    ],
+    "batch_id": "a22f2692f409e7851194a7dbae8cc0bc40ad49df070743c46694f310905c187b",
+    "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000330/candidates.png",
+    "overlay_hash": "52c6ecda9d4d40890a3770fb1adf32f21e66090a97a336ff216b14c9454ddf27",
+    "possibly_truncated": false
+  },
+  "ocr": {
+    "texts": [
+      {
+        "text": "U+2PO",
+        "confidence": 0.2727122902870178,
+        "polygon": [
+          [
+            786,
+            39
+          ],
+          [
+            804,
+            39
+          ],
+          [
+            806,
+            94
+          ],
+          [
+            788,
+            94
+          ]
+        ]
+      },
+      {
+        "text": "x-22n0n",
+        "confidence": 0.3875553011894226,
+        "polygon": [
+          [
+            149,
+            53
+          ],
+          [
+            168,
+            54
+          ],
+          [
+            165,
+            110
+          ],
+          [
+            146,
+            109
+          ]
+        ]
+      },
+      {
+        "text": "71",
+        "confidence": 0.9997700452804565,
+        "polygon": [
+          [
+            103,
+            168
+          ],
+          [
+            163,
+            165
+          ],
+          [
+            165,
+            207
+          ],
+          [
+            105,
+            210
+          ]
+        ]
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9829716086387634,
+        "polygon": [
+          [
+            187,
+            176
+          ],
+          [
+            238,
+            176
+          ],
+          [
+            238,
+            208
+          ],
+          [
+            187,
+            208
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9836937785148621,
+        "polygon": [
+          [
+            906,
+            190
+          ],
+          [
+            956,
+            205
+          ],
+          [
+            949,
+            229
+          ],
+          [
+            899,
+            214
+          ]
+        ]
+      },
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            144,
+            246
+          ],
+          [
+            165,
+            248
+          ],
+          [
+            159,
+            305
+          ],
+          [
+            138,
+            303
+          ]
+        ]
+      },
+      {
+        "text": "1",
+        "confidence": 0.7149539589881897,
+        "polygon": [
+          [
+            902,
+            243
+          ],
+          [
+            910,
+            243
+          ],
+          [
+            910,
+            257
+          ],
+          [
+            902,
+            257
+          ]
+        ]
+      },
+      {
+        "text": "心",
+        "confidence": 0.10491597652435303,
+        "polygon": [
+          [
+            913,
+            262
+          ],
+          [
+            926,
+            262
+          ],
+          [
+            926,
+            277
+          ],
+          [
+            913,
+            277
+          ]
+        ]
+      },
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            48,
+            282
+          ],
+          [
+            73,
+            282
+          ],
+          [
+            73,
+            318
+          ],
+          [
+            48,
+            318
+          ]
+        ]
+      },
+      {
+        "text": "=X·XNOr",
+        "confidence": 0.4333430826663971,
+        "polygon": [
+          [
+            794,
+            289
+          ],
+          [
+            812,
+            288
+          ],
+          [
+            814,
+            346
+          ],
+          [
+            796,
+            347
+          ]
+        ]
+      },
+      {
+        "text": "国",
+        "confidence": 0.41104692220687866,
+        "polygon": [
+          [
+            48,
+            396
+          ],
+          [
+            70,
+            396
+          ],
+          [
+            70,
+            413
+          ],
+          [
+            48,
+            413
+          ]
+        ]
+      },
+      {
+        "text": "小肉",
+        "confidence": 0.6723529100418091,
+        "polygon": [
+          [
+            50,
+            411
+          ],
+          [
+            69,
+            411
+          ],
+          [
+            69,
+            423
+          ],
+          [
+            50,
+            423
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9736562967300415,
+        "polygon": [
+          [
+            27,
+            514
+          ],
+          [
+            98,
+            546
+          ],
+          [
+            84,
+            580
+          ],
+          [
+            12,
+            548
+          ]
+        ]
+      },
+      {
+        "text": "1",
+        "confidence": 0.08101247996091843,
+        "polygon": [
+          [
+            161,
+            623
+          ],
+          [
+            197,
+            601
+          ],
+          [
+            208,
+            620
+          ],
+          [
+            172,
+            641
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000330.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            786,
+            39
+          ],
+          [
+            804,
+            39
+          ],
+          [
+            806,
+            94
+          ],
+          [
+            788,
+            94
+          ]
+        ],
+        [
+          [
+            149,
+            53
+          ],
+          [
+            168,
+            54
+          ],
+          [
+            165,
+            110
+          ],
+          [
+            146,
+            109
+          ]
+        ],
+        [
+          [
+            103,
+            168
+          ],
+          [
+            163,
+            165
+          ],
+          [
+            165,
+            207
+          ],
+          [
+            105,
+            210
+          ]
+        ],
+        [
+          [
+            187,
+            176
+          ],
+          [
+            238,
+            176
+          ],
+          [
+            238,
+            208
+          ],
+          [
+            187,
+            208
+          ]
+        ],
+        [
+          [
+            906,
+            190
+          ],
+          [
+            956,
+            205
+          ],
+          [
+            949,
+            229
+          ],
+          [
+            899,
+            214
+          ]
+        ],
+        [
+          [
+            144,
+            246
+          ],
+          [
+            165,
+            248
+          ],
+          [
+            159,
+            305
+          ],
+          [
+            138,
+            303
+          ]
+        ],
+        [
+          [
+            902,
+            243
+          ],
+          [
+            910,
+            243
+          ],
+          [
+            910,
+            257
+          ],
+          [
+            902,
+            257
+          ]
+        ],
+        [
+          [
+            913,
+            262
+          ],
+          [
+            926,
+            262
+          ],
+          [
+            926,
+            277
+          ],
+          [
+            913,
+            277
+          ]
+        ],
+        [
+          [
+            48,
+            282
+          ],
+          [
+            73,
+            282
+          ],
+          [
+            73,
+            318
+          ],
+          [
+            48,
+            318
+          ]
+        ],
+        [
+          [
+            794,
+            289
+          ],
+          [
+            812,
+            288
+          ],
+          [
+            814,
+            346
+          ],
+          [
+            796,
+            347
+          ]
+        ],
+        [
+          [
+            48,
+            396
+          ],
+          [
+            70,
+            396
+          ],
+          [
+            70,
+            413
+          ],
+          [
+            48,
+            413
+          ]
+        ],
+        [
+          [
+            50,
+            411
+          ],
+          [
+            69,
+            411
+          ],
+          [
+            69,
+            423
+          ],
+          [
+            50,
+            423
+          ]
+        ],
+        [
+          [
+            27,
+            514
+          ],
+          [
+            98,
+            546
+          ],
+          [
+            84,
+            580
+          ],
+          [
+            12,
+            548
+          ]
+        ],
+        [
+          [
+            161,
+            623
+          ],
+          [
+            197,
+            601
+          ],
+          [
+            208,
+            620
+          ],
+          [
+            172,
+            641
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "U+2PO",
+        "x-22n0n",
+        "71",
+        "/5R",
+        "FRAGILE",
+        "",
+        "1",
+        "心",
+        "",
+        "=X·XNOr",
+        "国",
+        "小肉",
+        "FRAGILE",
+        "1"
+      ],
+      "rec_scores": [
+        0.2727122902870178,
+        0.3875553011894226,
+        0.9997700452804565,
+        0.9829716086387634,
+        0.9836937785148621,
+        0.0,
+        0.7149539589881897,
+        0.10491597652435303,
+        0.0,
+        0.4333430826663971,
+        0.41104692220687866,
+        0.6723529100418091,
+        0.9736562967300415,
+        0.08101247996091843
+      ],
+      "rec_polys": [
+        [
+          [
+            786,
+            39
+          ],
+          [
+            804,
+            39
+          ],
+          [
+            806,
+            94
+          ],
+          [
+            788,
+            94
+          ]
+        ],
+        [
+          [
+            149,
+            53
+          ],
+          [
+            168,
+            54
+          ],
+          [
+            165,
+            110
+          ],
+          [
+            146,
+            109
+          ]
+        ],
+        [
+          [
+            103,
+            168
+          ],
+          [
+            163,
+            165
+          ],
+          [
+            165,
+            207
+          ],
+          [
+            105,
+            210
+          ]
+        ],
+        [
+          [
+            187,
+            176
+          ],
+          [
+            238,
+            176
+          ],
+          [
+            238,
+            208
+          ],
+          [
+            187,
+            208
+          ]
+        ],
+        [
+          [
+            906,
+            190
+          ],
+          [
+            956,
+            205
+          ],
+          [
+            949,
+            229
+          ],
+          [
+            899,
+            214
+          ]
+        ],
+        [
+          [
+            144,
+            246
+          ],
+          [
+            165,
+            248
+          ],
+          [
+            159,
+            305
+          ],
+          [
+            138,
+            303
+          ]
+        ],
+        [
+          [
+            902,
+            243
+          ],
+          [
+            910,
+            243
+          ],
+          [
+            910,
+            257
+          ],
+          [
+            902,
+            257
+          ]
+        ],
+        [
+          [
+            913,
+            262
+          ],
+          [
+            926,
+            262
+          ],
+          [
+            926,
+            277
+          ],
+          [
+            913,
+            277
+          ]
+        ],
+        [
+          [
+            48,
+            282
+          ],
+          [
+            73,
+            282
+          ],
+          [
+            73,
+            318
+          ],
+          [
+            48,
+            318
+          ]
+        ],
+        [
+          [
+            794,
+            289
+          ],
+          [
+            812,
+            288
+          ],
+          [
+            814,
+            346
+          ],
+          [
+            796,
+            347
+          ]
+        ],
+        [
+          [
+            48,
+            396
+          ],
+          [
+            70,
+            396
+          ],
+          [
+            70,
+            413
+          ],
+          [
+            48,
+            413
+          ]
+        ],
+        [
+          [
+            50,
+            411
+          ],
+          [
+            69,
+            411
+          ],
+          [
+            69,
+            423
+          ],
+          [
+            50,
+            423
+          ]
+        ],
+        [
+          [
+            27,
+            514
+          ],
+          [
+            98,
+            546
+          ],
+          [
+            84,
+            580
+          ],
+          [
+            12,
+            548
+          ]
+        ],
+        [
+          [
+            161,
+            623
+          ],
+          [
+            197,
+            601
+          ],
+          [
+            208,
+            620
+          ],
+          [
+            172,
+            641
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          786,
+          39,
+          806,
+          94
+        ],
+        [
+          146,
+          53,
+          168,
+          110
+        ],
+        [
+          103,
+          165,
+          165,
+          210
+        ],
+        [
+          187,
+          176,
+          238,
+          208
+        ],
+        [
+          899,
+          190,
+          956,
+          229
+        ],
+        [
+          138,
+          246,
+          165,
+          305
+        ],
+        [
+          902,
+          243,
+          910,
+          257
+        ],
+        [
+          913,
+          262,
+          926,
+          277
+        ],
+        [
+          48,
+          282,
+          73,
+          318
+        ],
+        [
+          794,
+          288,
+          814,
+          347
+        ],
+        [
+          48,
+          396,
+          70,
+          413
+        ],
+        [
+          50,
+          411,
+          69,
+          423
+        ],
+        [
+          12,
+          514,
+          98,
+          580
+        ],
+        [
+          161,
+          601,
+          208,
+          641
+        ]
+      ]
+    },
+    "elapsed_s": 0.4135613441467285,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000330",
+    "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "U+2PO",
+        "confidence": 0.2727122902870178,
+        "polygon": [
+          [
+            786,
+            39
+          ],
+          [
+            804,
+            39
+          ],
+          [
+            806,
+            94
+          ],
+          [
+            788,
+            94
+          ]
+        ],
+        "normalized": "U+2PO",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "x-22n0n",
+        "confidence": 0.3875553011894226,
+        "polygon": [
+          [
+            149,
+            53
+          ],
+          [
+            168,
+            54
+          ],
+          [
+            165,
+            110
+          ],
+          [
+            146,
+            109
+          ]
+        ],
+        "normalized": "x-22n0n",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "71",
+        "confidence": 0.9997700452804565,
+        "polygon": [
+          [
+            103,
+            168
+          ],
+          [
+            163,
+            165
+          ],
+          [
+            165,
+            207
+          ],
+          [
+            105,
+            210
+          ]
+        ],
+        "normalized": "71",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9829716086387634,
+        "polygon": [
+          [
+            187,
+            176
+          ],
+          [
+            238,
+            176
+          ],
+          [
+            238,
+            208
+          ],
+          [
+            187,
+            208
+          ]
+        ],
+        "normalized": "/5R",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9836937785148621,
+        "polygon": [
+          [
+            906,
+            190
+          ],
+          [
+            956,
+            205
+          ],
+          [
+            949,
+            229
+          ],
+          [
+            899,
+            214
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [
+          2
+        ],
+        "owner_instance": 2,
+        "status": "bound"
+      },
+      {
+        "text": "1",
+        "confidence": 0.7149539589881897,
+        "polygon": [
+          [
+            902,
+            243
+          ],
+          [
+            910,
+            243
+          ],
+          [
+            910,
+            257
+          ],
+          [
+            902,
+            257
+          ]
+        ],
+        "normalized": "1",
+        "candidate_instances": [
+          2
+        ],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "心",
+        "confidence": 0.10491597652435303,
+        "polygon": [
+          [
+            913,
+            262
+          ],
+          [
+            926,
+            262
+          ],
+          [
+            926,
+            277
+          ],
+          [
+            913,
+            277
+          ]
+        ],
+        "normalized": "心",
+        "candidate_instances": [
+          2
+        ],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "=X·XNOr",
+        "confidence": 0.4333430826663971,
+        "polygon": [
+          [
+            794,
+            289
+          ],
+          [
+            812,
+            288
+          ],
+          [
+            814,
+            346
+          ],
+          [
+            796,
+            347
+          ]
+        ],
+        "normalized": "=X·XNOr",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "国",
+        "confidence": 0.41104692220687866,
+        "polygon": [
+          [
+            48,
+            396
+          ],
+          [
+            70,
+            396
+          ],
+          [
+            70,
+            413
+          ],
+          [
+            48,
+            413
+          ]
+        ],
+        "normalized": "国",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "小肉",
+        "confidence": 0.6723529100418091,
+        "polygon": [
+          [
+            50,
+            411
+          ],
+          [
+            69,
+            411
+          ],
+          [
+            69,
+            423
+          ],
+          [
+            50,
+            423
+          ]
+        ],
+        "normalized": "小肉",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9736562967300415,
+        "polygon": [
+          [
+            27,
+            514
+          ],
+          [
+            98,
+            546
+          ],
+          [
+            84,
+            580
+          ],
+          [
+            12,
+            548
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "1",
+        "confidence": 0.08101247996091843,
+        "polygon": [
+          [
+            161,
+            623
+          ],
+          [
+            197,
+            601
+          ],
+          [
+            208,
+            620
+          ],
+          [
+            172,
+            641
+          ]
+        ],
+        "normalized": "1",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": [
+      {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000330:1:text:e6ba04f11d9f",
+          "parent_event_id": "rt:demo-original-20261013-1133:00000330:1",
+          "image_id": "demo-original-20261013-1133:00000330",
+          "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+          "depth_hash": "bd49f49665035e1565430476941e64280dd06dad6ba4d5f825a9788e221379ab",
+          "texts": [
+            {
+              "text": "71",
+              "confidence": 0.9997700452804565,
+              "polygon": [
+                [
+                  103,
+                  168
+                ],
+                [
+                  163,
+                  165
+                ],
+                [
+                  165,
+                  207
+                ],
+                [
+                  105,
+                  210
+                ]
+              ],
+              "normalized": "71",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9829716086387634,
+              "polygon": [
+                [
+                  187,
+                  176
+                ],
+                [
+                  238,
+                  176
+                ],
+                [
+                  238,
+                  208
+                ],
+                [
+                  187,
+                  208
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "provenance": {
+            "backend": "PP-OCRv5_mobile",
+            "device": "cpu",
+            "threads": 4,
+            "det_max_side": 960,
+            "mkldnn": true,
+            "files": {
+              "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+              "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+              "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+              "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+              "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+              "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+              "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+              "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+            }
+          }
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "54b9ff21bbda46a790dec40bdc6575bc"
+      },
+      {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000330:2:text:e6ba04f11d9f",
+          "parent_event_id": "rt:demo-original-20261013-1133:00000330:2",
+          "image_id": "demo-original-20261013-1133:00000330",
+          "rgb_hash": "77ee01280e116a3a23fcfb0667c1bba8f6721da9c0152b1539962368c1ae6ea6",
+          "depth_hash": "bd49f49665035e1565430476941e64280dd06dad6ba4d5f825a9788e221379ab",
+          "texts": [
+            {
+              "text": "FRAGILE",
+              "confidence": 0.9836937785148621,
+              "polygon": [
+                [
+                  906,
+                  190
+                ],
+                [
+                  956,
+                  205
+                ],
+                [
+                  949,
+                  229
+                ],
+                [
+                  899,
+                  214
+                ]
+              ],
+              "normalized": "FRAGILE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "provenance": {
+            "backend": "PP-OCRv5_mobile",
+            "device": "cpu",
+            "threads": 4,
+            "det_max_side": 960,
+            "mkldnn": true,
+            "files": {
+              "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+              "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+              "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+              "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+              "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+              "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+              "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+              "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+            }
+          }
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "d483d1d77dd14fdaae9c867788d3214f"
+      }
+    ]
+  }
+}

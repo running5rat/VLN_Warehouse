@@ -1,0 +1,1322 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000030",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000030.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000030.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.9999998543358135,
+        0.0005397465943804848,
+        1.4020293495301418e-06,
+        3.851872383835553
+      ],
+      [
+        -0.0005397465952155097,
+        0.9999998543366181,
+        5.951947336462858e-07,
+        -0.0020071257456582003
+      ],
+      [
+        -1.4017078911107966e-06,
+        -5.95951387573987e-07,
+        0.99999999999884,
+        -0.006089860364820869
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 18.016667606309056,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "414fc0dbd11673c8a615e30f0aadad04ca8f516fabe3f756041c84caa4f0c4de",
+    "depth_hash": "3330c7bef52e3cbfa8c3dcd60de9e281b39d16d4125608c2d86db36fe4371db7",
+    "geometry": "arrays/0163c5cedfb740839711ee46eb950e17.npz",
+    "submitted_wall": 1791862308.888865
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "valid",
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "spatial_reference"
+      },
+      {
+        "instance_id": "d1",
+        "purpose": "spatial_reference"
+      }
+    ],
+    "missed_categories": [],
+    "selected_categories": [],
+    "request_id": "79767abd25ccfa827993c2d5",
+    "batch_id": "b4e358ab6d1e1e6f1e2b9d8aa554bc2a7b9e41c29684729bf2a19442591095de",
+    "source_image_id": "demo-original-20261013-1133:00000030",
+    "rgb_hash": "414fc0dbd11673c8a615e30f0aadad04ca8f516fabe3f756041c84caa4f0c4de",
+    "source_time": 18.016667606309056
+  },
+  "instances": [
+    {
+      "category": "sign",
+      "confidence": 0.3830642104148865,
+      "bbox": [
+        710.888427734375,
+        155.37991333007812,
+        861.192138671875,
+        235.1583251953125
+      ],
+      "texts": [
+        {
+          "text": "72",
+          "confidence": 0.9997035264968872,
+          "polygon": [
+            [
+              725,
+              173
+            ],
+            [
+              783,
+              173
+            ],
+            [
+              783,
+              214
+            ],
+            [
+              725,
+              214
+            ]
+          ],
+          "normalized": "72",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        },
+        {
+          "text": "/4R",
+          "confidence": 0.9623212218284607,
+          "polygon": [
+            [
+              804,
+              182
+            ],
+            [
+              854,
+              182
+            ],
+            [
+              854,
+              212
+            ],
+            [
+              804,
+              212
+            ]
+          ],
+          "normalized": "/4R",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "storage rack",
+      "confidence": 0.36613574624061584,
+      "bbox": [
+        0.0,
+        10.48150634765625,
+        401.9434814453125,
+        709.3096923828125
+      ],
+      "texts": []
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "sign",
+      "bbox": [
+        710.888427734375,
+        155.37991333007812,
+        861.192138671875,
+        235.1583251953125
+      ],
+      "confidence": 0.3830642104148865,
+      "selected": true,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000030:0",
+      "result": {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000030:0",
+          "image_id": "demo-original-20261013-1133:00000030",
+          "category": "sign",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "79767abd25ccfa827993c2d5",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "33bddd3affcb4ea7b150e6d6fae8dd95",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "category_selection": {
+            "selection_mode": "instances",
+            "status": "valid",
+            "selected_instances": [
+              {
+                "instance_id": "d0",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d1",
+                "purpose": "spatial_reference"
+              }
+            ],
+            "missed_categories": [],
+            "selected_categories": [],
+            "request_id": "79767abd25ccfa827993c2d5",
+            "batch_id": "b4e358ab6d1e1e6f1e2b9d8aa554bc2a7b9e41c29684729bf2a19442591095de",
+            "source_image_id": "demo-original-20261013-1133:00000030",
+            "rgb_hash": "414fc0dbd11673c8a615e30f0aadad04ca8f516fabe3f756041c84caa4f0c4de",
+            "source_time": 18.016667606309056
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 11748,
+          "valid_interior_depth_points": 11304,
+          "filtered_depth_points": 11170,
+          "voxel_points": 195,
+          "depth_retention": 0.9881457891012031
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map/arrays/377b0b99e70a4d308e6f8b425d7ea62c.npz"
+    },
+    {
+      "instance_index": 1,
+      "category": "storage rack",
+      "bbox": [
+        0.0,
+        10.48150634765625,
+        401.9434814453125,
+        709.3096923828125
+      ],
+      "confidence": 0.36613574624061584,
+      "selected": true,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000030:1",
+      "result": {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000030:1",
+          "image_id": "demo-original-20261013-1133:00000030",
+          "category": "storage rack",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "79767abd25ccfa827993c2d5",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "91d2cb8a5f05410f9601503e5b311cdc",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "category_selection": {
+            "selection_mode": "instances",
+            "status": "valid",
+            "selected_instances": [
+              {
+                "instance_id": "d0",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d1",
+                "purpose": "spatial_reference"
+              }
+            ],
+            "missed_categories": [],
+            "selected_categories": [],
+            "request_id": "79767abd25ccfa827993c2d5",
+            "batch_id": "b4e358ab6d1e1e6f1e2b9d8aa554bc2a7b9e41c29684729bf2a19442591095de",
+            "source_image_id": "demo-original-20261013-1133:00000030",
+            "rgb_hash": "414fc0dbd11673c8a615e30f0aadad04ca8f516fabe3f756041c84caa4f0c4de",
+            "source_time": 18.016667606309056
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 72061,
+          "valid_interior_depth_points": 66836,
+          "filtered_depth_points": 58085,
+          "voxel_points": 2823,
+          "depth_retention": 0.8690675683763242
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map/arrays/10231aed3e6d4083a6bf72f1d7a7213f.npz"
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.0403134822845459,
+  "candidate_request": {
+    "source_image_id": "demo-original-20261013-1133:00000030",
+    "rgb_hash": "414fc0dbd11673c8a615e30f0aadad04ca8f516fabe3f756041c84caa4f0c4de",
+    "depth_hash": "3330c7bef52e3cbfa8c3dcd60de9e281b39d16d4125608c2d86db36fe4371db7",
+    "source_geometry": {
+      "K": [
+        [
+          640.0,
+          0.0,
+          480.0
+        ],
+        [
+          0.0,
+          640.0,
+          360.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_body_camera": [
+        [
+          -1.033458777808439e-21,
+          0.06237828615518053,
+          0.9980525784828886,
+          0.14999999999999947
+        ],
+        [
+          -1.0,
+          -5.293955920339377e-23,
+          -7.411538288475128e-22,
+          0.0
+        ],
+        [
+          5.293955920339377e-23,
+          -0.9980525784828889,
+          0.06237828615518054,
+          1.45
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_odom_body": [
+        [
+          0.9999998543358135,
+          0.0005397465943804848,
+          1.4020293495301418e-06,
+          3.851872383835553
+        ],
+        [
+          -0.0005397465952155097,
+          0.9999998543366181,
+          5.951947336462858e-07,
+          -0.0020071257456582003
+        ],
+        [
+          -1.4017078911107966e-06,
+          -5.95951387573987e-07,
+          0.99999999999884,
+          -0.006089860364820869
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999999999998
+        ]
+      ],
+      "odom_epoch": "demo-original-20261013-1133",
+      "t_obs": 18.016667606309056
+    },
+    "provenance": {
+      "categories": [
+        "sign",
+        "label",
+        "storage rack",
+        "door",
+        "pillar",
+        "fire extinguisher",
+        "electrical cabinet"
+      ],
+      "vocabulary_version": "warehouse-static-candidates-v1",
+      "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+      "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+      "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+      "tensorrt": "10.13.3.9",
+      "torch": "2.8.0+cu128",
+      "dtype": "fp16",
+      "imgsz": 640,
+      "parameters": 15417846,
+      "runtime": "tensorrt-fp16",
+      "backend": "yoloe-realtime"
+    },
+    "candidates": [
+      {
+        "instance_id": "d0",
+        "category": "sign",
+        "bbox": [
+          710.888427734375,
+          155.37991333007812,
+          861.192138671875,
+          235.1583251953125
+        ],
+        "bbox_normalized": [
+          0.7405087788899739,
+          0.21580543518066406,
+          0.8970751444498698,
+          0.3266087849934896
+        ],
+        "confidence": 0.3830642104148865,
+        "mask_sha256": "4e05ecf0c81d44e9be301f44cbc2c40c0549477bf9c29971934c235de7d42cc6"
+      },
+      {
+        "instance_id": "d1",
+        "category": "storage rack",
+        "bbox": [
+          0.0,
+          10.48150634765625,
+          401.9434814453125,
+          709.3096923828125
+        ],
+        "bbox_normalized": [
+          0.0,
+          0.014557647705078124,
+          0.41869112650553386,
+          0.985152350531684
+        ],
+        "confidence": 0.36613574624061584,
+        "mask_sha256": "b6ff886299dc96ccb0900e3a59c466d81cfbdafc899791f19c0b207e4b00e27f"
+      }
+    ],
+    "batch_id": "b4e358ab6d1e1e6f1e2b9d8aa554bc2a7b9e41c29684729bf2a19442591095de",
+    "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000030/candidates.png",
+    "overlay_hash": "b644ef396ab4eaf713ba73e8c9cdbaf626755f57c7f79e175982a564b2c55f68",
+    "possibly_truncated": false
+  },
+  "ocr": {
+    "texts": [
+      {
+        "text": "72",
+        "confidence": 0.9997035264968872,
+        "polygon": [
+          [
+            725,
+            173
+          ],
+          [
+            783,
+            173
+          ],
+          [
+            783,
+            214
+          ],
+          [
+            725,
+            214
+          ]
+        ]
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.9623212218284607,
+        "polygon": [
+          [
+            804,
+            182
+          ],
+          [
+            854,
+            182
+          ],
+          [
+            854,
+            212
+          ],
+          [
+            804,
+            212
+          ]
+        ]
+      },
+      {
+        "text": "IA·PJO-",
+        "confidence": 0.3850085437297821,
+        "polygon": [
+          [
+            900,
+            227
+          ],
+          [
+            926,
+            227
+          ],
+          [
+            926,
+            301
+          ],
+          [
+            900,
+            301
+          ]
+        ]
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.9395341873168945,
+        "polygon": [
+          [
+            632,
+            300
+          ],
+          [
+            652,
+            300
+          ],
+          [
+            652,
+            311
+          ],
+          [
+            632,
+            311
+          ]
+        ]
+      },
+      {
+        "text": "IX·AXNON",
+        "confidence": 0.6090842485427856,
+        "polygon": [
+          [
+            57,
+            324
+          ],
+          [
+            78,
+            325
+          ],
+          [
+            75,
+            395
+          ],
+          [
+            54,
+            393
+          ]
+        ]
+      },
+      {
+        "text": "自面",
+        "confidence": 0.31681767106056213,
+        "polygon": [
+          [
+            317,
+            388
+          ],
+          [
+            364,
+            388
+          ],
+          [
+            364,
+            410
+          ],
+          [
+            317,
+            410
+          ]
+        ]
+      },
+      {
+        "text": "5",
+        "confidence": 0.2533603608608246,
+        "polygon": [
+          [
+            2,
+            488
+          ],
+          [
+            13,
+            488
+          ],
+          [
+            13,
+            498
+          ],
+          [
+            2,
+            498
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000030.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            725,
+            173
+          ],
+          [
+            783,
+            173
+          ],
+          [
+            783,
+            214
+          ],
+          [
+            725,
+            214
+          ]
+        ],
+        [
+          [
+            804,
+            182
+          ],
+          [
+            854,
+            182
+          ],
+          [
+            854,
+            212
+          ],
+          [
+            804,
+            212
+          ]
+        ],
+        [
+          [
+            900,
+            227
+          ],
+          [
+            926,
+            227
+          ],
+          [
+            926,
+            301
+          ],
+          [
+            900,
+            301
+          ]
+        ],
+        [
+          [
+            632,
+            300
+          ],
+          [
+            652,
+            300
+          ],
+          [
+            652,
+            311
+          ],
+          [
+            632,
+            311
+          ]
+        ],
+        [
+          [
+            57,
+            324
+          ],
+          [
+            78,
+            325
+          ],
+          [
+            75,
+            395
+          ],
+          [
+            54,
+            393
+          ]
+        ],
+        [
+          [
+            317,
+            388
+          ],
+          [
+            364,
+            388
+          ],
+          [
+            364,
+            410
+          ],
+          [
+            317,
+            410
+          ]
+        ],
+        [
+          [
+            2,
+            488
+          ],
+          [
+            13,
+            488
+          ],
+          [
+            13,
+            498
+          ],
+          [
+            2,
+            498
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "72",
+        "/4R",
+        "IA·PJO-",
+        "/4R",
+        "IX·AXNON",
+        "自面",
+        "5"
+      ],
+      "rec_scores": [
+        0.9997035264968872,
+        0.9623212218284607,
+        0.3850085437297821,
+        0.9395341873168945,
+        0.6090842485427856,
+        0.31681767106056213,
+        0.2533603608608246
+      ],
+      "rec_polys": [
+        [
+          [
+            725,
+            173
+          ],
+          [
+            783,
+            173
+          ],
+          [
+            783,
+            214
+          ],
+          [
+            725,
+            214
+          ]
+        ],
+        [
+          [
+            804,
+            182
+          ],
+          [
+            854,
+            182
+          ],
+          [
+            854,
+            212
+          ],
+          [
+            804,
+            212
+          ]
+        ],
+        [
+          [
+            900,
+            227
+          ],
+          [
+            926,
+            227
+          ],
+          [
+            926,
+            301
+          ],
+          [
+            900,
+            301
+          ]
+        ],
+        [
+          [
+            632,
+            300
+          ],
+          [
+            652,
+            300
+          ],
+          [
+            652,
+            311
+          ],
+          [
+            632,
+            311
+          ]
+        ],
+        [
+          [
+            57,
+            324
+          ],
+          [
+            78,
+            325
+          ],
+          [
+            75,
+            395
+          ],
+          [
+            54,
+            393
+          ]
+        ],
+        [
+          [
+            317,
+            388
+          ],
+          [
+            364,
+            388
+          ],
+          [
+            364,
+            410
+          ],
+          [
+            317,
+            410
+          ]
+        ],
+        [
+          [
+            2,
+            488
+          ],
+          [
+            13,
+            488
+          ],
+          [
+            13,
+            498
+          ],
+          [
+            2,
+            498
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          725,
+          173,
+          783,
+          214
+        ],
+        [
+          804,
+          182,
+          854,
+          212
+        ],
+        [
+          900,
+          227,
+          926,
+          301
+        ],
+        [
+          632,
+          300,
+          652,
+          311
+        ],
+        [
+          54,
+          324,
+          78,
+          395
+        ],
+        [
+          317,
+          388,
+          364,
+          410
+        ],
+        [
+          2,
+          488,
+          13,
+          498
+        ]
+      ]
+    },
+    "elapsed_s": 0.29108142852783203,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000030",
+    "rgb_hash": "414fc0dbd11673c8a615e30f0aadad04ca8f516fabe3f756041c84caa4f0c4de"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "72",
+        "confidence": 0.9997035264968872,
+        "polygon": [
+          [
+            725,
+            173
+          ],
+          [
+            783,
+            173
+          ],
+          [
+            783,
+            214
+          ],
+          [
+            725,
+            214
+          ]
+        ],
+        "normalized": "72",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.9623212218284607,
+        "polygon": [
+          [
+            804,
+            182
+          ],
+          [
+            854,
+            182
+          ],
+          [
+            854,
+            212
+          ],
+          [
+            804,
+            212
+          ]
+        ],
+        "normalized": "/4R",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "IA·PJO-",
+        "confidence": 0.3850085437297821,
+        "polygon": [
+          [
+            900,
+            227
+          ],
+          [
+            926,
+            227
+          ],
+          [
+            926,
+            301
+          ],
+          [
+            900,
+            301
+          ]
+        ],
+        "normalized": "IA·PJO-",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.9395341873168945,
+        "polygon": [
+          [
+            632,
+            300
+          ],
+          [
+            652,
+            300
+          ],
+          [
+            652,
+            311
+          ],
+          [
+            632,
+            311
+          ]
+        ],
+        "normalized": "/4R",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "IX·AXNON",
+        "confidence": 0.6090842485427856,
+        "polygon": [
+          [
+            57,
+            324
+          ],
+          [
+            78,
+            325
+          ],
+          [
+            75,
+            395
+          ],
+          [
+            54,
+            393
+          ]
+        ],
+        "normalized": "IX·AXNON",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "自面",
+        "confidence": 0.31681767106056213,
+        "polygon": [
+          [
+            317,
+            388
+          ],
+          [
+            364,
+            388
+          ],
+          [
+            364,
+            410
+          ],
+          [
+            317,
+            410
+          ]
+        ],
+        "normalized": "自面",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "5",
+        "confidence": 0.2533603608608246,
+        "polygon": [
+          [
+            2,
+            488
+          ],
+          [
+            13,
+            488
+          ],
+          [
+            13,
+            498
+          ],
+          [
+            2,
+            498
+          ]
+        ],
+        "normalized": "5",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": [
+      {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000030:0:text:e6ba04f11d9f",
+          "parent_event_id": "rt:demo-original-20261013-1133:00000030:0",
+          "image_id": "demo-original-20261013-1133:00000030",
+          "rgb_hash": "414fc0dbd11673c8a615e30f0aadad04ca8f516fabe3f756041c84caa4f0c4de",
+          "depth_hash": "3330c7bef52e3cbfa8c3dcd60de9e281b39d16d4125608c2d86db36fe4371db7",
+          "texts": [
+            {
+              "text": "72",
+              "confidence": 0.9997035264968872,
+              "polygon": [
+                [
+                  725,
+                  173
+                ],
+                [
+                  783,
+                  173
+                ],
+                [
+                  783,
+                  214
+                ],
+                [
+                  725,
+                  214
+                ]
+              ],
+              "normalized": "72",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9623212218284607,
+              "polygon": [
+                [
+                  804,
+                  182
+                ],
+                [
+                  854,
+                  182
+                ],
+                [
+                  854,
+                  212
+                ],
+                [
+                  804,
+                  212
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "provenance": {
+            "backend": "PP-OCRv5_mobile",
+            "device": "cpu",
+            "threads": 4,
+            "det_max_side": 960,
+            "mkldnn": true,
+            "files": {
+              "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+              "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+              "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+              "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+              "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+              "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+              "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+              "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+            }
+          }
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "33bddd3affcb4ea7b150e6d6fae8dd95"
+      }
+    ]
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "source_commit": "7b97f85622de91674327166f6f84d5390059a306",
+  "execution_commit": "9cbc125e374c6a1272a4d2edf32bf1dda395be0c",
+  "mapping_core_diff": [],
+  "source_run": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133",
+  "scene": "original",
+  "loop_complete": true,
+  "distance_m": 51.587630174129345,
+  "capture_frames": 448,
+  "map_archive_database_sha256": "d23bb4adda58c10b137337c6f580cc622aa23071516e606b62fad4b61ddc1251",
+  "raw_landmarks": 27,
+  "raw_categories": {
+    "sign": 11,
+    "storage rack": 8,
+    "electrical cabinet": 4,
+    "fire extinguisher": 4
+  },
+  "visible_landmarks": 17,
+  "visible_categories": {
+    "sign": 8,
+    "electrical cabinet": 3,
+    "fire extinguisher": 4,
+    "storage rack": 2
+  },
+  "sign_text_candidates": [
+    {
+      "uid": "067e4b1b5a954c2698501dad36543086",
+      "text": "05 | BOXES | M-O",
+      "status": "candidate",
+      "position": [
+        18.870883788740315,
+        -7.79794131956324,
+        2.7961457566565304
+      ]
+    },
+    {
+      "uid": "3022622ebeb94ac4af58f21c72b847e0",
+      "text": "71/4R",
+      "status": "candidate",
+      "position": [
+        3.4026783530212015,
+        -1.6344633824642865,
+        2.5845757669597185
+      ]
+    },
+    {
+      "uid": "33bddd3affcb4ea7b150e6d6fae8dd95",
+      "text": "72/4R",
+      "status": "candidate",
+      "position": [
+        7.410130997771991,
+        -1.654225124879273,
+        2.5882130705224213
+      ]
+    },
+    {
+      "uid": "4b6a8b00d0b2404b917585ee3414336c",
+      "text": "73/4R",
+      "status": "candidate",
+      "position": [
+        11.40314536582128,
+        -1.6430754817153268,
+        2.5879830974443148
+      ]
+    },
+    {
+      "uid": "54b9ff21bbda46a790dec40bdc6575bc",
+      "text": "71/5R",
+      "status": "candidate",
+      "position": [
+        3.3051280948834454,
+        -6.623548475205898,
+        2.565809845183889
+      ]
+    },
+    {
+      "uid": "6ceaca29a62942e19afb25895e2312a3",
+      "text": "73/5R",
+      "status": "identity_confirmed",
+      "position": [
+        11.301509976215367,
+        -6.641045932486829,
+        2.5705379196762324
+      ]
+    },
+    {
+      "uid": "8a3d12763faa49babed11be00302d96c",
+      "text": "FRAGIL",
+      "status": "candidate",
+      "position": [
+        15.938817520131982,
+        -2.025918669993499,
+        1.9499827613731637
+      ]
+    },
+    {
+      "uid": "9bc7c4c87f484073992ef6a2dfae2193",
+      "text": "72/5R",
+      "status": "candidate",
+      "position": [
+        7.305511536782897,
+        -6.6303906334373135,
+        2.5998285546619124
+      ]
+    }
+  ],
+  "postprocess": {
+    "source_map": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map",
+    "source_database_sha256": "d23bb4adda58c10b137337c6f580cc622aa23071516e606b62fad4b61ddc1251",
+    "source_database_unchanged": true,
+    "restart_identical": true,
+    "model_calls": 0,
+    "incremental_evidence_replay_identical": true,
+    "incremental_updates": 57,
+    "incremental_processing_p50_ms": 0.9722779941512272,
+    "incremental_processing_p95_ms": 1.5109510044567274,
+    "processing_seconds": 0.0017176620021928102,
+    "counts": {
+      "raw": 27,
+      "decisions": {
+        "keep": 8,
+        "hide": 10,
+        "review": 9
+      },
+      "identity_states": {
+        "candidate": 11,
+        "unknown": 13,
+        "duplicate_text": 1,
+        "identity_confirmed": 1,
+        "conflict": 1
+      }
+    },
+    "geometry_observations": 448,
+    "events": 57,
+    "text_events": 29,
+    "recovered_conflicts": 5,
+    "unresolved_conflicts": 1,
+    "static_flags_unchanged": true,
+    "hidden_categories": {
+      "sign": 3,
+      "storage rack": 6,
+      "electrical cabinet": 1
+    },
+    "scope": "Derived view validation; no new perception, accuracy or live-rate claim."
+  },
+  "realtime": {
+    "selection_mode": "instances",
+    "navigation_task_included": false,
+    "geometry_all_consumed": true,
+    "motion_seconds": 89.46048140525818,
+    "selection_completed_hz": 0.4024123214463727,
+    "geometry_hz": 4.98544153791895,
+    "mask_hz": 4.247685615267267,
+    "candidate_hz": 4.247685615267267,
+    "mask_p95_s": 0.566458594799042,
+    "admission_hz": 0.2906311210446025,
+    "admission_p95_s": 3.3686287999153137,
+    "ocr_p95_s": 3.5581160187721252,
+    "ocr_samples": 91,
+    "qa_samples": 46,
+    "candidate_all_completed_p95_s": 0.5894264459609986,
+    "text_all_completed_p95_s": 3.7845581054687494,
+    "candidate_completed_total": 383,
+    "candidate_deadline_misses": 34,
+    "text_deadline_misses": 26,
+    "ocr_binding_eligible_samples": 29,
+    "ocr_binding_completed_eligible": 29,
+    "ocr_binding_completed_eligible_fraction": 1.0,
+    "ocr_binding_timely_during_motion_fraction": 0.10344827586206896,
+    "ocr_model_completed": 91,
+    "ocr_model_completed_during_motion": 89,
+    "ocr_binding_applicable_during_motion": 26,
+    "ocr_binding_not_applicable_during_motion": 47,
+    "ocr_bindings_fraction_all_samples": 0.2857142857142857,
+    "ocr_model_completion_fraction_during_motion": 0.978021978021978,
+    "text_updates_during_motion": 26,
+    "source_frame_only": true,
+    "mask_completed": 380,
+    "drops": {
+      "seg": 65,
+      "qa": 0,
+      "ocr": 0
+    },
+    "formal_admitted_instances_during_motion": 50,
+    "browser_paint_latency_measured": false,
+    "publication_boundary": "files ready to read; candidate and admitted separate",
+    "candidate_timing_pass": false,
+    "ocr_timing_pass": false,
+    "timing_pass": false
+  },
+  "qualitative_samples": [
+    "samples/demo-original-20261013-1133_00000000/overlay.png",
+    "samples/demo-original-20261013-1133_00000010/overlay.png",
+    "samples/demo-original-20261013-1133_00000060/overlay.png",
+    "samples/demo-original-20261013-1133_00000100/overlay.png",
+    "samples/demo-original-20261013-1133_00000220/overlay.png",
+    "samples/demo-original-20261013-1133_00000250/overlay.png",
+    "samples/demo-original-20261013-1133_00000290/overlay.png",
+    "samples/demo-original-20261013-1133_00000310/overlay.png",
+    "samples/demo-original-20261013-1133_00000330/overlay.png"
+  ],
+  "limitations": [
+    "No independent mask/number ground-truth scoring in this demo.",
+    "All semantic objects are tentative; OCR text is not verified unique identity.",
+    "Map archive is complete for loading geometry; reprocessing RGB-D needs the original source run.",
+    "Camera video uses 5 Hz simulation samples. Live composite uses wall time and asynchronous panels.",
+    "Recording overhead is included in measured performance."
+  ]
+}

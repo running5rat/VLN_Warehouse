@@ -1,0 +1,27 @@
+{
+  "layout_family": "dynanav-simple-warehouse-labeled",
+  "landmark_variant": "original",
+  "episode_id": "demo-original-20261013-1133",
+  "task": {
+    "task_id": "warehouse-loop",
+    "instruction": "Map the shelf markers during one closed circuit.",
+    "hard_constraints": []
+  },
+  "camera_prim": "/World/MainRobot/chassis_link/MappingCamera",
+  "body_prim": "/World/MainRobot/chassis_link",
+  "resolution": [
+    960,
+    720
+  ],
+  "capture_hz": 5.0,
+  "capture_oracle": false,
+  "png_compress_level": 0,
+  "live_capture_mode": "synchronized",
+  "supervision": {
+    "actions_task_aligned": false
+  },
+  "pose_source": "synchronized_render_camera_pose_checked_against_physx",
+  "timestamp_source": "frozen_physics_time",
+  "schema_version": 1,
+  "frames_file": "frames.jsonl"
+}

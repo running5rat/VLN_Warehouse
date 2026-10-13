@@ -1,0 +1,65 @@
+<!doctype html><meta charset="utf-8"><title>原始仓库语义建图 Demo</title>
+<style>body{max-width:1400px;margin:30px auto;background:#15202c;color:#e8f1fa;font:17px sans-serif;padding:20px}a{color:#8dcfff}video,img{max-width:100%}pre{white-space:pre-wrap}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}</style>
+<h1>Isaac Sim 5.0 · 原始仓库语义建图</h1>
+<p>真实原场景重新绕环：InternVL 实例筛选 → YOLO-E mask → RGB-D 投影 → 异步 PP-OCRv5 文字绑定 → 持久地图。没有导航问答或 Flow 控制。</p>
+<p>完成一圈 51.59 m；采集 448 帧；原始地标 27 个，后处理显示 17 个。全部为待确认候选，未测量识别准确率。</p>
+<p><a href="summary.json">本次统计</a> · <a href="landmarks.csv">全部地标与位置</a> · <a href="map.tar.gz">完整地图归档</a> · <a href="postprocess/index.html">后处理证据</a> · <a href="evidence/report.json">运行报告</a></p>
+<p><a href="REPORT.md">实验说明</a> · <a href="verification.json">工件核验</a> · <a href="../README.md">查看与复现命令</a></p><h2>运动期间实时发布录像</h2><p>左上相机，右上地图，左下全部检测，右下入图 mask。各面板异步；底部标明源帧。保留等待与结果滞后，不把视频帧率算作模型完成频率。</p>
+<video controls preload="metadata" src="mapping_live.mp4" poster="last_live_frame.jpg"></video>
+<h2>车载相机完整一圈</h2><p>Isaac 原始 RGB 按仿真采样时间 5 Hz 编码；非桌面录屏。</p><video controls preload="metadata" src="isaac_camera.mp4"></video>
+<h2>最终地图</h2><div class="grid"><img src="semantic_bev.png"><img src="semantic_3d.png"></div>
+<h2>源帧、mask 和 OCR 文字证据</h2><p>黄色为检测框，绿色为被接纳的 mask，青色为文字区域。图片上的文字是原始读数，最终采用或拒绝情况见后处理报告。</p><div class="grid">
+<a href="samples/demo-original-20261013-1133_00000000/overlay.png"><img src="samples/demo-original-20261013-1133_00000000/overlay.png"></a>
+<a href="samples/demo-original-20261013-1133_00000010/overlay.png"><img src="samples/demo-original-20261013-1133_00000010/overlay.png"></a>
+<a href="samples/demo-original-20261013-1133_00000060/overlay.png"><img src="samples/demo-original-20261013-1133_00000060/overlay.png"></a>
+<a href="samples/demo-original-20261013-1133_00000100/overlay.png"><img src="samples/demo-original-20261013-1133_00000100/overlay.png"></a>
+<a href="samples/demo-original-20261013-1133_00000220/overlay.png"><img src="samples/demo-original-20261013-1133_00000220/overlay.png"></a>
+<a href="samples/demo-original-20261013-1133_00000250/overlay.png"><img src="samples/demo-original-20261013-1133_00000250/overlay.png"></a>
+<a href="samples/demo-original-20261013-1133_00000290/overlay.png"><img src="samples/demo-original-20261013-1133_00000290/overlay.png"></a>
+<a href="samples/demo-original-20261013-1133_00000310/overlay.png"><img src="samples/demo-original-20261013-1133_00000310/overlay.png"></a>
+<a href="samples/demo-original-20261013-1133_00000330/overlay.png"><img src="samples/demo-original-20261013-1133_00000330/overlay.png"></a>
+</div><h2>实测时延与频率</h2><pre>{
+  &quot;selection_mode&quot;: &quot;instances&quot;,
+  &quot;navigation_task_included&quot;: false,
+  &quot;geometry_all_consumed&quot;: true,
+  &quot;motion_seconds&quot;: 89.46048140525818,
+  &quot;selection_completed_hz&quot;: 0.4024123214463727,
+  &quot;geometry_hz&quot;: 4.98544153791895,
+  &quot;mask_hz&quot;: 4.247685615267267,
+  &quot;candidate_hz&quot;: 4.247685615267267,
+  &quot;mask_p95_s&quot;: 0.566458594799042,
+  &quot;admission_hz&quot;: 0.2906311210446025,
+  &quot;admission_p95_s&quot;: 3.3686287999153137,
+  &quot;ocr_p95_s&quot;: 3.5581160187721252,
+  &quot;ocr_samples&quot;: 91,
+  &quot;qa_samples&quot;: 46,
+  &quot;candidate_all_completed_p95_s&quot;: 0.5894264459609986,
+  &quot;text_all_completed_p95_s&quot;: 3.7845581054687494,
+  &quot;candidate_completed_total&quot;: 383,
+  &quot;candidate_deadline_misses&quot;: 34,
+  &quot;text_deadline_misses&quot;: 26,
+  &quot;ocr_binding_eligible_samples&quot;: 29,
+  &quot;ocr_binding_completed_eligible&quot;: 29,
+  &quot;ocr_binding_completed_eligible_fraction&quot;: 1.0,
+  &quot;ocr_binding_timely_during_motion_fraction&quot;: 0.10344827586206896,
+  &quot;ocr_model_completed&quot;: 91,
+  &quot;ocr_model_completed_during_motion&quot;: 89,
+  &quot;ocr_binding_applicable_during_motion&quot;: 26,
+  &quot;ocr_binding_not_applicable_during_motion&quot;: 47,
+  &quot;ocr_bindings_fraction_all_samples&quot;: 0.2857142857142857,
+  &quot;ocr_model_completion_fraction_during_motion&quot;: 0.978021978021978,
+  &quot;text_updates_during_motion&quot;: 26,
+  &quot;source_frame_only&quot;: true,
+  &quot;mask_completed&quot;: 380,
+  &quot;drops&quot;: {
+    &quot;seg&quot;: 65,
+    &quot;qa&quot;: 0,
+    &quot;ocr&quot;: 0
+  },
+  &quot;formal_admitted_instances_during_motion&quot;: 50,
+  &quot;browser_paint_latency_measured&quot;: false,
+  &quot;publication_boundary&quot;: &quot;files ready to read; candidate and admitted separate&quot;,
+  &quot;candidate_timing_pass&quot;: false,
+  &quot;ocr_timing_pass&quot;: false,
+  &quot;timing_pass&quot;: false
+}</pre>

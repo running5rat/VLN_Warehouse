@@ -1,0 +1,29 @@
+{
+  "selection_mode": "instances",
+  "request_id": "49d07eb16d53b2f748cf3bf8",
+  "source_image_id": "demo-original-20261013-1133:00000170",
+  "rgb_hash": "c67fbd254d9dc966afc7a4ad43259d60d4f1f3ec6f3c31bc24d0142da577ad9d",
+  "batch_id": "23ae797c7d0d024f510e9b79e7eb8f9c2172420ebd4ada7159a87531c320ec94",
+  "source_time": 46.01666906662285,
+  "valid": true,
+  "parsed": {
+    "selected_instances": [],
+    "missed_categories": []
+  },
+  "error": null,
+  "llm_calls": 1,
+  "structured_inference_executed": false,
+  "navigation_task_included": false,
+  "prompt": "Image-1: <image>\nImage-2: <image>\nBuild a semantic map from this observation. Image-1 is the original RGB; Image-2 shows detector boxes with instance IDs. The candidate table below uses those IDs and normalized coordinates. Detector labels are suggestions, not truth. Which candidate instances are worth recording as map observations or inspecting for distinguishing identity information? Prioritize markers or surfaces that may carry text or symbols, and facilities with distinctive appearance or spatial context. Do not select ordinary repeated structures merely because they are large or stationary. Do not reject repeated markers: their identifiers may differ. Do not read or output any identifier text. Do not claim global uniqueness or permanent staticness. Select only visible candidate IDs; identity_candidate means inspect for identity evidence, spatial_reference means useful distinctive spatial context. Report useful visible object categories missing from the detections in missed_categories for diagnosis only. Empty lists are allowed. Return JSON with selected_instances (each has instance_id and purpose) and missed_categories. No explanation.\nCandidates: []",
+  "max_new_tokens": 2048,
+  "format_constraint": "JSON schema; one generation; two 448px images; empty candidates use empty-array regex",
+  "input_images": [
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000170.png",
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000170/candidates.png"
+  ],
+  "text": "{\n  \"selected_instances\": [\n    \t]\n  ,\n  \"missed_categories\": []\n}",
+  "token_count": 20,
+  "started": 1791862337.1603844,
+  "finished": 1791862337.793135,
+  "elapsed_s": 0.6327507495880127
+}

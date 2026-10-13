@@ -1,0 +1,1035 @@
+[
+  {
+    "landmark_uid": "067e4b1b5a954c2698501dad36543086",
+    "category": "sign",
+    "before_text": "05 | BOXES | M-O",
+    "before_status": "candidate",
+    "after_text": "05 | BOXES | M-O",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "05 | BOXES | M-O",
+      "status": "candidate",
+      "candidates": [
+        "05 | BOXES | M-O"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "05 | BOXES | M-O"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000220"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000220",
+          "text": "05 | BOXES | M-O",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "insufficient_full_views"
+    }
+  },
+  {
+    "landmark_uid": "0d3401708e894482b9b1897f25acb1ac",
+    "category": "sign",
+    "before_text": "CAUTION",
+    "before_status": "candidate",
+    "after_text": "CAUTION",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "generic_text_attribute",
+      "duplicate_resolved_text": true,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "CAUTION",
+      "status": "candidate",
+      "candidates": [
+        "CAUTION"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "CAUTION"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000220",
+        "demo-original-20261013-1133:00000230"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000220",
+          "text": "CAUTION",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000230",
+          "text": "CAUTION",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "insufficient_full_views"
+    }
+  },
+  {
+    "landmark_uid": "3022622ebeb94ac4af58f21c72b847e0",
+    "category": "sign",
+    "before_text": "71 | /4R",
+    "before_status": "candidate",
+    "after_text": "71/4R",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "71/4R",
+      "status": "candidate",
+      "candidates": [
+        "71/4R"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "71/4R"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000000",
+        "demo-original-20261013-1133:00000447"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000000",
+          "text": "71/4R",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000447",
+          "text": "71/4R",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "insufficient_full_views"
+    }
+  },
+  {
+    "landmark_uid": "33bddd3affcb4ea7b150e6d6fae8dd95",
+    "category": "sign",
+    "before_text": null,
+    "before_status": "conflict",
+    "after_text": "72/4R",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "72/4R",
+      "status": "candidate",
+      "candidates": [
+        "/4R",
+        "72/4R"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "72/4R"
+      ],
+      "ignored_substrings": [
+        "/4R"
+      ],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000030"
+      ],
+      "compatible_partial_frames": [
+        "demo-original-20261013-1133:00000010",
+        "demo-original-20261013-1133:00000440"
+      ],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000010",
+          "text": "/4R",
+          "relation": "ignored_substring"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000030",
+          "text": "72/4R",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000440",
+          "text": "/4R",
+          "relation": "ignored_substring"
+        }
+      ],
+      "reason": "substring_parent_selected"
+    }
+  },
+  {
+    "landmark_uid": "358597a326b44cd9a85c8c1ff3246dc0",
+    "category": "storage rack",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "repeated_structure_without_distinguishing_evidence",
+      "duplicate_resolved_text": false,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "42314d86814c43e0be000a0bde3aec66",
+    "category": "storage rack",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "repeated_structure_without_distinguishing_evidence",
+      "duplicate_resolved_text": false,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "4954560995e34549908ecdbf9f5da039",
+    "category": "electrical cabinet",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "facility_distinctiveness_unverified",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "4b6a8b00d0b2404b917585ee3414336c",
+    "category": "sign",
+    "before_text": null,
+    "before_status": "conflict",
+    "after_text": "73/4R",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "73/4R",
+      "status": "candidate",
+      "candidates": [
+        "73",
+        "73/4R"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "73/4R"
+      ],
+      "ignored_substrings": [
+        "73"
+      ],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000060"
+      ],
+      "compatible_partial_frames": [
+        "demo-original-20261013-1133:00000070"
+      ],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000060",
+          "text": "73/4R",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000070",
+          "text": "73",
+          "relation": "ignored_substring"
+        }
+      ],
+      "reason": "substring_parent_selected"
+    }
+  },
+  {
+    "landmark_uid": "54b9ff21bbda46a790dec40bdc6575bc",
+    "category": "sign",
+    "before_text": null,
+    "before_status": "conflict",
+    "after_text": "71/5R",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "71/5R",
+      "status": "candidate",
+      "candidates": [
+        "/5R",
+        "71/5R"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "71/5R"
+      ],
+      "ignored_substrings": [
+        "/5R"
+      ],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000320",
+        "demo-original-20261013-1133:00000330"
+      ],
+      "compatible_partial_frames": [
+        "demo-original-20261013-1133:00000310",
+        "demo-original-20261013-1133:00000340"
+      ],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000310",
+          "text": "/5R",
+          "relation": "ignored_substring"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000320",
+          "text": "71/5R",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000330",
+          "text": "71/5R",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000340",
+          "text": "/5R",
+          "relation": "ignored_substring"
+        }
+      ],
+      "reason": "substring_parent_selected"
+    }
+  },
+  {
+    "landmark_uid": "56478d6edda6498faf59f454aea1e346",
+    "category": "fire extinguisher",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "facility_distinctiveness_unverified",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "59068f00ca0f4eddb465a37b87d1c7ba",
+    "category": "sign",
+    "before_text": null,
+    "before_status": "conflict",
+    "after_text": "CAUTION",
+    "after_status": "duplicate_text",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "generic_text_attribute",
+      "duplicate_resolved_text": true,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "CAUTION",
+      "status": "duplicate_text",
+      "candidates": [
+        "CAUTI",
+        "CAUTION"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "CAUTION"
+      ],
+      "ignored_substrings": [
+        "CAUTI"
+      ],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000060",
+        "demo-original-20261013-1133:00000070",
+        "demo-original-20261013-1133:00000090"
+      ],
+      "compatible_partial_frames": [
+        "demo-original-20261013-1133:00000100"
+      ],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000060",
+          "text": "CAUTION",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000070",
+          "text": "CAUTION",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000090",
+          "text": "CAUTION",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000100",
+          "text": "CAUTI",
+          "relation": "ignored_substring"
+        }
+      ],
+      "reason": "substring_parent_selected"
+    }
+  },
+  {
+    "landmark_uid": "5a8c849ac0214a2bb572b0287f2ea113",
+    "category": "electrical cabinet",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "facility_distinctiveness_unverified",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "5b16b09ca92b421cb329939d1dac8cfc",
+    "category": "storage rack",
+    "before_text": "FRAGLE | FRA | FRAGILE",
+    "before_status": "candidate",
+    "after_text": "FRAGLE | FRA | FRAGILE | FRAGLE",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "text_on_repeated_structure_requires_carrier_check",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "FRAGLE | FRA | FRAGILE | FRAGLE",
+      "status": "candidate",
+      "candidates": [
+        "FRAGLE | FRA | FRAGILE | FRAGLE"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "FRAGLE | FRA | FRAGILE | FRAGLE"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000320"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000320",
+          "text": "FRAGLE | FRA | FRAGILE | FRAGLE",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "insufficient_full_views"
+    }
+  },
+  {
+    "landmark_uid": "6ceaca29a62942e19afb25895e2312a3",
+    "category": "sign",
+    "before_text": "73 | /5R",
+    "before_status": "identity_confirmed",
+    "after_text": "73/5R",
+    "after_status": "identity_confirmed",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "73/5R",
+      "status": "identity_confirmed",
+      "candidates": [
+        "73/5R"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "73/5R"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000250",
+        "demo-original-20261013-1133:00000260",
+        "demo-original-20261013-1133:00000270"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000250",
+          "text": "73/5R",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000260",
+          "text": "73/5R",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000270",
+          "text": "73/5R",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "consistent_full_views"
+    }
+  },
+  {
+    "landmark_uid": "7cee1c33fd8d4290908185e18a145c06",
+    "category": "storage rack",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "repeated_structure_without_distinguishing_evidence",
+      "duplicate_resolved_text": false,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "8a3d12763faa49babed11be00302d96c",
+    "category": "sign",
+    "before_text": "FRAGIL",
+    "before_status": "candidate",
+    "after_text": "FRAGIL",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "FRAGIL",
+      "status": "candidate",
+      "candidates": [
+        "FRAGIL"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "FRAGIL"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000100"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000100",
+          "text": "FRAGIL",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "insufficient_full_views"
+    }
+  },
+  {
+    "landmark_uid": "8f4e6bb3423f48819199fab4ec1db7d4",
+    "category": "fire extinguisher",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "facility_distinctiveness_unverified",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "91d2cb8a5f05410f9601503e5b311cdc",
+    "category": "storage rack",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "repeated_structure_without_distinguishing_evidence",
+      "duplicate_resolved_text": false,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "9bc7c4c87f484073992ef6a2dfae2193",
+    "category": "sign",
+    "before_text": null,
+    "before_status": "conflict",
+    "after_text": "72/5R",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "72/5R",
+      "status": "candidate",
+      "candidates": [
+        "5R",
+        "72/5R"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "72/5R"
+      ],
+      "ignored_substrings": [
+        "5R"
+      ],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000290"
+      ],
+      "compatible_partial_frames": [
+        "demo-original-20261013-1133:00000310"
+      ],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000290",
+          "text": "72/5R",
+          "relation": "full_candidate"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000310",
+          "text": "5R",
+          "relation": "ignored_substring"
+        }
+      ],
+      "reason": "substring_parent_selected"
+    }
+  },
+  {
+    "landmark_uid": "a419529d2abd42eb8048bb58d3e18c9c",
+    "category": "storage rack",
+    "before_text": null,
+    "before_status": "conflict",
+    "after_text": null,
+    "after_status": "conflict",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "text_on_repeated_structure_requires_carrier_check",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "conflict",
+      "candidates": [
+        "3",
+        "E"
+      ],
+      "registration_status": "rejected",
+      "maximal_candidates": [
+        "3",
+        "E"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000000",
+          "text": "3",
+          "relation": "rejected_noncontaining_reading"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000447",
+          "text": "E",
+          "relation": "rejected_noncontaining_reading"
+        }
+      ],
+      "reason": "noncontaining_readings_rejected"
+    }
+  },
+  {
+    "landmark_uid": "b52836b882c44deaaed3d3a588c8ec1c",
+    "category": "electrical cabinet",
+    "before_text": "FRAGILE",
+    "before_status": "candidate",
+    "after_text": "FRAGILE",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "generic_text_attribute",
+      "duplicate_resolved_text": true,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "FRAGILE",
+      "status": "candidate",
+      "candidates": [
+        "FRAGILE"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "FRAGILE"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000320"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000320",
+          "text": "FRAGILE",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "insufficient_full_views"
+    }
+  },
+  {
+    "landmark_uid": "cf2c7d0bacf64bb48e84d24a91c29a77",
+    "category": "storage rack",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "repeated_structure_without_distinguishing_evidence",
+      "duplicate_resolved_text": false,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "d483d1d77dd14fdaae9c867788d3214f",
+    "category": "sign",
+    "before_text": "FRAGILE",
+    "before_status": "candidate",
+    "after_text": "FRAGILE",
+    "after_status": "candidate",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "generic_text_attribute",
+      "duplicate_resolved_text": true,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": "FRAGILE",
+      "status": "candidate",
+      "candidates": [
+        "FRAGILE"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "FRAGILE"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "demo-original-20261013-1133:00000330"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "demo-original-20261013-1133:00000330",
+          "text": "FRAGILE",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "insufficient_full_views"
+    }
+  },
+  {
+    "landmark_uid": "d4c64d51e9fa4a998b0822d8f8147f69",
+    "category": "storage rack",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "hide",
+      "reason": "repeated_structure_without_distinguishing_evidence",
+      "duplicate_resolved_text": false,
+      "visible": false,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "e60de0962ac241ef866da4448396722e",
+    "category": "fire extinguisher",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "facility_distinctiveness_unverified",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "e997c81ecc6445a09e1b96fef728e287",
+    "category": "fire extinguisher",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "facility_distinctiveness_unverified",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  },
+  {
+    "landmark_uid": "f28befe23b334b19b193bad898dfef66",
+    "category": "electrical cabinet",
+    "before_text": null,
+    "before_status": "unknown",
+    "after_text": null,
+    "after_status": "unknown",
+    "decision": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "review",
+      "reason": "facility_distinctiveness_unverified",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    },
+    "evidence": {
+      "text": null,
+      "status": "unknown",
+      "candidates": [],
+      "registration_status": "no_eligible_text",
+      "maximal_candidates": [],
+      "ignored_substrings": [],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [],
+      "reason": "no_eligible_text"
+    }
+  }
+]

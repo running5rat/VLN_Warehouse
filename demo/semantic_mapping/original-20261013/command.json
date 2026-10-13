@@ -1,0 +1,13 @@
+[
+  "bash",
+  "DynaNav/warehouse_loop/run_realtime.sh",
+  "--selection-mode",
+  "instances",
+  "--landmark-variant",
+  "original",
+  "--headless",
+  "--port",
+  "8791",
+  "--output",
+  "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133"
+]

@@ -1,0 +1,142 @@
+{
+  "source_image_id": "demo-original-20261013-1133:00000447",
+  "rgb_hash": "87563e31b577d02b619c0e128649a8e15a75ca7ffcb400068b0701a4808d89e2",
+  "depth_hash": "d2d1c2522b790e7f44dde38c5456db13d597aa6d60f15140427b74948d4e6699",
+  "source_geometry": {
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.999473295895016,
+        -0.0324518584765259,
+        -8.760235558446508e-05,
+        -0.01390702560941559
+      ],
+      [
+        0.03245185387283662,
+        0.9994732984532149,
+        -5.347210976026896e-05,
+        -0.14190568260979752
+      ],
+      [
+        8.929148462664288e-05,
+        5.060108693834934e-05,
+        0.9999999947332804,
+        2.1898548264676077e-05
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "odom_epoch": "demo-original-20261013-1133",
+    "t_obs": 102.23333866521716
+  },
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "candidates": [
+    {
+      "instance_id": "d0",
+      "category": "sign",
+      "bbox": [
+        717.8353881835938,
+        135.1022186279297,
+        878.91357421875,
+        225.0710906982422
+      ],
+      "bbox_normalized": [
+        0.7477451960245768,
+        0.187641970316569,
+        0.9155349731445312,
+        0.3125987370808919
+      ],
+      "confidence": 0.4244120717048645,
+      "mask_sha256": "ff2c00886f3386755b2b9e0366470f586d1634a80b6f490d19a90747eb77dac2"
+    },
+    {
+      "instance_id": "d1",
+      "category": "storage rack",
+      "bbox": [
+        1.984130859375,
+        9.057426452636719,
+        434.6404724121094,
+        695.3592529296875
+      ],
+      "bbox_normalized": [
+        0.002066802978515625,
+        0.012579758961995443,
+        0.45275049209594725,
+        0.9657767401801215
+      ],
+      "confidence": 0.5165955424308777,
+      "mask_sha256": "69c4b498c8fabc741252e3573cd8d49cea34b54975ce9eced0f864c86bc00a16"
+    }
+  ],
+  "batch_id": "38269bb3ad2722e3de02c1096aa5ddd096f674191366a8854efde70be4c55b0c",
+  "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000447/candidates.png",
+  "overlay_hash": "5fbbdebed372f2aed8e4a985bc1f05600a0fa3a9d8f751ce903a9112e12b61a3",
+  "possibly_truncated": false
+}

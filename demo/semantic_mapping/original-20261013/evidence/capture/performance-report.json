@@ -1,0 +1,59 @@
+{
+  "run_wall_start": 1791862302.7606874,
+  "run_wall_end": 1791862392.2211688,
+  "wall_seconds": 89.46048140525818,
+  "simulation_elapsed_seconds": 90.21667137183249,
+  "real_time_factor": 1.008452782219545,
+  "physics": {
+    "count": 5353,
+    "target_hz": 60,
+    "wall_hz_including_startup_and_drain": 59.83647657506758,
+    "completion_wall_hz": 59.94385078186526,
+    "interval_p95_s": 0.08169549703598018,
+    "service_p50_s": 0.0033485690073575824,
+    "service_p95_s": 0.005231524404371158,
+    "meets_target_95pct": true
+  },
+  "viewport_render": {
+    "count": 446,
+    "target_hz": 5,
+    "wall_hz_including_startup_and_drain": 4.98544153791895,
+    "completion_wall_hz": 4.998944564302608,
+    "interval_p95_s": 0.22333288192749015,
+    "service_p50_s": 0.08263152450672351,
+    "service_p95_s": 0.10500600574960117,
+    "meets_target_95pct": true
+  },
+  "capture": {
+    "count": 447,
+    "target_hz": 5.0,
+    "wall_hz_including_startup_and_drain": 4.996619657959127,
+    "completion_wall_hz": 5.000143841104478,
+    "interval_p95_s": 0.22215712070465088,
+    "service_p50_s": 0.07588816199859139,
+    "service_p95_s": 0.09731117650517263,
+    "meets_target_95pct": true
+  },
+  "map_panel": {
+    "count": 0,
+    "target_hz": 5.0,
+    "wall_hz_including_startup_and_drain": 0.0,
+    "completion_wall_hz": 0.0,
+    "interval_p95_s": null,
+    "service_p50_s": null,
+    "service_p95_s": null,
+    "meets_target_95pct": false
+  },
+  "record_write": {
+    "count": 448,
+    "target_hz": 5.0,
+    "wall_hz_including_startup_and_drain": 5.007797777999304,
+    "completion_wall_hz": 4.994357436031647,
+    "interval_p95_s": 0.2335041284561157,
+    "service_p50_s": 0.04378623500087997,
+    "service_p95_s": 0.06053995190086425,
+    "meets_target_95pct": true
+  },
+  "capture_source_hz": 4.954738333868108,
+  "viewport_metric": "Scheduled viewport update completions, with synchronized capture sharing its slot; not GPU presentation FPS"
+}

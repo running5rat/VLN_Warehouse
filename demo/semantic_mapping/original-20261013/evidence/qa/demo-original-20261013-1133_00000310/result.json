@@ -1,0 +1,40 @@
+{
+  "selection_mode": "instances",
+  "request_id": "505558fb93e2eafd0b39c0eb",
+  "source_image_id": "demo-original-20261013-1133:00000310",
+  "rgb_hash": "b983bd4a7c2b36b5a7b3a47a7e8ad9788d8d6c527a5f873f530d25db4f6e662f",
+  "batch_id": "bb716c3cfe67bcbe95221b78208235b6093d105208480e6217fe676c1402a982",
+  "source_time": 74.01667052693665,
+  "valid": true,
+  "parsed": {
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "spatial_reference"
+      },
+      {
+        "instance_id": "d1",
+        "purpose": "spatial_reference"
+      }
+    ],
+    "missed_categories": [
+      "sign"
+    ]
+  },
+  "error": null,
+  "llm_calls": 1,
+  "structured_inference_executed": false,
+  "navigation_task_included": false,
+  "prompt": "Image-1: <image>\nImage-2: <image>\nBuild a semantic map from this observation. Image-1 is the original RGB; Image-2 shows detector boxes with instance IDs. The candidate table below uses those IDs and normalized coordinates. Detector labels are suggestions, not truth. Which candidate instances are worth recording as map observations or inspecting for distinguishing identity information? Prioritize markers or surfaces that may carry text or symbols, and facilities with distinctive appearance or spatial context. Do not select ordinary repeated structures merely because they are large or stationary. Do not reject repeated markers: their identifiers may differ. Do not read or output any identifier text. Do not claim global uniqueness or permanent staticness. Select only visible candidate IDs; identity_candidate means inspect for identity evidence, spatial_reference means useful distinctive spatial context. Report useful visible object categories missing from the detections in missed_categories for diagnosis only. Empty lists are allowed. Return JSON with selected_instances (each has instance_id and purpose) and missed_categories. No explanation.\nCandidates: [{\"instance_id\":\"d0\",\"category\":\"sign\",\"bbox_normalized\":[4.827976226806641e-06,0.0002620379130045573,0.0750662088394165,0.1540066719055176]},{\"instance_id\":\"d1\",\"category\":\"sign\",\"bbox_normalized\":[0.2722745895385742,0.35787828233506946,0.3625682830810547,0.42568829854329426]}]",
+  "max_new_tokens": 2048,
+  "format_constraint": "JSON schema; one generation; two 448px images",
+  "input_images": [
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000310.png",
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000310/candidates.png"
+  ],
+  "text": "{\n  \"selected_instances\": [\n    {\n      \"instance_id\": \"d0\",\n      \"purpose\": \"spatial_reference\"\n    },\n    {\n      \"instance_id\": \"d1\",\n      \"purpose\": \"spatial_reference\"\n    }\n  ],\n  \"missed_categories\": [\n    \"sign\"\n  ]\n}",
+  "token_count": 67,
+  "started": 1791862365.38582,
+  "finished": 1791862367.0842626,
+  "elapsed_s": 1.6984429359436035
+}

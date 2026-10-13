@@ -1,0 +1,41 @@
+name: Publish semantic mapping demo
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'demo/semantic_mapping/**'
+      - '.github/workflows/semantic-demo-pages.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: semantic-demo-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - name: Build static demo and check local links
+        run: python3 demo/semantic_mapping/build_pages.py --output "$RUNNER_TEMP/semantic-demo-site"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ${{ runner.temp }}/semantic-demo-site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

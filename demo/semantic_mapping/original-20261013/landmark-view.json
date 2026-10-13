@@ -1,0 +1,5606 @@
+{
+  "policy": {
+    "version": "landmark-view-v2-substring",
+    "min_text_confidence": 0.8,
+    "repeated_categories": [
+      "storage rack",
+      "floor",
+      "wall"
+    ],
+    "generic_texts": [
+      "CAUTION",
+      "FRAGILE"
+    ]
+  },
+  "landmarks": [
+    {
+      "landmark_uid": "067e4b1b5a954c2698501dad36543086",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000220"
+      ],
+      "geometry": "arrays/592499cb18e1491682b987f7e246c838.npz",
+      "position": [
+        18.870883788740315,
+        -7.79794131956324,
+        2.7961457566565304
+      ],
+      "covariance": [
+        [
+          5.477839547145223e-06,
+          5.484912351550606e-06,
+          -1.938766569144333e-06
+        ],
+        [
+          5.484912351550606e-06,
+          9.065702433559186e-05,
+          -1.7421367043018507e-06
+        ],
+        [
+          -1.938766569144333e-06,
+          -1.7421367043018507e-06,
+          0.0004544631673699164
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 56.016669588163495,
+      "last_seen": 56.016669588163495,
+      "confidence": 0.25757700204849243,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000220",
+          "t_obs": 56.016669588163495,
+          "camera_pose": [
+            [
+              -0.3662185670735775,
+              -0.061108924906644796,
+              -0.9285201454073732,
+              20.857227994325275
+            ],
+            [
+              0.9305286887189649,
+              -0.023442823863582,
+              -0.3654679103290251,
+              -4.923786655980128
+            ],
+            [
+              0.0005662168655121314,
+              -0.9978557677871365,
+              0.0654488051258851,
+              1.4172769536223153
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "05 | BOXES | M-O",
+          "texts": [
+            {
+              "text": "05",
+              "confidence": 0.9868046641349792,
+              "polygon": [
+                [
+                  30,
+                  27
+                ],
+                [
+                  97,
+                  27
+                ],
+                [
+                  97,
+                  111
+                ],
+                [
+                  30,
+                  111
+                ]
+              ],
+              "normalized": "05",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "BOXES",
+              "confidence": 0.985174834728241,
+              "polygon": [
+                [
+                  27,
+                  151
+                ],
+                [
+                  86,
+                  142
+                ],
+                [
+                  90,
+                  169
+                ],
+                [
+                  31,
+                  178
+                ]
+              ],
+              "normalized": "BOXES",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "M-O",
+              "confidence": 0.9028546810150146,
+              "polygon": [
+                [
+                  32,
+                  173
+                ],
+                [
+                  80,
+                  165
+                ],
+                [
+                  84,
+                  187
+                ],
+                [
+                  36,
+                  195
+                ]
+              ],
+              "normalized": "M-O",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000220:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "05 | BOXES | M-O",
+      "identity_candidates": [
+        "05 | BOXES | M-O"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "05 | BOXES | M-O",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "05 | BOXES | M-O",
+        "status": "candidate",
+        "candidates": [
+          "05 | BOXES | M-O"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "05 | BOXES | M-O"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000220"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000220",
+            "text": "05 | BOXES | M-O",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "0d3401708e894482b9b1897f25acb1ac",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000220",
+        "demo-original-20261013-1133:00000230"
+      ],
+      "geometry": "arrays/3b2e85bff3be4dab9053fa952a2946be.npz",
+      "position": [
+        15.30619307097537,
+        -6.628305120211606,
+        2.5854942576201116
+      ],
+      "covariance": [
+        [
+          4.217378035216443e-06,
+          5.888187492306823e-06,
+          -4.06706474683832e-06
+        ],
+        [
+          5.888187492306823e-06,
+          0.00030786344473968363,
+          -1.4962504911481101e-05
+        ],
+        [
+          -4.06706474683832e-06,
+          -1.4962504911481101e-05,
+          0.00010432364776905072
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 56.016669588163495,
+      "last_seen": 58.01666969247162,
+      "confidence": 0.3830642104148865,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000220",
+          "t_obs": 56.016669588163495,
+          "camera_pose": [
+            [
+              -0.3662185670735775,
+              -0.061108924906644796,
+              -0.9285201454073732,
+              20.857227994325275
+            ],
+            [
+              0.9305286887189649,
+              -0.023442823863582,
+              -0.3654679103290251,
+              -4.923786655980128
+            ],
+            [
+              0.0005662168655121314,
+              -0.9978557677871365,
+              0.0654488051258851,
+              1.4172769536223153
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "CAUTION",
+          "texts": [
+            {
+              "text": "CAUTION",
+              "confidence": 0.9986733198165894,
+              "polygon": [
+                [
+                  500,
+                  273
+                ],
+                [
+                  557,
+                  269
+                ],
+                [
+                  558,
+                  284
+                ],
+                [
+                  501,
+                  289
+                ]
+              ],
+              "normalized": "CAUTION",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000220:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000230",
+          "t_obs": 58.01666969247162,
+          "camera_pose": [
+            [
+              -0.010062110382437267,
+              -0.06552522095538144,
+              -0.9978001800728441,
+              19.63211283259714
+            ],
+            [
+              0.9999493755488763,
+              -0.0006428352781501404,
+              -0.01004156871293795,
+              -4.866640678409407
+            ],
+            [
+              1.6554852358530597e-05,
+              -0.9978507063591997,
+              0.06552837205656244,
+              1.41919994119906
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "CAUTION",
+          "texts": [
+            {
+              "text": "CAUTION",
+              "confidence": 0.9989266991615295,
+              "polygon": [
+                [
+                  192,
+                  231
+                ],
+                [
+                  270,
+                  231
+                ],
+                [
+                  270,
+                  249
+                ],
+                [
+                  192,
+                  249
+                ]
+              ],
+              "normalized": "CAUTION",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000230:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "CAUTION",
+      "identity_candidates": [
+        "CAUTION"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views",
+        "text_seen_on_other_instance"
+      ],
+      "duplicate_text": true,
+      "raw_identity_text": "CAUTION",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "CAUTION",
+        "status": "candidate",
+        "candidates": [
+          "CAUTION"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "CAUTION"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000220",
+          "demo-original-20261013-1133:00000230"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000220",
+            "text": "CAUTION",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000230",
+            "text": "CAUTION",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": true,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views",
+        "text_seen_on_other_instance"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "generic_text_attribute",
+        "duplicate_resolved_text": true,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "3022622ebeb94ac4af58f21c72b847e0",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000000",
+        "demo-original-20261013-1133:00000010",
+        "demo-original-20261013-1133:00000447"
+      ],
+      "geometry": "arrays/9d21b2f4561445bca8448e73701cc6da.npz",
+      "position": [
+        3.4026783530212015,
+        -1.6344633824642865,
+        2.5845757669597185
+      ],
+      "covariance": [
+        [
+          4.793911567062151e-06,
+          -8.734566976262195e-06,
+          4.9293200742062645e-06
+        ],
+        [
+          -8.734566976262195e-06,
+          0.00030006625108614486,
+          -1.6410051712494347e-05
+        ],
+        [
+          4.9293200742062645e-06,
+          -1.6410051712494347e-05,
+          0.00011555870701955852
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 12.016667293384671,
+      "last_seen": 102.23333866521716,
+      "confidence": 0.4244120717048645,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000000",
+          "t_obs": 12.016667293384671,
+          "camera_pose": [
+            [
+              -1.2845080937182829e-21,
+              0.06237828615518053,
+              0.9980525784828886,
+              0.14999999999999858
+            ],
+            [
+              -0.9999999999999999,
+              -1.4513893013673124e-22,
+              -1.3676580677408788e-21,
+              -1.7892950625287346e-23
+            ],
+            [
+              1.0587911840678754e-22,
+              -0.9980525784828889,
+              0.06237828615518054,
+              1.45
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "71 | /4R",
+          "texts": [
+            {
+              "text": "71",
+              "confidence": 0.9990878701210022,
+              "polygon": [
+                [
+                  732,
+                  164
+                ],
+                [
+                  798,
+                  164
+                ],
+                [
+                  798,
+                  205
+                ],
+                [
+                  732,
+                  205
+                ]
+              ],
+              "normalized": "71",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9475786089897156,
+              "polygon": [
+                [
+                  819,
+                  170
+                ],
+                [
+                  871,
+                  170
+                ],
+                [
+                  871,
+                  201
+                ],
+                [
+                  819,
+                  201
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000000:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000010",
+          "t_obs": 14.0166673976928,
+          "camera_pose": [
+            [
+              -0.0006589071421369192,
+              0.0623689074165775,
+              0.9980529471070361,
+              1.3972024921324047
+            ],
+            [
+              -0.9999997829168603,
+              -4.3848477215386806e-05,
+              -0.0006574523119093865,
+              0.00018973900230811927
+            ],
+            [
+              2.758519538667077e-06,
+              -0.9980531636465935,
+              0.06236892276941408,
+              1.4480266595307523
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000447",
+          "t_obs": 102.23333866521716,
+          "camera_pose": [
+            [
+              0.0324518584765259,
+              0.062432863012672986,
+              0.9975214356080073,
+              0.1358869453592388
+            ],
+            [
+              -0.9994732984532149,
+              0.0020776590041690626,
+              0.032385320935770553,
+              -0.13711543908802443
+            ],
+            [
+              -5.060108693834934e-05,
+              -0.9980470033766465,
+              0.06246740342311979,
+              1.4500352846342153
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "71 | /4R",
+          "texts": [
+            {
+              "text": "71",
+              "confidence": 0.9995847940444946,
+              "polygon": [
+                [
+                  730,
+                  160
+                ],
+                [
+                  795,
+                  160
+                ],
+                [
+                  795,
+                  205
+                ],
+                [
+                  730,
+                  205
+                ]
+              ],
+              "normalized": "71",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9634725451469421,
+              "polygon": [
+                [
+                  818,
+                  167
+                ],
+                [
+                  870,
+                  167
+                ],
+                [
+                  870,
+                  199
+                ],
+                [
+                  818,
+                  199
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000447:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "71/4R",
+      "identity_candidates": [
+        "71 | /4R"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "71 | /4R",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "71/4R",
+        "status": "candidate",
+        "candidates": [
+          "71/4R"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "71/4R"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000000",
+          "demo-original-20261013-1133:00000447"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000000",
+            "text": "71/4R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000447",
+            "text": "71/4R",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "33bddd3affcb4ea7b150e6d6fae8dd95",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000010",
+        "demo-original-20261013-1133:00000030",
+        "demo-original-20261013-1133:00000040",
+        "demo-original-20261013-1133:00000440"
+      ],
+      "geometry": "arrays/0c9b07380d754af98650893ea3606107.npz",
+      "position": [
+        7.410130997771991,
+        -1.654225124879273,
+        2.5882130705224213
+      ],
+      "covariance": [
+        [
+          1.8991692789542827e-05,
+          -2.192421125821653e-05,
+          1.3080497493330728e-05
+        ],
+        [
+          -2.192421125821653e-05,
+          0.00032427721689122144,
+          -2.82370527392393e-05
+        ],
+        [
+          1.3080497493330728e-05,
+          -2.82370527392393e-05,
+          0.00010642431947775145
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 14.0166673976928,
+      "last_seen": 100.01667188294232,
+      "confidence": 0.26894259452819824,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000010",
+          "t_obs": 14.0166673976928,
+          "camera_pose": [
+            [
+              -0.0006589071421369192,
+              0.0623689074165775,
+              0.9980529471070361,
+              1.3972024921324047
+            ],
+            [
+              -0.9999997829168603,
+              -4.3848477215386806e-05,
+              -0.0006574523119093865,
+              0.00018973900230811927
+            ],
+            [
+              2.758519538667077e-06,
+              -0.9980531636465935,
+              0.06236892276941408,
+              1.4480266595307523
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "/4R",
+          "texts": [
+            {
+              "text": "/4R",
+              "confidence": 0.9532139897346497,
+              "polygon": [
+                [
+                  667,
+                  275
+                ],
+                [
+                  692,
+                  275
+                ],
+                [
+                  692,
+                  291
+                ],
+                [
+                  667,
+                  291
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000010:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000030",
+          "t_obs": 18.016667606309056,
+          "camera_pose": [
+            [
+              -0.0005397465943804848,
+              0.062376877769890815,
+              0.9980525205585596,
+              4.001874394928481
+            ],
+            [
+              -0.9999998543366181,
+              -3.426250320625258e-05,
+              -0.000538658353854786,
+              -0.0020872247025767393
+            ],
+            [
+              5.95951387573987e-07,
+              -0.998052665917867,
+              0.062376887176933175,
+              1.4439099293773134
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "72 | /4R",
+          "texts": [
+            {
+              "text": "72",
+              "confidence": 0.9997035264968872,
+              "polygon": [
+                [
+                  725,
+                  173
+                ],
+                [
+                  783,
+                  173
+                ],
+                [
+                  783,
+                  214
+                ],
+                [
+                  725,
+                  214
+                ]
+              ],
+              "normalized": "72",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9623212218284607,
+              "polygon": [
+                [
+                  804,
+                  182
+                ],
+                [
+                  854,
+                  182
+                ],
+                [
+                  854,
+                  212
+                ],
+                [
+                  804,
+                  212
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000030:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000040",
+          "t_obs": 20.016667710617185,
+          "camera_pose": [
+            [
+              -0.00043659637556355246,
+              0.06237658708060801,
+              0.9980525891794378,
+              5.304195581165676
+            ],
+            [
+              -0.9999999046917442,
+              -2.7559065830303748e-05,
+              -0.0004357258306801659,
+              -0.003259482776964418
+            ],
+            [
+              3.26306786594095e-07,
+              -0.9980526842931058,
+              0.06237659316779254,
+              1.4418511633873423
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000440",
+          "t_obs": 100.01667188294232,
+          "camera_pose": [
+            [
+              0.3787509195067031,
+              0.057733511045885276,
+              0.9236961527878854,
+              0.13286779843509008
+            ],
+            [
+              -0.9254984565638347,
+              0.024262891260799117,
+              0.377973436904798,
+              -0.08462438663105856
+            ],
+            [
+              -0.0005898057185166157,
+              -0.9980371505159422,
+              0.0626218677398968,
+              1.4500477842809905
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "/4R",
+          "texts": [
+            {
+              "text": "/4R",
+              "confidence": 0.9253539443016052,
+              "polygon": [
+                [
+                  930,
+                  276
+                ],
+                [
+                  958,
+                  276
+                ],
+                [
+                  958,
+                  291
+                ],
+                [
+                  930,
+                  291
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000440:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "72/4R",
+      "identity_candidates": [
+        "/4R",
+        "72 | /4R"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "substring_parent_selected"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": "72/4R",
+        "status": "candidate",
+        "candidates": [
+          "/4R",
+          "72/4R"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "72/4R"
+        ],
+        "ignored_substrings": [
+          "/4R"
+        ],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000030"
+        ],
+        "compatible_partial_frames": [
+          "demo-original-20261013-1133:00000010",
+          "demo-original-20261013-1133:00000440"
+        ],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000010",
+            "text": "/4R",
+            "relation": "ignored_substring"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000030",
+            "text": "72/4R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000440",
+            "text": "/4R",
+            "relation": "ignored_substring"
+          }
+        ],
+        "reason": "substring_parent_selected"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "358597a326b44cd9a85c8c1ff3246dc0",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "storage rack",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000420"
+      ],
+      "geometry": "arrays/c7106ac5a2784faa9c256961f235fa94.npz",
+      "position": [
+        4.24099186927308,
+        7.033819870292313,
+        1.4385028949437657
+      ],
+      "covariance": [
+        [
+          0.000169148007349134,
+          -3.752769763531675e-06,
+          1.0604006184179388e-05
+        ],
+        [
+          -3.752769763531675e-06,
+          9.158635221489691e-06,
+          3.6775752362537182e-06
+        ],
+        [
+          1.0604006184179388e-05,
+          3.6775752362537182e-06,
+          0.0002135880868078927
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 96.01667167432606,
+      "last_seen": 96.01667167432606,
+      "confidence": 0.3161574602127075,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000420",
+          "t_obs": 96.01667167432606,
+          "camera_pose": [
+            [
+              0.9995875352934916,
+              -0.003411233833757093,
+              -0.02851530763665808,
+              0.03726500641302107
+            ],
+            [
+              0.028675125689934695,
+              0.0639247757526203,
+              0.9975426608479675,
+              -1.212454696037442
+            ],
+            [
+              -0.0015800166291104643,
+              -0.9979488897377006,
+              0.06399622659769169,
+              1.4501778166817265
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "repeated_structure_without_distinguishing_evidence",
+        "duplicate_resolved_text": false,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "42314d86814c43e0be000a0bde3aec66",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "storage rack",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000400"
+      ],
+      "geometry": "arrays/0e760a3a0e0841c689e52627e979daff.npz",
+      "position": [
+        3.439908076282812,
+        2.110012441998183,
+        1.376776731797336
+      ],
+      "covariance": [
+        [
+          0.00018992177975520383,
+          1.5499416196574392e-05,
+          3.459246635636225e-05
+        ],
+        [
+          1.5499416196574392e-05,
+          4.1168243311625035e-05,
+          -4.313414673219026e-05
+        ],
+        [
+          3.459246635636225e-05,
+          -4.313414673219026e-05,
+          0.0008244318555872375
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 92.0166714657098,
+      "last_seen": 92.0166714657098,
+      "confidence": 0.3802986145019531,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000400",
+          "t_obs": 92.0166714657098,
+          "camera_pose": [
+            [
+              0.9997014256265819,
+              -0.003137946480117312,
+              -0.024232475978886326,
+              0.11474900599271548
+            ],
+            [
+              0.024383582140109418,
+              0.06393435499200288,
+              0.9976561728239708,
+              -3.8163884581316636
+            ],
+            [
+              -0.0015813039543110406,
+              -0.9979491728257733,
+              0.06399178020777053,
+              1.4500570923702936
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "repeated_structure_without_distinguishing_evidence",
+        "duplicate_resolved_text": false,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "4954560995e34549908ecdbf9f5da039",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "electrical cabinet",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000260"
+      ],
+      "geometry": "arrays/526ac4e12be14fac922d0c5e3a5b2e4d.npz",
+      "position": [
+        12.94464748275402,
+        -3.050078966021219,
+        1.5703045480879965
+      ],
+      "covariance": [
+        [
+          0.0002457640445771832,
+          -2.0162760931529725e-05,
+          -8.612001893641709e-06
+        ],
+        [
+          -2.0162760931529725e-05,
+          1.3378868644087987e-05,
+          1.92082544261532e-05
+        ],
+        [
+          -8.612001893641709e-06,
+          1.92082544261532e-05,
+          0.00018084066455896532
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 64.01667000539601,
+      "last_seen": 64.01667000539601,
+      "confidence": 0.32380783557891846,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000260",
+          "t_obs": 64.01667000539601,
+          "camera_pose": [
+            [
+              -0.006470809516545507,
+              -0.06553176287386979,
+              -0.9978295028103967,
+              15.729409911830786
+            ],
+            [
+              0.9999790640468084,
+              -0.0004144672041411871,
+              -0.006457529326694963,
+              -4.893551218462357
+            ],
+            [
+              9.605676348621791e-06,
+              -0.9978503977408539,
+              0.06553307284227838,
+              1.4253707902217285
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "4b6a8b00d0b2404b917585ee3414336c",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000060",
+        "demo-original-20261013-1133:00000070"
+      ],
+      "geometry": "arrays/38d584695a1844aba1d9f26412b94cad.npz",
+      "position": [
+        11.40314536582128,
+        -1.6430754817153268,
+        2.5879830974443148
+      ],
+      "covariance": [
+        [
+          4.959741537080676e-06,
+          -7.778651527376875e-06,
+          5.776046169745038e-06
+        ],
+        [
+          -7.778651527376875e-06,
+          0.00030521779673496776,
+          -1.6437831041870148e-05
+        ],
+        [
+          5.776046169745038e-06,
+          -1.6437831041870148e-05,
+          0.0001049785506446669
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 24.01666791923344,
+      "last_seen": 26.01666802354157,
+      "confidence": 0.41205698251724243,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000060",
+          "t_obs": 24.01666791923344,
+          "camera_pose": [
+            [
+              -0.0003991824800308636,
+              0.06236933730814315,
+              0.9980530579168075,
+              7.908832364019719
+            ],
+            [
+              -0.9999999203255958,
+              -2.635986477802273e-05,
+              -0.0003983138950130405,
+              -0.005284532396168568
+            ],
+            [
+              1.4659699753745904e-06,
+              -0.9980531373974538,
+              0.062369342861299575,
+              1.4377320728860115
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "73 | /4R",
+          "texts": [
+            {
+              "text": "73",
+              "confidence": 0.9984232187271118,
+              "polygon": [
+                [
+                  714,
+                  176
+                ],
+                [
+                  775,
+                  176
+                ],
+                [
+                  775,
+                  221
+                ],
+                [
+                  714,
+                  221
+                ]
+              ],
+              "normalized": "73",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9489407539367676,
+              "polygon": [
+                [
+                  796,
+                  187
+                ],
+                [
+                  842,
+                  187
+                ],
+                [
+                  842,
+                  215
+                ],
+                [
+                  796,
+                  215
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000060:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000070",
+          "t_obs": 26.01666802354157,
+          "camera_pose": [
+            [
+              -5.951016620493119e-05,
+              0.062377131763034714,
+              0.9980526488575425,
+              9.211143722926831
+            ],
+            [
+              -0.9999999982276183,
+              -5.525857089783592e-06,
+              -5.928091975044805e-05,
+              -0.005707058270425177
+            ],
+            [
+              1.817322563344291e-06,
+              -0.9980526506164304,
+              0.06237713198132329,
+              1.435674384347278
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "73",
+          "texts": [
+            {
+              "text": "73",
+              "confidence": 0.9927400946617126,
+              "polygon": [
+                [
+                  849,
+                  53
+                ],
+                [
+                  943,
+                  47
+                ],
+                [
+                  947,
+                  109
+                ],
+                [
+                  853,
+                  116
+                ]
+              ],
+              "normalized": "73",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000070:1:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "73/4R",
+      "identity_candidates": [
+        "73",
+        "73 | /4R"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "substring_parent_selected"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": "73/4R",
+        "status": "candidate",
+        "candidates": [
+          "73",
+          "73/4R"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "73/4R"
+        ],
+        "ignored_substrings": [
+          "73"
+        ],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000060"
+        ],
+        "compatible_partial_frames": [
+          "demo-original-20261013-1133:00000070"
+        ],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000060",
+            "text": "73/4R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000070",
+            "text": "73",
+            "relation": "ignored_substring"
+          }
+        ],
+        "reason": "substring_parent_selected"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "54b9ff21bbda46a790dec40bdc6575bc",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000310",
+        "demo-original-20261013-1133:00000320",
+        "demo-original-20261013-1133:00000330",
+        "demo-original-20261013-1133:00000340"
+      ],
+      "geometry": "arrays/91a51497df0148c1a1316c96c7c0a82f.npz",
+      "position": [
+        3.3051280948834454,
+        -6.623548475205898,
+        2.565809845183889
+      ],
+      "covariance": [
+        [
+          1.286894960829509e-06,
+          1.6492281124268563e-06,
+          4.83525682676129e-07
+        ],
+        [
+          1.6492281124268563e-06,
+          0.0002853959164051841,
+          -1.394466567162138e-05
+        ],
+        [
+          4.83525682676129e-07,
+          -1.394466567162138e-05,
+          0.00010908444149107968
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 74.01667052693665,
+      "last_seen": 80.01667083986104,
+      "confidence": 0.49218809604644775,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000310",
+          "t_obs": 74.01667052693665,
+          "camera_pose": [
+            [
+              -0.006444766822006098,
+              -0.06552419514359548,
+              -0.9978301683309609,
+              9.224213923776894
+            ],
+            [
+              0.999979232221653,
+              -0.000412023086668374,
+              -0.006431590967145569,
+              -4.937194333633783
+            ],
+            [
+              1.0295755688472968e-05,
+              -0.9978508957192754,
+              0.06552548974435311,
+              1.4356541956336
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "/5R",
+          "texts": [
+            {
+              "text": "/5R",
+              "confidence": 0.9898641705513,
+              "polygon": [
+                [
+                  313,
+                  272
+                ],
+                [
+                  343,
+                  272
+                ],
+                [
+                  343,
+                  291
+                ],
+                [
+                  313,
+                  291
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000310:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000320",
+          "t_obs": 76.01667063124478,
+          "camera_pose": [
+            [
+              -0.006616668634483198,
+              -0.06552224100705226,
+              -0.9978291715667543,
+              7.921905787317458
+            ],
+            [
+              0.9999781095508703,
+              -0.00042283589005336726,
+              -0.0066031529497128155,
+              -4.94602143373849
+            ],
+            [
+              1.0735393096886217e-05,
+              -0.9978510195130456,
+              0.06552360446073996,
+              1.4377127123558535
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "71 | /5R",
+          "texts": [
+            {
+              "text": "71",
+              "confidence": 0.9995543956756592,
+              "polygon": [
+                [
+                  209,
+                  237
+                ],
+                [
+                  248,
+                  233
+                ],
+                [
+                  251,
+                  258
+                ],
+                [
+                  212,
+                  262
+                ]
+              ],
+              "normalized": "71",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9912864565849304,
+              "polygon": [
+                [
+                  267,
+                  237
+                ],
+                [
+                  306,
+                  237
+                ],
+                [
+                  306,
+                  262
+                ],
+                [
+                  267,
+                  262
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000320:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000330",
+          "t_obs": 78.0166707355529,
+          "camera_pose": [
+            [
+              -0.006454845895529151,
+              -0.06553016393822092,
+              -0.997829711212637,
+              6.619603854488078
+            ],
+            [
+              0.9999791672160694,
+              -0.00041310134632664876,
+              -0.006441621002004506,
+              -4.954793314152067
+            ],
+            [
+              9.915683182586735e-06,
+              -0.9978505033127496,
+              0.06553146526800488,
+              1.4397729893531446
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "71 | /5R",
+          "texts": [
+            {
+              "text": "71",
+              "confidence": 0.9997700452804565,
+              "polygon": [
+                [
+                  103,
+                  168
+                ],
+                [
+                  163,
+                  165
+                ],
+                [
+                  165,
+                  207
+                ],
+                [
+                  105,
+                  210
+                ]
+              ],
+              "normalized": "71",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9829716086387634,
+              "polygon": [
+                [
+                  187,
+                  176
+                ],
+                [
+                  238,
+                  176
+                ],
+                [
+                  238,
+                  208
+                ],
+                [
+                  187,
+                  208
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000330:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000340",
+          "t_obs": 80.01667083986104,
+          "camera_pose": [
+            [
+              -0.006671270485538181,
+              -0.06553098854499756,
+              -0.997828233560478,
+              5.317294106714195
+            ],
+            [
+              0.9999777467738169,
+              -0.0004268497106294422,
+              -0.0066576089163614014,
+              -4.963643075043383
+            ],
+            [
+              1.0357000881970252e-05,
+              -0.997850443372974,
+              0.065532377898964,
+              1.4418319377914894
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "/5R",
+          "texts": [
+            {
+              "text": "/5R",
+              "confidence": 0.9912362098693848,
+              "polygon": [
+                [
+                  3,
+                  38
+                ],
+                [
+                  84,
+                  38
+                ],
+                [
+                  84,
+                  85
+                ],
+                [
+                  3,
+                  85
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000340:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "71/5R",
+      "identity_candidates": [
+        "/5R",
+        "71 | /5R"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "substring_parent_selected"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": "71/5R",
+        "status": "candidate",
+        "candidates": [
+          "/5R",
+          "71/5R"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "71/5R"
+        ],
+        "ignored_substrings": [
+          "/5R"
+        ],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000320",
+          "demo-original-20261013-1133:00000330"
+        ],
+        "compatible_partial_frames": [
+          "demo-original-20261013-1133:00000310",
+          "demo-original-20261013-1133:00000340"
+        ],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000310",
+            "text": "/5R",
+            "relation": "ignored_substring"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000320",
+            "text": "71/5R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000330",
+            "text": "71/5R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000340",
+            "text": "/5R",
+            "relation": "ignored_substring"
+          }
+        ],
+        "reason": "substring_parent_selected"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "56478d6edda6498faf59f454aea1e346",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000180",
+        "demo-original-20261013-1133:00000200"
+      ],
+      "geometry": "arrays/2ab01e669a6044f192d2e2fb0eb166b4.npz",
+      "position": [
+        19.07456331923279,
+        -7.922307806592534,
+        1.256237846891379
+      ],
+      "covariance": [
+        [
+          2.717727931721728e-05,
+          -5.660699786952314e-06,
+          -1.3218411389683656e-05
+        ],
+        [
+          -5.660699786952314e-06,
+          2.4573477642411286e-05,
+          -2.2572616851976857e-05
+        ],
+        [
+          -1.3218411389683656e-05,
+          -2.2572616851976857e-05,
+          0.00035717531439423227
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 48.01666917093098,
+      "last_seen": 52.01666937954724,
+      "confidence": 0.924144983291626,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000180",
+          "t_obs": 48.01666917093098,
+          "camera_pose": [
+            [
+              -0.9996488679217697,
+              0.0001167207724437837,
+              0.026497683653206417,
+              20.889609489511383
+            ],
+            [
+              -0.026450940130918858,
+              -0.06392936038406163,
+              -0.997603821487806,
+              -1.2146086744647966
+            ],
+            [
+              0.0015775388789718197,
+              -0.9979544194286365,
+              0.06391000010905404,
+              1.4172113478082502
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000200",
+          "t_obs": 52.01666937954724,
+          "camera_pose": [
+            [
+              -0.9995892517912104,
+              0.0002538714075077141,
+              0.028657690988558446,
+              20.96798342945689
+            ],
+            [
+              -0.02861529735680578,
+              -0.06392702202461635,
+              -0.9975442349150464,
+              -3.8185850391640836
+            ],
+            [
+              0.0015787528840311908,
+              -0.9979545437565647,
+              0.06390802872064275,
+              1.4170879238362186
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "59068f00ca0f4eddb465a37b87d1c7ba",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000060",
+        "demo-original-20261013-1133:00000070",
+        "demo-original-20261013-1133:00000090",
+        "demo-original-20261013-1133:00000100"
+      ],
+      "geometry": "arrays/845269fe36234b4e9a66aa891aa81a68.npz",
+      "position": [
+        15.401584073491087,
+        -1.6699833065448522,
+        2.550524652941658
+      ],
+      "covariance": [
+        [
+          6.191051475732383e-06,
+          -2.393561958136243e-06,
+          2.599580567229508e-06
+        ],
+        [
+          -2.393561958136243e-06,
+          0.0003325667203449653,
+          -2.067367639627237e-05
+        ],
+        [
+          2.599580567229508e-06,
+          -2.067367639627237e-05,
+          0.00010026255841830289
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 24.01666791923344,
+      "last_seen": 32.016668336465955,
+      "confidence": 0.2873671352863312,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000060",
+          "t_obs": 24.01666791923344,
+          "camera_pose": [
+            [
+              -0.0003991824800308636,
+              0.06236933730814315,
+              0.9980530579168075,
+              7.908832364019719
+            ],
+            [
+              -0.9999999203255958,
+              -2.635986477802273e-05,
+              -0.0003983138950130405,
+              -0.005284532396168568
+            ],
+            [
+              1.4659699753745904e-06,
+              -0.9980531373974538,
+              0.062369342861299575,
+              1.4377320728860115
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "CAUTION",
+          "texts": [
+            {
+              "text": "CAUTION",
+              "confidence": 0.9975370764732361,
+              "polygon": [
+                [
+                  597,
+                  302
+                ],
+                [
+                  642,
+                  302
+                ],
+                [
+                  642,
+                  312
+                ],
+                [
+                  597,
+                  312
+                ]
+              ],
+              "normalized": "CAUTION",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000060:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000070",
+          "t_obs": 26.01666802354157,
+          "camera_pose": [
+            [
+              -5.951016620493119e-05,
+              0.062377131763034714,
+              0.9980526488575425,
+              9.211143722926831
+            ],
+            [
+              -0.9999999982276183,
+              -5.525857089783592e-06,
+              -5.928091975044805e-05,
+              -0.005707058270425177
+            ],
+            [
+              1.817322563344291e-06,
+              -0.9980526506164304,
+              0.06237713198132329,
+              1.435674384347278
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "CAUTION",
+          "texts": [
+            {
+              "text": "CAUTION",
+              "confidence": 0.9989543557167053,
+              "polygon": [
+                [
+                  621,
+                  280
+                ],
+                [
+                  677,
+                  280
+                ],
+                [
+                  677,
+                  295
+                ],
+                [
+                  621,
+                  295
+                ]
+              ],
+              "normalized": "CAUTION",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000070:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000090",
+          "t_obs": 30.016668232157826,
+          "camera_pose": [
+            [
+              0.00025677008569621425,
+              0.06236836708499666,
+              0.9980531653455509,
+              11.814232043182301
+            ],
+            [
+              -0.9999999670317027,
+              1.362827524063104e-05,
+              0.0002564193099567688,
+              -0.004958802834645498
+            ],
+            [
+              2.3907104088141337e-06,
+              -0.9980531982822464,
+              0.062368368528151315,
+              1.4315576657901716
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "CAUTION",
+          "texts": [
+            {
+              "text": "CAUTION",
+              "confidence": 0.9987791776657104,
+              "polygon": [
+                [
+                  723,
+                  193
+                ],
+                [
+                  818,
+                  195
+                ],
+                [
+                  818,
+                  218
+                ],
+                [
+                  723,
+                  216
+                ]
+              ],
+              "normalized": "CAUTION",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000090:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000100",
+          "t_obs": 32.016668336465955,
+          "camera_pose": [
+            [
+              0.00036771767063749084,
+              0.06236986286641592,
+              0.9980530371627248,
+              13.115188782978855
+            ],
+            [
+              -0.9999999323918484,
+              2.2822959775969308e-05,
+              0.0003670087332697993,
+              -0.004081440576306999
+            ],
+            [
+              1.1176004336163832e-07,
+              -0.998053104641801,
+              0.062369867042110214,
+              1.4295010829418375
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "CAUTI",
+          "texts": [
+            {
+              "text": "CAUTI",
+              "confidence": 0.9987556338310242,
+              "polygon": [
+                [
+                  861,
+                  85
+                ],
+                [
+                  957,
+                  85
+                ],
+                [
+                  957,
+                  115
+                ],
+                [
+                  861,
+                  115
+                ]
+              ],
+              "normalized": "CAUTI",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000100:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "duplicate_text",
+      "identity_text": "CAUTION",
+      "identity_candidates": [
+        "CAUTI",
+        "CAUTION"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "substring_parent_selected",
+        "text_seen_on_other_instance"
+      ],
+      "duplicate_text": true,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": "CAUTION",
+        "status": "duplicate_text",
+        "candidates": [
+          "CAUTI",
+          "CAUTION"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "CAUTION"
+        ],
+        "ignored_substrings": [
+          "CAUTI"
+        ],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000060",
+          "demo-original-20261013-1133:00000070",
+          "demo-original-20261013-1133:00000090"
+        ],
+        "compatible_partial_frames": [
+          "demo-original-20261013-1133:00000100"
+        ],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000060",
+            "text": "CAUTION",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000070",
+            "text": "CAUTION",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000090",
+            "text": "CAUTION",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000100",
+            "text": "CAUTI",
+            "relation": "ignored_substring"
+          }
+        ],
+        "reason": "substring_parent_selected"
+      },
+      "raw_duplicate_text": true,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings",
+        "text_seen_on_other_instance"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "generic_text_attribute",
+        "duplicate_resolved_text": true,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "5a8c849ac0214a2bb572b0287f2ea113",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "electrical cabinet",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000290"
+      ],
+      "geometry": "arrays/b389b4e0565c48bd85e500e5365434c9.npz",
+      "position": [
+        7.441060433053899,
+        -6.946554519611596,
+        0.6714975747928045
+      ],
+      "covariance": [
+        [
+          0.00016416538870900053,
+          4.656913207705157e-06,
+          7.65162133638276e-06
+        ],
+        [
+          4.656913207705157e-06,
+          2.3867274780689884e-05,
+          -2.7689198746506257e-05
+        ],
+        [
+          7.65162133638276e-06,
+          -2.7689198746506257e-05,
+          0.0001756938101125505
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 70.0166703183204,
+      "last_seen": 70.0166703183204,
+      "confidence": 0.3250923752784729,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000290",
+          "t_obs": 70.0166703183204,
+          "camera_pose": [
+            [
+              -0.006403259377942666,
+              -0.06552995549086672,
+              -0.9978300572756381,
+              11.82656838984366
+            ],
+            [
+              0.9999794988869544,
+              -0.00041096438813583526,
+              -0.006390063698165422,
+              -4.919744146647177
+            ],
+            [
+              8.667970772763034e-06,
+              -0.9978505178841355,
+              0.06553124356541408,
+              1.4315407937174478
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "5b16b09ca92b421cb329939d1dac8cfc",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "storage rack",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000320"
+      ],
+      "geometry": "arrays/6b6920f416804a418d53f9d7f237061f.npz",
+      "position": [
+        4.101795960741959,
+        -2.9862551625392864,
+        1.6547820487137546
+      ],
+      "covariance": [
+        [
+          0.00017081459621847147,
+          -4.710171528199577e-06,
+          8.394968733969179e-05
+        ],
+        [
+          -4.710171528199577e-06,
+          6.987042312265428e-06,
+          -4.598163568623958e-06
+        ],
+        [
+          8.394968733969179e-05,
+          -4.598163568623958e-06,
+          0.00036527502799166837
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 76.01667063124478,
+      "last_seen": 76.01667063124478,
+      "confidence": 0.25201523303985596,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000320",
+          "t_obs": 76.01667063124478,
+          "camera_pose": [
+            [
+              -0.006616668634483198,
+              -0.06552224100705226,
+              -0.9978291715667543,
+              7.921905787317458
+            ],
+            [
+              0.9999781095508703,
+              -0.00042283589005336726,
+              -0.0066031529497128155,
+              -4.94602143373849
+            ],
+            [
+              1.0735393096886217e-05,
+              -0.9978510195130456,
+              0.06552360446073996,
+              1.4377127123558535
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "FRAGLE | FRA | FRAGILE",
+          "texts": [
+            {
+              "text": "FRAGLE",
+              "confidence": 0.9146735072135925,
+              "polygon": [
+                [
+                  798,
+                  33
+                ],
+                [
+                  826,
+                  30
+                ],
+                [
+                  827,
+                  47
+                ],
+                [
+                  799,
+                  49
+                ]
+              ],
+              "normalized": "FRAGLE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "FRA",
+              "confidence": 0.9968146681785583,
+              "polygon": [
+                [
+                  935,
+                  180
+                ],
+                [
+                  959,
+                  180
+                ],
+                [
+                  959,
+                  204
+                ],
+                [
+                  935,
+                  204
+                ]
+              ],
+              "normalized": "FRA",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "FRAGILE",
+              "confidence": 0.9090051054954529,
+              "polygon": [
+                [
+                  866,
+                  210
+                ],
+                [
+                  907,
+                  226
+                ],
+                [
+                  900,
+                  247
+                ],
+                [
+                  859,
+                  231
+                ]
+              ],
+              "normalized": "FRAGILE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "FRAGLE",
+              "confidence": 0.9887388348579407,
+              "polygon": [
+                [
+                  815,
+                  236
+                ],
+                [
+                  844,
+                  253
+                ],
+                [
+                  836,
+                  268
+                ],
+                [
+                  807,
+                  251
+                ]
+              ],
+              "normalized": "FRAGLE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000320:2:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "FRAGLE | FRA | FRAGILE | FRAGLE",
+      "identity_candidates": [
+        "FRAGLE | FRA | FRAGILE"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views",
+        "text_on_repeated_structure_requires_carrier_check"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "FRAGLE | FRA | FRAGILE",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "FRAGLE | FRA | FRAGILE | FRAGLE",
+        "status": "candidate",
+        "candidates": [
+          "FRAGLE | FRA | FRAGILE | FRAGLE"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "FRAGLE | FRA | FRAGILE | FRAGLE"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000320"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000320",
+            "text": "FRAGLE | FRA | FRAGILE | FRAGLE",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "text_on_repeated_structure_requires_carrier_check",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "6ceaca29a62942e19afb25895e2312a3",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": "73/5R",
+      "observation_ids": [
+        "demo-original-20261013-1133:00000250",
+        "demo-original-20261013-1133:00000260",
+        "demo-original-20261013-1133:00000270"
+      ],
+      "geometry": "arrays/ad8aa683513c43999f8ada130fea3be4.npz",
+      "position": [
+        11.301509976215367,
+        -6.641045932486829,
+        2.5705379196762324
+      ],
+      "covariance": [
+        [
+          3.2380605185489084e-06,
+          5.878143971238535e-06,
+          -4.434925343326876e-06
+        ],
+        [
+          5.878143971238535e-06,
+          0.00029619624424415857,
+          -1.2785538393990705e-05
+        ],
+        [
+          -4.434925343326876e-06,
+          -1.2785538393990705e-05,
+          0.0001067082586541654
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 62.01666990108788,
+      "last_seen": 66.01667010970414,
+      "confidence": 0.34158164262771606,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000250",
+          "t_obs": 62.01666990108788,
+          "camera_pose": [
+            [
+              -0.006456190862254602,
+              -0.06552950689329373,
+              -0.9978297456609881,
+              17.03030455319542
+            ],
+            [
+              0.9999791585317187,
+              -0.0004130143985140837,
+              -0.006442974569398446,
+              -4.884906666273
+            ],
+            [
+              1.0086894235094012e-05,
+              -0.9978505464975351,
+              0.06553080766194011,
+              1.423313849392125
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "73 | /5R",
+          "texts": [
+            {
+              "text": "73",
+              "confidence": 0.999570369720459,
+              "polygon": [
+                [
+                  260,
+                  267
+                ],
+                [
+                  289,
+                  267
+                ],
+                [
+                  289,
+                  287
+                ],
+                [
+                  260,
+                  287
+                ]
+              ],
+              "normalized": "73",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9923967719078064,
+              "polygon": [
+                [
+                  301,
+                  268
+                ],
+                [
+                  333,
+                  268
+                ],
+                [
+                  333,
+                  288
+                ],
+                [
+                  301,
+                  288
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000250:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000260",
+          "t_obs": 64.01667000539601,
+          "camera_pose": [
+            [
+              -0.006470809516545507,
+              -0.06553176287386979,
+              -0.9978295028103967,
+              15.729409911830786
+            ],
+            [
+              0.9999790640468084,
+              -0.0004144672041411871,
+              -0.006457529326694963,
+              -4.893551218462357
+            ],
+            [
+              9.605676348621791e-06,
+              -0.9978503977408539,
+              0.06553307284227838,
+              1.4253707902217285
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "73 | /5R",
+          "texts": [
+            {
+              "text": "73",
+              "confidence": 0.9991161823272705,
+              "polygon": [
+                [
+                  186,
+                  222
+                ],
+                [
+                  237,
+                  222
+                ],
+                [
+                  237,
+                  259
+                ],
+                [
+                  186,
+                  259
+                ]
+              ],
+              "normalized": "73",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9921606183052063,
+              "polygon": [
+                [
+                  250,
+                  230
+                ],
+                [
+                  289,
+                  230
+                ],
+                [
+                  289,
+                  255
+                ],
+                [
+                  250,
+                  255
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000260:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000270",
+          "t_obs": 66.01667010970414,
+          "camera_pose": [
+            [
+              -0.006507108422303436,
+              -0.06552573924442372,
+              -0.9978296623354368,
+              14.428463214638471
+            ],
+            [
+              0.9999788284857315,
+              -0.0004154480664152131,
+              -0.006493841945056135,
+              -4.902270338767655
+            ],
+            [
+              1.0967390156863509e-05,
+              -0.9978507929041179,
+              0.06552705533091244,
+              1.427426691631518
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "73 | /5R",
+          "texts": [
+            {
+              "text": "73",
+              "confidence": 0.9973934888839722,
+              "polygon": [
+                [
+                  69,
+                  150
+                ],
+                [
+                  138,
+                  153
+                ],
+                [
+                  135,
+                  201
+                ],
+                [
+                  66,
+                  198
+                ]
+              ],
+              "normalized": "73",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9855073094367981,
+              "polygon": [
+                [
+                  159,
+                  163
+                ],
+                [
+                  211,
+                  163
+                ],
+                [
+                  211,
+                  195
+                ],
+                [
+                  159,
+                  195
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000270:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "identity_confirmed",
+      "identity_text": "73/5R",
+      "identity_candidates": [
+        "73 | /5R"
+      ],
+      "needs_reobservation": false,
+      "reobservation_reasons": [],
+      "duplicate_text": false,
+      "raw_identity_text": "73 | /5R",
+      "raw_identity_status": "identity_confirmed",
+      "resolved_identity": {
+        "text": "73/5R",
+        "status": "identity_confirmed",
+        "candidates": [
+          "73/5R"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "73/5R"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000250",
+          "demo-original-20261013-1133:00000260",
+          "demo-original-20261013-1133:00000270"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000250",
+            "text": "73/5R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000260",
+            "text": "73/5R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000270",
+            "text": "73/5R",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "consistent_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "7cee1c33fd8d4290908185e18a145c06",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "storage rack",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000060",
+        "demo-original-20261013-1133:00000070",
+        "demo-original-20261013-1133:00000080"
+      ],
+      "geometry": "arrays/d7d3813abde34f879bd90ccf2143ac24.npz",
+      "position": [
+        14.000368109102157,
+        2.2023259180814927,
+        1.8311549096882533
+      ],
+      "covariance": [
+        [
+          0.0005386452094205879,
+          4.484501028030444e-05,
+          6.352336647692799e-07
+        ],
+        [
+          4.484501028030444e-05,
+          5.3691728009453805e-05,
+          -1.5356391703856772e-05
+        ],
+        [
+          6.352336647692799e-07,
+          -1.5356391703856772e-05,
+          0.00023062095497528322
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 24.01666791923344,
+      "last_seen": 28.016668127849698,
+      "confidence": 0.41964778304100037,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000060",
+          "t_obs": 24.01666791923344,
+          "camera_pose": [
+            [
+              -0.0003991824800308636,
+              0.06236933730814315,
+              0.9980530579168075,
+              7.908832364019719
+            ],
+            [
+              -0.9999999203255958,
+              -2.635986477802273e-05,
+              -0.0003983138950130405,
+              -0.005284532396168568
+            ],
+            [
+              1.4659699753745904e-06,
+              -0.9980531373974538,
+              0.062369342861299575,
+              1.4377320728860115
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000070",
+          "t_obs": 26.01666802354157,
+          "camera_pose": [
+            [
+              -5.951016620493119e-05,
+              0.062377131763034714,
+              0.9980526488575425,
+              9.211143722926831
+            ],
+            [
+              -0.9999999982276183,
+              -5.525857089783592e-06,
+              -5.928091975044805e-05,
+              -0.005707058270425177
+            ],
+            [
+              1.817322563344291e-06,
+              -0.9980526506164304,
+              0.06237713198132329,
+              1.435674384347278
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000080",
+          "t_obs": 28.016668127849698,
+          "camera_pose": [
+            [
+              0.00020754079930752596,
+              0.06237527228884975,
+              0.9980527452663553,
+              10.513274536185115
+            ],
+            [
+              -0.999999978463122,
+              1.2191116349734174e-05,
+              0.00020718381029129744,
+              -0.005860241116259581
+            ],
+            [
+              7.557694401890634e-07,
+              -0.9980527667705097,
+              0.0623752734756352,
+              1.4336152999141183
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "repeated_structure_without_distinguishing_evidence",
+        "duplicate_resolved_text": false,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "8a3d12763faa49babed11be00302d96c",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000100"
+      ],
+      "geometry": "arrays/86553abb21404c3480a78c3ae637ae57.npz",
+      "position": [
+        15.938817520131982,
+        -2.025918669993499,
+        1.9499827613731637
+      ],
+      "covariance": [
+        [
+          0.00013258686732216097,
+          -1.1059208154610113e-06,
+          -3.909952511043856e-05
+        ],
+        [
+          -1.1059208154610113e-06,
+          4.268792722950447e-08,
+          -1.0610065051813634e-06
+        ],
+        [
+          -3.909952511043856e-05,
+          -1.0610065051813634e-06,
+          0.0002892647852498239
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 32.016668336465955,
+      "last_seen": 32.016668336465955,
+      "confidence": 0.37754106521606445,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000100",
+          "t_obs": 32.016668336465955,
+          "camera_pose": [
+            [
+              0.00036771767063749084,
+              0.06236986286641592,
+              0.9980530371627248,
+              13.115188782978855
+            ],
+            [
+              -0.9999999323918484,
+              2.2822959775969308e-05,
+              0.0003670087332697993,
+              -0.004081440576306999
+            ],
+            [
+              1.1176004336163832e-07,
+              -0.998053104641801,
+              0.062369867042110214,
+              1.4295010829418375
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "FRAGIL",
+          "texts": [
+            {
+              "text": "FRAGIL",
+              "confidence": 0.964794397354126,
+              "polygon": [
+                [
+                  921,
+                  252
+                ],
+                [
+                  960,
+                  269
+                ],
+                [
+                  956,
+                  292
+                ],
+                [
+                  913,
+                  275
+                ]
+              ],
+              "normalized": "FRAGIL",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000100:1:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "FRAGIL",
+      "identity_candidates": [
+        "FRAGIL"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "FRAGIL",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "FRAGIL",
+        "status": "candidate",
+        "candidates": [
+          "FRAGIL"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "FRAGIL"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000100"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000100",
+            "text": "FRAGIL",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "8f4e6bb3423f48819199fab4ec1db7d4",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000430"
+      ],
+      "geometry": "arrays/5fac25e095844a57b5ea2cdec6fe3102.npz",
+      "position": [
+        2.762076704991029,
+        7.778376340903001,
+        1.4533403074454774
+      ],
+      "covariance": [
+        [
+          2.4246210437901355e-05,
+          -3.653749889135423e-06,
+          2.5600221034429877e-05
+        ],
+        [
+          -3.653749889135423e-06,
+          2.5970198030063624e-05,
+          3.6170100331761495e-05
+        ],
+        [
+          2.5600221034429877e-05,
+          3.6170100331761495e-05,
+          0.0005473338732938253
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 98.01667177863419,
+      "last_seen": 98.01667177863419,
+      "confidence": 0.37845903635025024,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000430",
+          "t_obs": 98.01667177863419,
+          "camera_pose": [
+            [
+              0.9995484297903007,
+              -0.0034953244749989397,
+              -0.029844919342467576,
+              0.0036773585495121167
+            ],
+            [
+              0.03000738741273337,
+              0.0639174630952038,
+              0.9975039421536811,
+              -0.06808601735687994
+            ],
+            [
+              -0.0015789884122662094,
+              -0.9979490671463591,
+              0.06399348542864505,
+              1.450229709263115
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "91d2cb8a5f05410f9601503e5b311cdc",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "storage rack",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000020",
+        "demo-original-20261013-1133:00000030",
+        "demo-original-20261013-1133:00000040"
+      ],
+      "geometry": "arrays/9ca61fd00f8948eeb9e7a1754126f115.npz",
+      "position": [
+        10.006378301997485,
+        2.2035486644054942,
+        2.0736134628071463
+      ],
+      "covariance": [
+        [
+          0.0009294771565601751,
+          1.1506022414293845e-05,
+          4.7692759899625256e-05
+        ],
+        [
+          1.1506022414293845e-05,
+          4.8971999617203204e-05,
+          3.59098623699798e-06
+        ],
+        [
+          4.7692759899625256e-05,
+          3.59098623699798e-06,
+          0.00026055582471121657
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 16.016667502000928,
+      "last_seen": 20.016667710617185,
+      "confidence": 0.498046875,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000020",
+          "t_obs": 16.016667502000928,
+          "camera_pose": [
+            [
+              -0.0006996921586193803,
+              0.06236859103065165,
+              0.9980529391188298,
+              2.6995513532856923
+            ],
+            [
+              -0.9999997552125214,
+              -4.603822769046726e-05,
+              -0.0006981800470064593,
+              -0.0009994650352190852
+            ],
+            [
+              2.404082640778368e-06,
+              -0.9980531833190722,
+              0.062368607976188394,
+              1.4459677274791545
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000030",
+          "t_obs": 18.016667606309056,
+          "camera_pose": [
+            [
+              -0.0005397465943804848,
+              0.062376877769890815,
+              0.9980525205585596,
+              4.001874394928481
+            ],
+            [
+              -0.9999998543366181,
+              -3.426250320625258e-05,
+              -0.000538658353854786,
+              -0.0020872247025767393
+            ],
+            [
+              5.95951387573987e-07,
+              -0.998052665917867,
+              0.062376887176933175,
+              1.4439099293773134
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000040",
+          "t_obs": 20.016667710617185,
+          "camera_pose": [
+            [
+              -0.00043659637556355246,
+              0.06237658708060801,
+              0.9980525891794378,
+              5.304195581165676
+            ],
+            [
+              -0.9999999046917442,
+              -2.7559065830303748e-05,
+              -0.0004357258306801659,
+              -0.003259482776964418
+            ],
+            [
+              3.26306786594095e-07,
+              -0.9980526842931058,
+              0.06237659316779254,
+              1.4418511633873423
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "repeated_structure_without_distinguishing_evidence",
+        "duplicate_resolved_text": false,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "9bc7c4c87f484073992ef6a2dfae2193",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000290",
+        "demo-original-20261013-1133:00000310"
+      ],
+      "geometry": "arrays/10aa6fbb00b04bc4be94ce728e8d40ab.npz",
+      "position": [
+        7.305511536782897,
+        -6.6303906334373135,
+        2.5998285546619124
+      ],
+      "covariance": [
+        [
+          9.476379904242322e-07,
+          3.2386700186736775e-07,
+          -2.3911044208498466e-06
+        ],
+        [
+          3.2386700186736775e-07,
+          0.00034780772458195016,
+          -2.2644879985684807e-05
+        ],
+        [
+          -2.3911044208498466e-06,
+          -2.2644879985684807e-05,
+          9.714295410754576e-05
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 70.0166703183204,
+      "last_seen": 74.01667052693665,
+      "confidence": 0.36296921968460083,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000290",
+          "t_obs": 70.0166703183204,
+          "camera_pose": [
+            [
+              -0.006403259377942666,
+              -0.06552995549086672,
+              -0.9978300572756381,
+              11.82656838984366
+            ],
+            [
+              0.9999794988869544,
+              -0.00041096438813583526,
+              -0.006390063698165422,
+              -4.919744146647177
+            ],
+            [
+              8.667970772763034e-06,
+              -0.9978505178841355,
+              0.06553124356541408,
+              1.4315407937174478
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "72 | /5R",
+          "texts": [
+            {
+              "text": "72",
+              "confidence": 0.9994423389434814,
+              "polygon": [
+                [
+                  206,
+                  231
+                ],
+                [
+                  245,
+                  231
+                ],
+                [
+                  245,
+                  258
+                ],
+                [
+                  206,
+                  258
+                ]
+              ],
+              "normalized": "72",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9937683939933777,
+              "polygon": [
+                [
+                  258,
+                  234
+                ],
+                [
+                  297,
+                  234
+                ],
+                [
+                  297,
+                  259
+                ],
+                [
+                  258,
+                  259
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000290:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000310",
+          "t_obs": 74.01667052693665,
+          "camera_pose": [
+            [
+              -0.006444766822006098,
+              -0.06552419514359548,
+              -0.9978301683309609,
+              9.224213923776894
+            ],
+            [
+              0.999979232221653,
+              -0.000412023086668374,
+              -0.006431590967145569,
+              -4.937194333633783
+            ],
+            [
+              1.0295755688472968e-05,
+              -0.9978508957192754,
+              0.06552548974435311,
+              1.4356541956336
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "5R",
+          "texts": [
+            {
+              "text": "5R",
+              "confidence": 0.9913043975830078,
+              "polygon": [
+                [
+                  0,
+                  24
+                ],
+                [
+                  54,
+                  24
+                ],
+                [
+                  54,
+                  66
+                ],
+                [
+                  0,
+                  66
+                ]
+              ],
+              "normalized": "5R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000310:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "72/5R",
+      "identity_candidates": [
+        "5R",
+        "72 | /5R"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "substring_parent_selected"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": "72/5R",
+        "status": "candidate",
+        "candidates": [
+          "5R",
+          "72/5R"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "72/5R"
+        ],
+        "ignored_substrings": [
+          "5R"
+        ],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000290"
+        ],
+        "compatible_partial_frames": [
+          "demo-original-20261013-1133:00000310"
+        ],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000290",
+            "text": "72/5R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000310",
+            "text": "5R",
+            "relation": "ignored_substring"
+          }
+        ],
+        "reason": "substring_parent_selected"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "a419529d2abd42eb8048bb58d3e18c9c",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "storage rack",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000000",
+        "demo-original-20261013-1133:00000010",
+        "demo-original-20261013-1133:00000440",
+        "demo-original-20261013-1133:00000447"
+      ],
+      "geometry": "arrays/c69b21a1676842d5aa5360608e4d5ca5.npz",
+      "position": [
+        9.192794020259688,
+        3.7900241580646252,
+        1.5529628266944568
+      ],
+      "covariance": [
+        [
+          0.0004746471115852247,
+          1.900102452134362e-05,
+          -1.1199228510817794e-05
+        ],
+        [
+          1.900102452134362e-05,
+          0.0001989109365389647,
+          -1.1343990719734018e-05
+        ],
+        [
+          -1.1199228510817794e-05,
+          -1.1343990719734018e-05,
+          8.709166867055157e-05
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 12.016667293384671,
+      "last_seen": 102.23333866521716,
+      "confidence": 0.5165955424308777,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000000",
+          "t_obs": 12.016667293384671,
+          "camera_pose": [
+            [
+              -1.2845080937182829e-21,
+              0.06237828615518053,
+              0.9980525784828886,
+              0.14999999999999858
+            ],
+            [
+              -0.9999999999999999,
+              -1.4513893013673124e-22,
+              -1.3676580677408788e-21,
+              -1.7892950625287346e-23
+            ],
+            [
+              1.0587911840678754e-22,
+              -0.9980525784828889,
+              0.06237828615518054,
+              1.45
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "3",
+          "texts": [
+            {
+              "text": "3",
+              "confidence": 0.9801546931266785,
+              "polygon": [
+                [
+                  0,
+                  21
+                ],
+                [
+                  27,
+                  21
+                ],
+                [
+                  27,
+                  68
+                ],
+                [
+                  0,
+                  68
+                ]
+              ],
+              "normalized": "3",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000000:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000010",
+          "t_obs": 14.0166673976928,
+          "camera_pose": [
+            [
+              -0.0006589071421369192,
+              0.0623689074165775,
+              0.9980529471070361,
+              1.3972024921324047
+            ],
+            [
+              -0.9999997829168603,
+              -4.3848477215386806e-05,
+              -0.0006574523119093865,
+              0.00018973900230811927
+            ],
+            [
+              2.758519538667077e-06,
+              -0.9980531636465935,
+              0.06236892276941408,
+              1.4480266595307523
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000440",
+          "t_obs": 100.01667188294232,
+          "camera_pose": [
+            [
+              0.3787509195067031,
+              0.057733511045885276,
+              0.9236961527878854,
+              0.13286779843509008
+            ],
+            [
+              -0.9254984565638347,
+              0.024262891260799117,
+              0.377973436904798,
+              -0.08462438663105856
+            ],
+            [
+              -0.0005898057185166157,
+              -0.9980371505159422,
+              0.0626218677398968,
+              1.4500477842809905
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000447",
+          "t_obs": 102.23333866521716,
+          "camera_pose": [
+            [
+              0.0324518584765259,
+              0.062432863012672986,
+              0.9975214356080073,
+              0.1358869453592388
+            ],
+            [
+              -0.9994732984532149,
+              0.0020776590041690626,
+              0.032385320935770553,
+              -0.13711543908802443
+            ],
+            [
+              -5.060108693834934e-05,
+              -0.9980470033766465,
+              0.06246740342311979,
+              1.4500352846342153
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "E",
+          "texts": [
+            {
+              "text": "E",
+              "confidence": 0.9641706943511963,
+              "polygon": [
+                [
+                  3,
+                  14
+                ],
+                [
+                  10,
+                  14
+                ],
+                [
+                  10,
+                  21
+                ],
+                [
+                  3,
+                  21
+                ]
+              ],
+              "normalized": "E",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000447:1:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "conflict",
+      "identity_text": null,
+      "identity_candidates": [
+        "3",
+        "E"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "noncontaining_readings_rejected",
+        "text_on_repeated_structure_requires_carrier_check"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": null,
+        "status": "conflict",
+        "candidates": [
+          "3",
+          "E"
+        ],
+        "registration_status": "rejected",
+        "maximal_candidates": [
+          "3",
+          "E"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000000",
+            "text": "3",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "demo-original-20261013-1133:00000447",
+            "text": "E",
+            "relation": "rejected_noncontaining_reading"
+          }
+        ],
+        "reason": "noncontaining_readings_rejected"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "text_on_repeated_structure_requires_carrier_check",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "b52836b882c44deaaed3d3a588c8ec1c",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "electrical cabinet",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000320"
+      ],
+      "geometry": "arrays/b15d4f55408b4bd58fc91e639a173dd2.npz",
+      "position": [
+        4.675329163736676,
+        -2.755909596648863,
+        0.5422544739837623
+      ],
+      "covariance": [
+        [
+          0.00015840837072859433,
+          -4.4480197855644724e-05,
+          -9.686325284748844e-06
+        ],
+        [
+          -4.4480197855644724e-05,
+          3.515829230312026e-05,
+          2.8552071627614136e-05
+        ],
+        [
+          -9.686325284748844e-06,
+          2.8552071627614136e-05,
+          0.00016062750252766962
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 76.01667063124478,
+      "last_seen": 76.01667063124478,
+      "confidence": 0.2594488263130188,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000320",
+          "t_obs": 76.01667063124478,
+          "camera_pose": [
+            [
+              -0.006616668634483198,
+              -0.06552224100705226,
+              -0.9978291715667543,
+              7.921905787317458
+            ],
+            [
+              0.9999781095508703,
+              -0.00042283589005336726,
+              -0.0066031529497128155,
+              -4.94602143373849
+            ],
+            [
+              1.0735393096886217e-05,
+              -0.9978510195130456,
+              0.06552360446073996,
+              1.4377127123558535
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "FRAGILE",
+          "texts": [
+            {
+              "text": "FRAGILE",
+              "confidence": 0.9935293197631836,
+              "polygon": [
+                [
+                  915,
+                  564
+                ],
+                [
+                  948,
+                  608
+                ],
+                [
+                  936,
+                  618
+                ],
+                [
+                  903,
+                  573
+                ]
+              ],
+              "normalized": "FRAGILE",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000320:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "FRAGILE",
+      "identity_candidates": [
+        "FRAGILE"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views",
+        "text_seen_on_other_instance"
+      ],
+      "duplicate_text": true,
+      "raw_identity_text": "FRAGILE",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "FRAGILE",
+        "status": "candidate",
+        "candidates": [
+          "FRAGILE"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "FRAGILE"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000320"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000320",
+            "text": "FRAGILE",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": true,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views",
+        "text_seen_on_other_instance"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "generic_text_attribute",
+        "duplicate_resolved_text": true,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "cf2c7d0bacf64bb48e84d24a91c29a77",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "storage rack",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000420",
+        "demo-original-20261013-1133:00000430"
+      ],
+      "geometry": "arrays/d03524b6664b4c00997e77398217ad42.npz",
+      "position": [
+        3.436848484780045,
+        11.487980153154517,
+        2.8003140627295053
+      ],
+      "covariance": [
+        [
+          4.6391530059045034e-05,
+          8.16745733719836e-05,
+          1.2970291625917499e-05
+        ],
+        [
+          8.16745733719836e-05,
+          0.0005308964560035581,
+          1.3038377202191532e-05
+        ],
+        [
+          1.2970291625917499e-05,
+          1.3038377202191532e-05,
+          0.0004011062779754382
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 96.01667167432606,
+      "last_seen": 98.01667177863419,
+      "confidence": 0.2615181803703308,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000420",
+          "t_obs": 96.01667167432606,
+          "camera_pose": [
+            [
+              0.9995875352934916,
+              -0.003411233833757093,
+              -0.02851530763665808,
+              0.03726500641302107
+            ],
+            [
+              0.028675125689934695,
+              0.0639247757526203,
+              0.9975426608479675,
+              -1.212454696037442
+            ],
+            [
+              -0.0015800166291104643,
+              -0.9979488897377006,
+              0.06399622659769169,
+              1.4501778166817265
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000430",
+          "t_obs": 98.01667177863419,
+          "camera_pose": [
+            [
+              0.9995484297903007,
+              -0.0034953244749989397,
+              -0.029844919342467576,
+              0.0036773585495121167
+            ],
+            [
+              0.03000738741273337,
+              0.0639174630952038,
+              0.9975039421536811,
+              -0.06808601735687994
+            ],
+            [
+              -0.0015789884122662094,
+              -0.9979490671463591,
+              0.06399348542864505,
+              1.450229709263115
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "repeated_structure_without_distinguishing_evidence",
+        "duplicate_resolved_text": false,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "d483d1d77dd14fdaae9c867788d3214f",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000330"
+      ],
+      "geometry": "arrays/dd7bb0257f1d4b5f9ca252531661d034.npz",
+      "position": [
+        3.9213972433396984,
+        -3.068635053186011,
+        2.1936170260232215
+      ],
+      "covariance": [
+        [
+          0.00016054390609445207,
+          1.660965492843061e-08,
+          7.0761335535249605e-06
+        ],
+        [
+          1.660965492843061e-08,
+          1.0746848242079304e-06,
+          -4.356102633382165e-06
+        ],
+        [
+          7.0761335535249605e-06,
+          -4.356102633382165e-06,
+          0.00023376965102765834
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 78.0166707355529,
+      "last_seen": 78.0166707355529,
+      "confidence": 0.3548809587955475,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000330",
+          "t_obs": 78.0166707355529,
+          "camera_pose": [
+            [
+              -0.006454845895529151,
+              -0.06553016393822092,
+              -0.997829711212637,
+              6.619603854488078
+            ],
+            [
+              0.9999791672160694,
+              -0.00041310134632664876,
+              -0.006441621002004506,
+              -4.954793314152067
+            ],
+            [
+              9.915683182586735e-06,
+              -0.9978505033127496,
+              0.06553146526800488,
+              1.4397729893531446
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "FRAGILE",
+          "texts": [
+            {
+              "text": "FRAGILE",
+              "confidence": 0.9836937785148621,
+              "polygon": [
+                [
+                  906,
+                  190
+                ],
+                [
+                  956,
+                  205
+                ],
+                [
+                  949,
+                  229
+                ],
+                [
+                  899,
+                  214
+                ]
+              ],
+              "normalized": "FRAGILE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:demo-original-20261013-1133:00000330:2:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "FRAGILE",
+      "identity_candidates": [
+        "FRAGILE"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views",
+        "text_seen_on_other_instance"
+      ],
+      "duplicate_text": true,
+      "raw_identity_text": "FRAGILE",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "FRAGILE",
+        "status": "candidate",
+        "candidates": [
+          "FRAGILE"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "FRAGILE"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "demo-original-20261013-1133:00000330"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "demo-original-20261013-1133:00000330",
+            "text": "FRAGILE",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": true,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views",
+        "text_seen_on_other_instance"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "generic_text_attribute",
+        "duplicate_resolved_text": true,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "d4c64d51e9fa4a998b0822d8f8147f69",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "storage rack",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000090",
+        "demo-original-20261013-1133:00000100",
+        "demo-original-20261013-1133:00000110"
+      ],
+      "geometry": "arrays/ce4d312b99bb4387980e383c38517694.npz",
+      "position": [
+        17.30307101727743,
+        2.2854884234714925,
+        1.4504145162702766
+      ],
+      "covariance": [
+        [
+          0.0002938770852158419,
+          2.5670942552964684e-05,
+          5.698843047805911e-06
+        ],
+        [
+          2.5670942552964684e-05,
+          3.0765134605851355e-05,
+          -1.624373645981167e-05
+        ],
+        [
+          5.698843047805911e-06,
+          -1.624373645981167e-05,
+          0.00025958567722565414
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 30.016668232157826,
+      "last_seen": 34.01666844077408,
+      "confidence": 0.5156199336051941,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000090",
+          "t_obs": 30.016668232157826,
+          "camera_pose": [
+            [
+              0.00025677008569621425,
+              0.06236836708499666,
+              0.9980531653455509,
+              11.814232043182301
+            ],
+            [
+              -0.9999999670317027,
+              1.362827524063104e-05,
+              0.0002564193099567688,
+              -0.004958802834645498
+            ],
+            [
+              2.3907104088141337e-06,
+              -0.9980531982822464,
+              0.062368368528151315,
+              1.4315576657901716
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000100",
+          "t_obs": 32.016668336465955,
+          "camera_pose": [
+            [
+              0.00036771767063749084,
+              0.06236986286641592,
+              0.9980530371627248,
+              13.115188782978855
+            ],
+            [
+              -0.9999999323918484,
+              2.2822959775969308e-05,
+              0.0003670087332697993,
+              -0.004081440576306999
+            ],
+            [
+              1.1176004336163832e-07,
+              -0.998053104641801,
+              0.062369867042110214,
+              1.4295010829418375
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000110",
+          "t_obs": 34.01666844077408,
+          "camera_pose": [
+            [
+              0.00021411878433086722,
+              0.06237744371579547,
+              0.9980526081668383,
+              14.416138608213554
+            ],
+            [
+              -0.9999999770753788,
+              1.1814021531442167e-05,
+              0.00021379819982754767,
+              -0.003320398408785896
+            ],
+            [
+              1.5451701739129083e-06,
+              -0.9980526310650716,
+              0.062377444815420235,
+              1.4274455151154812
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "hide",
+        "reason": "repeated_structure_without_distinguishing_evidence",
+        "duplicate_resolved_text": false,
+        "visible": false,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "e60de0962ac241ef866da4448396722e",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000180",
+        "demo-original-20261013-1133:00000200"
+      ],
+      "geometry": "arrays/212cded92c4f4b96a82b323d3a64bb0c.npz",
+      "position": [
+        19.048910098113222,
+        -16.894704025532285,
+        1.1913415850235936
+      ],
+      "covariance": [
+        [
+          4.296147341667291e-05,
+          1.0906958102088217e-05,
+          5.9031976295156885e-05
+        ],
+        [
+          1.0906958102088217e-05,
+          1.139077157619113e-05,
+          -1.3796697484749956e-05
+        ],
+        [
+          5.9031976295156885e-05,
+          -1.3796697484749956e-05,
+          0.0007992084394992238
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 48.01666917093098,
+      "last_seen": 52.01666937954724,
+      "confidence": 0.5214712023735046,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000180",
+          "t_obs": 48.01666917093098,
+          "camera_pose": [
+            [
+              -0.9996488679217697,
+              0.0001167207724437837,
+              0.026497683653206417,
+              20.889609489511383
+            ],
+            [
+              -0.026450940130918858,
+              -0.06392936038406163,
+              -0.997603821487806,
+              -1.2146086744647966
+            ],
+            [
+              0.0015775388789718197,
+              -0.9979544194286365,
+              0.06391000010905404,
+              1.4172113478082502
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000200",
+          "t_obs": 52.01666937954724,
+          "camera_pose": [
+            [
+              -0.9995892517912104,
+              0.0002538714075077141,
+              0.028657690988558446,
+              20.96798342945689
+            ],
+            [
+              -0.02861529735680578,
+              -0.06392702202461635,
+              -0.9975442349150464,
+              -3.8185850391640836
+            ],
+            [
+              0.0015787528840311908,
+              -0.9979545437565647,
+              0.06390802872064275,
+              1.4170879238362186
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "e997c81ecc6445a09e1b96fef728e287",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000390",
+        "demo-original-20261013-1133:00000400",
+        "demo-original-20261013-1133:00000430"
+      ],
+      "geometry": "arrays/ae958fd3936a416589ad6b533cf62f1d.npz",
+      "position": [
+        -4.853187547319995,
+        13.249781228616628,
+        1.512987361450623
+      ],
+      "covariance": [
+        [
+          6.143432566947234e-05,
+          -8.240540851628165e-06,
+          -3.2930176680492077e-06
+        ],
+        [
+          -8.240540851628165e-06,
+          8.435468330611704e-06,
+          8.38496251168772e-06
+        ],
+        [
+          -3.2930176680492077e-06,
+          8.38496251168772e-06,
+          0.0002337364335910556
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 90.01667136140168,
+      "last_seen": 98.01667177863419,
+      "confidence": 0.4130036234855652,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000390",
+          "t_obs": 90.01667136140168,
+          "camera_pose": [
+            [
+              0.8175411864733955,
+              -0.03847310419929701,
+              -0.5745835262805071,
+              0.05154028732411621
+            ],
+            [
+              0.5758687002105083,
+              0.05239407664540397,
+              0.8158615696613822,
+              -4.883838230801421
+            ],
+            [
+              -0.001283953866657052,
+              -0.9978851041005401,
+              0.0649897720931742,
+              1.4501777907381954
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000400",
+          "t_obs": 92.0166714657098,
+          "camera_pose": [
+            [
+              0.9997014256265819,
+              -0.003137946480117312,
+              -0.024232475978886326,
+              0.11474900599271548
+            ],
+            [
+              0.024383582140109418,
+              0.06393435499200288,
+              0.9976561728239708,
+              -3.8163884581316636
+            ],
+            [
+              -0.0015813039543110406,
+              -0.9979491728257733,
+              0.06399178020777053,
+              1.4500570923702936
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "demo-original-20261013-1133:00000430",
+          "t_obs": 98.01667177863419,
+          "camera_pose": [
+            [
+              0.9995484297903007,
+              -0.0034953244749989397,
+              -0.029844919342467576,
+              0.0036773585495121167
+            ],
+            [
+              0.03000738741273337,
+              0.0639174630952038,
+              0.9975039421536811,
+              -0.06808601735687994
+            ],
+            [
+              -0.0015789884122662094,
+              -0.9979490671463591,
+              0.06399348542864505,
+              1.450229709263115
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "f28befe23b334b19b193bad898dfef66",
+      "submap_id": "demo-original-20261013-1133",
+      "category": "electrical cabinet",
+      "name": null,
+      "observation_ids": [
+        "demo-original-20261013-1133:00000330"
+      ],
+      "geometry": "arrays/3d8e2a3cadcd4ad5bc232166d92b7a94.npz",
+      "position": [
+        3.4448251000708887,
+        -2.786849931740637,
+        0.5142234152798414
+      ],
+      "covariance": [
+        [
+          0.00012936976274286095,
+          -2.9236717124173496e-05,
+          2.0215219949168374e-05
+        ],
+        [
+          -2.9236717124173496e-05,
+          1.4920159720855429e-05,
+          1.2272907960193362e-05
+        ],
+        [
+          2.0215219949168374e-05,
+          1.2272907960193362e-05,
+          0.00020697744639678277
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 78.0166707355529,
+      "last_seen": 78.0166707355529,
+      "confidence": 0.30033546686172485,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "demo-original-20261013-1133:00000330",
+          "t_obs": 78.0166707355529,
+          "camera_pose": [
+            [
+              -0.006454845895529151,
+              -0.06553016393822092,
+              -0.997829711212637,
+              6.619603854488078
+            ],
+            [
+              0.9999791672160694,
+              -0.00041310134632664876,
+              -0.006441621002004506,
+              -4.954793314152067
+            ],
+            [
+              9.915683182586735e-06,
+              -0.9978505033127496,
+              0.06553146526800488,
+              1.4397729893531446
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    }
+  ],
+  "counts": {
+    "raw": 27,
+    "decisions": {
+      "keep": 8,
+      "hide": 10,
+      "review": 9
+    },
+    "identity_states": {
+      "candidate": 11,
+      "unknown": 13,
+      "duplicate_text": 1,
+      "identity_confirmed": 1,
+      "conflict": 1
+    }
+  }
+}

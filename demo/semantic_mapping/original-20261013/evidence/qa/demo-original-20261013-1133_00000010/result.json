@@ -1,0 +1,42 @@
+{
+  "selection_mode": "instances",
+  "request_id": "a85ba1b7cd320e8ac67a4f1c",
+  "source_image_id": "demo-original-20261013-1133:00000010",
+  "rgb_hash": "d628754787a4beb1438db267e0806c8d9a448343015161cc9dd26814d6110d5e",
+  "batch_id": "104e647103c97db83d0b501819d71c198025c1f8827057442c108c475de26750",
+  "source_time": 14.0166673976928,
+  "valid": true,
+  "parsed": {
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "spatial_reference"
+      },
+      {
+        "instance_id": "d1",
+        "purpose": "spatial_reference"
+      },
+      {
+        "instance_id": "d2",
+        "purpose": "spatial_reference"
+      }
+    ],
+    "missed_categories": []
+  },
+  "error": null,
+  "llm_calls": 1,
+  "structured_inference_executed": false,
+  "navigation_task_included": false,
+  "prompt": "Image-1: <image>\nImage-2: <image>\nBuild a semantic map from this observation. Image-1 is the original RGB; Image-2 shows detector boxes with instance IDs. The candidate table below uses those IDs and normalized coordinates. Detector labels are suggestions, not truth. Which candidate instances are worth recording as map observations or inspecting for distinguishing identity information? Prioritize markers or surfaces that may carry text or symbols, and facilities with distinctive appearance or spatial context. Do not select ordinary repeated structures merely because they are large or stationary. Do not reject repeated markers: their identifiers may differ. Do not read or output any identifier text. Do not claim global uniqueness or permanent staticness. Select only visible candidate IDs; identity_candidate means inspect for identity evidence, spatial_reference means useful distinctive spatial context. Report useful visible object categories missing from the detections in missed_categories for diagnosis only. Empty lists are allowed. Return JSON with selected_instances (each has instance_id and purpose) and missed_categories. No explanation.\nCandidates: [{\"instance_id\":\"d0\",\"category\":\"sign\",\"bbox_normalized\":[0.6365915934244791,0.3616008758544922,0.7261338551839193,0.4246404012044271]},{\"instance_id\":\"d1\",\"category\":\"sign\",\"bbox_normalized\":[0.9019092559814453,0.0,0.9999504089355469,0.16850147247314454]},{\"instance_id\":\"d2\",\"category\":\"storage rack\",\"bbox_normalized\":[0.0,0.0,0.4290724754333496,0.9857654147677951]}]",
+  "max_new_tokens": 2048,
+  "format_constraint": "JSON schema; one generation; two 448px images",
+  "input_images": [
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000010.png",
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000010/candidates.png"
+  ],
+  "text": "{\n  \"selected_instances\": [\n    {\n      \"instance_id\": \"d0\",\n      \"purpose\": \"spatial_reference\"\n    },\n    {\n      \"instance_id\": \"d1\",\n      \"purpose\": \"spatial_reference\"\n    },\n    {\n      \"instance_id\": \"d2\",\n      \"purpose\": \"spatial_reference\"\n    }\n  ],\n  \"missed_categories\": []\n}",
+  "token_count": 83,
+  "started": 1791862306.0193908,
+  "finished": 1791862308.2104592,
+  "elapsed_s": 2.191068649291992
+}

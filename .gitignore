@@ -44,3 +44,6 @@ checkpoints/
 _isaac_sim*/
 _build/
 _repo/
+
+# Full demo map archives remain local; distribute separately via Releases/LFS.
+demo/semantic_mapping/**/map.tar.gz

@@ -1,0 +1,29 @@
+{
+  "selection_mode": "instances",
+  "request_id": "fb0635a3a75ae3cf82d73f19",
+  "source_image_id": "demo-original-20261013-1133:00000150",
+  "rgb_hash": "94668234c890058a846e45d0fc46feb6ae54d1ed00b6449cceb4b78a011137e3",
+  "batch_id": "dc8f0a5564963a0c40ed21887b9486ab725450c7bfc68c35d330abe31bdafd87",
+  "source_time": 42.0166688580066,
+  "valid": true,
+  "parsed": {
+    "selected_instances": [],
+    "missed_categories": []
+  },
+  "error": null,
+  "llm_calls": 1,
+  "structured_inference_executed": false,
+  "navigation_task_included": false,
+  "prompt": "Image-1: <image>\nImage-2: <image>\nBuild a semantic map from this observation. Image-1 is the original RGB; Image-2 shows detector boxes with instance IDs. The candidate table below uses those IDs and normalized coordinates. Detector labels are suggestions, not truth. Which candidate instances are worth recording as map observations or inspecting for distinguishing identity information? Prioritize markers or surfaces that may carry text or symbols, and facilities with distinctive appearance or spatial context. Do not select ordinary repeated structures merely because they are large or stationary. Do not reject repeated markers: their identifiers may differ. Do not read or output any identifier text. Do not claim global uniqueness or permanent staticness. Select only visible candidate IDs; identity_candidate means inspect for identity evidence, spatial_reference means useful distinctive spatial context. Report useful visible object categories missing from the detections in missed_categories for diagnosis only. Empty lists are allowed. Return JSON with selected_instances (each has instance_id and purpose) and missed_categories. No explanation.\nCandidates: []",
+  "max_new_tokens": 2048,
+  "format_constraint": "JSON schema; one generation; two 448px images; empty candidates use empty-array regex",
+  "input_images": [
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000150.png",
+    "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000150/candidates.png"
+  ],
+  "text": "{\n  \"selected_instances\": [\n    \t]\n  ,\n  \"missed_categories\": []\n}",
+  "token_count": 20,
+  "started": 1791862333.1384547,
+  "finished": 1791862333.7497332,
+  "elapsed_s": 0.6112790107727051
+}

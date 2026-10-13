@@ -1,0 +1,142 @@
+{
+  "source_image_id": "demo-original-20261013-1133:00000180",
+  "rgb_hash": "c36b60bfc099b41869f59a4b77061412f4e02521a8e3e9409dedd6f778e01354",
+  "depth_hash": "199bbe3a7c7f3183a7321a4a267fb8b347059c8dec7807eaba8fb4fe97c3c72d",
+  "source_geometry": {
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.0264533623356503,
+        0.9996488679217697,
+        0.001536386625469126,
+        20.883413724554106
+      ],
+      [
+        -0.9996488702760425,
+        0.026450940130918858,
+        0.0015760463258065426,
+        -1.0669466110958101
+      ],
+      [
+        0.0015348540547365456,
+        -0.0015775388789718197,
+        0.9999975777941246,
+        -0.03301536810144088
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "odom_epoch": "demo-original-20261013-1133",
+    "t_obs": 48.01666917093098
+  },
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "candidates": [
+    {
+      "instance_id": "d0",
+      "category": "fire extinguisher",
+      "bbox": [
+        568.496337890625,
+        398.47308349609375,
+        577.7682495117188,
+        435.27239990234375
+      ],
+      "bbox_normalized": [
+        0.5921836853027344,
+        0.5534348381890191,
+        0.601841926574707,
+        0.6045449998643663
+      ],
+      "confidence": 0.3442223072052002,
+      "mask_sha256": "3c5d954f19e9ddbd130288493eb57fa75a79cce5e04fc1d8984b6b47123384f9"
+    },
+    {
+      "instance_id": "d1",
+      "category": "fire extinguisher",
+      "bbox": [
+        664.786376953125,
+        388.8602600097656,
+        682.4014892578125,
+        450.1738586425781
+      ],
+      "bbox_normalized": [
+        0.6924858093261719,
+        0.5400836944580079,
+        0.7108348846435547,
+        0.625241470336914
+      ],
+      "confidence": 0.8233271837234497,
+      "mask_sha256": "6e268138896487f4b90b52aefed32fa00f2431cb2be522cdce54ee07bd3fdf07"
+    }
+  ],
+  "batch_id": "7e6c5fb1eb8d56cbdaba29fca91f17541d0255e84072ff913fd6130eb91ac73e",
+  "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000180/candidates.png",
+  "overlay_hash": "43baef45ce2f0babd6625eac508e04a8443ffb4ebd2a1fce45f5c63eb939d40e",
+  "possibly_truncated": false
+}

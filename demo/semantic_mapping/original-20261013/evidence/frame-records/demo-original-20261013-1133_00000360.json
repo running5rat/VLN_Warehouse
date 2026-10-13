@@ -1,0 +1,379 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000360",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000360.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000360.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.9999731409618262,
+        0.006616670896829879,
+        0.0031523041068226326,
+        2.8581103847904474
+      ],
+      [
+        -0.006616667537294582,
+        -0.9999781095496896,
+        1.1494752630430491e-05,
+        -4.980279904580698
+      ],
+      [
+        0.003152311158461362,
+        -9.363304359015696e-06,
+        0.9999950314110011,
+        -0.00451719434241094
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 84.01667104847729,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "d7e4a42260825ade9a74648f3bd6356c7c9f8079e533160b1be278867eec0483",
+    "depth_hash": "ee4c34f550ed628824c59395285c795d66154fbc35dca0994e41b45d53aa8e45",
+    "geometry": "arrays/be813c69c9fa4a53b358ecab4d8c833b.npz",
+    "submitted_wall": 1791862374.8683264
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "valid",
+    "selected_instances": [],
+    "missed_categories": [],
+    "selected_categories": [],
+    "request_id": "e8816fe377832225cb7dd05d",
+    "batch_id": "7ec44d95a15ddebcdaf4467edaba1126cfa1cff2c26097543be6df24b0bfb2fb",
+    "source_image_id": "demo-original-20261013-1133:00000360",
+    "rgb_hash": "d7e4a42260825ade9a74648f3bd6356c7c9f8079e533160b1be278867eec0483",
+    "source_time": 84.01667104847729
+  },
+  "instances": [],
+  "rows": [],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.015380859375,
+  "candidate_request": {
+    "source_image_id": "demo-original-20261013-1133:00000360",
+    "rgb_hash": "d7e4a42260825ade9a74648f3bd6356c7c9f8079e533160b1be278867eec0483",
+    "depth_hash": "ee4c34f550ed628824c59395285c795d66154fbc35dca0994e41b45d53aa8e45",
+    "source_geometry": {
+      "K": [
+        [
+          640.0,
+          0.0,
+          480.0
+        ],
+        [
+          0.0,
+          640.0,
+          360.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_body_camera": [
+        [
+          -1.033458777808439e-21,
+          0.06237828615518053,
+          0.9980525784828886,
+          0.14999999999999947
+        ],
+        [
+          -1.0,
+          -5.293955920339377e-23,
+          -7.411538288475128e-22,
+          0.0
+        ],
+        [
+          5.293955920339377e-23,
+          -0.9980525784828889,
+          0.06237828615518054,
+          1.45
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_odom_body": [
+        [
+          -0.9999731409618262,
+          0.006616670896829879,
+          0.0031523041068226326,
+          2.8581103847904474
+        ],
+        [
+          -0.006616667537294582,
+          -0.9999781095496896,
+          1.1494752630430491e-05,
+          -4.980279904580698
+        ],
+        [
+          0.003152311158461362,
+          -9.363304359015696e-06,
+          0.9999950314110011,
+          -0.00451719434241094
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999999999998
+        ]
+      ],
+      "odom_epoch": "demo-original-20261013-1133",
+      "t_obs": 84.01667104847729
+    },
+    "provenance": {
+      "categories": [
+        "sign",
+        "label",
+        "storage rack",
+        "door",
+        "pillar",
+        "fire extinguisher",
+        "electrical cabinet"
+      ],
+      "vocabulary_version": "warehouse-static-candidates-v1",
+      "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+      "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+      "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+      "tensorrt": "10.13.3.9",
+      "torch": "2.8.0+cu128",
+      "dtype": "fp16",
+      "imgsz": 640,
+      "parameters": 15417846,
+      "runtime": "tensorrt-fp16",
+      "backend": "yoloe-realtime"
+    },
+    "candidates": [],
+    "batch_id": "7ec44d95a15ddebcdaf4467edaba1126cfa1cff2c26097543be6df24b0bfb2fb",
+    "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000360/candidates.png",
+    "overlay_hash": "763c170b411855916831d1315150da5aa19d648c37bc4c88ab1c63e98c4872bb",
+    "possibly_truncated": false
+  },
+  "ocr": {
+    "texts": [
+      {
+        "text": "上O",
+        "confidence": 0.36534520983695984,
+        "polygon": [
+          [
+            426,
+            209
+          ],
+          [
+            470,
+            209
+          ],
+          [
+            470,
+            219
+          ],
+          [
+            426,
+            219
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000360.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            426,
+            209
+          ],
+          [
+            470,
+            209
+          ],
+          [
+            470,
+            219
+          ],
+          [
+            426,
+            219
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "上O"
+      ],
+      "rec_scores": [
+        0.36534520983695984
+      ],
+      "rec_polys": [
+        [
+          [
+            426,
+            209
+          ],
+          [
+            470,
+            209
+          ],
+          [
+            470,
+            219
+          ],
+          [
+            426,
+            219
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          426,
+          209,
+          470,
+          219
+        ]
+      ]
+    },
+    "elapsed_s": 0.18966317176818848,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000360",
+    "rgb_hash": "d7e4a42260825ade9a74648f3bd6356c7c9f8079e533160b1be278867eec0483"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "上O",
+        "confidence": 0.36534520983695984,
+        "polygon": [
+          [
+            426,
+            209
+          ],
+          [
+            470,
+            209
+          ],
+          [
+            470,
+            219
+          ],
+          [
+            426,
+            219
+          ]
+        ],
+        "normalized": "上O",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": []
+  }
+}

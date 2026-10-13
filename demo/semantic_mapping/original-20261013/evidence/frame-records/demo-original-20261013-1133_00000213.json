@@ -1,0 +1,237 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000213",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000213.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000213.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.11312099727619507,
+        0.9935796514889272,
+        0.0017652541972047054,
+        20.99518873169155
+      ],
+      [
+        -0.9935797283506025,
+        -0.11312372714325675,
+        0.0015315900104775858,
+        -4.872470349711934
+      ],
+      [
+        0.0017214488029773242,
+        -0.0015806657963249857,
+        0.9999972690511008,
+        -0.03318982047255536
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t_obs": 54.616669515147805,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "118a589cd1fa76d6ca8ef66c1d598bd8fd7ddd01a9b64be2488681e154925e4f",
+    "depth_hash": "1c8c95d8909d1933c9be02db7a5eb966ee8abe74a67cfbcdea87405dcaf653cd",
+    "geometry": "arrays/66585c53e4d34ca8973068bcb1d085e3.npz",
+    "submitted_wall": 1791862345.456323
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "not_sampled",
+    "selected_instances": [],
+    "selected_categories": [],
+    "source_image_id": "demo-original-20261013-1133:00000213"
+  },
+  "instances": [
+    {
+      "category": "fire extinguisher",
+      "confidence": 0.5755879282951355,
+      "bbox": [
+        505.483154296875,
+        395.97894287109375,
+        515.94140625,
+        430.86199951171875
+      ]
+    },
+    {
+      "category": "fire extinguisher",
+      "confidence": 0.7534657716751099,
+      "bbox": [
+        784.3954467773438,
+        375.2626953125,
+        825.2407836914062,
+        509.44000244140625
+      ]
+    },
+    {
+      "category": "fire extinguisher",
+      "confidence": 0.25832465291023254,
+      "bbox": [
+        784.6327514648438,
+        382.17938232421875,
+        823.1218872070312,
+        460.0714416503906
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.29992520809173584,
+      "bbox": [
+        820.5052490234375,
+        18.647438049316406,
+        882.23486328125,
+        210.21893310546875
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "fire extinguisher",
+      "bbox": [
+        505.483154296875,
+        395.97894287109375,
+        515.94140625,
+        430.86199951171875
+      ],
+      "confidence": 0.5755879282951355,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000213:0",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 1,
+      "category": "fire extinguisher",
+      "bbox": [
+        784.3954467773438,
+        375.2626953125,
+        825.2407836914062,
+        509.44000244140625
+      ],
+      "confidence": 0.7534657716751099,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000213:1",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 2,
+      "category": "fire extinguisher",
+      "bbox": [
+        784.6327514648438,
+        382.17938232421875,
+        823.1218872070312,
+        460.0714416503906
+      ],
+      "confidence": 0.25832465291023254,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000213:2",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    },
+    {
+      "instance_index": 3,
+      "category": "sign",
+      "bbox": [
+        820.5052490234375,
+        18.647438049316406,
+        882.23486328125,
+        210.21893310546875
+      ],
+      "confidence": 0.29992520809173584,
+      "selected": false,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000213:3",
+      "geometry_file": null,
+      "result": {
+        "status": "not_sampled",
+        "reason": null,
+        "landmark_uid": null
+      }
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.03859281539916992,
+  "candidate_request": null,
+  "ocr": null,
+  "binding": null
+}

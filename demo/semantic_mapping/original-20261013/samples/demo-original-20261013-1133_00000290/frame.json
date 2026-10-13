@@ -1,0 +1,2014 @@
+{
+  "source": {
+    "image_id": "demo-original-20261013-1133:00000290",
+    "rgb": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000290.png",
+    "depth": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/depth/00000290.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.9999745078670244,
+        0.006403259377942666,
+        0.0031594121985485217,
+        11.971983418335817
+      ],
+      [
+        -0.006403254804826627,
+        -0.9999794988869544,
+        1.1562845329619167e-05,
+        -4.918800424552181
+      ],
+      [
+        0.0031594214669800357,
+        -8.667970772763034e-06,
+        0.9999950089779751,
+        -0.018925882520662983
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 70.0166703183204,
+    "odom_epoch": "demo-original-20261013-1133",
+    "submap_id": "demo-original-20261013-1133",
+    "task_id": "warehouse-loop",
+    "rgb_hash": "4bc429e0e33af8f2ceae669b46df4121b7929c87140a39efb567cb7aaf8dd0b9",
+    "depth_hash": "1b388b3b7e670a31eb941d1d40be754d034d5cd05d017b0d4745d928d0f25ad4",
+    "geometry": "arrays/9004b0c5bee143b4a1b1613d0b599ece.npz",
+    "submitted_wall": 1791862360.8401
+  },
+  "selection": {
+    "selection_mode": "instances",
+    "status": "valid",
+    "selected_instances": [
+      {
+        "instance_id": "d0",
+        "purpose": "spatial_reference"
+      },
+      {
+        "instance_id": "d1",
+        "purpose": "spatial_reference"
+      }
+    ],
+    "missed_categories": [],
+    "selected_categories": [],
+    "request_id": "36f8cb75b9290cacce45fc40",
+    "batch_id": "bf7b982ac8cb1f3e23ee34c5077e0bd9acd9ca26a0f8ee5c2cb18e6991f72b1f",
+    "source_image_id": "demo-original-20261013-1133:00000290",
+    "rgb_hash": "4bc429e0e33af8f2ceae669b46df4121b7929c87140a39efb567cb7aaf8dd0b9",
+    "source_time": 70.0166703183204
+  },
+  "instances": [
+    {
+      "category": "electrical cabinet",
+      "confidence": 0.3250923752784729,
+      "bbox": [
+        138.80343627929688,
+        465.9430847167969,
+        218.64105224609375,
+        600.1851196289062
+      ],
+      "texts": []
+    },
+    {
+      "category": "sign",
+      "confidence": 0.3157352805137634,
+      "bbox": [
+        190.73886108398438,
+        215.31729125976562,
+        302.58453369140625,
+        274.9430236816406
+      ],
+      "texts": [
+        {
+          "text": "72",
+          "confidence": 0.9994423389434814,
+          "polygon": [
+            [
+              206,
+              231
+            ],
+            [
+              245,
+              231
+            ],
+            [
+              245,
+              258
+            ],
+            [
+              206,
+              258
+            ]
+          ],
+          "normalized": "72",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        },
+        {
+          "text": "/5R",
+          "confidence": 0.9937683939933777,
+          "polygon": [
+            [
+              258,
+              234
+            ],
+            [
+              297,
+              234
+            ],
+            [
+              297,
+              259
+            ],
+            [
+              258,
+              259
+            ]
+          ],
+          "normalized": "/5R",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "electrical cabinet",
+      "bbox": [
+        138.80343627929688,
+        465.9430847167969,
+        218.64105224609375,
+        600.1851196289062
+      ],
+      "confidence": 0.3250923752784729,
+      "selected": true,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000290:0",
+      "result": {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000290:0",
+          "image_id": "demo-original-20261013-1133:00000290",
+          "category": "electrical cabinet",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "36f8cb75b9290cacce45fc40",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "5a8c849ac0214a2bb572b0287f2ea113",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "category_selection": {
+            "selection_mode": "instances",
+            "status": "valid",
+            "selected_instances": [
+              {
+                "instance_id": "d0",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d1",
+                "purpose": "spatial_reference"
+              }
+            ],
+            "missed_categories": [],
+            "selected_categories": [],
+            "request_id": "36f8cb75b9290cacce45fc40",
+            "batch_id": "bf7b982ac8cb1f3e23ee34c5077e0bd9acd9ca26a0f8ee5c2cb18e6991f72b1f",
+            "source_image_id": "demo-original-20261013-1133:00000290",
+            "rgb_hash": "4bc429e0e33af8f2ceae669b46df4121b7929c87140a39efb567cb7aaf8dd0b9",
+            "source_time": 70.0166703183204
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 8802,
+          "valid_interior_depth_points": 8417,
+          "filtered_depth_points": 8417,
+          "voxel_points": 383,
+          "depth_retention": 1.0
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map/arrays/b389b4e0565c48bd85e500e5365434c9.npz"
+    },
+    {
+      "instance_index": 1,
+      "category": "sign",
+      "bbox": [
+        190.73886108398438,
+        215.31729125976562,
+        302.58453369140625,
+        274.9430236816406
+      ],
+      "confidence": 0.3157352805137634,
+      "selected": true,
+      "parent_event_id": "rt:demo-original-20261013-1133:00000290:1",
+      "result": {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000290:1",
+          "image_id": "demo-original-20261013-1133:00000290",
+          "category": "sign",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "36f8cb75b9290cacce45fc40",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "9bc7c4c87f484073992ef6a2dfae2193",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "category_selection": {
+            "selection_mode": "instances",
+            "status": "valid",
+            "selected_instances": [
+              {
+                "instance_id": "d0",
+                "purpose": "spatial_reference"
+              },
+              {
+                "instance_id": "d1",
+                "purpose": "spatial_reference"
+              }
+            ],
+            "missed_categories": [],
+            "selected_categories": [],
+            "request_id": "36f8cb75b9290cacce45fc40",
+            "batch_id": "bf7b982ac8cb1f3e23ee34c5077e0bd9acd9ca26a0f8ee5c2cb18e6991f72b1f",
+            "source_image_id": "demo-original-20261013-1133:00000290",
+            "rgb_hash": "4bc429e0e33af8f2ceae669b46df4121b7929c87140a39efb567cb7aaf8dd0b9",
+            "source_time": 70.0166703183204
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 6580,
+          "valid_interior_depth_points": 6250,
+          "filtered_depth_points": 6153,
+          "voxel_points": 172,
+          "depth_retention": 0.98448
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/map/arrays/839732e5bd204be4ae0e4910079242d7.npz"
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime"
+  },
+  "segmentation_s": 0.019390106201171875,
+  "candidate_request": {
+    "source_image_id": "demo-original-20261013-1133:00000290",
+    "rgb_hash": "4bc429e0e33af8f2ceae669b46df4121b7929c87140a39efb567cb7aaf8dd0b9",
+    "depth_hash": "1b388b3b7e670a31eb941d1d40be754d034d5cd05d017b0d4745d928d0f25ad4",
+    "source_geometry": {
+      "K": [
+        [
+          640.0,
+          0.0,
+          480.0
+        ],
+        [
+          0.0,
+          640.0,
+          360.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_body_camera": [
+        [
+          -1.033458777808439e-21,
+          0.06237828615518053,
+          0.9980525784828886,
+          0.14999999999999947
+        ],
+        [
+          -1.0,
+          -5.293955920339377e-23,
+          -7.411538288475128e-22,
+          0.0
+        ],
+        [
+          5.293955920339377e-23,
+          -0.9980525784828889,
+          0.06237828615518054,
+          1.45
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "T_odom_body": [
+        [
+          -0.9999745078670244,
+          0.006403259377942666,
+          0.0031594121985485217,
+          11.971983418335817
+        ],
+        [
+          -0.006403254804826627,
+          -0.9999794988869544,
+          1.1562845329619167e-05,
+          -4.918800424552181
+        ],
+        [
+          0.0031594214669800357,
+          -8.667970772763034e-06,
+          0.9999950089779751,
+          -0.018925882520662983
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999999999998
+        ]
+      ],
+      "odom_epoch": "demo-original-20261013-1133",
+      "t_obs": 70.0166703183204
+    },
+    "provenance": {
+      "categories": [
+        "sign",
+        "label",
+        "storage rack",
+        "door",
+        "pillar",
+        "fire extinguisher",
+        "electrical cabinet"
+      ],
+      "vocabulary_version": "warehouse-static-candidates-v1",
+      "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+      "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+      "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+      "tensorrt": "10.13.3.9",
+      "torch": "2.8.0+cu128",
+      "dtype": "fp16",
+      "imgsz": 640,
+      "parameters": 15417846,
+      "runtime": "tensorrt-fp16",
+      "backend": "yoloe-realtime"
+    },
+    "candidates": [
+      {
+        "instance_id": "d0",
+        "category": "electrical cabinet",
+        "bbox": [
+          138.80343627929688,
+          465.9430847167969,
+          218.64105224609375,
+          600.1851196289062
+        ],
+        "bbox_normalized": [
+          0.14458691279093425,
+          0.6471431732177735,
+          0.227751096089681,
+          0.8335904439290365
+        ],
+        "confidence": 0.3250923752784729,
+        "mask_sha256": "46cf09c4401e35135d523d4bcbd1415a01a4f549e6ba56e779bf15745884304b"
+      },
+      {
+        "instance_id": "d1",
+        "category": "sign",
+        "bbox": [
+          190.73886108398438,
+          215.31729125976562,
+          302.58453369140625,
+          274.9430236816406
+        ],
+        "bbox_normalized": [
+          0.1986863136291504,
+          0.29905179341634114,
+          0.31519222259521484,
+          0.3818653106689453
+        ],
+        "confidence": 0.3157352805137634,
+        "mask_sha256": "f49cc0a2e7eb565e9c7042f2d0f471e0e9f707f763443b41197bb0cbffccf79a"
+      }
+    ],
+    "batch_id": "bf7b982ac8cb1f3e23ee34c5077e0bd9acd9ca26a0f8ee5c2cb18e6991f72b1f",
+    "overlay": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/mapping/qa/demo-original-20261013-1133_00000290/candidates.png",
+    "overlay_hash": "c493443f4607127a04b766377df8a418b05aa1129ada3f4ca068aef98ab25355",
+    "possibly_truncated": false
+  },
+  "ocr": {
+    "texts": [
+      {
+        "text": "E1a*",
+        "confidence": 0.33856201171875,
+        "polygon": [
+          [
+            608,
+            140
+          ],
+          [
+            616,
+            140
+          ],
+          [
+            616,
+            161
+          ],
+          [
+            608,
+            161
+          ]
+        ]
+      },
+      {
+        "text": "72",
+        "confidence": 0.9994423389434814,
+        "polygon": [
+          [
+            206,
+            231
+          ],
+          [
+            245,
+            231
+          ],
+          [
+            245,
+            258
+          ],
+          [
+            206,
+            258
+          ]
+        ]
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9937683939933777,
+        "polygon": [
+          [
+            258,
+            234
+          ],
+          [
+            297,
+            234
+          ],
+          [
+            297,
+            259
+          ],
+          [
+            258,
+            259
+          ]
+        ]
+      },
+      {
+        "text": "FRAG",
+        "confidence": 0.9869678616523743,
+        "polygon": [
+          [
+            834,
+            264
+          ],
+          [
+            893,
+            281
+          ],
+          [
+            887,
+            303
+          ],
+          [
+            828,
+            287
+          ]
+        ]
+      },
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            24,
+            292
+          ],
+          [
+            51,
+            292
+          ],
+          [
+            51,
+            324
+          ],
+          [
+            24,
+            324
+          ]
+        ]
+      },
+      {
+        "text": "市",
+        "confidence": 0.15116941928863525,
+        "polygon": [
+          [
+            90,
+            309
+          ],
+          [
+            106,
+            309
+          ],
+          [
+            106,
+            322
+          ],
+          [
+            90,
+            322
+          ]
+        ]
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9799857139587402,
+        "polygon": [
+          [
+            364,
+            311
+          ],
+          [
+            383,
+            311
+          ],
+          [
+            383,
+            324
+          ],
+          [
+            364,
+            324
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9932851791381836,
+        "polygon": [
+          [
+            28,
+            339
+          ],
+          [
+            68,
+            376
+          ],
+          [
+            55,
+            391
+          ],
+          [
+            15,
+            354
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9788016676902771,
+        "polygon": [
+          [
+            95,
+            349
+          ],
+          [
+            125,
+            380
+          ],
+          [
+            115,
+            391
+          ],
+          [
+            84,
+            360
+          ]
+        ]
+      },
+      {
+        "text": "CE",
+        "confidence": 0.8160009980201721,
+        "polygon": [
+          [
+            906,
+            363
+          ],
+          [
+            936,
+            363
+          ],
+          [
+            936,
+            385
+          ],
+          [
+            906,
+            385
+          ]
+        ]
+      },
+      {
+        "text": "",
+        "confidence": 0.0,
+        "polygon": [
+          [
+            10,
+            386
+          ],
+          [
+            26,
+            386
+          ],
+          [
+            26,
+            407
+          ],
+          [
+            10,
+            407
+          ]
+        ]
+      },
+      {
+        "text": "二",
+        "confidence": 0.2411867380142212,
+        "polygon": [
+          [
+            81,
+            390
+          ],
+          [
+            93,
+            390
+          ],
+          [
+            93,
+            407
+          ],
+          [
+            81,
+            407
+          ]
+        ]
+      },
+      {
+        "text": "Y4",
+        "confidence": 0.40781116485595703,
+        "polygon": [
+          [
+            4,
+            409
+          ],
+          [
+            40,
+            406
+          ],
+          [
+            42,
+            429
+          ],
+          [
+            6,
+            432
+          ]
+        ]
+      },
+      {
+        "text": "VA",
+        "confidence": 0.38562774658203125,
+        "polygon": [
+          [
+            79,
+            407
+          ],
+          [
+            102,
+            407
+          ],
+          [
+            102,
+            424
+          ],
+          [
+            79,
+            424
+          ]
+        ]
+      },
+      {
+        "text": "8",
+        "confidence": 0.8953574895858765,
+        "polygon": [
+          [
+            19,
+            641
+          ],
+          [
+            27,
+            641
+          ],
+          [
+            27,
+            651
+          ],
+          [
+            19,
+            651
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/warehouse-loop/demo-original-20261013-1133/capture/raw/rgb/00000290.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            608,
+            140
+          ],
+          [
+            616,
+            140
+          ],
+          [
+            616,
+            161
+          ],
+          [
+            608,
+            161
+          ]
+        ],
+        [
+          [
+            206,
+            231
+          ],
+          [
+            245,
+            231
+          ],
+          [
+            245,
+            258
+          ],
+          [
+            206,
+            258
+          ]
+        ],
+        [
+          [
+            258,
+            234
+          ],
+          [
+            297,
+            234
+          ],
+          [
+            297,
+            259
+          ],
+          [
+            258,
+            259
+          ]
+        ],
+        [
+          [
+            834,
+            264
+          ],
+          [
+            893,
+            281
+          ],
+          [
+            887,
+            303
+          ],
+          [
+            828,
+            287
+          ]
+        ],
+        [
+          [
+            24,
+            292
+          ],
+          [
+            51,
+            292
+          ],
+          [
+            51,
+            324
+          ],
+          [
+            24,
+            324
+          ]
+        ],
+        [
+          [
+            90,
+            309
+          ],
+          [
+            106,
+            309
+          ],
+          [
+            106,
+            322
+          ],
+          [
+            90,
+            322
+          ]
+        ],
+        [
+          [
+            364,
+            311
+          ],
+          [
+            383,
+            311
+          ],
+          [
+            383,
+            324
+          ],
+          [
+            364,
+            324
+          ]
+        ],
+        [
+          [
+            28,
+            339
+          ],
+          [
+            68,
+            376
+          ],
+          [
+            55,
+            391
+          ],
+          [
+            15,
+            354
+          ]
+        ],
+        [
+          [
+            95,
+            349
+          ],
+          [
+            125,
+            380
+          ],
+          [
+            115,
+            391
+          ],
+          [
+            84,
+            360
+          ]
+        ],
+        [
+          [
+            906,
+            363
+          ],
+          [
+            936,
+            363
+          ],
+          [
+            936,
+            385
+          ],
+          [
+            906,
+            385
+          ]
+        ],
+        [
+          [
+            10,
+            386
+          ],
+          [
+            26,
+            386
+          ],
+          [
+            26,
+            407
+          ],
+          [
+            10,
+            407
+          ]
+        ],
+        [
+          [
+            81,
+            390
+          ],
+          [
+            93,
+            390
+          ],
+          [
+            93,
+            407
+          ],
+          [
+            81,
+            407
+          ]
+        ],
+        [
+          [
+            4,
+            409
+          ],
+          [
+            40,
+            406
+          ],
+          [
+            42,
+            429
+          ],
+          [
+            6,
+            432
+          ]
+        ],
+        [
+          [
+            79,
+            407
+          ],
+          [
+            102,
+            407
+          ],
+          [
+            102,
+            424
+          ],
+          [
+            79,
+            424
+          ]
+        ],
+        [
+          [
+            19,
+            641
+          ],
+          [
+            27,
+            641
+          ],
+          [
+            27,
+            651
+          ],
+          [
+            19,
+            651
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "E1a*",
+        "72",
+        "/5R",
+        "FRAG",
+        "",
+        "市",
+        "/5R",
+        "FRAGILE",
+        "FRAGILE",
+        "CE",
+        "",
+        "二",
+        "Y4",
+        "VA",
+        "8"
+      ],
+      "rec_scores": [
+        0.33856201171875,
+        0.9994423389434814,
+        0.9937683939933777,
+        0.9869678616523743,
+        0.0,
+        0.15116941928863525,
+        0.9799857139587402,
+        0.9932851791381836,
+        0.9788016676902771,
+        0.8160009980201721,
+        0.0,
+        0.2411867380142212,
+        0.40781116485595703,
+        0.38562774658203125,
+        0.8953574895858765
+      ],
+      "rec_polys": [
+        [
+          [
+            608,
+            140
+          ],
+          [
+            616,
+            140
+          ],
+          [
+            616,
+            161
+          ],
+          [
+            608,
+            161
+          ]
+        ],
+        [
+          [
+            206,
+            231
+          ],
+          [
+            245,
+            231
+          ],
+          [
+            245,
+            258
+          ],
+          [
+            206,
+            258
+          ]
+        ],
+        [
+          [
+            258,
+            234
+          ],
+          [
+            297,
+            234
+          ],
+          [
+            297,
+            259
+          ],
+          [
+            258,
+            259
+          ]
+        ],
+        [
+          [
+            834,
+            264
+          ],
+          [
+            893,
+            281
+          ],
+          [
+            887,
+            303
+          ],
+          [
+            828,
+            287
+          ]
+        ],
+        [
+          [
+            24,
+            292
+          ],
+          [
+            51,
+            292
+          ],
+          [
+            51,
+            324
+          ],
+          [
+            24,
+            324
+          ]
+        ],
+        [
+          [
+            90,
+            309
+          ],
+          [
+            106,
+            309
+          ],
+          [
+            106,
+            322
+          ],
+          [
+            90,
+            322
+          ]
+        ],
+        [
+          [
+            364,
+            311
+          ],
+          [
+            383,
+            311
+          ],
+          [
+            383,
+            324
+          ],
+          [
+            364,
+            324
+          ]
+        ],
+        [
+          [
+            28,
+            339
+          ],
+          [
+            68,
+            376
+          ],
+          [
+            55,
+            391
+          ],
+          [
+            15,
+            354
+          ]
+        ],
+        [
+          [
+            95,
+            349
+          ],
+          [
+            125,
+            380
+          ],
+          [
+            115,
+            391
+          ],
+          [
+            84,
+            360
+          ]
+        ],
+        [
+          [
+            906,
+            363
+          ],
+          [
+            936,
+            363
+          ],
+          [
+            936,
+            385
+          ],
+          [
+            906,
+            385
+          ]
+        ],
+        [
+          [
+            10,
+            386
+          ],
+          [
+            26,
+            386
+          ],
+          [
+            26,
+            407
+          ],
+          [
+            10,
+            407
+          ]
+        ],
+        [
+          [
+            81,
+            390
+          ],
+          [
+            93,
+            390
+          ],
+          [
+            93,
+            407
+          ],
+          [
+            81,
+            407
+          ]
+        ],
+        [
+          [
+            4,
+            409
+          ],
+          [
+            40,
+            406
+          ],
+          [
+            42,
+            429
+          ],
+          [
+            6,
+            432
+          ]
+        ],
+        [
+          [
+            79,
+            407
+          ],
+          [
+            102,
+            407
+          ],
+          [
+            102,
+            424
+          ],
+          [
+            79,
+            424
+          ]
+        ],
+        [
+          [
+            19,
+            641
+          ],
+          [
+            27,
+            641
+          ],
+          [
+            27,
+            651
+          ],
+          [
+            19,
+            651
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          608,
+          140,
+          616,
+          161
+        ],
+        [
+          206,
+          231,
+          245,
+          258
+        ],
+        [
+          258,
+          234,
+          297,
+          259
+        ],
+        [
+          828,
+          264,
+          893,
+          303
+        ],
+        [
+          24,
+          292,
+          51,
+          324
+        ],
+        [
+          90,
+          309,
+          106,
+          322
+        ],
+        [
+          364,
+          311,
+          383,
+          324
+        ],
+        [
+          15,
+          339,
+          68,
+          391
+        ],
+        [
+          84,
+          349,
+          125,
+          391
+        ],
+        [
+          906,
+          363,
+          936,
+          385
+        ],
+        [
+          10,
+          386,
+          26,
+          407
+        ],
+        [
+          81,
+          390,
+          93,
+          407
+        ],
+        [
+          4,
+          406,
+          42,
+          432
+        ],
+        [
+          79,
+          407,
+          102,
+          424
+        ],
+        [
+          19,
+          641,
+          27,
+          651
+        ]
+      ]
+    },
+    "elapsed_s": 0.4310450553894043,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "demo-original-20261013-1133:00000290",
+    "rgb_hash": "4bc429e0e33af8f2ceae669b46df4121b7929c87140a39efb567cb7aaf8dd0b9"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "E1a*",
+        "confidence": 0.33856201171875,
+        "polygon": [
+          [
+            608,
+            140
+          ],
+          [
+            616,
+            140
+          ],
+          [
+            616,
+            161
+          ],
+          [
+            608,
+            161
+          ]
+        ],
+        "normalized": "E1a*",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "72",
+        "confidence": 0.9994423389434814,
+        "polygon": [
+          [
+            206,
+            231
+          ],
+          [
+            245,
+            231
+          ],
+          [
+            245,
+            258
+          ],
+          [
+            206,
+            258
+          ]
+        ],
+        "normalized": "72",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9937683939933777,
+        "polygon": [
+          [
+            258,
+            234
+          ],
+          [
+            297,
+            234
+          ],
+          [
+            297,
+            259
+          ],
+          [
+            258,
+            259
+          ]
+        ],
+        "normalized": "/5R",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "FRAG",
+        "confidence": 0.9869678616523743,
+        "polygon": [
+          [
+            834,
+            264
+          ],
+          [
+            893,
+            281
+          ],
+          [
+            887,
+            303
+          ],
+          [
+            828,
+            287
+          ]
+        ],
+        "normalized": "FRAG",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "市",
+        "confidence": 0.15116941928863525,
+        "polygon": [
+          [
+            90,
+            309
+          ],
+          [
+            106,
+            309
+          ],
+          [
+            106,
+            322
+          ],
+          [
+            90,
+            322
+          ]
+        ],
+        "normalized": "市",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9799857139587402,
+        "polygon": [
+          [
+            364,
+            311
+          ],
+          [
+            383,
+            311
+          ],
+          [
+            383,
+            324
+          ],
+          [
+            364,
+            324
+          ]
+        ],
+        "normalized": "/5R",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9932851791381836,
+        "polygon": [
+          [
+            28,
+            339
+          ],
+          [
+            68,
+            376
+          ],
+          [
+            55,
+            391
+          ],
+          [
+            15,
+            354
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9788016676902771,
+        "polygon": [
+          [
+            95,
+            349
+          ],
+          [
+            125,
+            380
+          ],
+          [
+            115,
+            391
+          ],
+          [
+            84,
+            360
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "CE",
+        "confidence": 0.8160009980201721,
+        "polygon": [
+          [
+            906,
+            363
+          ],
+          [
+            936,
+            363
+          ],
+          [
+            936,
+            385
+          ],
+          [
+            906,
+            385
+          ]
+        ],
+        "normalized": "CE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "二",
+        "confidence": 0.2411867380142212,
+        "polygon": [
+          [
+            81,
+            390
+          ],
+          [
+            93,
+            390
+          ],
+          [
+            93,
+            407
+          ],
+          [
+            81,
+            407
+          ]
+        ],
+        "normalized": "二",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "Y4",
+        "confidence": 0.40781116485595703,
+        "polygon": [
+          [
+            4,
+            409
+          ],
+          [
+            40,
+            406
+          ],
+          [
+            42,
+            429
+          ],
+          [
+            6,
+            432
+          ]
+        ],
+        "normalized": "Y4",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "VA",
+        "confidence": 0.38562774658203125,
+        "polygon": [
+          [
+            79,
+            407
+          ],
+          [
+            102,
+            407
+          ],
+          [
+            102,
+            424
+          ],
+          [
+            79,
+            424
+          ]
+        ],
+        "normalized": "VA",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "8",
+        "confidence": 0.8953574895858765,
+        "polygon": [
+          [
+            19,
+            641
+          ],
+          [
+            27,
+            641
+          ],
+          [
+            27,
+            651
+          ],
+          [
+            19,
+            651
+          ]
+        ],
+        "normalized": "8",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      }
+    ],
+    "updates": [
+      {
+        "event": {
+          "message_id": "rt:demo-original-20261013-1133:00000290:1:text:e6ba04f11d9f",
+          "parent_event_id": "rt:demo-original-20261013-1133:00000290:1",
+          "image_id": "demo-original-20261013-1133:00000290",
+          "rgb_hash": "4bc429e0e33af8f2ceae669b46df4121b7929c87140a39efb567cb7aaf8dd0b9",
+          "depth_hash": "1b388b3b7e670a31eb941d1d40be754d034d5cd05d017b0d4745d928d0f25ad4",
+          "texts": [
+            {
+              "text": "72",
+              "confidence": 0.9994423389434814,
+              "polygon": [
+                [
+                  206,
+                  231
+                ],
+                [
+                  245,
+                  231
+                ],
+                [
+                  245,
+                  258
+                ],
+                [
+                  206,
+                  258
+                ]
+              ],
+              "normalized": "72",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9937683939933777,
+              "polygon": [
+                [
+                  258,
+                  234
+                ],
+                [
+                  297,
+                  234
+                ],
+                [
+                  297,
+                  259
+                ],
+                [
+                  258,
+                  259
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "provenance": {
+            "backend": "PP-OCRv5_mobile",
+            "device": "cpu",
+            "threads": 4,
+            "det_max_side": 960,
+            "mkldnn": true,
+            "files": {
+              "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+              "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+              "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+              "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+              "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+              "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+              "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+              "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+            }
+          }
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "9bc7c4c87f484073992ef6a2dfae2193"
+      }
+    ]
+  }
+}
