@@ -248,6 +248,9 @@ class InternVLReference(nn.Module):
             "robot_state_v_omega": obs["robot_state"],
             "state_valid": obs["robot_state_mask"],
         }
+        for key in ("previous_reference", "follow_target", "task_mode"):
+            if key in obs:
+                payload[key] = obs[key]
         if "map_landmarks" in obs:
             payload["map_interface"] = "rendered_mapview_baseline"
             payload["observed_map_landmarks"] = obs["map_landmarks"][:16]

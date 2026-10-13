@@ -2,6 +2,7 @@
 
 import json
 import re
+import time
 from dataclasses import asdict
 from pathlib import Path
 
@@ -238,20 +239,28 @@ class StructuredVLM(InternVLReference):
                     self.tokenizer
                 )
             allowed = build_transformers_prefix_allowed_tokens_fn(
-                self._tokenizer_data, response_grammar(image_ids, extended=True)
+                self._tokenizer_data, response_grammar(image_ids, extended=observation.get("landmark_schema", "extended") != "legacy")
             )
         else:
             prefix += self.query_ids
         ids = torch.tensor([prefix], device=self.device)
         attention = torch.ones_like(ids)
         lm = self.backbone.language_model
+        def clock():
+            if str(self.device).startswith("cuda"):
+                torch.cuda.synchronize(self.device)
+            return time.perf_counter()
+        started = clock()
+        embeddings = self._embeddings(ids, images)
+        encoded = clock()
         out = lm(
-            inputs_embeds=self._embeddings(ids, images),
+            inputs_embeds=embeddings,
             attention_mask=attention,
             use_cache=True,
             output_hidden_states=True,
             return_dict=True,
         )
+        prefilled = clock()
         generated, complete, constrained_steps = [], mode == "PREFILL_FOLLOW", 0
         raw_argmax_changes = 0
         if mode == "TEXT":
@@ -292,6 +301,7 @@ class StructuredVLM(InternVLReference):
                 ):
                     complete = True
                     break
+        decoded = clock()
         text = self.tokenizer.decode(generated, skip_special_tokens=False)
         parsed, error = None, None
         if mode == "TEXT":
@@ -352,6 +362,9 @@ class StructuredVLM(InternVLReference):
             else None,
             "constrained_steps": constrained_steps,
             "changed_argmax_steps": raw_argmax_changes,
+            "stage_seconds": {"image_encoding": encoded-started,
+                              "prefill": prefilled-encoded, "decode": decoded-prefilled,
+                              "reference_and_compressor": clock()-decoded},
             "head_quality": "untrained; interface validation only",
             "quality_validated": False,
         }

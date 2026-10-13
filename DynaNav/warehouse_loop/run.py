@@ -16,6 +16,12 @@ import numpy as np
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--navigation-root", type=Path)
+    parser.add_argument("--navigation-task", choices=("landmark", "explore", "follow"))
+    parser.add_argument(
+        "--person-asset",
+        default="https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.0/Isaac/People/Characters/male_adult_construction_01_new/male_adult_construction_01_new.usd",
+    )
     parser.add_argument("--max-steps", type=int, default=18000)
     parser.add_argument("--capture-hz", type=float, default=1.0)
     parser.add_argument("--gui", action="store_true")
@@ -84,6 +90,16 @@ def main():
         for _ in range(20):
             app.update()
         labels = add_labels(stage, root, args.landmark_variant)
+        navigation = pedestrian = None
+        if args.navigation_root:
+            from DynaNav.warehouse_loop.navigation_control import (
+                NavigationControl,
+                Pedestrian,
+            )
+
+            navigation = NavigationControl(args.navigation_root)
+            if args.navigation_task == "follow":
+                pedestrian = Pedestrian(stage, args.navigation_root, args.person_asset)
         if args.landmark_variant == "lighting":
             # Change scene lighting in USD, not RGB post-processing. Depth,
             # calibration and evaluation masks remain synchronized.
@@ -175,6 +191,10 @@ def main():
             "live_capture_mode": args.live_capture_mode if args.live_map else None,
             "supervision": {"actions_task_aligned": False},
         }
+        if navigation and (args.navigation_root / "task.json").exists():
+            metadata["task"] = json.loads(
+                (args.navigation_root / "task.json").read_text()
+            )
         config = root / "capture.json"
         config.write_text(json.dumps(metadata, indent=2))
         rep.orchestrator.set_capture_on_play(False)
@@ -229,7 +249,7 @@ def main():
             from DynaNav.warehouse_loop.live_panel import LiveMapPanel
             from omni.kit.viewport.utility import get_active_viewport
 
-            panel = LiveMapPanel(args.live_map)
+            panel = None if args.navigation_root else LiveMapPanel(args.live_map)
             get_active_viewport().camera_path = "/World/Overview"
 
         def metric(module, rows, started, **extra):
@@ -248,6 +268,7 @@ def main():
             # Freeze physics while rendering RGB, optical-Z depth and calibration.
             # Render reference time is NOT physics time when rendering sparsely.
             stamp = world.current_time
+            source_monotonic = time.monotonic()
             direct_render = (
                 bool(args.live_map)
                 and args.live_capture_mode == "synchronized"
@@ -313,6 +334,7 @@ def main():
                 t_obs=stamp,
                 odom_epoch=metadata["episode_id"],
                 privileged=privileged,
+                source_monotonic=source_monotonic,
             )
             if abs(world.current_time - stamp) > 1e-6:
                 raise RuntimeError("Physics advanced during synchronized capture")
@@ -352,32 +374,53 @@ def main():
             if previous is not None:
                 distance += float(np.linalg.norm(pos[:2] - previous[:2]))
             previous = pos.copy()
-            if target_index < len(WAYPOINTS):
-                delta = np.asarray(WAYPOINTS[target_index]) - pos[:2]
-                error = float(np.linalg.norm(delta))
-                heading = math.atan2(delta[1], delta[0])
-                if error < 0.14:
-                    reached.append(
-                        {
-                            "index": target_index,
-                            "time": world.current_time,
-                            "position": pos.tolist(),
-                        }
+            if navigation:
+                # Replace fixed-loop output completely: only source-checked external commands execute.
+                pose = np.eye(4)
+                pose[:2, :2] = [
+                    [math.cos(yaw), -math.sin(yaw)],
+                    [math.sin(yaw), math.cos(yaw)],
+                ]
+                pose[:3, 3] = pos
+                if step % 2 == 0:
+                    nav_v, nav_w = navigation.command(
+                        origin @ pose, metadata["episode_id"]
                     )
-                    target_index += 1
-                    print("WAYPOINT", target_index - 1, pos.tolist(), flush=True)
-            if target_index == len(WAYPOINTS):
-                heading, error = final_heading, 0.0
-            angular_error = math.atan2(math.sin(heading - yaw), math.cos(heading - yaw))
-            v = (
-                min(0.65, error * 1.2) * max(0.0, math.cos(angular_error))
-                if abs(angular_error) < 0.45
-                else 0.0
-            )
-            w = float(np.clip(2.0 * angular_error, -0.8, 0.8))
-            if target_index == len(WAYPOINTS) and abs(angular_error) < 0.035:
-                v, w = 0.0, 0.0
-                finished = True
+                v, w = nav_v, nav_w
+                finished = (args.navigation_root / "task-finished.json").exists() or (
+                    args.navigation_root.parent / "cancel.json"
+                ).exists()
+                if pedestrian:
+                    pedestrian.update(world.current_time)
+            else:
+                if target_index < len(WAYPOINTS):
+                    delta = np.asarray(WAYPOINTS[target_index]) - pos[:2]
+                    error = float(np.linalg.norm(delta))
+                    heading = math.atan2(delta[1], delta[0])
+                    if error < 0.14:
+                        reached.append(
+                            {
+                                "index": target_index,
+                                "time": world.current_time,
+                                "position": pos.tolist(),
+                            }
+                        )
+                        target_index += 1
+                        print("WAYPOINT", target_index - 1, pos.tolist(), flush=True)
+                if target_index == len(WAYPOINTS):
+                    heading, error = final_heading, 0.0
+                angular_error = math.atan2(
+                    math.sin(heading - yaw), math.cos(heading - yaw)
+                )
+                v = (
+                    min(0.65, error * 1.2) * max(0.0, math.cos(angular_error))
+                    if abs(angular_error) < 0.45
+                    else 0.0
+                )
+                w = float(np.clip(2.0 * angular_error, -0.8, 0.8))
+                if target_index == len(WAYPOINTS) and abs(angular_error) < 0.035:
+                    v, w = 0.0, 0.0
+                    finished = True
             robot.apply_wheel_actions(drive.forward(command=np.array([v, w])))
             world.step(render=False)
             metric("physics", physics_perf, step_started)
@@ -417,7 +460,9 @@ def main():
                             "yaw": yaw,
                             "v_command": v,
                             "w_command": w,
-                            "target": target_index,
+                            "target": args.navigation_task
+                            if navigation
+                            else target_index,
                         }
                     )
                     + "\n"
@@ -439,6 +484,8 @@ def main():
                 snapshot()
                 break
         trace.close()
+        if navigation:
+            navigation.close()
         run_wall_end = time.time()
         robot.apply_wheel_actions(drive.forward(command=np.zeros(2)))
         duration = world.current_time
@@ -457,9 +504,14 @@ def main():
             "scene_asset": WAREHOUSE,
             "robot_asset": ROBOT,
             "shelf_count": len(labels),
-            "waypoints": WAYPOINTS,
+            "waypoints": [] if navigation else WAYPOINTS,
+            "navigation_task": args.navigation_task,
+            "execution_source": "navigation_command_watchdog"
+            if navigation
+            else "fixed_loop",
             "reached": reached,
-            "loop_complete": finished,
+            "loop_complete": finished if not navigation else False,
+            "navigation_finished": finished if navigation else None,
             "distance_m": distance,
             "return_error_m": float(np.linalg.norm(pos[:2] - initial[:2])),
             "frames": frame_count,

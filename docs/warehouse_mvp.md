@@ -1,5 +1,10 @@
 # Warehouse MVP: local map → reference line → Flow AE
 
+For the new inference-only nine-mode navigation and Isaac closed-loop entrypoint,
+see [warehouse_navigation.md](warehouse_navigation.md) and its
+[validation report](warehouse_navigation_validation.md). The offline training MVP
+described below remains compatible and separate.
+
 This opt-in pipeline implements the first, offline milestone of
 `dynamic-warehouse-vln-design-v0.6.pdf` (§4–6, §9). It supports local forward
 instructions, turns, obstacle detours and waiting. Legacy TIC-VLA, its configs,

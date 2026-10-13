@@ -41,6 +41,7 @@ class EpisodeRecorder:
         t_obs,
         odom_epoch,
         privileged=None,
+        source_monotonic=None,
     ):
         from PIL import Image
 
@@ -87,6 +88,8 @@ class EpisodeRecorder:
             )
         # Commit time is separate from sensor/physics time; used by live latency metrics.
         record["wall_time"] = time.time()
+        if source_monotonic is not None:
+            record["source_monotonic"] = float(source_monotonic)
         self.stream.write(json.dumps(record) + "\n")
         self.stream.flush()
         self.count += 1
