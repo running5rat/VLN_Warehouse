@@ -6,6 +6,7 @@ argmax semantics when no high-score token is legal.
 """
 
 import torch
+import time
 from transformers import LogitsProcessor
 
 
@@ -19,6 +20,7 @@ class GreedyGrammarProcessor(LogitsProcessor):
         self.calls = 0
         self.tested_tokens = 0
         self.exhaustive_calls = 0
+        self.wall_seconds = 0.0
 
     @staticmethod
     def advance(parser, text):
@@ -29,6 +31,13 @@ class GreedyGrammarProcessor(LogitsProcessor):
         return parser
 
     def __call__(self, input_ids, scores):
+        start = time.perf_counter()
+        try:
+            return self._constrain(input_ids, scores)
+        finally:
+            self.wall_seconds += time.perf_counter() - start
+
+    def _constrain(self, input_ids, scores):
         if len(input_ids) != 1:
             raise ValueError("GreedyGrammarProcessor requires batch=1, num_beams=1")
         suffix = input_ids[0, self.prefix_length :].tolist()
@@ -77,4 +86,5 @@ class GreedyGrammarProcessor(LogitsProcessor):
             exhaustive_calls=self.exhaustive_calls,
             sampling=False,
             beam_search=False,
+            wall_seconds=self.wall_seconds,
         )

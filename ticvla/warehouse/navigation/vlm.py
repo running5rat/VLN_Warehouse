@@ -10,6 +10,17 @@ from ..vlm import QUERY
 
 
 class NavigationVLM(StructuredVLM):
+    def build_prompt(self, observation, *args, **kwargs):
+        from .route_protocol import NAVIGATION_SYSTEM
+
+        old = self.system_prompt
+        if observation.get("route_schema") == "structured-v1":
+            self.system_prompt = getattr(self, "navigation_system_override", NAVIGATION_SYSTEM)
+        try:
+            return super().build_prompt(observation, *args, **kwargs)
+        finally:
+            self.system_prompt = old
+
     @torch.inference_mode()
     def infer(self, observation, mode="TEXT", progress_callback=None):
         if mode != "TEXT":
@@ -20,22 +31,38 @@ class NavigationVLM(StructuredVLM):
         )
         image_ids = [x["image_id"] for x in observation["rgb_history"] if x.get("path")]
         grammar = GreedyGrammarProcessor(
-            self.tokenizer, response_grammar(image_ids, extended=False), ids.shape[1]
+            self.tokenizer,
+            response_grammar(
+                image_ids,
+                extended=False,
+                structured_route=observation.get("route_schema") == "structured-v1",
+            ),
+            ids.shape[1],
         )
         tokenizer = self.tokenizer
         prefix_length = ids.shape[1]
+        first_token_at = []
 
         class Stop(StoppingCriteria):
             def __call__(self, input_ids, scores, **kwargs):
-                return tokenizer.decode(
+                text = tokenizer.decode(
                     input_ids[0, prefix_length:], skip_special_tokens=False
-                ).endswith(QUERY)
+                )
+                if not first_token_at:
+                    first_token_at.append(time.perf_counter())
+                return text.endswith(QUERY)
 
         torch.cuda.synchronize()
         start = time.perf_counter()
         embeddings = self._embeddings(ids, images)
         torch.cuda.synchronize()
         encoded = time.perf_counter()
+        input_audit = dict(
+            input_tokens=int(ids.numel()),
+            visual_tokens=int((ids == self.img_token).sum().item()),
+            image_paths=images,
+            prompt_characters=len(prompt),
+        )
         lm = self.backbone.language_model
         spans = []
 
@@ -50,6 +77,7 @@ class NavigationVLM(StructuredVLM):
 
         pre = lm.register_forward_pre_hook(before, with_kwargs=True)
         post = lm.register_forward_hook(after, with_kwargs=True)
+        generation_start = time.perf_counter()
         try:
             generated = lm.generate(
                 input_ids=ids,
@@ -74,6 +102,7 @@ class NavigationVLM(StructuredVLM):
                 constraint_statistics=grammar.record(),
                 format_constraint="lm-format-enforcer character grammar checked greedy argmax",
                 quality_validated=False,
+                input_audit=input_audit,
             )
         finally:
             pre.remove()
@@ -91,9 +120,29 @@ class NavigationVLM(StructuredVLM):
             constraint_statistics=grammar.record(),
             quality_validated=False,
             head_quality="untrained; interface validation only",
+            input_audit=input_audit,
+        )
+        durations = [a.elapsed_time(b) / 1000 for a, b in spans]
+        base["stage_seconds"] = dict(
+            image_encoding=encoded - start,
+            native_generation=decoded - generation_start,
+            first_token_wall=(first_token_at[0] - generation_start) if first_token_at else None,
+            decode_wall=(decoded - first_token_at[0]) if first_token_at else None,
+            grammar_wall=grammar.wall_seconds,
+            prefill_gpu=durations[0] if durations else None,
+            decode_gpu=sum(durations[1:]),
+        )
+        base["timing_scope"] = (
+            "first_token_wall + decode_wall = native_generation; first token includes prefill "
+            "and token selection. grammar_wall and GPU times are nested diagnostics, not additive. "
+            "Excludes queue, loading, prompt construction and artifact writing."
         )
         try:
-            parsed = parse_structured(text, image_ids)
+            parsed = parse_structured(
+                text,
+                image_ids,
+                structured_route=observation.get("route_schema") == "structured-v1",
+            )
         except ValueError as exc:
             return dict(base, valid=False, error=str(exc), parsed=None)
         cache = generated.past_key_values
@@ -108,6 +157,8 @@ class NavigationVLM(StructuredVLM):
             raise ValueError(
                 "Unexpected cache already includes final query; hidden state unavailable"
             )
+        torch.cuda.synchronize()
+        query_start = time.perf_counter()
         out = lm(
             input_ids=missing,
             past_key_values=cache,
@@ -116,6 +167,8 @@ class NavigationVLM(StructuredVLM):
             output_hidden_states=True,
             return_dict=True,
         )
+        torch.cuda.synchronize()
+        query_end = time.perf_counter()
         reference = self.decoder(out.hidden_states[-1][:, -1].float())
         kv = pack_last_kv(out.past_key_values).float()
         z = self.compressor(
@@ -126,7 +179,11 @@ class NavigationVLM(StructuredVLM):
                 raise ValueError("Nonfinite model output")
         torch.cuda.synchronize()
         ended = time.perf_counter()
-        durations = [a.elapsed_time(b) / 1000 for a, b in spans]
+        base["stage_seconds"].update(
+            final_query=query_end - query_start,
+            heads=ended - query_end,
+            reference_and_compressor=ended - decoded,
+        )
         return dict(
             base,
             valid=True,
@@ -138,11 +195,4 @@ class NavigationVLM(StructuredVLM):
             confidence=float(reference["confidence_logits"].sigmoid()[0]),
             raw_kv_shape=list(kv.shape),
             processed_query=True,
-            stage_seconds=dict(
-                image_encoding=encoded - start,
-                native_generation=decoded - encoded,
-                prefill_gpu=durations[0] if durations else None,
-                decode_gpu=sum(durations[1:]),
-                reference_and_compressor=ended - decoded,
-            ),
         )

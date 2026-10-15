@@ -1,0 +1,166 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>仓库人工采集与标注</title>
+<style>
+body{margin:20px;background:#15202b;color:#e8eef5;font:16px system-ui}button,input,select,textarea{font:inherit;padding:7px;margin:4px;border-radius:4px}button{cursor:pointer}textarea{width:95%;height:100px;background:#f8fafc}pre{white-space:pre-wrap;overflow-wrap:anywhere}img{object-fit:contain}#live img{width:48%}.row{display:flex;gap:16px;align-items:flex-start}.half{width:49%}#canvas{width:100%;max-width:640px;touch-action:none;background:#777}#history img{width:23%}#error{color:#ffb3a4;white-space:pre-wrap}.badge{padding:8px;background:#263b4d}label{display:block;margin-top:10px}.muted{color:#abc0d2}
+</style>
+<h2>人工示范 → 回放标注</h2><p class="badge">无自动导航模型控制。x 向前，y 向左，单位米。批准标签是人工操作；保存草稿不代表批准。</p>
+<pre id="status">等待服务…</pre><p id="error"></p>
+<section id="live"><div><button onclick="record('recording')">开始／继续录制</button><button onclick="record('paused')">暂停录制</button><button onclick="record('finished')">结束采集并进入标注</button></div>
+<p>点击“驾驶区域”后按住 W/↑ 前进、A/← 左转、D/→ 右转；松开按键、空格、失焦或通信超时均停车。不支持倒车。</p>
+<p>人工仿真探索允许驶入灰色未知区域，由驾驶者观察避障；已知障碍、传感器过期和命令超时仍会拦截。该策略不用于自动导航。</p>
+<button id="drive">驾驶区域（点击后使用按键）</button><button onclick="stopDrive()">立即停止</button>
+<div><img id="liveRgb"><img id="liveMap"></div>
+<select id="event"><option value="start">任务起步</option><option value="intersection">经过路口</option><option value="turn_started">开始转弯</option><option value="turn_completed">完成转弯</option><option value="target_visible">目标已可见</option><option value="stopped">已停车</option><option value="arrival_confirmed">人工确认到达</option><option value="note">其他事实</option></select>
+<input id="eventNote" placeholder="方向、位置或已发生事实"><button onclick="markEvent()">绑定当前源帧记录事件</button></section>
+<section id="replay" hidden><h3>回放标注</h3>
+<p id="annotationCounts" class="badge"></p>
+<p class="muted">按时间顺序批准。修改早期 Route 后，后续批准须重新审核。完整未来轨迹仅用于标注辅助，不会导出到模型输入。</p>
+<select id="frames" onchange="loadSample(+this.value)"></select><button onclick="loadSample(index)">重新加载</button><input id="annotator" placeholder="标注人姓名／ID">
+<div class="row"><div class="half"><img id="rgb" style="width:100%"><div id="history"></div><pre id="facts"></pre></div>
+<div class="half"><canvas id="canvas" width="640" height="640"></canvas>
+<p>橙色：待审核参考线；青色：五锚点；紫色：未来示范（标注辅助）。拖动橙点修改，点击线段插点，双击点删除。</p>
+<p class="muted">不编辑时采用未来实际驾驶轨迹提取的候选：转为当前源车体系、去除停顿重复点，按约 0.25 m 弧长采样，最多 32 点／7.75 m。不会自动纠正驾驶绕行或抖动；审核批准后才成为标签。</p>
+<button onclick="resetLine()">恢复轨迹提取候选</button><button onclick="clearLine()">明确无有效路线</button><button onclick="undo()">撤销编辑</button>
+<h4>参考线投影到当前 RGB</h4>
+<canvas id="projectionCanvas" width="960" height="720" style="width:100%;background:#263b4d"></canvas>
+<p id="projectionStatus" class="muted">等待源帧标定…</p>
+<p class="muted">橙线／青色 W1–W5 与地图编辑同步。按当前源车体系 z=0 平面投影，保持原图比例；不判定遮挡，叠到物体上的线需人工核查。相机后方和画面外部分不计为画面内可见点。</p>
+<select id="refState"><option value="valid">有效参考线</option><option value="valid_empty">已确认无有效路线</option></select>
+<p class="muted">灰色 unknown 表示深度占据地图缺少覆盖，不等于 RGB 看不见，也不等于路线错误。人工审核的参考线可以经过 unknown，不必因此缩短；地图覆盖诊断会保留，已知障碍冲突仍需核查。</p>
+<label>参考线审核备注（可选；unknown 不阻止批准、不单独关闭参考线监督）<input id="unknown" style="width:90%"></label></div></div>
+<label>Landmark JSON 数组（最多三类，image_id 必须来自上方 RGB）<textarea id="landmark" placeholder='[]'></textarea></label>
+<details open><summary>Landmark 填写示例（仅示范格式，不会自动写入答案）</summary>
+<p>每项包含 <code>image_id</code>（所依据的源图像）和 <code>category</code>（简短英文物体类别）。仅登记该源图像中实际可见、值得登记的物体；没有则填 <code>[]</code>。最多三项。</p>
+<p>下例动态使用当前图像 ID；只有当前图像确有标牌时才采用：</p><pre id="landmarkExample"></pre>
+<p>同帧的 01/4R、02/4R 两个牌子均属于 <code>sign</code>，当前类别协议只列一次，不把编号拼进 category。<code>[sign 01/4R 02/4R]</code> 不是合法 JSON。当前 Landmark 协议没有编号字段，后续实例分割／OCR 负责绑定文字；如 Local 需要描述编号，只写当前图像中确实可读的内容。</p>
+<p>其他类别名称示例：<code>fire extinguisher</code>、<code>door</code>。是否可见须由你判断，不要直接照抄。当前可引用的图像：</p><pre id="landmarkSources"></pre>
+</details>
+<p>上一已批准 Local 与相对运动显示在上方输入信息中；valid=true 时可结合当前观察推断，以 Inferred: 标明推断。历史判断不等于定位真值，失效或证据不足填 unknown。</p>
+<p>本阶段模型输入和标签统一使用英文：instruction、Local、remaining_instruction 和 description 均写英文，标牌编号保持原样。Local 最多 80 字符，例如 <code>By sign 01/4R, facing toward sign 02/4R.</code>；历史推断以 <code>Inferred:</code> 开头。</p>
+<label>Local（英文观察／有历史依据的推断，或 unknown）<input id="local" style="width:90%" placeholder="unknown"></label>
+<fieldset id="replayEvents"><legend>回放补记事实（可选；只勾选当前源时刻确实已发生的事实）</legend>
+<p>应当停车：Route 使用 action=stop、status=active。已经到达且实际停稳：核验后补记相应事实，再使用 completed。仅单张静态截图不能证明车辆停稳，请结合历史图像和位姿／速度核验。</p>
+<label><input type="checkbox" name="replayEvent" value="start">任务已开始</label>
+<label><input type="checkbox" name="replayEvent" value="intersection">已经过路口</label>
+<label><input type="checkbox" name="replayEvent" value="turn_started">已开始转向</label>
+<label><input type="checkbox" name="replayEvent" value="turn_completed">已完成转向</label><br>
+<label><input type="checkbox" name="replayEvent" value="target_visible">任务目标已可见</label>
+<label><input type="checkbox" name="replayEvent" value="stopped">车辆已实际停止</label>
+<label><input type="checkbox" name="replayEvent" value="arrival_confirmed">已到达任务要求的位置</label>
+<p><label>核验依据（补记时必填；说明目标、到达位置、历史画面或运动记录）<input id="replayEventNote" style="width:95%"></label></p>
+<p>随“批准本时刻”保存，来源标记为人工回放核验；不会改写原始采集日志。历史事件显示在上方，后续帧无需重复勾选。这里记录一次事件的发生／首次确认，不是累计状态：同一次起步、路口或转弯，不要在以后每帧重复勾选。修改旧事实会使后续批准需要重新审核。</p>
+</fieldset>
+<label>新 Route JSON<textarea id="route" style="height:170px" placeholder='{"remaining_instruction":"...","current_subgoal":{"action":"..."},"status":"active"}'></textarea></label>
+<details open id="routeExamples"><summary>Route 填写示例（按实际进度选择，不会自动写入答案）</summary>
+<p>Route 必须是 JSON 对象，包含三个字段：<code>remaining_instruction</code> 写完整的剩余任务；<code>current_subgoal</code> 只写当前正在执行的一个子目标；<code>status</code> 写任务状态。不能只把一句指令放进大括号。</p>
+<p>下面演示“走到通道尽头左转，然后前往灭火器旁停车”的不同阶段，不代表你的任务已经推进到这些阶段。如果原任务还有其他转弯或要求，必须保留尚未完成的部分。</p>
+<details open><summary>① 尚未到通道尽头：当前子目标是前进，不是左转</summary>
+<pre id="routeExampleAdvance">{
+  "remaining_instruction": "Proceed along the aisle, turn left at its end, then approach the fire extinguisher you see and stop.",
+  "current_subgoal": {
+    "action": "advance_to_corridor_end"
+  },
+  "status": "active"
+}</pre></details>
+<details><summary>② 已到通道尽头，正在左转</summary>
+<pre id="routeExampleTurn">{
+  "remaining_instruction": "Turn left, then approach the fire extinguisher you see and stop beside it.",
+  "current_subgoal": {
+    "action": "turn",
+    "direction": "left"
+  },
+  "status": "active"
+}</pre></details>
+<details><summary>③ 左转已完成，已看到并确定要接近的灭火器</summary>
+<pre id="routeExampleApproach">{
+  "remaining_instruction": "Approach the visible fire extinguisher ahead and stop beside it.",
+  "current_subgoal": {
+    "action": "approach_landmark",
+    "category": "fire extinguisher",
+    "description": "The visible fire extinguisher ahead"
+  },
+  "status": "active"
+}</pre>
+<p>若同时可见多个灭火器，description 应根据当前观测进一步区分；尚未看到时，不要照抄“前方可见”。</p></details>
+<details><summary>④ 已到达指定目标旁并实际停车，任务完成</summary>
+<pre id="routeExampleCompleted">{
+  "remaining_instruction": "Reached the target fire extinguisher vicinity and stopped.",
+  "current_subgoal": {
+    "action": "stop"
+  },
+  "status": "completed"
+}</pre>
+<p>只有已发生的到达、停车事实支持完成时才填写 completed。当前审批还要求记录 target_visible、stopped 和 arrival_confirmed 事件；可在上方回放补记区核验并记录；仅看见目标或发出停车命令不算完成。</p></details>
+<p>状态：<code>active</code> 进行中；<code>waiting</code> 暂时等待；<code>needs_clarification</code> 指令或指代不清；<code>completed</code> 有证据支持的整项任务完成。下一时刻会读取本时刻批准的 Route；改写措辞不代表实际取得进展。</p>
+</details>
+<details><summary>Route 动作协议</summary><p>advance_to_intersection: ordinal；advance_to_corridor_end；turn: direction left/right；approach_landmark: target_text/category/description；relative_motion: direction、distance_m、origin=subgoal_start；explore；follow_person: description；wait；stop。status: active/waiting/needs_clarification/completed。</p></details>
+<pre id="preview"></pre><label><input type="checkbox" id="reviewed">我已人工检查来源、任务进度、地标和参考线；未把未来观测当成当前事实。</label>
+<p class="muted">整段验收不要求固定转向次数或单独的 start 标记；请人工核对原始指令是否完成。仍须全部关键帧批准有效，并有目标可见、实际停车和到达事实。</p>
+<button onclick="save(false)">保存草稿</button><button onclick="save(true)">批准本时刻</button><button onclick="exportData()">导出全部批准版本</button><button onclick="finalize()">确认整个任务与标注完成</button>
+</section>
+<script src="reference_projection.js?v=1"></script>
+<script>
+const $=x=>document.getElementById(x);let source=null,project=null,sample=null,index=0,points=[],history=[],selected=-1,keys=new Set(),driveEnabled=false,loading=false;
+const canvas=$('canvas'),ctx=canvas.getContext('2d'),map=new Image();map.onload=draw;
+let projectionCamera=null;
+$('rgb').addEventListener('load',drawRGBProjection);
+async function loadProjectionCamera(s){
+ projectionCamera=null;drawRGBProjection();
+ try{
+  const camera=await api('annotation/'+s.folder+'/projection-camera.json');
+  if(sample!==s)return;
+  if(camera.image_id!==s.observation.image_id||camera.source_binding!==s.provenance.source_binding)throw Error('投影标定与当前源帧不匹配');
+  projectionCamera=camera;drawRGBProjection();
+ }catch(e){if(sample===s)$('projectionStatus').textContent='投影不可用：'+e.message+'。旧项目请重启回放以生成标定预览文件。';}
+}
+function drawRGBProjection(){
+ const c=$('projectionCanvas'),g=c.getContext('2d'),im=$('rgb'),note=$('projectionStatus');
+ g.clearRect(0,0,c.width,c.height);
+ if(!projectionCamera){note.textContent='等待当前源帧标定…';return;}
+ if(!im.complete||!im.naturalWidth){note.textContent='等待当前 RGB…';return;}
+ if(im.naturalWidth!==projectionCamera.width||im.naturalHeight!==projectionCamera.height){note.textContent='投影不可用：RGB 尺寸与源标定不一致';return;}
+ c.width=im.naturalWidth;c.height=im.naturalHeight;g.drawImage(im,0,0);
+ try{
+  const approved=ReferenceProjection.resample(points),projected=ReferenceProjection.project(approved,projectionCamera);
+  const count={inside:0,outside:0,behind_or_near:0};projected.forEach(p=>count[p.status]++);
+  // Canvas clips to the original image. Break the polyline at near/behind points.
+  function stroke(color,width){g.strokeStyle=color;g.lineWidth=width;g.beginPath();let connected=false;for(const p of projected){if(!p.uv){connected=false;continue;}if(connected)g.lineTo(...p.uv);else g.moveTo(...p.uv);connected=true;}g.stroke();}
+  stroke('#15202b',7);stroke('#ff9600',4);
+  for(const p of projected)if(p.status==='inside'){g.fillStyle='#ff9600';g.beginPath();g.arc(...p.uv,4,0,2*Math.PI);g.fill();}
+  const waypoints=ReferenceProjection.project(getAnchors(),projectionCamera);
+  g.font='bold 20px sans-serif';g.lineWidth=4;
+  waypoints.forEach((p,i)=>{if(p.status!=='inside')return;g.fillStyle='cyan';g.beginPath();g.arc(...p.uv,6,0,2*Math.PI);g.fill();g.strokeStyle='#15202b';g.strokeText('W'+(i+1),p.uv[0]+9,p.uv[1]-9);g.fillText('W'+(i+1),p.uv[0]+9,p.uv[1]-9);});
+  note.textContent=sample.observation.image_id+' · 画面内 '+count.inside+' / '+projected.length+' 点；画面外 '+count.outside+'；相机后方／近裁剪 '+count.behind_or_near+'。未做遮挡检查。';
+ }catch(e){note.textContent='投影不可用：'+e.message;}
+}
+async function api(path,data){let r=await fetch(path,data===undefined?{}:{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let j=await r.json();if(!r.ok)throw Error(j.error||r.statusText);return j;}
+function error(e){$('error').textContent=e.message||String(e)}
+async function record(state){try{stopDrive();await api('/record',{state});$('error').textContent='';}catch(e){error(e)}}
+async function markEvent(){try{await api('/event',{kind:$('event').value,note:$('eventNote').value,image_id:source?.image_id});$('error').textContent='事件已记录';}catch(e){error(e)}}
+function stopDrive(){keys.clear();driveEnabled=false;api('/command',{v:0,w:0}).catch(()=>{});}
+$('drive').onclick=()=>{driveEnabled=true;$('drive').focus()};
+window.addEventListener('keydown',e=>{if(e.code==='Space'&&driveEnabled){e.preventDefault();stopDrive();return;}if(!driveEnabled||document.activeElement!==$('drive'))return;if(['KeyW','KeyA','KeyD','ArrowUp','ArrowLeft','ArrowRight'].includes(e.code)){e.preventDefault();keys.add(e.code)}});
+window.addEventListener('keyup',e=>keys.delete(e.code));window.addEventListener('blur',stopDrive);document.addEventListener('visibilitychange',()=>{if(document.hidden)stopDrive()});
+setInterval(()=>{if(!driveEnabled)return;let v=(keys.has('KeyW')||keys.has('ArrowUp')) ? 0.3 : 0;let w=((keys.has('KeyA')||keys.has('ArrowLeft'))?1:0)-((keys.has('KeyD')||keys.has('ArrowRight'))?1:0);api('/command',{v,w:w*.5}).catch(e=>{stopDrive();error(e)})},100);
+function pixel(p){return [320-p[1]*40,300-p[0]*37.5]};function metric(p){return [(300-p[1])/37.5,(320-p[0])/40]};
+function mouse(e){let r=canvas.getBoundingClientRect();return [(e.clientX-r.left)*640/r.width,(e.clientY-r.top)*640/r.height]};
+function nearest(p){let best=-1,d=12;points.forEach((q,i)=>{let a=pixel(q),n=Math.hypot(a[0]-p[0],a[1]-p[1]);if(n<d){d=n;best=i}});return best}
+function pushUndo(){history.push(JSON.stringify(points));if(history.length>30)history.shift()}
+function undo(){if(history.length){points=JSON.parse(history.pop());draw()}}
+function resetLine(){pushUndo();points=structuredClone(sample.assistance.suggested_reference);$('refState').value=points.length>1?'valid':'valid_empty';draw()}
+function clearLine(){pushUndo();points=[];$('refState').value='valid_empty';draw()}
+canvas.onpointerdown=e=>{if(!sample)return;e.preventDefault();pushUndo();let p=mouse(e);selected=nearest(p);if(selected<0){let pos=points.length,best=Infinity;for(let i=0;i<points.length-1;i++){let a=pixel(points[i]),b=pixel(points[i+1]),dx=b[0]-a[0],dy=b[1]-a[1],t=Math.max(0,Math.min(1,((p[0]-a[0])*dx+(p[1]-a[1])*dy)/(dx*dx+dy*dy||1)));let d=Math.hypot(p[0]-a[0]-t*dx,p[1]-a[1]-t*dy);if(d<best){best=d;pos=i+1}}points.splice(pos,0,metric(p));selected=pos;}canvas.setPointerCapture(e.pointerId);$('refState').value='valid';draw()};
+canvas.onpointermove=e=>{if(selected>=0){points[selected]=metric(mouse(e));draw()}};canvas.onpointerup=()=>selected=-1;canvas.ondblclick=e=>{let i=nearest(mouse(e));if(i>=0){pushUndo();points.splice(i,1);draw()}};
+function getAnchors(){return ReferenceProjection.anchors(ReferenceProjection.resample(points));}
+function showAnnotationHelp(){
+ if(!sample)return;
+ $('landmarkExample').textContent=JSON.stringify([{image_id:sample.observation.image_id,category:'sign'}],null,2);
+ $('landmarkSources').textContent=sample.observation.rgb_history.map(h=>h.image_id+'  t='+h.t_obs.toFixed(3)+' s'+(h.image_id===sample.observation.image_id?'（当前）':'（历史）')).join('\n');
+ if(project)$('annotationCounts').textContent='采集总计 '+project.source_frames+' 帧；本项目选取 '+project.samples.length+' 个关键时刻标注，当前第 '+(index+1)+' 个。无需逐帧填写，未选帧没有自动文本标签。';
+}
+function draw(){ctx.clearRect(0,0,640,640);if(map.complete&&map.naturalWidth)ctx.drawImage(map,0,0,640,640);function line(p,c,w){if(!p.length)return;ctx.strokeStyle=c;ctx.lineWidth=w;ctx.beginPath();p.forEach((q,i)=>{let a=pixel(q);i?ctx.lineTo(...a):ctx.moveTo(...a)});ctx.stroke()};if(sample)line(sample.assistance.future_trajectory,'#925ce5',1);line(ReferenceProjection.resample(points),'#ff9600',3);for(let p of points){ctx.fillStyle='#ff9600';ctx.beginPath();ctx.arc(...pixel(p),4,0,7);ctx.fill()};getAnchors().forEach((p,i)=>{ctx.fillStyle='cyan';ctx.fillText('W'+(i+1),...pixel(p));});$('preview').textContent='waypoint 预览（保存时按批准参考线重新计算）: '+JSON.stringify(getAnchors());drawRGBProjection()}
+async function loadSample(i){try{let s=await api('/sample?index='+i);sample=s;index=i;loadProjectionCamera(s);$('frames').value=i;let a=s.annotation,d=s.draft;if(d?.parent_revision!==s.parent_revision)d=null;let old=d||a;points=structuredClone(old?.control_points||s.assistance.suggested_reference);history=[];$('refState').value=old?.reference_state||(points.length>1?'valid':'valid_empty');$('rgb').src='annotation/'+s.folder+'/rgb.png';$('history').replaceChildren(...s.observation.rgb_history.map(h=>{let im=document.createElement('img');im.src='annotation/'+h.preview;im.title=h.image_id+' t='+h.t_obs;return im}));map.src='annotation/'+s.folder+'/map.png';$('facts').textContent=JSON.stringify({original_instruction:s.observation.task.instruction,source:s.observation.image_id,previous_route:s.observation.route,previous_local:s.observation.previous_local,route_revision:s.observation.route_revision,events:s.observation.execution.events,robot_state:s.observation.robot_state,robot_state_mask:s.observation.robot_state_mask,measured_facts:s.observation.execution.measured_facts,geometry:s.assistance.geometry},null,2);$('landmark').value=JSON.stringify(old?.landmark||a?.parsed.landmark||[],null,2);$('local').value=old?.local||a?.parsed.local||'';$('route').value=JSON.stringify(old?.route||a?.parsed.route||{},null,2);$('unknown').value=old?.unknown_review_note||'';let replayKinds=old?.replay_event_kinds||(old?.replay_events||[]).map(e=>e.kind);document.querySelectorAll('[name=replayEvent]').forEach(e=>e.checked=replayKinds.includes(e.value));$('replayEventNote').value=old?.replay_event_note||old?.replay_events?.[0]?.note||'';$('reviewed').checked=false;$('error').textContent='';showAnnotationHelp();draw()}catch(e){error(e)}}
+async function save(approval){try{if(!sample)throw Error('先加载源帧');let d={index,source_binding:sample.provenance.source_binding,parent_revision:sample.parent_revision,annotator:$('annotator').value,human_reviewed:$('reviewed').checked,landmark:JSON.parse($('landmark').value),local:$('local').value,route:JSON.parse($('route').value),control_points:points,reference_state:$('refState').value,unknown_review_note:$('unknown').value,replay_event_kinds:[...document.querySelectorAll('[name=replayEvent]:checked')].map(e=>e.value),replay_event_note:$('replayEventNote').value};await api(approval?'/approve':'/draft',d);$('error').textContent=approval?'本时刻已批准；可选择下一时刻。':'草稿已保存。'}catch(e){error(e)}}
+async function exportData(){try{let r=await api('/export',{});$('error').textContent='导出成功：'+r.records.length+' 个回归样本，见 exports/。'}catch(e){error(e)}}
+async function finalize(){try{await api('/finalize',{annotator:$('annotator').value,human_reviewed:$('reviewed').checked});$('error').textContent='整段任务已人工确认；可进入少量教师对照。'}catch(e){error(e)}}
+async function update(){try{let s=await api('/status');$('status').textContent=JSON.stringify(s,null,2);if(s.source&&s.source.image_id!==source?.image_id){source=s.source;$('liveRgb').src=source.image;$('liveMap').src='navigation/map.png?t='+source.t_obs;}if(s.state!=='recording'&&driveEnabled)stopDrive();if(s.project_ready&&!project){project=await api('annotation/project.json');$('replay').hidden=false;$('live').hidden=true;project.samples.forEach((x,i)=>{let o=document.createElement('option');o.value=i;o.textContent=(i+1)+' / '+project.samples.length+' '+x;$('frames').append(o)});await loadSample(0)}}catch(e){error(e)}setTimeout(update,500)}update();
+</script></html>

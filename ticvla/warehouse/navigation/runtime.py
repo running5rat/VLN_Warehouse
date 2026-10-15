@@ -34,6 +34,7 @@ from .core import (
 )
 from .workers import worker
 from .geometry import render_local
+from .route_geometry import corridor_observation, instruction_path
 from DynaNav.warehouse_loop.live_metrics import atomic_json, complete_lines
 
 
@@ -56,7 +57,17 @@ def flow_batch(cfg, grid, age, source, state, packet, previous):
         )[None].astype("float32"),
         state=np.array([state], np.float32),
         state_mask=np.full((1, 2), source.get("state_valid", True), bool),
-        motion_direction=np.ones(1, np.float32),
+        motion_direction=np.array(
+            [
+                (
+                    -1
+                    if getattr(packet, "motion_frame_or_direction", "forward")
+                    == "backward"
+                    else 1
+                )
+            ],
+            np.float32,
+        ),
         map_valid=np.ones(1, bool),
         reference_xy=xy[None].astype("float32"),
         reference_mask=mask[None],
@@ -106,6 +117,11 @@ def draw_view(
     for path, color in ((ref, "orange"), (selected, "green")):
         if path is not None and len(path) > 1:
             draw.line([pixel(p) for p in path], fill=color, width=3)
+    waypoint = status.get("waypoint_current") or []
+    for index, point in enumerate(waypoint, 1):
+        x, y = pixel(point)
+        draw.ellipse((x - 4, y - 4, x + 4, y + 4), fill="cyan", outline="black")
+        draw.text((x + 5, y + 5), "W" + str(index), fill="cyan")
     inv = np.linalg.inv(np.array(source["T_odom_body"]))
     if trace is not None and len(trace) > 1:
         local_trace = transform_points(np.asarray(trace), inv)
@@ -141,7 +157,9 @@ def run(options):
     ctx = mp.get_context("spawn")
     replies = ctx.Queue(maxsize=8)
     kinds = ["vlm", "flow"] + (
-        ["person"] if options["task_mode"] == "follow" else ["semantic"]
+        ["person", "semantic"]
+        if options.get("instruction")
+        else (["person"] if options["task_mode"] == "follow" else ["semantic"])
     )
     queues = {k: ctx.Queue(maxsize=1) for k in kinds}
     processes = {
@@ -190,8 +208,14 @@ def run(options):
     store = MapStore(root / "map", array_compression_level=0)
     builder = LocalMapBuilder(cfg)
     nav = NavigationState(
-        root.parent.name, options["task_mode"], options.get("target_landmark")
+        root.parent.name,
+        options["task_mode"],
+        options.get("target_landmark"),
+        instruction=options.get("instruction"),
     )
+    checkpoint_file = root / "state.json"
+    if checkpoint_file.exists():
+        nav = NavigationState.restore(json.loads(checkpoint_file.read_text()))
     binding = PersonBinding()
     follow = None
     requires_text = True
@@ -216,6 +240,7 @@ def run(options):
     roi_used = None
     person_history = {}
     blacklist = []
+    frontier_attempt = None
     scan_started = None
     follow_scan_start = None
     registration = None
@@ -230,6 +255,29 @@ def run(options):
     ref = np.empty((0, 2))
     selected = None
     command_count = 0
+    prior_ids = [
+        int(p.name)
+        for k in kinds
+        for p in (root / k).glob("*")
+        if p.is_dir() and p.name.isdigit()
+    ]
+    counter = max([counter, nav.last_generation, *prior_ids])
+    direct_command = None
+    route_revision_planned = -1
+    facts_event_count = 0
+    last_topology = -1e9
+    topology = {}
+
+    def persist_facts():
+        nonlocal facts_event_count
+        nav.state.execution["facts"] = nav.facts.record()
+        new = nav.facts.data["events"][facts_event_count:]
+        if new:
+            with (root / "execution-events.jsonl").open("a") as stream:
+                for event in new:
+                    stream.write(json.dumps(event) + "\n")
+            facts_event_count += len(new)
+        atomic_json(checkpoint_file, nav.checkpoint())
 
     def offer(kind, job):
         nonlocal counter
@@ -267,7 +315,7 @@ def run(options):
                     lm["submap_id"] = source["submap_id"]
         return values
 
-    def observation():
+    def observation(trigger=None):
         landmarks = navigation_landmarks()
         usable = [
             x
@@ -319,15 +367,20 @@ def run(options):
                 bbox=follow.get("bbox"),
                 observation_age_sim_s=source["t_obs"]
                 - (follow.get("last_t_obs") or source["t_obs"]),
-                position_body=transform_points(
-                    np.asarray([follow["position_odom"]]), inv
-                )[0].tolist()
-                if follow.get("position_odom")
-                else None,
+                position_body=(
+                    transform_points(np.asarray([follow["position_odom"]]), inv)[
+                        0
+                    ].tolist()
+                    if follow.get("position_odom")
+                    else None
+                ),
             )
         execution = copy.deepcopy(nav.state.execution)
+        if "facts" in execution:
+            execution["facts"]["events"] = execution["facts"]["events"][-12:]
         execution["target_binding"] = target_observation
         obs = dict(
+            request_trigger=trigger,
             task=asdict(nav.state.contract),
             t_obs=source["t_obs"],
             source_monotonic=source["source_monotonic"],
@@ -346,11 +399,13 @@ def run(options):
             map_version=str(store.version),
             task_mode=options["task_mode"],
             landmark_schema="legacy",
+            route_schema="structured-v1" if nav.natural else "legacy",
             previous_reference=ref.tolist(),
             target_binding_id=(follow or {}).get("binding_id"),
             target_visible=(follow or {}).get("visible", False),
             follow_target=target_observation,
         )
+        obs["previous_local"] = nav.local_input(obs)
         atomic_json(folder / "observation.json", obs)
         return obs
 
@@ -363,7 +418,10 @@ def run(options):
             now = time.monotonic()
             if (root.parent / "cancel.json").exists():
                 stop("cancelled")
-                nav.status = "cancelled"
+                nav.status = nav.terminal = "cancelled"
+                nav.facts.data["terminal"] = "cancelled"
+                nav.facts.event("cancelled")
+                persist_facts()
                 break
             for kind, p in processes.items():
                 if not p.is_alive():
@@ -392,11 +450,16 @@ def run(options):
                     obs = job["observation"]
                     max_age = 3 if job["mode"] == "PREFILL_FOLLOW" else 10
                     # Recheck live binding: an in-flight visible result must not revive a lost target.
-                    binding_ok = nav.mode != "follow" or (
-                        follow
-                        and follow["visible"]
-                        and follow["binding_id"] == obs.get("target_binding_id")
+                    binding_ok = (
+                        (nav.natural and job["mode"] == "TEXT")
+                        or nav.mode != "follow"
+                        or (
+                            follow
+                            and follow["visible"]
+                            and follow["binding_id"] == obs.get("target_binding_id")
+                        )
                     )
+                    committed = False
                     try:
                         if not binding_ok:
                             raise ValueError(
@@ -413,6 +476,13 @@ def run(options):
                             time.monotonic(),
                             max_age,
                         )
+                        committed = True
+                        if job["mode"] == "TEXT":
+                            with (root / "route-history.jsonl").open("a") as route_log:
+                                route_log.write(
+                                    json.dumps(nav.route_history[-1]) + "\n"
+                                )
+                        persist_facts()
                         nav.route_was_clear = (
                             collision_free(
                                 arr(packet.refline_xy)[arr(packet.refline_mask)],
@@ -420,7 +490,8 @@ def run(options):
                                 cfg.map_resolution,
                                 cfg.footprint_radius,
                             )
-                            if arr(packet.refline_mask).any()
+                            if packet.reference_usable
+                            and arr(packet.refline_mask).any()
                             else False
                         )
                         snapshot = {
@@ -442,7 +513,13 @@ def run(options):
                             request_id=r["id"],
                             age_s=time.monotonic() - packet.t_obs,
                         )
-                        if nav.mode == "follow" and job["mode"] == "TEXT":
+                        if (
+                            nav.mode == "follow"
+                            and job["mode"] == "TEXT"
+                            and obs.get("target_binding_id")
+                            and follow
+                            and follow["visible"]
+                        ):
                             requires_text = False
                             binding_text = obs.get("target_binding_id")
                             atomic_json(
@@ -451,7 +528,13 @@ def run(options):
                             )
                     except ValueError as exc:
                         log("snapshot_rejected", request_id=r["id"], reason=str(exc))
-                    if result.get("valid") and nav.mode != "follow":
+                    if (
+                        committed
+                        and result.get("valid")
+                        and nav.mode != "follow"
+                        and "semantic" in kinds
+                        and job["mode"] == "TEXT"
+                    ):
                         grouped = {}
                         for item in result["parsed"]["landmark"]:
                             grouped.setdefault(item["image_id"], []).append(
@@ -551,14 +634,16 @@ def run(options):
                                 selected=True,
                                 parent_event_id=event.message_id,
                                 result=outcome,
-                                geometry_file=str(
-                                    store.root
-                                    / store.get("landmarks", outcome["landmark_uid"])[
-                                        "geometry"
-                                    ]
-                                )
-                                if outcome.get("landmark_uid")
-                                else None,
+                                geometry_file=(
+                                    str(
+                                        store.root
+                                        / store.get(
+                                            "landmarks", outcome["landmark_uid"]
+                                        )["geometry"]
+                                    )
+                                    if outcome.get("landmark_uid")
+                                    else None
+                                ),
                             )
                         )
                     texts = consume_text(store, saved, batch, accepted, result["ocr"])
@@ -619,7 +704,9 @@ def run(options):
                             person_history, key=lambda k: person_history[k][0]["t_obs"]
                         )
                         person_history.pop(oldest)
-                    follow = binding.update(result["instances"], saved, roi)
+                    follow = binding.update(
+                        result["instances"], saved, roi, auto_unique=nav.natural
+                    )
                     if roi is not None:
                         requires_text = True
                         replayed = 0
@@ -715,6 +802,18 @@ def run(options):
                             log("map_registration", status="accepted", **registration)
                         except ValueError as exc:
                             log("map_registration", status="rejected", reason=str(exc))
+                    nav.facts.observe(
+                        source["T_odom_body"],
+                        source["t_obs"],
+                        source["odom_epoch"],
+                        state,
+                    )
+                    if nav.facts.data.get("terminal"):
+                        nav.terminal = nav.facts.data["terminal"]
+                    nav.state.execution.update(
+                        budget_seconds=options.get("budget_seconds", 120),
+                        budget_distance=options.get("budget_distance", 30),
+                    )
                     previous_source = source
                     history.append(source)
                     history = history[-32:]
@@ -730,6 +829,18 @@ def run(options):
                     grid, age = render_local(
                         builder, f["T_odom_body"], f["t_obs"], f["odom_epoch"]
                     )
+                    if source["t_obs"] - last_topology >= 1:
+                        topology = corridor_observation(
+                            grid, cfg.map_resolution, cfg.footprint_radius
+                        )
+                        last_topology = source["t_obs"]
+                        nav.state.execution["observed_corridor"] = topology
+                        nav.facts.intersection(
+                            np.asarray(source["T_odom_body"])[:3, 3],
+                            topology["inside_intersection"],
+                            source["image_id"],
+                        )
+                    persist_facts()
                     # Isaac safety reads latest local occupancy and its exact pose/time.
                     with (root / "safety.tmp").open("wb") as out:
                         np.savez(
@@ -821,11 +932,15 @@ def run(options):
                 if "start_pose" not in nav.state.execution:
                     nav.state.execution["start_pose"] = source["T_odom_body"]
                 if closed_capture_at is None and (
-                    nav.mode != "follow" or (follow and follow["visible"])
+                    nav.natural
+                    or nav.mode != "follow"
+                    or (follow and follow["visible"])
                 ):
                     mode = (
                         "PREFILL_FOLLOW"
                         if nav.mode == "follow"
+                        and follow
+                        and follow["visible"]
                         and not requires_text
                         and binding_text == follow["binding_id"]
                         and follow["confirmations"] >= 2
@@ -833,13 +948,28 @@ def run(options):
                     )
                     due = now - last_request >= (1 if mode == "PREFILL_FOLLOW" else 2)
                     refresh = (
-                        mode == "PREFILL_FOLLOW"
+                        nav.natural
+                        or mode == "PREFILL_FOLLOW"
                         or packet is None
                         or now - packet.t_obs > 5
                         or not len(ref)
                     )
-                    if due and refresh:
-                        obs = observation()
+                    if due and refresh and not nav.terminal:
+                        trigger = (
+                            "task_initialization"
+                            if nav.state.route_revision == 0
+                            else (
+                                "target_lost"
+                                if nav.mode == "follow"
+                                and not (follow and follow["visible"])
+                                else (
+                                    "reference_unusable"
+                                    if packet is None or not packet.reference_usable
+                                    else "execution_observation_refresh"
+                                )
+                            )
+                        )
+                        obs = observation(trigger)
                         offer(
                             "vlm",
                             dict(
@@ -874,6 +1004,10 @@ def run(options):
                     selected = None
                     reason = invalid or "waiting_flow"
                     if options["execution_backend"] == "geometry-baseline":
+                        if nav.state.route_revision != route_revision_planned:
+                            planned_path = None
+                            direct_command = None
+                            route_revision_planned = nav.state.route_revision
                         if now - last_plan_time >= 1 or planned_path is None:
                             if nav.mode == "explore":
                                 blocked = [
@@ -900,7 +1034,7 @@ def run(options):
                             elif nav.mode == "landmark":
                                 lm, reason = select_landmark(
                                     navigation_landmarks(),
-                                    options["target_landmark"],
+                                    nav.target,
                                     source["submap_id"],
                                 )
                                 if lm:
@@ -919,6 +1053,20 @@ def run(options):
                                     )
                                     landmark_goal_range = float(np.linalg.norm(goal))
                                     reason = "landmark_neighborhood"
+                            elif nav.mode == "instruction":
+                                goal = (
+                                    nav.state.route.get("current_subgoal", {})
+                                    if isinstance(nav.state.route, dict)
+                                    else {}
+                                )
+                                selected, reason, direct_command = instruction_path(
+                                    goal,
+                                    nav.facts.record(),
+                                    grid,
+                                    source["T_odom_body"],
+                                    cfg.map_resolution,
+                                    cfg.footprint_radius,
+                                )
                             elif follow and follow["visible"]:
                                 goal = transform_points(
                                     np.array([follow["position_odom"]]),
@@ -952,7 +1100,9 @@ def run(options):
                             )
                             selected = aligned[mask]
                     elif (
-                        packet
+                        options["execution_backend"] == "model"
+                        and packet
+                        and packet.reference_usable
                         and latest_flow
                         and latest_flow["job"]["generation"] == packet.generation_id
                     ):
@@ -1005,11 +1155,14 @@ def run(options):
                             grid,
                             resolution=cfg.map_resolution,
                             footprint=cfg.footprint_radius,
-                            speed=min(
-                                0.3, float(np.linalg.norm(selected[0]) / cfg.action_dt)
-                            )
-                            if options["execution_backend"] == "model"
-                            else 0.3,
+                            speed=(
+                                min(
+                                    0.3,
+                                    float(np.linalg.norm(selected[0]) / cfg.action_dt),
+                                )
+                                if options["execution_backend"] == "model"
+                                else 0.3
+                            ),
                         )
                         previous_plan = dict(
                             path=selected,
@@ -1059,16 +1212,33 @@ def run(options):
                             np.array([[*selected[-1], 0.0]]),
                             np.asarray(source["T_odom_body"]),
                         )[0, :2]
-                        blacklist.append((endpoint, now + 20))
+                        blacklist.append(
+                            (endpoint, now + options.get("budget_seconds", 120) + 1)
+                        )
                         planned_path = None
+                        nav.facts.event(
+                            "frontier_reached",
+                            position=endpoint.tolist(),
+                            image_id=source["image_id"],
+                        )
                     if (
                         reason == "neighborhood_reached"
                         and nav.mode == "landmark"
                         and landmark_goal_range <= 1.8
                     ):
                         command = (0.0, 0.0)
+                        nav.facts.event(
+                            "landmark_neighborhood_reached",
+                            target=nav.target,
+                            image_id=source["image_id"],
+                        )
                         atomic_json(
-                            root / "task-finished.json",
+                            root
+                            / (
+                                "landmark-arrival.json"
+                                if nav.natural
+                                else "task-finished.json"
+                            ),
                             dict(
                                 reason="observed_target_neighborhood",
                                 target=nav.target,
@@ -1076,7 +1246,103 @@ def run(options):
                                 execution_backend=options["execution_backend"],
                             ),
                         )
+                    if (
+                        options["execution_backend"] == "geometry-baseline"
+                        and nav.mode == "instruction"
+                        and direct_command is not None
+                    ):
+                        command = direct_command
+                    if reason in (
+                        "corridor_end_reached",
+                        "relative_distance_reached",
+                        "turn_observed_complete",
+                    ):
+                        nav.facts.event(reason, image_id=source["image_id"])
+                    if np.linalg.norm(state) < 0.02 and source["state_valid"]:
+                        nav.facts.event("observed_stopped", image_id=source["image_id"])
+                    if (
+                        options["execution_backend"] == "geometry-baseline"
+                        and nav.mode == "explore"
+                        and selected is not None
+                        and len(selected)
+                    ):
+                        endpoint = transform_points(
+                            np.asarray([[*selected[-1], 0.0]]),
+                            np.asarray(source["T_odom_body"]),
+                        )[0, :2]
+                        travelled = nav.facts.data["path_m"]
+                        if (
+                            frontier_attempt is None
+                            or np.linalg.norm(endpoint - frontier_attempt["goal"]) > 0.8
+                            or travelled - frontier_attempt["path_m"] > 0.2
+                        ):
+                            frontier_attempt = dict(
+                                goal=endpoint.copy(),
+                                path_m=travelled,
+                                started=source["t_obs"],
+                            )
+                        elif source["t_obs"] - frontier_attempt["started"] > 5:
+                            blacklist.append((endpoint.copy(), now + 20))
+                            nav.facts.event(
+                                "frontier_temporarily_rejected",
+                                position=endpoint.tolist(),
+                                reason="no_measured_progress_for_5_sim_seconds",
+                            )
+                            planned_path = None
+                            selected, command = None, (0.0, 0.0)
+                            reason = "frontier_temporarily_rejected"
+                            frontier_attempt = None
+                    current_goal = (
+                        nav.state.route.get("current_subgoal", {})
+                        if isinstance(nav.state.route, dict)
+                        else {}
+                    )
+                    if current_goal.get("action") in ("wait", "stop"):
+                        command, selected = (0.0, 0.0), None
+                        reason = "model_requested_" + current_goal["action"]
+                    backward = (
+                        current_goal.get("action") == "relative_motion"
+                        and current_goal.get("direction") == "backward"
+                    )
+                    if options["execution_backend"] == "reference-only" or backward:
+                        command, selected = (0.0, 0.0), None
+                        reason = (
+                            "execution_not_evaluated" if backward else "reference_only"
+                        )
+                    if nav.natural and (
+                        not isinstance(nav.state.route, dict)
+                        or nav.state.route["status"] != "active"
+                    ):
+                        command, selected = (0.0, 0.0), None
+                        reason = "waiting_active_model_subgoal"
+                    if now - source["source_monotonic"] > 0.6 or (
+                        nav.mode == "follow" and not (follow and follow["visible"])
+                    ):
+                        command = (0.0, 0.0)
+                        reason = "stale_observation_or_lost_target"
+                    facts = nav.facts.data
+                    if source["t_obs"] - facts.get(
+                        "task_start_time", source["t_obs"]
+                    ) >= options.get("budget_seconds", 120) or facts[
+                        "path_m"
+                    ] >= options.get(
+                        "budget_distance", 30
+                    ):
+                        nav.terminal = facts["terminal"] = "budget_exhausted"
+                    if source["t_obs"] - facts.get(
+                        "task_start_time", source["t_obs"]
+                    ) >= options.get("timeout_seconds", 300):
+                        nav.terminal = facts["terminal"] = "task_timeout"
+                    if nav.terminal:
+                        command = (0.0, 0.0)
+                        reason = nav.terminal
+                        nav.facts.event(reason)
+                        atomic_json(
+                            root / "task-finished.json",
+                            dict(reason=reason, task_success=reason == "completed"),
+                        )
                     nav.status = reason
+                    persist_facts()
                     command_count += 1
                     command_row = dict(
                         v=command[0],
@@ -1102,6 +1368,15 @@ def run(options):
                         display_candidates = transform_points(
                             np.c_[flat, np.zeros(len(flat))], tf
                         )[:, :2].reshape(last_candidates.shape)
+                    wp = nav.route_history[-1]["waypoint"] if nav.route_history else []
+                    wp_current = []
+                    if wp and nav.snapshot:
+                        tf = np.linalg.inv(
+                            np.asarray(source["T_odom_body"])
+                        ) @ np.asarray(nav.snapshot.T_odom_body_obs)
+                        wp_current = transform_points(np.c_[wp, np.zeros(len(wp))], tf)[
+                            :, :2
+                        ].tolist()
                     draw_view(
                         root,
                         grid,
@@ -1111,24 +1386,46 @@ def run(options):
                         display_candidates,
                         selected,
                         dict(
+                            waypoint_current=wp_current,
                             task=nav.record(),
                             status=nav.status,
                             backend=options["execution_backend"],
                             frames=count,
                             follow=follow,
                             snapshot_error=invalid,
+                            previous_route=(
+                                nav.route_history[-1]["previous_route"]
+                                if nav.route_history
+                                else None
+                            ),
+                            reference_validation=(
+                                nav.snapshot.reference_validation
+                                if nav.snapshot
+                                else None
+                            ),
+                            waypoint=(
+                                nav.route_history[-1].get("waypoint")
+                                if nav.route_history
+                                else None
+                            ),
+                            raw_reference=(
+                                arr(nav.snapshot.refline_xy).tolist()
+                                if nav.snapshot
+                                else None
+                            ),
                             model_quality_validated=False,
                             queue_busy=busy,
                             candidate_scores=last_scores,
-                            candidate_source_image_id=latest_flow["job"]["source"][
-                                "image_id"
-                            ]
-                            if latest_flow
-                            else None,
-                            candidate_source_age_s=now
-                            - latest_flow["job"]["source"]["source_monotonic"]
-                            if latest_flow
-                            else None,
+                            candidate_source_image_id=(
+                                latest_flow["job"]["source"]["image_id"]
+                                if latest_flow
+                                else None
+                            ),
+                            candidate_source_age_s=(
+                                now - latest_flow["job"]["source"]["source_monotonic"]
+                                if latest_flow
+                                else None
+                            ),
                         ),
                         trace=actual_trace,
                     )
@@ -1170,11 +1467,27 @@ def run(options):
                     break
             time.sleep(0.005)
         stop("finished")
+        if nav.terminal is None:
+            nav.terminal = "capture_limit_reached"
+            nav.facts.data["terminal"] = nav.terminal
+            nav.facts.event(nav.terminal)
+            persist_facts()
         report = dict(
             geometry_frames=count,
             execution_backend=options["execution_backend"],
             task_mode=nav.mode,
             model_quality_validated=False,
+            task_completion=nav.terminal or "not_completed",
+            route_commits=len(nav.route_history),
+            route_progress_correctness="requires_review_of_actual_outputs_and_execution_facts",
+            reference_consistent=sum(
+                x["validation"]["consistency_valid"] for x in nav.route_history
+            ),
+            backward_execution_evaluated=False,
+            semantic_TEXT_branch_pass=any(
+                r["module"] == "semantic_commit" and r.get("accepted", 0) > 0
+                for r in rows
+            ),
             task_state=nav.record(),
             store=store.summary(),
             valid_text=sum(

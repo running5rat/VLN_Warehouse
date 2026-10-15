@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "status": "draft_until_human_baseline_approved",
+  "formal_training_enabled": false,
+  "maximum_converted_episodes_per_source": 10,
+  "split_before_windowing": true,
+  "split_group": ["layout_family", "original_episode_and_static_dynamic_variants"],
+  "unseen_layout_claim_allowed": false,
+  "sampling_order": ["source", "task", "episode", "key_event"],
+  "missing_modes": "unknown",
+  "pools": {
+    "manual-golden": {"role": "regression", "optimizer_weight": 0},
+    "static-semantic-reference": {"enabled": false, "requires": ["approved_text", "approved_nominal_reference", "source_audit"]},
+    "dynamic-actions": {"enabled": false, "requires": ["causal_input", "nominal_reference", "independent_collision_check", "isaac_execution_check"]},
+    "external-actions": {"enabled": false, "requires": ["reviewed_clock_scale_extrinsics", "robot_execution_compatibility", "verified_mode"]},
+    "candidate-scores": {"enabled": false, "requires": ["candidate_provenance", "independent_component_scores"]},
+    "auxiliary-understanding": {"enabled": false, "requires": ["verified_available_supervision_only"]}
+  },
+  "weights_note": "Set source weights after auditing eligible counts; no invented dataset-size commitments."
+}

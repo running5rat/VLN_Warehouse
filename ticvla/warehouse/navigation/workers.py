@@ -231,6 +231,9 @@ def worker(kind, jobs, replies, root, options):
                         k: v for k, v in result.items() if not isinstance(v, np.ndarray)
                     }
                     write_json(folder / "response.json", serial)
+                    from .audit import write_audit
+
+                    write_audit(folder, job["observation"], result)
                     if result.get("valid"):
                         np.savez(
                             folder / "snapshot.npz",

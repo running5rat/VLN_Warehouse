@@ -1,0 +1,20 @@
+{
+  "episodes": [
+    {
+      "source": "DynaNav",
+      "episode_id": "replace-with-fixed-audit-selection",
+      "audit_approved": false,
+      "embodiment": "unknown",
+      "layout_family": "replace-after-audit",
+      "split": "regression",
+      "trajectory": "/absolute/path/to/trajectory.csv",
+      "images": [],
+      "pose_frame": "unknown",
+      "time_unit": "unknown",
+      "source_hz": null,
+      "license_review": null,
+      "instruction": "",
+      "actions_task_aligned": false
+    }
+  ]
+}

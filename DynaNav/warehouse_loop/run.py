@@ -17,7 +17,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True)
     parser.add_argument("--navigation-root", type=Path)
-    parser.add_argument("--navigation-task", choices=("landmark", "explore", "follow"))
+    parser.add_argument(
+        "--navigation-task", choices=("landmark", "explore", "follow", "instruction")
+    )
     parser.add_argument(
         "--person-asset",
         default="https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.0/Isaac/People/Characters/male_adult_construction_01_new/male_adult_construction_01_new.usd",
@@ -45,6 +47,10 @@ def main():
     from DynaNav.warehouse_loop.landmark_variants import VARIANTS
 
     parser.add_argument("--landmark-variant", choices=VARIANTS)
+    parser.add_argument("--scene-person", action="store_true")
+    parser.add_argument(
+        "--scene-layout", choices=("warehouse", "junction-fixture"), default="warehouse"
+    )
     args = parser.parse_args()
     if (
         not 0 < args.capture_hz <= 60
@@ -85,11 +91,17 @@ def main():
         context = omni.usd.get_context()
         context.new_stage()
         stage = context.get_stage()
-        stage.GetRootLayer().subLayerPaths.append(WAREHOUSE)
+        if args.scene_layout == "warehouse":
+            stage.GetRootLayer().subLayerPaths.append(WAREHOUSE)
         stage.SetEditTarget(stage.GetRootLayer())
         for _ in range(20):
             app.update()
-        labels = add_labels(stage, root, args.landmark_variant)
+        if args.scene_layout == "warehouse":
+            labels = add_labels(stage, root, args.landmark_variant)
+        else:
+            from DynaNav.warehouse_loop.navigation_scene import build_junction_fixture
+
+            labels = build_junction_fixture(stage, root)
         navigation = pedestrian = None
         if args.navigation_root:
             from DynaNav.warehouse_loop.navigation_control import (
@@ -98,7 +110,7 @@ def main():
             )
 
             navigation = NavigationControl(args.navigation_root)
-            if args.navigation_task == "follow":
+            if args.navigation_task == "follow" or args.scene_person:
                 pedestrian = Pedestrian(stage, args.navigation_root, args.person_asset)
         if args.landmark_variant == "lighting":
             # Change scene lighting in USD, not RGB post-processing. Depth,
@@ -207,9 +219,11 @@ def main():
             root / "raw",
             {
                 **metadata,
-                "pose_source": "synchronized_render_camera_pose_checked_against_physx"
-                if args.live_map and args.live_capture_mode == "synchronized"
-                else "synchronized_simulated_odometry",
+                "pose_source": (
+                    "synchronized_render_camera_pose_checked_against_physx"
+                    if args.live_map and args.live_capture_mode == "synchronized"
+                    else "synchronized_simulated_odometry"
+                ),
                 "timestamp_source": "frozen_physics_time",
             },
         )
@@ -384,7 +398,7 @@ def main():
                 pose[:3, 3] = pos
                 if step % 2 == 0:
                     nav_v, nav_w = navigation.command(
-                        origin @ pose, metadata["episode_id"]
+                        origin @ pose, metadata["episode_id"], world.current_time
                     )
                 v, w = nav_v, nav_w
                 finished = (args.navigation_root / "task-finished.json").exists() or (
@@ -460,9 +474,9 @@ def main():
                             "yaw": yaw,
                             "v_command": v,
                             "w_command": w,
-                            "target": args.navigation_task
-                            if navigation
-                            else target_index,
+                            "target": (
+                                args.navigation_task if navigation else target_index
+                            ),
                         }
                     )
                     + "\n"
@@ -506,9 +520,9 @@ def main():
             "shelf_count": len(labels),
             "waypoints": [] if navigation else WAYPOINTS,
             "navigation_task": args.navigation_task,
-            "execution_source": "navigation_command_watchdog"
-            if navigation
-            else "fixed_loop",
+            "execution_source": (
+                "navigation_command_watchdog" if navigation else "fixed_loop"
+            ),
             "reached": reached,
             "loop_complete": finished if not navigation else False,
             "navigation_finished": finished if navigation else None,
@@ -540,10 +554,12 @@ def main():
             "record_write": rate_report(
                 writer_perf, args.capture_hz, run_wall_start, run_wall_end
             ),
-            "capture_source_hz": (len(capture_perf) - 1)
-            / (capture_perf[-1]["t_obs"] - capture_perf[0]["t_obs"])
-            if len(capture_perf) > 1
-            else 0.0,
+            "capture_source_hz": (
+                (len(capture_perf) - 1)
+                / (capture_perf[-1]["t_obs"] - capture_perf[0]["t_obs"])
+                if len(capture_perf) > 1
+                else 0.0
+            ),
             "viewport_metric": "Scheduled viewport update completions, with synchronized capture sharing its slot; not GPU presentation FPS",
         }
         atomic_json(root / "performance-report.json", perf)

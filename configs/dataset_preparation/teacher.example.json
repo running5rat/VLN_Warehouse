@@ -1,0 +1,8 @@
+{
+  "model": null,
+  "base_url": "https://api.openai.com/v1",
+  "api_key_env": "OPENAI_API_KEY",
+  "indices": [0, 1, 2, 3, 4, 5],
+  "max_output_tokens": 2048,
+  "timeout_seconds": 180
+}

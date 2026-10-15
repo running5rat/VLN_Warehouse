@@ -159,3 +159,33 @@ class FlowMatchingActionExpert(nn.Module):
             "modes": MODES,
             "quality_validated": False,
         }
+
+    def loss(self, batch, targets, point_mask, candidate_valid, generator=None):
+        """Conditional Flow Matching on verified candidates only.
+
+        targets: [B,9,K,H,2], point_mask: [B,9,K,H], candidate_valid:
+        [B,9,K]. Unknown/invalid modes are not negative action demonstrations.
+        This trains the exact deployment module, without a legacy-head adapter.
+        """
+        expected = (len(batch["visual"]), 9, targets.shape[2], self.cfg.horizon, 2)
+        if targets.shape != expected or point_mask.shape != targets.shape[:-1]:
+            raise ValueError("Nine-mode target/mask shape mismatch")
+        if candidate_valid.shape != targets.shape[:3] or point_mask.dtype != torch.bool or candidate_valid.dtype != torch.bool:
+            raise ValueError("Candidate availability must be an explicit boolean mask")
+        if not torch.isfinite(targets).all():
+            raise ValueError("Nonfinite action labels")
+        available = candidate_valid & point_mask.any(-1)
+        index = available.nonzero()
+        if not len(index):
+            raise ValueError("No verified action targets; skip this minibatch")
+        context, valid = self.encode(batch)
+        b, mode, sample = index.unbind(-1)
+        target = targets[b, mode, sample] / self.cfg.coordinate_scale
+        mask = point_mask[b, mode, sample]
+        noise = torch.randn(target.shape, device=target.device, dtype=target.dtype, generator=generator)
+        tau = torch.rand(len(index), device=target.device, dtype=target.dtype, generator=generator)
+        mixed = ((1-tau[:,None,None])*noise + tau[:,None,None]*target).masked_fill(~mask[...,None], 0)
+        prediction = self.velocity(mixed, tau, context[b], valid[b], torch.stack((mode//3, mode%3), -1))
+        error = (prediction - (target-noise)).square().sum(-1)
+        loss = ((error * mask).sum(-1) / (2*mask.sum(-1))).mean()
+        return loss

@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-14",
+  "schema_status": "v2_draft_waiting_human_baseline",
+  "all_seven_steps_completed": false,
+  "manual_approved_episodes": 0,
+  "actual_teacher_calls": 0,
+  "formal_training_started": false,
+  "regression": {
+    "tests": 165,
+    "passed": true,
+    "log": "/data/ticvla/outputs/dataset-preparation/regression-tests-final.log",
+    "new_dataset_tests": 14,
+    "legacy_regression_includes_toy_training_fixtures": true,
+    "actual_model_training_started": false
+  },
+  "isaac_interface": {
+    "capture": {
+      "isaac_exit": 0,
+      "geometry_frames": 84,
+      "capture_frames": 84,
+      "human_approved": false,
+      "task_validated": false,
+      "geometry_complete": true
+    },
+    "actual_command_samples": 492,
+    "measured_v_w_samples": 491,
+    "command_hz": 29.999998435378156,
+    "path_length_m": 3.377502551815552,
+    "yaw_span_rad": 1.0407632705587169,
+    "nonzero_commands": 462,
+    "reasons": {
+      "unavailable:[Errno 2] No such file or directory: '/data/ticvla/outputs/dataset-preparation/capture-smoke5-20261014/navigation/command.json'": 12,
+      "human_teleoperation": 462,
+      "command_expired": 18
+    },
+    "geometry_post_first_frame_age_p95_s": 0.18858183000083953,
+    "first_frame_age_s": 30.339010867999605,
+    "automated_interface_fixture": true,
+    "human_expert_demonstration": false
+  },
+  "browser": {
+    "browser": "Chromium 130 headless new",
+    "javascript_errors": [],
+    "frames": 10,
+    "draft_restore": true,
+    "point_edit_undo": true,
+    "unnamed_approval_rejected": true,
+    "human_annotation_created": false
+  },
+  "altro_fixture": {
+    "status": "offline_checked",
+    "source_binding": "synthetic-unit-fixture-not-training-data",
+    "modes": [
+      "unknown",
+      "positive",
+      "positive",
+      "positive",
+      "positive",
+      "positive",
+      "unknown",
+      "positive",
+      "positive"
+    ],
+    "request_sha256": "8e53b9915cfd1f80dbf8af61dc099323f4430c746fcde203397184b5c4c4a1d4",
+    "solver_config_sha256": "de1c47e0fee7fe12c399db258cafdeaa89fc9304b8e1c0fa049c269407cfd508",
+    "isaac_execution_verified": false,
+    "verified_candidates": 17,
+    "ranking": [
+      15,
+      16,
+      17,
+      6,
+      24,
+      7,
+      25,
+      8,
+      26,
+      3,
+      21,
+      12,
+      13,
+      14,
+      9,
+      10,
+      11
+    ],
+    "future_truth_used_by_planner": false,
+    "quality_gt_ready": false,
+    "reason": "Requires independent dynamic truth evaluation and Isaac execution before action GT approval",
+    "elapsed_seconds": 22.431179930001235
+  },
+  "local_inventory": {
+    "DynaNav": {
+      "episode_count": 105,
+      "eligible_episodes": 0,
+      "status": "present"
+    },
+    "SCAND": {
+      "episode_count": 0,
+      "eligible_episodes": 0,
+      "status": "empty_or_missing"
+    },
+    "GND": {
+      "episode_count": 0,
+      "eligible_episodes": 0,
+      "status": "empty_or_missing"
+    }
+  },
+  "training_readiness": {
+    "optimizer_updates": 0,
+    "formal_training_started": false,
+    "actual_data_forward_pass": false,
+    "nine_mode_gradient_check": false,
+    "reference_text_loss_check": false,
+    "training_ready": false,
+    "status": "blocked",
+    "reason": "Requires approved labels and actual frozen-VLM pre-compression cache; no synthetic substitution"
+  },
+  "milestones": {
+    "M1": {
+      "tools": "interface_checked",
+      "acceptance": "pending_human_task_walkthrough_capture_and_approval"
+    },
+    "M2": {
+      "schema": "draft",
+      "acceptance": "waiting_M1"
+    },
+    "M3": {
+      "teacher_api": "implemented_baseline_comparison_only",
+      "acceptance": "not_called_waiting_M1",
+      "remaining": "second-episode reference-only review and recursive teacher proposal approval"
+    },
+    "M4": {
+      "inventory": "completed",
+      "conversion": "none_eligible_until_frame_clock_extrinsics_task_audit"
+    },
+    "M5": {
+      "official_altro": "real_solver_fixture_checked",
+      "acceptance": "not_passed_dynamic_Isaac_cases_not_run"
+    },
+    "M6": {
+      "sparse_flow_loss_gradient_checkpoint": "fixture_passed",
+      "acceptance": "not_ready_real_labels_KV_cache_reference_and_text_losses_missing"
+    }
+  },
+  "limitations": [
+    "Automated interface drive is not a human expert episode.",
+    "The two-turn extinguisher task has not yet been walked through and approved.",
+    "Manual capture currently reconstructs geometric MapView; no automatic semantic labels are supplied.",
+    "Unknown-space reference edits are diagnostic-only until independently validated.",
+    "Open-source human/quadruped robotization and three dynamic cases are not completed.",
+    "Browser source publication time is distinct from actual browser render latency.",
+    "No trained semantic checkpoint or approved action ground truth exists for this stage."
+  ],
+  "artifact_root": "/data/ticvla/outputs/dataset-preparation",
+  "conversion": {
+    "fixed_selected_episodes": 10,
+    "imported": 0,
+    "quarantined": 10,
+    "report": "/data/ticvla/outputs/dataset-preparation/conversion-quarantine/conversion-report.json"
+  }
+}

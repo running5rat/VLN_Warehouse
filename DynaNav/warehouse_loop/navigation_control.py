@@ -14,9 +14,12 @@ class NavigationControl:
         self.last_t = time.monotonic()
         self.cached_safety = None
         self.stamp = None
+        self.last_observed_pose = None
+        self.last_observed_time = None
+        self.last_observed_epoch = None
         self.stream = (self.root / "executed-commands.jsonl").open("w", buffering=1)
 
-    def command(self, pose, epoch):
+    def command(self, pose, epoch, t_obs=None):
         now = time.monotonic()
         v = w = 0.0
         reason = "no_command"
@@ -32,6 +35,11 @@ class NavigationControl:
                 reason = "command_expired"
             elif (self.root.parent / "cancel.json").exists():
                 reason = "cancelled"
+            elif (
+                backend == "reference-only"
+                or cmd.get("reason") == "execution_not_evaluated"
+            ):
+                reason = "reference_only"
             else:
                 v = float(np.clip(cmd["v"], 0, 0.3))
                 w = float(np.clip(cmd["w"], -0.6, 0.6))
@@ -73,11 +81,17 @@ class NavigationControl:
                     )
                     tf = np.linalg.inv(safe["pose"]) @ pose
                     xy = transform_points(np.c_[xy, np.zeros(len(xy))], tf)[:, :2]
+                    # A human in the simulator must be able to explore beyond
+                    # the current camera's free-space rays. Only the explicit
+                    # annotation backend permits unknown cells; occupied cells,
+                    # map bounds, stale sensors and watchdogs still stop it.
+                    manual_exploration = backend == "manual" and cmd.get("safety_policy") == "human_exploration"
+                    check_grid = np.where(safe["grid"] == -1, 0, safe["grid"]) if manual_exploration else safe["grid"]
                     if not collision_free(
-                        xy, safe["grid"], float(safe.get("resolution", 0.1)), 0.35
+                        xy, check_grid, float(safe.get("resolution", 0.1)), 0.35
                     ):
                         v = w = 0.0
-                        reason = "shield_collision_or_unknown"
+                        reason = "shield_collision" if manual_exploration else "shield_collision_or_unknown"
         except (
             FileNotFoundError,
             json.JSONDecodeError,
@@ -89,10 +103,23 @@ class NavigationControl:
             reason = "unavailable:" + str(exc)
         self.last = (v, w)
         self.last_t = now
+        measured = None
+        if (t_obs is not None and self.last_observed_time is not None
+                and t_obs > self.last_observed_time and self.last_observed_epoch == epoch):
+            delta = np.linalg.inv(self.last_observed_pose) @ pose
+            elapsed = t_obs - self.last_observed_time
+            measured = [float(delta[0, 3] / elapsed),
+                        float(np.arctan2(delta[1, 0], delta[0, 0]) / elapsed)]
+        self.last_observed_pose = pose.copy()
+        self.last_observed_time = t_obs
+        self.last_observed_epoch = epoch
         self.stream.write(
             json.dumps(
                 dict(
                     monotonic=now,
+                    t_obs=t_obs,
+                    odom_epoch=epoch,
+                    measured_v_w=measured,
                     v=v,
                     w=w,
                     reason=reason,

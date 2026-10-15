@@ -39,7 +39,7 @@ Map identifiers are provenance, not place identities. End immediately after <REF
 """
 
 
-def response_grammar(image_ids, *, extended=False):
+def response_grammar(image_ids, *, extended=False, structured_route=False):
     from lmformatenforcer import (
         JsonSchemaParser,
         RegexParser,
@@ -87,6 +87,18 @@ def response_grammar(image_ids, *, extended=False):
                 max_consecutive_whitespaces=1, force_json_field_order=True
             ),
         )
+    from .navigation.route_protocol import ROUTE_SCHEMA
+
+    route_parser = (
+        JsonSchemaParser(
+            ROUTE_SCHEMA,
+            config=CharacterLevelParserConfig(
+                max_consecutive_whitespaces=1, force_json_field_order=True
+            ),
+        )
+        if structured_route
+        else RegexParser(r"[A-Za-z0-9][A-Za-z0-9 ,.';:()_/-]{0,119}")
+    )
     number = r"-?[0-9]{1,2}(\.[0-9]{1,3})?"
     pair = rf"\({number},{number}\)"
     return SequenceParser(
@@ -96,7 +108,7 @@ def response_grammar(image_ids, *, extended=False):
             StringParser("</landmark><local>"),
             RegexParser(r"[A-Za-z0-9][A-Za-z0-9 ,.';:()_/-]{0,79}"),
             StringParser("</local><Route>"),
-            RegexParser(r"[A-Za-z0-9][A-Za-z0-9 ,.';:()_/-]{0,119}"),
+            route_parser,
             StringParser("</Route><waypoint>"),
             RegexParser(rf"(\[\]|{pair}(;{pair}){{4}})"),
             StringParser("</waypoint><REFLINE>"),
@@ -104,7 +116,7 @@ def response_grammar(image_ids, *, extended=False):
     )
 
 
-def parse_structured(text, image_ids):
+def parse_structured(text, image_ids, *, structured_route=False):
     parsed = parse_response(text)
     if parsed is None:
         raise ValueError("Invalid or truncated v0.6 tagged response")
@@ -135,6 +147,9 @@ def parse_structured(text, image_ids):
                 or len(item["reason"]) > 120
             ):
                 raise ValueError("Invalid navigation reason")
+    from .navigation.route_protocol import parse_route
+
+    parsed["route"] = parse_route(parsed["route"], require_structured=structured_route)
     return parsed
 
 
@@ -215,9 +230,11 @@ class StructuredVLM(InternVLReference):
                 if observation.get("core_vocabulary")
                 else "same-model unconstrained visual QA; not ground truth"
             ),
-            format_constraint="JSON schema, one generation"
-            if observation.get("core_vocabulary")
-            else None,
+            format_constraint=(
+                "JSON schema, one generation"
+                if observation.get("core_vocabulary")
+                else None
+            ),
         )
 
     @torch.no_grad()
@@ -239,17 +256,23 @@ class StructuredVLM(InternVLReference):
                     self.tokenizer
                 )
             allowed = build_transformers_prefix_allowed_tokens_fn(
-                self._tokenizer_data, response_grammar(image_ids, extended=observation.get("landmark_schema", "extended") != "legacy")
+                self._tokenizer_data,
+                response_grammar(
+                    image_ids,
+                    extended=observation.get("landmark_schema", "extended") != "legacy",
+                ),
             )
         else:
             prefix += self.query_ids
         ids = torch.tensor([prefix], device=self.device)
         attention = torch.ones_like(ids)
         lm = self.backbone.language_model
+
         def clock():
             if str(self.device).startswith("cuda"):
                 torch.cuda.synchronize(self.device)
             return time.perf_counter()
+
         started = clock()
         embeddings = self._embeddings(ids, images)
         encoded = clock()
@@ -357,14 +380,17 @@ class StructuredVLM(InternVLReference):
             "raw_kv_shape": list(kv.shape),
             "generated_tokens": len(generated),
             "processed_query": complete,
-            "format_constraint": "lm-format-enforcer/0.11.3 XML+JSON+regex"
-            if allowed
-            else None,
+            "format_constraint": (
+                "lm-format-enforcer/0.11.3 XML+JSON+regex" if allowed else None
+            ),
             "constrained_steps": constrained_steps,
             "changed_argmax_steps": raw_argmax_changes,
-            "stage_seconds": {"image_encoding": encoded-started,
-                              "prefill": prefilled-encoded, "decode": decoded-prefilled,
-                              "reference_and_compressor": clock()-decoded},
+            "stage_seconds": {
+                "image_encoding": encoded - started,
+                "prefill": prefilled - encoded,
+                "decode": decoded - prefilled,
+                "reference_and_compressor": clock() - decoded,
+            },
             "head_quality": "untrained; interface validation only",
             "quality_validated": False,
         }

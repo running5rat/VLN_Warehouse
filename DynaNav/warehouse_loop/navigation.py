@@ -15,10 +15,11 @@ from .live_metrics import atomic_json
 
 HTML = """<!doctype html><meta charset="utf-8"><title>Warehouse Navigation</title>
 <style>body{font:16px sans-serif;background:#18222c;color:white;margin:20px}img{max-width:48%;vertical-align:top}pre{white-space:pre-wrap}button{padding:10px}</style>
-<h2>v0.6 navigation — model / geometry baseline</h2><pre id="status"></pre>
+<h2>v0.6 navigation — reference-only / model / geometry baseline</h2><pre id="status"></pre>
 <img id="rgb"><img id="map"><p>跟随：点击“冻结图像”后在原图拖框，提交首帧目标绑定。绑定只针对所示源帧。</p>
 <button id="freeze">冻结图像</button><button id="bind">提交框选</button><button id="cancel">停止任务</button><pre id="roi"></pre><pre id="vlm"></pre>
 <script>
+document.querySelector('#status').before(Object.assign(document.createElement('p'),{textContent:'白色=已观测自由空间，黑色=占用，灰色=未知；橙色=原 Decoder 线，青色=W1–W5，浅蓝=Flow 候选，绿色=实际选择，紫色=实测轨迹。原始模型输出不代表可执行。'}));
 let source=null,locked=false,start=null,box=null;let rgb=document.querySelector('#rgb');
 document.querySelector('#freeze').onclick=()=>{locked=!locked;};
 rgb.onpointerdown=e=>{if(!locked)return;let r=rgb.getBoundingClientRect();start=[(e.clientX-r.left)*rgb.naturalWidth/r.width,(e.clientY-r.top)*rgb.naturalHeight/r.height];e.preventDefault();};
@@ -68,11 +69,24 @@ class Handler(SimpleHTTPRequestHandler):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    tasks = p.add_mutually_exclusive_group(required=True)
+    tasks.add_argument("--task-mode", choices=("landmark", "explore", "follow"))
+    tasks.add_argument("--instruction")
     p.add_argument(
-        "--task-mode", choices=("landmark", "explore", "follow"), required=True
+        "--scene-layout", choices=("warehouse", "junction-fixture"), default="warehouse"
     )
     p.add_argument(
-        "--execution-backend", choices=("model", "geometry-baseline"), default="model"
+        "--scene-person",
+        action="store_true",
+        help="Environment only; not a VLM task hint",
+    )
+    p.add_argument("--budget-seconds", type=float, default=120)
+    p.add_argument("--timeout-seconds", type=float, default=300)
+    p.add_argument("--budget-distance", type=float, default=30)
+    p.add_argument(
+        "--execution-backend",
+        choices=("reference-only", "model", "geometry-baseline"),
+        default=None,
     )
     p.add_argument("--target-landmark")
     p.add_argument("--map")
@@ -91,9 +105,19 @@ def main():
     p.add_argument("--weights", default="/data/ticvla/models/yoloe-v8s-seg.pt")
     p.add_argument("--landmark-variant", default="original")
     a = p.parse_args()
+    if a.instruction is not None and not a.instruction.strip():
+        p.error("--instruction must not be empty")
+    if a.execution_backend is None:
+        a.execution_backend = "reference-only" if a.instruction else "model"
+    if a.instruction and a.target_landmark:
+        p.error(
+            "--instruction carries the target; do not also provide --target-landmark"
+        )
+    if a.instruction:
+        a.task_mode = "instruction"
     if a.task_mode == "landmark" and not a.target_landmark:
         p.error("landmark requires --target-landmark UID or text")
-    if a.task_mode != "follow" and a.target_roi:
+    if a.task_mode not in ("follow", "instruction") and a.target_roi:
         p.error("--target-roi only applies to follow")
     root = a.output.resolve()
     root.mkdir(parents=True, exist_ok=False)
@@ -215,9 +239,13 @@ def main():
             a.task_mode,
             "--landmark-variant",
             a.landmark_variant,
+            "--scene-layout",
+            a.scene_layout,
             "--max-steps",
             str(a.max_steps),
         ]
+        if a.scene_person:
+            cmd.append("--scene-person")
         if not a.headless:
             cmd.append("--gui")
         isaac = launch(cmd, "isaac.log")

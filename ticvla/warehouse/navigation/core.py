@@ -6,6 +6,9 @@ import math
 import numpy as np
 from scipy.ndimage import binary_dilation, label
 from ..schema import SemanticSnapshot, TaskContract, TaskState
+from .route_protocol import parse_route, reference_diagnostics
+from .execution import ExecutionFacts
+from ..local_context import local_memory, local_context
 from ..geometry import (
     astar_reference,
     collision_free,
@@ -16,13 +19,20 @@ from ..geometry import (
 
 
 class NavigationState:
-    def __init__(self, task_id, mode, target=None):
+    def __init__(self, task_id, mode=None, target=None, *, instruction=None):
         instructions = {
             "explore": "Explore reachable frontiers of the observed warehouse map.",
             "landmark": f"Navigate to a reachable free neighborhood of landmark {target}.",
             "follow": "Follow the explicitly bound person at low speed, keep 1.5 metres separation; stop if lost.",
         }
+        self.natural = instruction is not None
+        self.facts = ExecutionFacts()
+        self.route_history = []
+        self.terminal = None
+        mode = mode or "instruction"
+        instructions["instruction"] = instruction
         kind = {
+            "instruction": "INSTRUCTION",
             "explore": "INSTRUCTION",
             "landmark": "GOAL",
             "follow": "PERSON_FOLLOW",
@@ -31,17 +41,23 @@ class NavigationState:
             TaskContract(
                 task_id,
                 instructions[mode],
-                ("Use observed free space only.", "Preserve target identity."),
+                (
+                    "Physical execution uses observed free space; backward reference diagnostics exempt.",
+                    "Preserve target identity.",
+                ),
                 kind,
             ),
             instructions[mode],
         )
         self.mode, self.target, self.snapshot = mode, target, None
+        self.previous_local = None
         self.last_generation = -1
         self.status = "waiting_observation"
         self.state.execution = {"status": self.status, "target": target}
 
     def commit(self, result, obs, generation, start, ready, now, max_age):
+        if self.terminal:
+            raise ValueError("Task is terminal: " + self.terminal)
         if not result["valid"]:
             raise ValueError(result.get("error") or "Invalid VLM output")
         if (
@@ -79,11 +95,32 @@ class NavigationState:
         ):
             raise ValueError("PREFILL requires a bound visible person")
         route = result["parsed"]["route"] if mode == "TEXT" else self.state.route
+        next_facts = copy.deepcopy(self.facts)
+        completion_rejected = False
+        if mode == "TEXT":
+            route = parse_route(route, require_structured=self.natural)
+            if isinstance(route, dict):
+                completion_rejected = (
+                    route["status"] == "completed"
+                    and not self.facts.completion_evidence()
+                )
+        diagnostics = reference_diagnostics(result.get("parsed") or {}, xy, mask, mode)
+        diagnostics["format_valid"] = True
+        diagnostics["completion_claim_supported"] = not completion_rejected
         next_state = copy.deepcopy(self.state)
+        next_state.contract = self.state.contract
         if mode == "TEXT":
             next_state.commit_route(
                 route, obs["task"]["task_id"], obs["route_revision"]
             )
+        if mode == "TEXT" and isinstance(route, dict):
+            next_facts.switch(
+                route["current_subgoal"],
+                self.facts.data.get("last_pose") or obs["T_odom_body"],
+                next_state.route_revision,
+            )
+            next_state.execution["facts"] = next_facts.record()
+            next_state.execution["completion_claim_rejected"] = completion_rejected
         packet = SemanticSnapshot(
             result["z_sem"],
             result["reference_xy"],
@@ -102,6 +139,14 @@ class NavigationState:
             mode,
             target_binding_id=obs.get("target_binding_id"),
             target_visible=obs.get("target_visible"),
+            reference_validation=diagnostics,
+            reference_usable=diagnostics["consistency_valid"]
+            and diagnostics["reference_available"],
+            motion_frame_or_direction=(
+                route.get("current_subgoal", {}).get("direction", "forward")
+                if isinstance(route, dict)
+                else "forward"
+            ),
         )
         packet.validate(
             t_use=now,
@@ -111,8 +156,55 @@ class NavigationState:
             max_age=max_age,
             last_generation=self.last_generation,
         )
+        next_local = self.previous_local
+        if mode == "TEXT":
+            next_local = local_memory(result["parsed"].get("local"), obs,
+                                      origin="model", revision=generation)
         # Single writer commits state and packet together, after every check passes.
+        previous = copy.deepcopy(self.state.route)
         self.state, self.snapshot, self.last_generation = next_state, packet, generation
+        self.previous_local = next_local
+        self.facts = next_facts
+        if mode == "TEXT":
+            self.route_history.append(
+                dict(
+                    previous_route=previous,
+                    route=copy.deepcopy(route),
+                    route_revision=next_state.route_revision,
+                    generation=generation,
+                    trigger=obs.get("request_trigger"),
+                    source_image_ids=[
+                        f["image_id"] for f in obs.get("rgb_history", [])
+                    ],
+                    waypoint=result["parsed"].get(
+                        "anchors", result["parsed"].get("waypoint", [])
+                    ),
+                    execution_facts=copy.deepcopy(obs.get("execution_state", {})),
+                    validation=diagnostics,
+                )
+            )
+        if mode == "TEXT" and isinstance(route, dict):
+            goal = route["current_subgoal"]
+            self.mode = {
+                "approach_landmark": "landmark",
+                "explore": "explore",
+                "follow_person": "follow",
+            }.get(goal["action"], "instruction")
+            self.target = (
+                goal.get("target_text")
+                or goal.get("category")
+                or goal.get("description")
+            )
+            self.status = (
+                "completion_without_evidence"
+                if completion_rejected
+                else route["status"]
+            )
+            if route["status"] == "completed" and not completion_rejected:
+                self.terminal = "completed"
+        if packet.motion_frame_or_direction == "backward":
+            packet.reference_validation["execution"] = "execution_not_evaluated"
+            packet.reference_usable = False
         return packet
 
     def valid_snapshot(self, now, epoch, max_age):
@@ -131,8 +223,49 @@ class NavigationState:
             return None, str(exc)
         return self.snapshot, None
 
+    def local_input(self, obs):
+        return local_context(self.previous_local, obs)
+
     def record(self):
         return asdict(self.state)
+
+    def checkpoint(self):
+        # Raw tensor artifacts are stored separately. Restoring never revives an old command.
+        return dict(
+            task_state=self.record(),
+            natural=self.natural,
+            mode=self.mode,
+            target=self.target,
+            last_generation=self.last_generation,
+            facts=self.facts.record(),
+            terminal=self.terminal,
+            route_history=self.route_history,
+            previous_local=copy.deepcopy(self.previous_local),
+        )
+
+    @classmethod
+    def restore(cls, value):
+        state = value["task_state"]
+        contract = state["contract"]
+        nav = cls(
+            contract["task_id"],
+            value["mode"] if not value["natural"] else None,
+            value["target"],
+            instruction=contract["instruction"] if value["natural"] else None,
+        )
+        nav.state = TaskState(
+            TaskContract(**contract),
+            state["route"],
+            state["route_revision"],
+            state["clause_id"],
+            state["execution"],
+        )
+        nav.facts = ExecutionFacts(value["facts"])
+        nav.last_generation = value["last_generation"]
+        nav.route_history = value.get("route_history", [])
+        nav.terminal = value["terminal"]
+        nav.previous_local = value.get("previous_local")
+        return nav
 
 
 def select_landmark(landmarks, query, epoch):
@@ -144,6 +277,7 @@ def select_landmark(landmarks, query, epoch):
             x["landmark_uid"] == query
             or x.get("identity_text") == query
             or x.get("name") == query
+            or x.get("category") == query
         )
     ]
     if len(matches) != 1:
@@ -326,7 +460,7 @@ class PersonBinding:
         self.status = "waiting_manual_roi"
         self.confirmations = 0
 
-    def update(self, instances, source, roi=None):
+    def update(self, instances, source, roi=None, *, auto_unique=False):
         stamp = source["t_obs"]
         if self.last_time is not None and stamp <= self.last_time:
             return self.record(source)
@@ -359,7 +493,7 @@ class PersonBinding:
                     np.linalg.norm(a[2:] - a[:2]), np.linalg.norm(b[2:] - b[:2])
                 ):
                     continue
-            else:
+            elif not (auto_unique and self.binding_id is None):
                 continue
             candidates.append((inst, pos))
         if len(candidates) != 1:
@@ -368,14 +502,16 @@ class PersonBinding:
             self.status = (
                 "ambiguous"
                 if candidates
-                else "lost"
-                if self.binding_id
-                else "waiting_manual_roi"
+                else "lost" if self.binding_id else "waiting_manual_roi"
             )
         else:
             inst, pos = candidates[0]
             if self.binding_id is None:
-                self.binding_id = source["image_id"] + ":manual-person"
+                self.binding_id = source["image_id"] + (
+                    ":unique-person"
+                    if auto_unique and roi is None
+                    else ":manual-person"
+                )
             self.position, self.bbox, self.last_time = pos, inst["bbox"], stamp
             self.visible = True
             self.confirmations += 1

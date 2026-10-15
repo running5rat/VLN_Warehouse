@@ -148,6 +148,12 @@ def parse_response(text):
 
 
 def target_text(supervision):
+    # Schema-v2 human/teacher reviewed text must not be overwritten by the legacy
+    # empty-landmark template. Source/protocol checks belong to the record adapter.
+    if "text" in supervision:
+        if parse_response(supervision["text"]) is None:
+            raise ValueError("Invalid supervised v0.6 text")
+        return supervision["text"]
     # No annotations/latent memory are invented for the deferred semantic mapper.
     route = supervision["route"].replace("<", "").replace(">", "")
     anchors = supervision.get("anchors", [])
@@ -248,6 +254,12 @@ class InternVLReference(nn.Module):
             "robot_state_v_omega": obs["robot_state"],
             "state_valid": obs["robot_state_mask"],
         }
+        if "acceptance_criteria" in task:
+            payload["task_acceptance_criteria"] = task["acceptance_criteria"]
+        if "previous_local" in obs:
+            from .local_context import LOCAL_CONTEXT_INSTRUCTION
+            payload["previous_local"] = obs["previous_local"]
+            parts.append(LOCAL_CONTEXT_INSTRUCTION)
         for key in ("previous_reference", "follow_target", "task_mode"):
             if key in obs:
                 payload[key] = obs[key]
@@ -268,7 +280,11 @@ class InternVLReference(nn.Module):
                 "and relevant to this navigation task, then answer in the required format."
             )
         template = copy.deepcopy(self.backbone.conv_template)
-        template.system_message = getattr(self, "system_prompt", SYSTEM)
+        if obs.get("route_protocol") == "structured-v1":
+            from .navigation.route_protocol import NAVIGATION_SYSTEM
+            template.system_message = NAVIGATION_SYSTEM
+        else:
+            template.system_message = getattr(self, "system_prompt", SYSTEM)
         template.append_message(template.roles[0], "\n".join(parts))
         template.append_message(template.roles[1], None)
         prompt = template.get_prompt()

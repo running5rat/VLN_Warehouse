@@ -1,5 +1,6 @@
 """Deployment observations, labels and provenance have separate namespaces."""
 
+import copy
 import hashlib
 import json
 import math
@@ -36,7 +37,7 @@ class TaskContract:
 @dataclass
 class TaskState:
     contract: TaskContract
-    route: str
+    route: str | dict
     route_revision: int = 0
     clause_id: str = "local-0"
     execution: dict = field(default_factory=dict)
@@ -44,9 +45,9 @@ class TaskState:
     def commit_route(self, route, task_id, base_revision):
         if task_id != self.contract.task_id or base_revision != self.route_revision:
             raise ValueError("Route belongs to a different task or stale revision")
-        if not route.strip():
+        if not route or (isinstance(route, str) and not route.strip()):
             raise ValueError("Empty Route")
-        self.route = route
+        self.route = copy.deepcopy(route)
         self.route_revision += 1
 
 
@@ -71,6 +72,8 @@ class SemanticSnapshot:
     target_binding_id: str | None = None
     target_visible: bool | None = None
     quality_validated: bool = False
+    reference_validation: dict = field(default_factory=dict)
+    reference_usable: bool = True
 
     def validate(
         self,

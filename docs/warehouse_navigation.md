@@ -95,3 +95,6 @@ OMP_NUM_THREADS=2 /data/ticvla/envs/warehouse-realtime/bin/python \
 ## 后续差距
 
 本轮不实现训练、学习型 MapEncoder、历史视觉 token 压缩、学习型 Scorer、多机器人、精确停靠或取货。无人为替换模型参考线、Oracle 路线或隐藏目标位姿。永久静态性、长期身份保持、任务成功率和部署实时性能均未验收。实际已通过与未通过项目以本轮验证报告为准。
+
+
+自然语言入口、递归 Route 与第一阶段验证见 [第一阶段说明](warehouse_navigation_phase1.md)。旧 task-mode 命令保持兼容。
