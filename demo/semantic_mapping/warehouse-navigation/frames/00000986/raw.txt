@@ -1,0 +1,27 @@
+{
+  "landmark": [],
+  "local": "Inferred: facing along the near cross-aisle, with the mapped target aisle ahead.",
+  "route": "Follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+  "waypoint": [
+    [
+      480,
+      710
+    ],
+    [
+      480,
+      700
+    ],
+    [
+      480,
+      685
+    ],
+    [
+      480,
+      670
+    ],
+    [
+      480,
+      650
+    ]
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "run": "codex-goal-only-20261112-v2",
+  "published_snapshot": "2026-11-13",
+  "keyframes": 37,
+  "external_api_calls": 0,
+  "human_approved": 0,
+  "local_absolute_paths_removed": true,
+  "scope": "bounded review images, model fields, source transforms and projected predictions; no raw depth/database/config/credential export"
+}

@@ -1,0 +1,6 @@
+{
+  "landmark": [],
+  "local": "Inferred: turning at the near cross-aisle; target aisle not yet visible.",
+  "route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+  "waypoint": []
+}

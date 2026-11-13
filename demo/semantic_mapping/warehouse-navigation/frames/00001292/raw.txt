@@ -1,0 +1,8 @@
+{
+  "landmark": [
+    "sign"
+  ],
+  "local": "Beside the rack with visible 04/5R on the right, facing the end wall.",
+  "route": "Stop beside 04/5R and confirm arrival.",
+  "waypoint": []
+}

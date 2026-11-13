@@ -1,5 +1,9 @@
 # Warehouse VLN
 
+**最新仓库两任务 Codex 审核：** [在线视频与37帧输入输出](https://running5rat.github.io/VLN_Warehouse/warehouse-navigation/) · [环绕视频文件](demo/semantic_mapping/warehouse-navigation/mapping.mp4) · [04/5R目标视频文件](demo/semantic_mapping/warehouse-navigation/target.mp4)。第二任务初始指令仅为 `Go to sign 04/5R and STOP beside it.`；地图与Local用于推导剩余Route。此为非盲会话辅助标注和旧运动回放，新预测未驱动车辆；24帧非空投影通过不代表控制通过，人工审核未批准。
+
+在线审核页需要先在仓库 Settings → Pages 中启用 GitHub Actions；启用前可使用上方两个仓库视频文件链接。
+
 ## 语义建图演示
 
 [**打开完整演示：视频、语义地图与实验报告 →**](https://running5rat.github.io/VLN_Warehouse/)

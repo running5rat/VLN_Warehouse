@@ -1,0 +1,13 @@
+{
+  "frame": 257,
+  "task": "mapping",
+  "t_obs": 63.41666997410357,
+  "request_elapsed_s": null,
+  "status": "format_valid_unreviewed",
+  "semantic_review": "review_pending",
+  "api_usage": null,
+  "decoder": "not_run",
+  "actual_control": "not_executed",
+  "format_valid": true,
+  "projection_status": "projected"
+}
