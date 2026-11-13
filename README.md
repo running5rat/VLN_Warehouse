@@ -1,8 +1,22 @@
 # Warehouse VLN
 
-**最新仓库两任务 Codex 审核：** [在线视频与37帧输入输出](https://running5rat.github.io/VLN_Warehouse/warehouse-navigation/) · [环绕视频文件](demo/semantic_mapping/warehouse-navigation/mapping.mp4) · [04/5R目标视频文件](demo/semantic_mapping/warehouse-navigation/target.mp4)。第二任务初始指令仅为 `Go to sign 04/5R and STOP beside it.`；地图与Local用于推导剩余Route。此为非盲会话辅助标注和旧运动回放，新预测未驱动车辆；24帧非空投影通过不代表控制通过，人工审核未批准。
+## 仓库两任务演示
 
-在线审核页需要先在仓库 Settings → Pages 中启用 GitHub Actions；启用前可使用上方两个仓库视频文件链接。
+### 1. 环绕仓库并建立语义地图
+
+![仓库环绕建图：RGB、语义地图与 Landmark、Local、Route、Waypoint 输出](demo/semantic_mapping/warehouse-navigation/mapping-preview.gif)
+
+*完整任务的 8 倍速动画预览，3 fps；原视频 174.8 秒。* [完整建图视频（MP4）](demo/semantic_mapping/warehouse-navigation/mapping.mp4)
+
+### 2. 利用地图前往当前视野外的 04/5R 标牌
+
+初始指令：`Go to sign 04/5R and STOP beside it.` 地图与 Local 用于推导剩余 Route，初始指令不提供路径。
+
+![利用已建地图寻找 04/5R：RGB、语义地图与 Landmark、Local、Route、Waypoint 输出](demo/semantic_mapping/warehouse-navigation/target-preview.gif)
+
+*完整任务的 4 倍速动画预览，3 fps；原视频 72.8 秒。* [完整目标导航视频（MP4）](demo/semantic_mapping/warehouse-navigation/target.mp4)
+
+两段动画直接在 README 中播放；完整视频保留正常速度与清晰文字。画面展示 Codex 会话标注的 Landmark、Local、递归 Route、RGB Waypoint 及语义地图。这一版使用既有车辆运动回放，新标注未驱动车辆，不能视为新预测完成了自主导航闭环。
 
 ## 语义建图演示
 
