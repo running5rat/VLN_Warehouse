@@ -1,0 +1,26 @@
+{
+  "version": "codex-continuous-v2",
+  "provider": "codex-reviewed-decision-replay",
+  "scene": "manual-static-004 original warehouse",
+  "loop_instruction": "Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.",
+  "handoff_distance_m": 1.8,
+  "target_text": "04/5R",
+  "loop_stages": [
+    {
+      "route": "Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+      "local": "At the entrance of the starting warehouse aisle, facing along it.",
+      "waypoints_odom": [[10,0],[20.3,0],[21,0],[21,-0.7],[21,-5]]
+    },
+    {
+      "route": "Continue across the far cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+      "local": "In the far cross-aisle, approaching the entrance of the parallel aisle.",
+      "waypoints_odom": [[21,-5],[20.3,-5],[10,-5],[0.7,-5],[0,-5]]
+    },
+    {
+      "route": "Continue to the near end of this aisle, turn right across the cross-aisle, return to the starting point and STOP.",
+      "local": "Near the end of the second aisle, approaching the starting cross-aisle.",
+      "waypoints_odom": [[0,-5],[0,-4.3],[0,-2.5],[0,-0.7],[0,0]]
+    }
+  ],
+  "provenance": "Codex-authored long-horizon decisions based on the previous physically executed corridor circuit. Second task target and path are checked against this run's actual map and traversed corridor. No real LLM inference is implied."
+}

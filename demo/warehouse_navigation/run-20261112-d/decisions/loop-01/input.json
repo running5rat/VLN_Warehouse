@@ -1,0 +1,5997 @@
+{
+  "source": {
+    "image_id": "codex-map-return-20261112-d:00000238",
+    "rgb": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/rgb/00000238.png",
+    "depth": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/depth/00000238.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.9988223460683534,
+        0.04851713927647828,
+        -9.050379613698557e-05,
+        0.008093907017721058
+      ],
+      [
+        -0.04851713165862669,
+        0.998822346960072,
+        8.455053028774562e-05,
+        0.011265695335449522
+      ],
+      [
+        9.449936392030497e-05,
+        -8.00599744305245e-05,
+        0.9999999923301354,
+        -1.2428539764399935e-05
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 59.616669775918126,
+    "odom_epoch": "codex-map-return-20261112-d",
+    "submap_id": "codex-map-return-20261112-d",
+    "task_id": "mapping",
+    "rgb_hash": "38c9e8f0fee01a89f65e251ebfb7742a403af7b07244604451730aa963451d86",
+    "depth_hash": "22565b29cdc6a86f14134d6af8cda2f739b5c06b0efa136ab8eeb3b3c8e2fb1a",
+    "geometry": "arrays/2cd7cc91f6d847818738fe3d297971a3.npz",
+    "source_monotonic": 2678.492633742
+  },
+  "map": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/navigation/map.png",
+  "landmarks": [
+    {
+      "landmark_uid": "13428a909d65443da3b89ff3175e1e45",
+      "submap_id": "codex-map-return-20261112-d",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "codex-map-return-20261112-d:00000106"
+      ],
+      "geometry": "arrays/73c8a48017d74ca3bb12afc2fcfe2a14.npz",
+      "position": [
+        2.849750329481121,
+        -2.201463067703317,
+        2.8489847633334655
+      ],
+      "covariance": [
+        [
+          1.6590078911095976e-06,
+          -1.6707469276887492e-06,
+          4.472359528480632e-06
+        ],
+        [
+          -1.6707469276887492e-06,
+          0.00010427799260102079,
+          -5.607677851117127e-06
+        ],
+        [
+          4.472359528480632e-06,
+          -5.607677851117127e-06,
+          0.0003409642246321814
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 33.21666839905083,
+      "last_seen": 33.21666839905083,
+      "confidence": 0.2602000832557678,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-map-return-20261112-d:00000106",
+          "t_obs": 33.21666839905083,
+          "camera_pose": [
+            [
+              -0.8380238373308364,
+              0.033370293393636126,
+              0.5446122212952278,
+              0.11413788042335497
+            ],
+            [
+              -0.5456320133512822,
+              -0.05367512602618917,
+              -0.8363041832086563,
+              -0.12735102701770626
+            ],
+            [
+              0.0013244136534260994,
+              -0.9980007035893794,
+              0.06318893545217588,
+              1.4500703630031058
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "03 | BOXES",
+          "texts": [
+            {
+              "text": "03",
+              "confidence": 0.9947755336761475,
+              "polygon": [
+                [
+                  238,
+                  66
+                ],
+                [
+                  304,
+                  83
+                ],
+                [
+                  290,
+                  142
+                ],
+                [
+                  224,
+                  125
+                ]
+              ],
+              "normalized": "03",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "BOXES",
+              "confidence": 0.995623767375946,
+              "polygon": [
+                [
+                  235,
+                  165
+                ],
+                [
+                  295,
+                  185
+                ],
+                [
+                  288,
+                  207
+                ],
+                [
+                  228,
+                  186
+                ]
+              ],
+              "normalized": "BOXES",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000106:2:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "03 | BOXES",
+      "identity_candidates": [
+        "03 | BOXES"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "03 | BOXES",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "03 | BOXES",
+        "status": "candidate",
+        "candidates": [
+          "03 | BOXES"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "03 | BOXES"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "codex-map-return-20261112-d:00000106"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "codex-map-return-20261112-d:00000106",
+            "text": "03 | BOXES",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "35c46ff1681a4b4bae29727ca95397ba",
+      "submap_id": "codex-map-return-20261112-d",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "codex-map-return-20261112-d:00000015",
+        "codex-map-return-20261112-d:00000020",
+        "codex-map-return-20261112-d:00000025"
+      ],
+      "geometry": "arrays/30276d2b949342b581f3a3cd6d911a52.npz",
+      "position": [
+        2.756588613782603,
+        7.781478693264573,
+        1.4673586109890553
+      ],
+      "covariance": [
+        [
+          1.783856283866271e-05,
+          -5.563573847967464e-06,
+          2.364699515439371e-05
+        ],
+        [
+          -5.563573847967464e-06,
+          1.750006160834622e-05,
+          1.015758737444428e-05
+        ],
+        [
+          2.364699515439371e-05,
+          1.015758737444428e-05,
+          0.00035342609658077945
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 15.016667449846864,
+      "last_seen": 17.016667554154992,
+      "confidence": 0.6113821864128113,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-map-return-20261112-d:00000015",
+          "t_obs": 15.016667449846864,
+          "camera_pose": [
+            [
+              0.8407478875891963,
+              0.03311169413924907,
+              0.5404133651433254,
+              0.08045223942281254
+            ],
+            [
+              -0.5414251919632744,
+              0.053856381334578055,
+              0.8390221997641515,
+              0.1184236411316001
+            ],
+            [
+              -0.0013232618168310664,
+              -0.9979995520543955,
+              0.06320714419581688,
+              1.4501264483014489
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000020",
+          "t_obs": 16.016667502000928,
+          "camera_pose": [
+            [
+              0.9895549071146662,
+              0.0076628883241433455,
+              0.1439526517568027,
+              0.019018491512984043
+            ],
+            [
+              -0.14414805512268491,
+              0.06338341144050276,
+              0.9875241168490575,
+              0.13317655932873268
+            ],
+            [
+              -0.001556923129440217,
+              -0.9979598305025588,
+              0.06382595626916508,
+              1.45022200885271
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000025",
+          "t_obs": 17.016667554154992,
+          "camera_pose": [
+            [
+              0.9602796923527173,
+              -0.019444454825160138,
+              -0.2783609628369667,
+              -0.042968222580374936
+            ],
+            [
+              0.27903518174396025,
+              0.06151682618707384,
+              0.9583084302274419,
+              0.12114692904929941
+            ],
+            [
+              -0.0015099020120194512,
+              -0.9979166264134608,
+              0.06449904591148951,
+              1.4503210368989201
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "5b76bb800a8a48e2a043ee328ef24213",
+      "submap_id": "codex-map-return-20261112-d",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "codex-map-return-20261112-d:00000209"
+      ],
+      "geometry": "arrays/72908c593c80448f9427c700a91361de.npz",
+      "position": [
+        4.287291980656252,
+        -6.997111338396036,
+        0.6645663529875064
+      ],
+      "covariance": [
+        [
+          0.00019986358182278702,
+          4.728115907993833e-06,
+          -1.1589226304221182e-05
+        ],
+        [
+          4.728115907993833e-06,
+          3.972460616671965e-06,
+          -6.964072849170902e-06
+        ],
+        [
+          -1.1589226304221182e-05,
+          -6.964072849170902e-06,
+          0.00018749692592377742
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 53.816669473424554,
+      "last_seen": 53.816669473424554,
+      "confidence": 0.34687304496765137,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-map-return-20261112-d:00000209",
+          "t_obs": 53.816669473424554,
+          "camera_pose": [
+            [
+              -0.43159613862337587,
+              0.05621079986458941,
+              0.9003139003169808,
+              0.15350929404763355
+            ],
+            [
+              -0.9020666881697126,
+              -0.02764721328054247,
+              -0.4307102525972019,
+              -0.05507934432849472
+            ],
+            [
+              0.0006806026131325616,
+              -0.9980360602585477,
+              0.0626383205688,
+              1.4500105786375703
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "FRAGILE | CE",
+          "texts": [
+            {
+              "text": "FRAGILE",
+              "confidence": 0.9756714701652527,
+              "polygon": [
+                [
+                  880,
+                  446
+                ],
+                [
+                  927,
+                  473
+                ],
+                [
+                  918,
+                  488
+                ],
+                [
+                  872,
+                  461
+                ]
+              ],
+              "normalized": "FRAGILE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "CE",
+              "confidence": 0.9348117113113403,
+              "polygon": [
+                [
+                  867,
+                  493
+                ],
+                [
+                  906,
+                  499
+                ],
+                [
+                  903,
+                  517
+                ],
+                [
+                  864,
+                  512
+                ]
+              ],
+              "normalized": "CE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000209:2:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "FRAGILE | CE",
+      "identity_candidates": [
+        "FRAGILE | CE"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "FRAGILE | CE",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "FRAGILE | CE",
+        "status": "candidate",
+        "candidates": [
+          "FRAGILE | CE"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "FRAGILE | CE"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "codex-map-return-20261112-d:00000209"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "codex-map-return-20261112-d:00000209",
+            "text": "FRAGILE | CE",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "6bc3423111f349aba7dd6cfe2fa2f909",
+      "submap_id": "codex-map-return-20261112-d",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "codex-map-return-20261112-d:00000000",
+        "codex-map-return-20261112-d:00000071",
+        "codex-map-return-20261112-d:00000078",
+        "codex-map-return-20261112-d:00000087",
+        "codex-map-return-20261112-d:00000097",
+        "codex-map-return-20261112-d:00000106",
+        "codex-map-return-20261112-d:00000117",
+        "codex-map-return-20261112-d:00000128",
+        "codex-map-return-20261112-d:00000135",
+        "codex-map-return-20261112-d:00000144",
+        "codex-map-return-20261112-d:00000153",
+        "codex-map-return-20261112-d:00000164",
+        "codex-map-return-20261112-d:00000173",
+        "codex-map-return-20261112-d:00000184",
+        "codex-map-return-20261112-d:00000192",
+        "codex-map-return-20261112-d:00000201",
+        "codex-map-return-20261112-d:00000209",
+        "codex-map-return-20261112-d:00000217",
+        "codex-map-return-20261112-d:00000224",
+        "codex-map-return-20261112-d:00000231",
+        "codex-map-return-20261112-d:00000238",
+        "codex-map-return-20261112-d:00000246",
+        "codex-map-return-20261112-d:00000252",
+        "codex-map-return-20261112-d:00000259",
+        "codex-map-return-20261112-d:00000266",
+        "codex-map-return-20261112-d:00000274",
+        "codex-map-return-20261112-d:00000282",
+        "codex-map-return-20261112-d:00000289",
+        "codex-map-return-20261112-d:00000295",
+        "codex-map-return-20261112-d:00000302",
+        "codex-map-return-20261112-d:00000308",
+        "codex-map-return-20261112-d:00000316",
+        "codex-map-return-20261112-d:00000322",
+        "codex-map-return-20261112-d:00000329",
+        "codex-map-return-20261112-d:00000336",
+        "codex-map-return-20261112-d:00000343",
+        "codex-map-return-20261112-d:00000348",
+        "codex-map-return-20261112-d:00000355",
+        "codex-map-return-20261112-d:00000361",
+        "codex-map-return-20261112-d:00000367"
+      ],
+      "geometry": "arrays/cc891b3e60f74ebea3d4e53cf0b7beb9.npz",
+      "position": [
+        3.431973640752197,
+        -1.6742765455532072,
+        2.5904837030774956
+      ],
+      "covariance": [
+        [
+          4.683637376654313e-05,
+          -4.7137890043040964e-05,
+          2.3194910038555877e-05
+        ],
+        [
+          -4.7137890043040964e-05,
+          0.0002607786089092075,
+          -1.9997518710323912e-05
+        ],
+        [
+          2.3194910038555877e-05,
+          -1.9997518710323912e-05,
+          0.00012183850145365427
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 12.016667293384671,
+      "last_seen": 85.41667112149298,
+      "confidence": 0.41869673132896423,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-map-return-20261112-d:00000000",
+          "t_obs": 12.016667293384671,
+          "camera_pose": [
+            [
+              -1.2845080937182829e-21,
+              0.06237828615518053,
+              0.9980525784828886,
+              0.14999999999999858
+            ],
+            [
+              -0.9999999999999999,
+              -1.4513893013673124e-22,
+              -1.3676580677408788e-21,
+              -1.7892950625287346e-23
+            ],
+            [
+              1.0587911840678754e-22,
+              -0.9980525784828889,
+              0.06237828615518054,
+              1.45
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.980064868927002,
+              "polygon": [
+                [
+                  735,
+                  164
+                ],
+                [
+                  797,
+                  164
+                ],
+                [
+                  797,
+                  205
+                ],
+                [
+                  735,
+                  205
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9466555714607239,
+              "polygon": [
+                [
+                  819,
+                  171
+                ],
+                [
+                  871,
+                  171
+                ],
+                [
+                  871,
+                  201
+                ],
+                [
+                  819,
+                  201
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000000:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000071",
+          "t_obs": 26.216668033972383,
+          "camera_pose": [
+            [
+              -0.865276763432374,
+              0.030532138982528288,
+              0.5003637788181179,
+              0.1089615465462481
+            ],
+            [
+              -0.5012925832186915,
+              -0.05542273399332372,
+              -0.8635010518619161,
+              -0.13361855840677878
+            ],
+            [
+              0.0013669944863234354,
+              -0.9979960466083307,
+              0.0632615387120603,
+              1.4500795649834985
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "14R",
+          "texts": [
+            {
+              "text": "14R",
+              "confidence": 0.8968536853790283,
+              "polygon": [
+                [
+                  66,
+                  159
+                ],
+                [
+                  120,
+                  170
+                ],
+                [
+                  113,
+                  202
+                ],
+                [
+                  59,
+                  191
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000071:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000078",
+          "t_obs": 27.616668106988072,
+          "camera_pose": [
+            [
+              -0.8448471824934108,
+              0.032688860052917816,
+              0.5340081241529816,
+              0.11295105145923787
+            ],
+            [
+              -0.5350060320055302,
+              -0.054111662333314096,
+              -0.8431135592061263,
+              -0.1289633141458919
+            ],
+            [
+              0.0013356461518061436,
+              -0.9979996825790912,
+              0.06320482277003091,
+              1.450072363171764
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9697085618972778,
+              "polygon": [
+                [
+                  3,
+                  124
+                ],
+                [
+                  81,
+                  142
+                ],
+                [
+                  70,
+                  191
+                ],
+                [
+                  0,
+                  173
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.9179117679595947,
+              "polygon": [
+                [
+                  103,
+                  162
+                ],
+                [
+                  154,
+                  177
+                ],
+                [
+                  145,
+                  209
+                ],
+                [
+                  95,
+                  194
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000078:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000087",
+          "t_obs": 29.416668200865388,
+          "camera_pose": [
+            [
+              -0.84509979251314,
+              0.03266310651169316,
+              0.5336098407706261,
+              0.1129138874026389
+            ],
+            [
+              -0.5346069166294101,
+              -0.054127797945389286,
+              -0.8433656539020176,
+              -0.12903117393885966
+            ],
+            [
+              0.0013361834611984856,
+              -0.9979996507827993,
+              0.06320531347259543,
+              1.4500723268836406
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9504112005233765,
+              "polygon": [
+                [
+                  2,
+                  124
+                ],
+                [
+                  80,
+                  142
+                ],
+                [
+                  69,
+                  191
+                ],
+                [
+                  0,
+                  173
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.9142535328865051,
+              "polygon": [
+                [
+                  102,
+                  164
+                ],
+                [
+                  154,
+                  177
+                ],
+                [
+                  147,
+                  208
+                ],
+                [
+                  95,
+                  194
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000087:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000097",
+          "t_obs": 31.416668305173516,
+          "camera_pose": [
+            [
+              -0.8450552760872437,
+              0.03266771121894187,
+              0.5336800549025865,
+              0.11291888385686069
+            ],
+            [
+              -0.5346772815057725,
+              -0.05412496214679555,
+              -0.8433212277146854,
+              -0.1290217210106535
+            ],
+            [
+              0.0013360384383154361,
+              -0.997999653865834,
+              0.06320526785773144,
+              1.4500723286530341
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9618463516235352,
+              "polygon": [
+                [
+                  2,
+                  124
+                ],
+                [
+                  81,
+                  142
+                ],
+                [
+                  70,
+                  191
+                ],
+                [
+                  0,
+                  173
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.9065952897071838,
+              "polygon": [
+                [
+                  102,
+                  163
+                ],
+                [
+                  155,
+                  176
+                ],
+                [
+                  147,
+                  208
+                ],
+                [
+                  94,
+                  194
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000097:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000106",
+          "t_obs": 33.21666839905083,
+          "camera_pose": [
+            [
+              -0.8380238373308364,
+              0.033370293393636126,
+              0.5446122212952278,
+              0.11413788042335497
+            ],
+            [
+              -0.5456320133512822,
+              -0.05367512602618917,
+              -0.8363041832086563,
+              -0.12735102701770626
+            ],
+            [
+              0.0013244136534260994,
+              -0.9980007035893794,
+              0.06318893545217588,
+              1.4500703630031058
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.8722442388534546,
+              "polygon": [
+                [
+                  14,
+                  127
+                ],
+                [
+                  88,
+                  143
+                ],
+                [
+                  79,
+                  192
+                ],
+                [
+                  5,
+                  176
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8964869379997253,
+              "polygon": [
+                [
+                  114,
+                  165
+                ],
+                [
+                  166,
+                  178
+                ],
+                [
+                  158,
+                  210
+                ],
+                [
+                  106,
+                  196
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000106:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000117",
+          "t_obs": 35.41666851378977,
+          "camera_pose": [
+            [
+              -0.830284102356796,
+              0.03412056135992688,
+              0.5562949727132653,
+              0.11545092860636248
+            ],
+            [
+              -0.5573388441894987,
+              -0.05318028285151017,
+              -0.8285802738862099,
+              -0.1255943602905555
+            ],
+            [
+              0.0013122999210051919,
+              -0.9980018260546006,
+              0.0631714576418852,
+              1.450068552790554
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9644908905029297,
+              "polygon": [
+                [
+                  24,
+                  130
+                ],
+                [
+                  101,
+                  142
+                ],
+                [
+                  93,
+                  195
+                ],
+                [
+                  16,
+                  183
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8773043155670166,
+              "polygon": [
+                [
+                  127,
+                  168
+                ],
+                [
+                  176,
+                  181
+                ],
+                [
+                  169,
+                  210
+                ],
+                [
+                  120,
+                  197
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000117:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000128",
+          "t_obs": 37.616668628528714,
+          "camera_pose": [
+            [
+              -0.8249673225964514,
+              0.03462246109492361,
+              0.5641189607128732,
+              0.1163092950589363
+            ],
+            [
+              -0.5651789233474498,
+              -0.05284010605979758,
+              -0.8232743818408331,
+              -0.12436862944525706
+            ],
+            [
+              0.0013043204586794992,
+              -0.9980026094050655,
+              0.06315924610713135,
+              1.450067323215614
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.970910370349884,
+              "polygon": [
+                [
+                  32,
+                  131
+                ],
+                [
+                  110,
+                  143
+                ],
+                [
+                  102,
+                  195
+                ],
+                [
+                  24,
+                  183
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8654578328132629,
+              "polygon": [
+                [
+                  133,
+                  169
+                ],
+                [
+                  182,
+                  179
+                ],
+                [
+                  176,
+                  210
+                ],
+                [
+                  127,
+                  200
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000128:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000135",
+          "t_obs": 39.016668701544404,
+          "camera_pose": [
+            [
+              -0.8253000356873871,
+              0.03459148601708054,
+              0.5636339948845589,
+              0.11626502011925109
+            ],
+            [
+              -0.5646929685853952,
+              -0.05286143408547702,
+              -0.8236064108642185,
+              -0.12446347905968938
+            ],
+            [
+              0.001304731623936743,
+              -0.9980025540456084,
+              0.06316011236399598,
+              1.4500673781496016
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9840049743652344,
+              "polygon": [
+                [
+                  32,
+                  130
+                ],
+                [
+                  111,
+                  144
+                ],
+                [
+                  102,
+                  196
+                ],
+                [
+                  23,
+                  182
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8431305885314941,
+              "polygon": [
+                [
+                  133,
+                  170
+                ],
+                [
+                  182,
+                  180
+                ],
+                [
+                  176,
+                  209
+                ],
+                [
+                  127,
+                  199
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000135:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000144",
+          "t_obs": 40.81666879542172,
+          "camera_pose": [
+            [
+              -0.7417718599201772,
+              0.04137873775054136,
+              0.6693745647189866,
+              0.128937417481378
+            ],
+            [
+              -0.6706512755241222,
+              -0.04751147499048661,
+              -0.7402496378804219,
+              -0.10832523391659739
+            ],
+            [
+              0.0011723772551268396,
+              -0.9980132563279914,
+              0.06299337842322296,
+              1.450047347105112
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9720495939254761,
+              "polygon": [
+                [
+                  154,
+                  152
+                ],
+                [
+                  223,
+                  166
+                ],
+                [
+                  215,
+                  211
+                ],
+                [
+                  146,
+                  197
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8542101979255676,
+              "polygon": [
+                [
+                  240,
+                  182
+                ],
+                [
+                  285,
+                  193
+                ],
+                [
+                  278,
+                  222
+                ],
+                [
+                  233,
+                  211
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000144:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000153",
+          "t_obs": 42.616668889299035,
+          "camera_pose": [
+            [
+              -0.6350418045331964,
+              0.047912169370533234,
+              0.7709904866607825,
+              0.14053692709193538
+            ],
+            [
+              -0.7724771205329422,
+              -0.04068291350664318,
+              -0.6337381153140026,
+              -0.08923570037033884
+            ],
+            [
+              0.0010023713657783544,
+              -0.9980227074444852,
+              0.0628464054407628,
+              1.4500319685454417
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9865810871124268,
+              "polygon": [
+                [
+                  267,
+                  166
+                ],
+                [
+                  332,
+                  177
+                ],
+                [
+                  325,
+                  221
+                ],
+                [
+                  260,
+                  210
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8184053897857666,
+              "polygon": [
+                [
+                  341,
+                  191
+                ],
+                [
+                  386,
+                  199
+                ],
+                [
+                  382,
+                  227
+                ],
+                [
+                  337,
+                  220
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000153:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000164",
+          "t_obs": 44.816669004037976,
+          "camera_pose": [
+            [
+              -0.6101269108843276,
+              0.04917319754760261,
+              0.7907762953311717,
+              0.14247127120943343
+            ],
+            [
+              -0.7923031133006031,
+              -0.03908096920645385,
+              -0.608874744508306,
+              -0.08477349137915731
+            ],
+            [
+              0.0009639859535782038,
+              -0.9980253876975419,
+              0.06280442852421027,
+              1.4500263003498919
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9907715320587158,
+              "polygon": [
+                [
+                  291,
+                  170
+                ],
+                [
+                  349,
+                  178
+                ],
+                [
+                  344,
+                  220
+                ],
+                [
+                  286,
+                  212
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8365675806999207,
+              "polygon": [
+                [
+                  365,
+                  193
+                ],
+                [
+                  407,
+                  199
+                ],
+                [
+                  403,
+                  228
+                ],
+                [
+                  361,
+                  222
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000164:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000173",
+          "t_obs": 46.61666909791529,
+          "camera_pose": [
+            [
+              -0.6028435632404796,
+              0.04952900601693878,
+              0.7963206112003479,
+              0.1429197324021187
+            ],
+            [
+              -0.7978588398889409,
+              -0.03861614267185648,
+              -0.6016062376141221,
+              -0.08341109822629458
+            ],
+            [
+              0.0009538713720348672,
+              -0.9980258869829586,
+              0.06279664832843178,
+              1.4500258561122568
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9935365319252014,
+              "polygon": [
+                [
+                  299,
+                  170
+                ],
+                [
+                  357,
+                  180
+                ],
+                [
+                  350,
+                  221
+                ],
+                [
+                  292,
+                  211
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8669664263725281,
+              "polygon": [
+                [
+                  371,
+                  193
+                ],
+                [
+                  413,
+                  199
+                ],
+                [
+                  409,
+                  228
+                ],
+                [
+                  367,
+                  222
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000173:2:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000184",
+          "t_obs": 48.81666921265423,
+          "camera_pose": [
+            [
+              -0.5981129098107891,
+              0.04975749330111207,
+              0.7998657005885802,
+              0.1431235828975056
+            ],
+            [
+              -0.8014112884636935,
+              -0.03831261790869127,
+              -0.5968853240212433,
+              -0.08248296290276058
+            ],
+            [
+              0.0009454314533988377,
+              -0.998026219680311,
+              0.06279148819700409,
+              1.4500256143671568
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9851239323616028,
+              "polygon": [
+                [
+                  301,
+                  170
+                ],
+                [
+                  362,
+                  179
+                ],
+                [
+                  356,
+                  222
+                ],
+                [
+                  294,
+                  212
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8399965167045593,
+              "polygon": [
+                [
+                  374,
+                  193
+                ],
+                [
+                  418,
+                  201
+                ],
+                [
+                  413,
+                  229
+                ],
+                [
+                  369,
+                  222
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000184:2:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000192",
+          "t_obs": 50.416669296100736,
+          "camera_pose": [
+            [
+              -0.5981164420619947,
+              0.04975740071403332,
+              0.7998630650363119,
+              0.14312356020251996
+            ],
+            [
+              -0.8014086522424939,
+              -0.038312897653207785,
+              -0.5968888455854103,
+              -0.08248245273593151
+            ],
+            [
+              0.0009454342757872886,
+              -0.9980262135573388,
+              0.06279158547474514,
+              1.4500258069847265
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9849820137023926,
+              "polygon": [
+                [
+                  301,
+                  170
+                ],
+                [
+                  362,
+                  179
+                ],
+                [
+                  356,
+                  222
+                ],
+                [
+                  294,
+                  212
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8313806056976318,
+              "polygon": [
+                [
+                  374,
+                  193
+                ],
+                [
+                  418,
+                  201
+                ],
+                [
+                  413,
+                  229
+                ],
+                [
+                  369,
+                  222
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000192:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000201",
+          "t_obs": 52.21666938997805,
+          "camera_pose": [
+            [
+              -0.5963180773581491,
+              0.04984331624689738,
+              0.8011993475043476,
+              0.1432217642494066
+            ],
+            [
+              -0.8027476954811763,
+              -0.038197501643463666,
+              -0.5950941843673633,
+              -0.08213916996677866
+            ],
+            [
+              0.0009423457649271993,
+              -0.9980263496991,
+              0.06278946799225137,
+              1.4500254721606587
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.992752730846405,
+              "polygon": [
+                [
+                  300,
+                  169
+                ],
+                [
+                  366,
+                  179
+                ],
+                [
+                  360,
+                  222
+                ],
+                [
+                  294,
+                  213
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8379678130149841,
+              "polygon": [
+                [
+                  376,
+                  193
+                ],
+                [
+                  419,
+                  200
+                ],
+                [
+                  415,
+                  228
+                ],
+                [
+                  372,
+                  222
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000201:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000209",
+          "t_obs": 53.816669473424554,
+          "camera_pose": [
+            [
+              -0.43159613862337587,
+              0.05621079986458941,
+              0.9003139003169808,
+              0.15350929404763355
+            ],
+            [
+              -0.9020666881697126,
+              -0.02764721328054247,
+              -0.4307102525972019,
+              -0.05507934432849472
+            ],
+            [
+              0.0006806026131325616,
+              -0.9980360602585477,
+              0.0626383205688,
+              1.4500105786375703
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9960060119628906,
+              "polygon": [
+                [
+                  432,
+                  179
+                ],
+                [
+                  492,
+                  184
+                ],
+                [
+                  489,
+                  224
+                ],
+                [
+                  429,
+                  219
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8770000338554382,
+              "polygon": [
+                [
+                  500,
+                  196
+                ],
+                [
+                  544,
+                  199
+                ],
+                [
+                  542,
+                  228
+                ],
+                [
+                  498,
+                  224
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000209:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000217",
+          "t_obs": 55.41666955687106,
+          "camera_pose": [
+            [
+              -0.3452561207039324,
+              0.058537538370854715,
+              0.9366811451705177,
+              0.1565697807796651
+            ],
+            [
+              -0.9385083441831985,
+              -0.022116153256153265,
+              -0.344547476646776,
+              -0.04136574948106215
+            ],
+            [
+              0.0005468226239484982,
+              -0.998040195767,
+              0.06257370548710474,
+              1.4500040611162641
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9987147450447083,
+              "polygon": [
+                [
+                  494,
+                  177
+                ],
+                [
+                  551,
+                  183
+                ],
+                [
+                  547,
+                  224
+                ],
+                [
+                  490,
+                  218
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.8123385310173035,
+              "polygon": [
+                [
+                  564,
+                  195
+                ],
+                [
+                  608,
+                  198
+                ],
+                [
+                  605,
+                  227
+                ],
+                [
+                  561,
+                  223
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000217:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000224",
+          "t_obs": 56.816669629886746,
+          "camera_pose": [
+            [
+              -0.3173808382845411,
+              0.059168736871605065,
+              0.9464504551569622,
+              0.15710240683541332
+            ],
+            [
+              -0.9482980301901757,
+              -0.020328495068808454,
+              -0.31672953481743565,
+              -0.036932120224109535
+            ],
+            [
+              0.0004994269054510879,
+              -0.9980409875677734,
+              0.06256147143018542,
+              1.4500039023119167
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9962865114212036,
+              "polygon": [
+                [
+                  513,
+                  182
+                ],
+                [
+                  570,
+                  182
+                ],
+                [
+                  570,
+                  221
+                ],
+                [
+                  513,
+                  221
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.8523750901222229,
+              "polygon": [
+                [
+                  583,
+                  194
+                ],
+                [
+                  627,
+                  197
+                ],
+                [
+                  625,
+                  225
+                ],
+                [
+                  581,
+                  222
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000224:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000231",
+          "t_obs": 58.216669702902436,
+          "camera_pose": [
+            [
+              -0.12258527305686061,
+              0.061993522729862624,
+              0.9905198907488515,
+              0.15876213879138643
+            ],
+            [
+              -0.992457965717742,
+              -0.007850976027464276,
+              -0.12233375845945486,
+              -0.006980716533689042
+            ],
+            [
+              0.0001926472813100219,
+              -0.9980456729603906,
+              0.062488379496245625,
+              1.4500011745211048
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9991046190261841,
+              "polygon": [
+                [
+                  648,
+                  172
+                ],
+                [
+                  707,
+                  172
+                ],
+                [
+                  707,
+                  213
+                ],
+                [
+                  648,
+                  213
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9667127728462219,
+              "polygon": [
+                [
+                  724,
+                  184
+                ],
+                [
+                  770,
+                  184
+                ],
+                [
+                  770,
+                  212
+                ],
+                [
+                  724,
+                  212
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000231:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000238",
+          "t_obs": 59.616669775918126,
+          "camera_pose": [
+            [
+              -0.04851713927647828,
+              0.06239515366833752,
+              0.9968715724681547,
+              0.15778602842357492
+            ],
+            [
+              -0.998822346960072,
+              -0.0031108013967961643,
+              -0.048417374235313296,
+              0.004110723855572774
+            ],
+            [
+              8.00599744305245e-05,
+              -0.9980466761195966,
+              0.062472601010573184,
+              1.45000173524352
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9889749884605408,
+              "polygon": [
+                [
+                  700,
+                  168
+                ],
+                [
+                  761,
+                  168
+                ],
+                [
+                  761,
+                  209
+                ],
+                [
+                  700,
+                  209
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9668877124786377,
+              "polygon": [
+                [
+                  783,
+                  178
+                ],
+                [
+                  831,
+                  178
+                ],
+                [
+                  831,
+                  206
+                ],
+                [
+                  783,
+                  206
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000238:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000246",
+          "t_obs": 61.21666985936463,
+          "camera_pose": [
+            [
+              -0.009246732983310073,
+              0.0624687769715366,
+              0.9980040830742205,
+              0.15649398502431214
+            ],
+            [
+              -0.9999572479346309,
+              -0.0005928636168390953,
+              -0.009227719963784294,
+              0.009945909893182888
+            ],
+            [
+              1.5235929938111126e-05,
+              -0.998046742600973,
+              0.062471588353860394,
+              1.450003788626415
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9966908693313599,
+              "polygon": [
+                [
+                  730,
+                  164
+                ],
+                [
+                  791,
+                  164
+                ],
+                [
+                  791,
+                  206
+                ],
+                [
+                  730,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9559033513069153,
+              "polygon": [
+                [
+                  815,
+                  171
+                ],
+                [
+                  865,
+                  171
+                ],
+                [
+                  865,
+                  202
+                ],
+                [
+                  815,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000246:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000252",
+          "t_obs": 62.416669921949506,
+          "camera_pose": [
+            [
+              -0.010900112149937784,
+              0.06246680470340265,
+              0.9979875178905122,
+              0.15662492588223118
+            ],
+            [
+              -0.99994059183323,
+              -0.0006998556681376637,
+              -0.010877637898579736,
+              0.009703505827250746
+            ],
+            [
+              1.895593888139005e-05,
+              -0.9980467967546367,
+              0.06247072217032271,
+              1.4500031963301623
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9935299754142761,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9669310450553894,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000252:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000259",
+          "t_obs": 63.816669994965196,
+          "camera_pose": [
+            [
+              -0.010949405782577174,
+              0.062466757244601,
+              0.99798698125394,
+              0.15662867996576357
+            ],
+            [
+              -0.9999400532900451,
+              -0.0007024003641101374,
+              -0.010926868720260911,
+              0.00969629519008938
+            ],
+            [
+              1.8420363217753532e-05,
+              -0.9980467979373878,
+              0.06247070343463111,
+              1.4500032024010532
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9941681623458862,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.971966028213501,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000259:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000266",
+          "t_obs": 65.21667006798089,
+          "camera_pose": [
+            [
+              -0.010954602977790216,
+              0.06246722179940941,
+              0.9979868951415457,
+              0.1566279915985033
+            ],
+            [
+              -0.9999399963531799,
+              -0.0007034604545452592,
+              -0.010932009723307426,
+              0.009696584764060903
+            ],
+            [
+              1.9152038787325408e-05,
+              -0.9980467681146274,
+              0.06247117966828485,
+              1.4500034378044362
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9939326047897339,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9731130599975586,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000266:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000274",
+          "t_obs": 66.81667015142739,
+          "camera_pose": [
+            [
+              -0.010949740346800489,
+              0.062467006849857246,
+              0.997986961959703,
+              0.15662879342973293
+            ],
+            [
+              -0.9999400496132549,
+              -0.0007031276374452431,
+              -0.010927158412243494,
+              0.009698224977339576
+            ],
+            [
+              1.9125335376828547e-05,
+              -0.99804678180271,
+              0.062470960993698484,
+              1.4500033297093284
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9958232641220093,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  790,
+                  164
+                ],
+                [
+                  790,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.970499575138092,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000274:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000282",
+          "t_obs": 68.41667023487389,
+          "camera_pose": [
+            [
+              -0.010955273947873705,
+              0.06246680879718394,
+              0.9979869136273395,
+              0.15662715913450706
+            ],
+            [
+              -0.9999399890027151,
+              -0.0007034763714113052,
+              -0.010932681018146559,
+              0.009692631747063973
+            ],
+            [
+              1.913051791335785e-05,
+              -0.9980467939529145,
+              0.062470766878055486,
+              1.4500032588751486
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9935197830200195,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9719261527061462,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000282:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000289",
+          "t_obs": 69.81667030788958,
+          "camera_pose": [
+            [
+              -0.01095493953039597,
+              0.06246696882955273,
+              0.9979869072814198,
+              0.15662740454228108
+            ],
+            [
+              -0.9999399926915007,
+              -0.0007021058319324429,
+              -0.010932431729552772,
+              0.009694535720743674
+            ],
+            [
+              1.7776555713306562e-05,
+              -0.9980467849017141,
+              0.06247091188181613,
+              1.4500033842371884
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9966486692428589,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  790,
+                  164
+                ],
+                [
+                  790,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9728192687034607,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000289:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000295",
+          "t_obs": 71.01667037047446,
+          "camera_pose": [
+            [
+              -0.010949572839050188,
+              0.06246697595172713,
+              0.997986965731561,
+              0.15662883876849612
+            ],
+            [
+              -0.9999400514728621,
+              -0.0007017449134541673,
+              -0.010927077126361808,
+              0.009697210065470826
+            ],
+            [
+              1.7750812820571403e-05,
+              -0.9980467847097768,
+              0.06247091495556839,
+              1.4500033228323927
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9952775239944458,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9743478894233704,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000295:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000302",
+          "t_obs": 72.41667044349015,
+          "camera_pose": [
+            [
+              -0.010955273887251716,
+              0.0624667469415059,
+              0.997986917499724,
+              0.15662677226645094
+            ],
+            [
+              -0.9999399890005157,
+              -0.0007036244890694092,
+              -0.010932671687470892,
+              0.009693800632179117
+            ],
+            [
+              1.9279599227873088e-05,
+              -0.9980467977199893,
+              0.062470706648578914,
+              1.4500033101850427
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9956560134887695,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9704208374023438,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000302:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000308",
+          "t_obs": 73.61667050607502,
+          "camera_pose": [
+            [
+              -0.010960639971462158,
+              0.06246684170675091,
+              0.9979868526481698,
+              0.1566270972050794
+            ],
+            [
+              -0.9999399302055298,
+              -0.0007034431879343942,
+              -0.01093805961955871,
+              0.00968938498103402
+            ],
+            [
+              1.876101430945694e-05,
+              -0.998046791916524,
+              0.06247079952393239,
+              1.45000329359043
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9970313310623169,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  790,
+                  164
+                ],
+                [
+                  790,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9714223742485046,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000308:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000316",
+          "t_obs": 75.21667058952153,
+          "camera_pose": [
+            [
+              -0.01096047288213097,
+              0.062466959831116,
+              0.9979868470895082,
+              0.15662787980996162
+            ],
+            [
+              -0.999939932053106,
+              -0.0007025584485721131,
+              -0.010937947579646808,
+              0.00969004713429464
+            ],
+            [
+              1.788375889391301e-05,
+              -0.9980467851464101,
+              0.062470907941913956,
+              1.4500033679895001
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9978190660476685,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  790,
+                  164
+                ],
+                [
+                  790,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9724154472351074,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000316:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000322",
+          "t_obs": 76.4166706521064,
+          "camera_pose": [
+            [
+              -0.010949404956461488,
+              0.06246679676141846,
+              0.9979869787895363,
+              0.1566286226335419
+            ],
+            [
+              -0.9999400532791645,
+              -0.0007034504322554224,
+              -0.010926802164876279,
+              0.009698774656576526
+            ],
+            [
+              1.9472041529216693e-05,
+              -0.9980467947245045,
+              0.062470754445441076,
+              1.450003254735087
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9979087710380554,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  790,
+                  164
+                ],
+                [
+                  790,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9732975959777832,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000322:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000329",
+          "t_obs": 77.8166707251221,
+          "camera_pose": [
+            [
+              -0.010949742004646431,
+              0.06246672692434039,
+              0.9979869794628542,
+              0.15662920006847525
+            ],
+            [
+              -0.9999400496077152,
+              -0.0007024546450832396,
+              -0.01092720220327562,
+              0.009697246819095326
+            ],
+            [
+              1.8454033377201464e-05,
+              -0.9980467997968994,
+              0.06247067371669012,
+              1.4500032567880263
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9953880310058594,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.973529040813446,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000329:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000336",
+          "t_obs": 79.21667079813778,
+          "camera_pose": [
+            [
+              -0.010955106903272158,
+              0.062466937993023934,
+              0.997986907374297,
+              0.15662792560672895
+            ],
+            [
+              -0.9999399908505403,
+              -0.0007025198886853432,
+              -0.010932573513419124,
+              0.009693189657155127
+            ],
+            [
+              1.8181259311082455e-05,
+              -0.9980467865403817,
+              0.06247088558568784,
+              1.4500033050193766
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9959708452224731,
+              "polygon": [
+                [
+                  728,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  728,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.973529040813446,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000336:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000343",
+          "t_obs": 80.61667087115347,
+          "camera_pose": [
+            [
+              -0.010955106052294696,
+              0.06246684358671202,
+              0.9979869132928029,
+              0.15662901641690005
+            ],
+            [
+              -0.9999399908366717,
+              -0.0007037501345508772,
+              -0.010932495657652133,
+              0.00969497721920199
+            ],
+            [
+              1.9414928250846743e-05,
+              -0.9980467915824699,
+              0.062470804661050906,
+              1.4500032764255484
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.994717001914978,
+              "polygon": [
+                [
+                  728,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  728,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.972205638885498,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000343:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000348",
+          "t_obs": 81.61667092330754,
+          "camera_pose": [
+            [
+              -0.010955442477909444,
+              0.06246691766189728,
+              0.9979869049631538,
+              0.15662938480997882
+            ],
+            [
+              -0.9999399871576045,
+              -0.0007034197590709753,
+              -0.010932853419452285,
+              0.009693462602311374
+            ],
+            [
+              1.9062053882639576e-05,
+              -0.9980467871790706,
+              0.06247087511932101,
+              1.4500033309652431
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9963871836662292,
+              "polygon": [
+                [
+                  729,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  729,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9719459414482117,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000348:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000355",
+          "t_obs": 83.01667099632323,
+          "camera_pose": [
+            [
+              -0.010954603821709732,
+              0.0624672830868805,
+              0.9979868912960996,
+              0.15662694892167123
+            ],
+            [
+              -0.9999399963433667,
+              -0.0007034907494479849,
+              -0.010932008671436443,
+              0.009695674907963985
+            ],
+            [
+              1.9181665710301515e-05,
+              -0.9980467642573216,
+              0.06247124128392764,
+              1.450003478366153
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9951900243759155,
+              "polygon": [
+                [
+                  728,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  728,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9745850563049316,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000355:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000361",
+          "t_obs": 84.2166710589081,
+          "camera_pose": [
+            [
+              -0.01096030408468949,
+              0.06246692504406396,
+              0.9979868511207501,
+              0.15662697724026112
+            ],
+            [
+              -0.9999399338742079,
+              -0.0007041034231373458,
+              -0.0109376817476812,
+              0.009692332377117197
+            ],
+            [
+              1.9442612231940185e-05,
+              -0.9980467862349489,
+              0.062470890085511085,
+              1.4500034412797351
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9956176280975342,
+              "polygon": [
+                [
+                  728,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  728,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.97599858045578,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000361:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000367",
+          "t_obs": 85.41667112149298,
+          "camera_pose": [
+            [
+              -0.010954770621414813,
+              0.06246704160300501,
+              0.9979869045804162,
+              0.15662825275975217
+            ],
+            [
+              -0.9999399945353485,
+              -0.0007024648553907815,
+              -0.01093224001626985,
+              0.009694144291491178
+            ],
+            [
+              1.814603469760631e-05,
+              -0.9980467800942479,
+              0.06247098858050859,
+              1.4500032899292954
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9943910837173462,
+              "polygon": [
+                [
+                  728,
+                  164
+                ],
+                [
+                  789,
+                  164
+                ],
+                [
+                  789,
+                  206
+                ],
+                [
+                  728,
+                  206
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9749237895011902,
+              "polygon": [
+                [
+                  814,
+                  173
+                ],
+                [
+                  864,
+                  173
+                ],
+                [
+                  864,
+                  202
+                ],
+                [
+                  814,
+                  202
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000367:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "conflict",
+      "identity_text": null,
+      "identity_candidates": [
+        "01 | /4R",
+        "01 | 14R",
+        "14R"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "noncontaining_readings_rejected"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": null,
+        "status": "conflict",
+        "candidates": [
+          "01/4R",
+          "0114R",
+          "14R"
+        ],
+        "registration_status": "rejected",
+        "maximal_candidates": [
+          "01/4R",
+          "0114R"
+        ],
+        "ignored_substrings": [
+          "14R"
+        ],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "codex-map-return-20261112-d:00000000",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000071",
+            "text": "14R",
+            "relation": "ignored_substring"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000078",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000087",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000097",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000106",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000117",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000128",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000135",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000144",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000153",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000164",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000173",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000184",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000192",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000201",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000209",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000217",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000224",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000231",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000238",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000246",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000252",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000259",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000266",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000274",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000282",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000289",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000295",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000302",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000308",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000316",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000322",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000329",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000336",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000343",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000348",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000355",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000361",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000367",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          }
+        ],
+        "reason": "noncontaining_readings_rejected"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "7ecbced19a9a46bdbffb89e5959bda32",
+      "submap_id": "codex-map-return-20261112-d",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "codex-map-return-20261112-d:00000231",
+        "codex-map-return-20261112-d:00000238",
+        "codex-map-return-20261112-d:00000246"
+      ],
+      "geometry": "arrays/7ae39b93d1a64ce9a6dea90b2f1c7f18.npz",
+      "position": [
+        7.397269144454314,
+        3.4651132543434686,
+        2.5907643500100055
+      ],
+      "covariance": [
+        [
+          3.103549743359446e-07,
+          3.3143171090193006e-07,
+          -6.232430268387533e-07
+        ],
+        [
+          3.3143171090193006e-07,
+          0.00021736563559978357,
+          1.0194272344124745e-05
+        ],
+        [
+          -6.232430268387533e-07,
+          1.0194272344124745e-05,
+          0.00017018859786701899
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 58.216669702902436,
+      "last_seen": 61.21666985936463,
+      "confidence": 0.25832465291023254,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-map-return-20261112-d:00000231",
+          "t_obs": 58.216669702902436,
+          "camera_pose": [
+            [
+              -0.12258527305686061,
+              0.061993522729862624,
+              0.9905198907488515,
+              0.15876213879138643
+            ],
+            [
+              -0.992457965717742,
+              -0.007850976027464276,
+              -0.12233375845945486,
+              -0.006980716533689042
+            ],
+            [
+              0.0001926472813100219,
+              -0.9980456729603906,
+              0.062488379496245625,
+              1.4500011745211048
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "02",
+          "texts": [
+            {
+              "text": "02",
+              "confidence": 0.998082160949707,
+              "polygon": [
+                [
+                  55,
+                  280
+                ],
+                [
+                  90,
+                  283
+                ],
+                [
+                  87,
+                  308
+                ],
+                [
+                  52,
+                  305
+                ]
+              ],
+              "normalized": "02",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000231:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000238",
+          "t_obs": 59.616669775918126,
+          "camera_pose": [
+            [
+              -0.04851713927647828,
+              0.06239515366833752,
+              0.9968715724681547,
+              0.15778602842357492
+            ],
+            [
+              -0.998822346960072,
+              -0.0031108013967961643,
+              -0.048417374235313296,
+              0.004110723855572774
+            ],
+            [
+              8.00599744305245e-05,
+              -0.9980466761195966,
+              0.062472601010573184,
+              1.45000173524352
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "02",
+          "texts": [
+            {
+              "text": "02",
+              "confidence": 0.999091625213623,
+              "polygon": [
+                [
+                  120,
+                  289
+                ],
+                [
+                  150,
+                  286
+                ],
+                [
+                  152,
+                  307
+                ],
+                [
+                  122,
+                  310
+                ]
+              ],
+              "normalized": "02",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000238:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000246",
+          "t_obs": 61.21666985936463,
+          "camera_pose": [
+            [
+              -0.009246732983310073,
+              0.0624687769715366,
+              0.9980040830742205,
+              0.15649398502431214
+            ],
+            [
+              -0.9999572479346309,
+              -0.0005928636168390953,
+              -0.009227719963784294,
+              0.009945909893182888
+            ],
+            [
+              1.5235929938111126e-05,
+              -0.998046742600973,
+              0.062471588353860394,
+              1.450003788626415
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "02",
+          "texts": [
+            {
+              "text": "02",
+              "confidence": 0.9990338683128357,
+              "polygon": [
+                [
+                  153,
+                  290
+                ],
+                [
+                  183,
+                  290
+                ],
+                [
+                  183,
+                  312
+                ],
+                [
+                  153,
+                  312
+                ]
+              ],
+              "normalized": "02",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000246:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "02",
+      "identity_candidates": [
+        "02"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "02",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "02",
+        "status": "candidate",
+        "candidates": [
+          "02"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "02"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "codex-map-return-20261112-d:00000231",
+          "codex-map-return-20261112-d:00000238",
+          "codex-map-return-20261112-d:00000246"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "codex-map-return-20261112-d:00000231",
+            "text": "02",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000238",
+            "text": "02",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000246",
+            "text": "02",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "b83bece5cb1a4e178df3fc9480d6841a",
+      "submap_id": "codex-map-return-20261112-d",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "codex-map-return-20261112-d:00000071",
+        "codex-map-return-20261112-d:00000078",
+        "codex-map-return-20261112-d:00000087",
+        "codex-map-return-20261112-d:00000097",
+        "codex-map-return-20261112-d:00000106",
+        "codex-map-return-20261112-d:00000117",
+        "codex-map-return-20261112-d:00000128",
+        "codex-map-return-20261112-d:00000135",
+        "codex-map-return-20261112-d:00000173",
+        "codex-map-return-20261112-d:00000184",
+        "codex-map-return-20261112-d:00000192",
+        "codex-map-return-20261112-d:00000201",
+        "codex-map-return-20261112-d:00000217",
+        "codex-map-return-20261112-d:00000224"
+      ],
+      "geometry": "arrays/cf39ccb07bd74f20937b0eea3c054da7.npz",
+      "position": [
+        2.7618451776007262,
+        -2.0462063488507165,
+        1.447846255669693
+      ],
+      "covariance": [
+        [
+          2.2936185097335712e-05,
+          6.391519798246446e-06,
+          2.601820791274244e-05
+        ],
+        [
+          6.391519798246446e-06,
+          2.2136585596278997e-05,
+          -2.2998489221493725e-05
+        ],
+        [
+          2.601820791274244e-05,
+          -2.2998489221493725e-05,
+          0.00038579534461084824
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 26.216668033972383,
+      "last_seen": 56.816669629886746,
+      "confidence": 0.2974701523780823,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-map-return-20261112-d:00000071",
+          "t_obs": 26.216668033972383,
+          "camera_pose": [
+            [
+              -0.865276763432374,
+              0.030532138982528288,
+              0.5003637788181179,
+              0.1089615465462481
+            ],
+            [
+              -0.5012925832186915,
+              -0.05542273399332372,
+              -0.8635010518619161,
+              -0.13361855840677878
+            ],
+            [
+              0.0013669944863234354,
+              -0.9979960466083307,
+              0.0632615387120603,
+              1.4500795649834985
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000078",
+          "t_obs": 27.616668106988072,
+          "camera_pose": [
+            [
+              -0.8448471824934108,
+              0.032688860052917816,
+              0.5340081241529816,
+              0.11295105145923787
+            ],
+            [
+              -0.5350060320055302,
+              -0.054111662333314096,
+              -0.8431135592061263,
+              -0.1289633141458919
+            ],
+            [
+              0.0013356461518061436,
+              -0.9979996825790912,
+              0.06320482277003091,
+              1.450072363171764
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000087",
+          "t_obs": 29.416668200865388,
+          "camera_pose": [
+            [
+              -0.84509979251314,
+              0.03266310651169316,
+              0.5336098407706261,
+              0.1129138874026389
+            ],
+            [
+              -0.5346069166294101,
+              -0.054127797945389286,
+              -0.8433656539020176,
+              -0.12903117393885966
+            ],
+            [
+              0.0013361834611984856,
+              -0.9979996507827993,
+              0.06320531347259543,
+              1.4500723268836406
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000097",
+          "t_obs": 31.416668305173516,
+          "camera_pose": [
+            [
+              -0.8450552760872437,
+              0.03266771121894187,
+              0.5336800549025865,
+              0.11291888385686069
+            ],
+            [
+              -0.5346772815057725,
+              -0.05412496214679555,
+              -0.8433212277146854,
+              -0.1290217210106535
+            ],
+            [
+              0.0013360384383154361,
+              -0.997999653865834,
+              0.06320526785773144,
+              1.4500723286530341
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000106",
+          "t_obs": 33.21666839905083,
+          "camera_pose": [
+            [
+              -0.8380238373308364,
+              0.033370293393636126,
+              0.5446122212952278,
+              0.11413788042335497
+            ],
+            [
+              -0.5456320133512822,
+              -0.05367512602618917,
+              -0.8363041832086563,
+              -0.12735102701770626
+            ],
+            [
+              0.0013244136534260994,
+              -0.9980007035893794,
+              0.06318893545217588,
+              1.4500703630031058
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000117",
+          "t_obs": 35.41666851378977,
+          "camera_pose": [
+            [
+              -0.830284102356796,
+              0.03412056135992688,
+              0.5562949727132653,
+              0.11545092860636248
+            ],
+            [
+              -0.5573388441894987,
+              -0.05318028285151017,
+              -0.8285802738862099,
+              -0.1255943602905555
+            ],
+            [
+              0.0013122999210051919,
+              -0.9980018260546006,
+              0.0631714576418852,
+              1.450068552790554
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000128",
+          "t_obs": 37.616668628528714,
+          "camera_pose": [
+            [
+              -0.8249673225964514,
+              0.03462246109492361,
+              0.5641189607128732,
+              0.1163092950589363
+            ],
+            [
+              -0.5651789233474498,
+              -0.05284010605979758,
+              -0.8232743818408331,
+              -0.12436862944525706
+            ],
+            [
+              0.0013043204586794992,
+              -0.9980026094050655,
+              0.06315924610713135,
+              1.450067323215614
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000135",
+          "t_obs": 39.016668701544404,
+          "camera_pose": [
+            [
+              -0.8253000356873871,
+              0.03459148601708054,
+              0.5636339948845589,
+              0.11626502011925109
+            ],
+            [
+              -0.5646929685853952,
+              -0.05286143408547702,
+              -0.8236064108642185,
+              -0.12446347905968938
+            ],
+            [
+              0.001304731623936743,
+              -0.9980025540456084,
+              0.06316011236399598,
+              1.4500673781496016
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000173",
+          "t_obs": 46.61666909791529,
+          "camera_pose": [
+            [
+              -0.6028435632404796,
+              0.04952900601693878,
+              0.7963206112003479,
+              0.1429197324021187
+            ],
+            [
+              -0.7978588398889409,
+              -0.03861614267185648,
+              -0.6016062376141221,
+              -0.08341109822629458
+            ],
+            [
+              0.0009538713720348672,
+              -0.9980258869829586,
+              0.06279664832843178,
+              1.4500258561122568
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000184",
+          "t_obs": 48.81666921265423,
+          "camera_pose": [
+            [
+              -0.5981129098107891,
+              0.04975749330111207,
+              0.7998657005885802,
+              0.1431235828975056
+            ],
+            [
+              -0.8014112884636935,
+              -0.03831261790869127,
+              -0.5968853240212433,
+              -0.08248296290276058
+            ],
+            [
+              0.0009454314533988377,
+              -0.998026219680311,
+              0.06279148819700409,
+              1.4500256143671568
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000192",
+          "t_obs": 50.416669296100736,
+          "camera_pose": [
+            [
+              -0.5981164420619947,
+              0.04975740071403332,
+              0.7998630650363119,
+              0.14312356020251996
+            ],
+            [
+              -0.8014086522424939,
+              -0.038312897653207785,
+              -0.5968888455854103,
+              -0.08248245273593151
+            ],
+            [
+              0.0009454342757872886,
+              -0.9980262135573388,
+              0.06279158547474514,
+              1.4500258069847265
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000201",
+          "t_obs": 52.21666938997805,
+          "camera_pose": [
+            [
+              -0.5963180773581491,
+              0.04984331624689738,
+              0.8011993475043476,
+              0.1432217642494066
+            ],
+            [
+              -0.8027476954811763,
+              -0.038197501643463666,
+              -0.5950941843673633,
+              -0.08213916996677866
+            ],
+            [
+              0.0009423457649271993,
+              -0.9980263496991,
+              0.06278946799225137,
+              1.4500254721606587
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000217",
+          "t_obs": 55.41666955687106,
+          "camera_pose": [
+            [
+              -0.3452561207039324,
+              0.058537538370854715,
+              0.9366811451705177,
+              0.1565697807796651
+            ],
+            [
+              -0.9385083441831985,
+              -0.022116153256153265,
+              -0.344547476646776,
+              -0.04136574948106215
+            ],
+            [
+              0.0005468226239484982,
+              -0.998040195767,
+              0.06257370548710474,
+              1.4500040611162641
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000224",
+          "t_obs": 56.816669629886746,
+          "camera_pose": [
+            [
+              -0.3173808382845411,
+              0.059168736871605065,
+              0.9464504551569622,
+              0.15710240683541332
+            ],
+            [
+              -0.9482980301901757,
+              -0.020328495068808454,
+              -0.31672953481743565,
+              -0.036932120224109535
+            ],
+            [
+              0.0004994269054510879,
+              -0.9980409875677734,
+              0.06256147143018542,
+              1.4500039023119167
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "ca75143eb69c4a9d84cf29e82dd86e1e",
+      "submap_id": "codex-map-return-20261112-d",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "codex-map-return-20261112-d:00000153",
+        "codex-map-return-20261112-d:00000173",
+        "codex-map-return-20261112-d:00000184",
+        "codex-map-return-20261112-d:00000209"
+      ],
+      "geometry": "arrays/c9929f1c0ff441fa86c03719590bf649.npz",
+      "position": [
+        7.401938445463477,
+        -1.6580499831554196,
+        2.5764989632558946
+      ],
+      "covariance": [
+        [
+          2.897831705328346e-06,
+          -1.7966937766100773e-06,
+          9.450614930720894e-07
+        ],
+        [
+          -1.7966937766100773e-06,
+          0.00017394691046473628,
+          -8.47362166917946e-06
+        ],
+        [
+          9.450614930720894e-07,
+          -8.47362166917946e-06,
+          5.689203674198128e-05
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 42.616668889299035,
+      "last_seen": 53.816669473424554,
+      "confidence": 0.259824275970459,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-map-return-20261112-d:00000153",
+          "t_obs": 42.616668889299035,
+          "camera_pose": [
+            [
+              -0.6350418045331964,
+              0.047912169370533234,
+              0.7709904866607825,
+              0.14053692709193538
+            ],
+            [
+              -0.7724771205329422,
+              -0.04068291350664318,
+              -0.6337381153140026,
+              -0.08923570037033884
+            ],
+            [
+              0.0010023713657783544,
+              -0.9980227074444852,
+              0.0628464054407628,
+              1.4500319685454417
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "02 | /4R",
+          "texts": [
+            {
+              "text": "02",
+              "confidence": 0.9693297743797302,
+              "polygon": [
+                [
+                  119,
+                  283
+                ],
+                [
+                  146,
+                  280
+                ],
+                [
+                  147,
+                  296
+                ],
+                [
+                  120,
+                  299
+                ]
+              ],
+              "normalized": "02",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9655786156654358,
+              "polygon": [
+                [
+                  164,
+                  288
+                ],
+                [
+                  191,
+                  288
+                ],
+                [
+                  191,
+                  305
+                ],
+                [
+                  164,
+                  305
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000153:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000173",
+          "t_obs": 46.61666909791529,
+          "camera_pose": [
+            [
+              -0.6028435632404796,
+              0.04952900601693878,
+              0.7963206112003479,
+              0.1429197324021187
+            ],
+            [
+              -0.7978588398889409,
+              -0.03861614267185648,
+              -0.6016062376141221,
+              -0.08341109822629458
+            ],
+            [
+              0.0009538713720348672,
+              -0.9980258869829586,
+              0.06279664832843178,
+              1.4500258561122568
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "02 | /4R",
+          "texts": [
+            {
+              "text": "02",
+              "confidence": 0.9988728761672974,
+              "polygon": [
+                [
+                  150,
+                  282
+                ],
+                [
+                  182,
+                  282
+                ],
+                [
+                  182,
+                  303
+                ],
+                [
+                  150,
+                  303
+                ]
+              ],
+              "normalized": "02",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9702034592628479,
+              "polygon": [
+                [
+                  197,
+                  290
+                ],
+                [
+                  222,
+                  290
+                ],
+                [
+                  222,
+                  306
+                ],
+                [
+                  197,
+                  306
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000173:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000184",
+          "t_obs": 48.81666921265423,
+          "camera_pose": [
+            [
+              -0.5981129098107891,
+              0.04975749330111207,
+              0.7998657005885802,
+              0.1431235828975056
+            ],
+            [
+              -0.8014112884636935,
+              -0.03831261790869127,
+              -0.5968853240212433,
+              -0.08248296290276058
+            ],
+            [
+              0.0009454314533988377,
+              -0.998026219680311,
+              0.06279148819700409,
+              1.4500256143671568
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": "/4R",
+          "texts": [
+            {
+              "text": "/4R",
+              "confidence": 0.9256653189659119,
+              "polygon": [
+                [
+                  201,
+                  290
+                ],
+                [
+                  227,
+                  290
+                ],
+                [
+                  227,
+                  307
+                ],
+                [
+                  201,
+                  307
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000184:1:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000209",
+          "t_obs": 53.816669473424554,
+          "camera_pose": [
+            [
+              -0.43159613862337587,
+              0.05621079986458941,
+              0.9003139003169808,
+              0.15350929404763355
+            ],
+            [
+              -0.9020666881697126,
+              -0.02764721328054247,
+              -0.4307102525972019,
+              -0.05507934432849472
+            ],
+            [
+              0.0006806026131325616,
+              -0.9980360602585477,
+              0.0626383205688,
+              1.4500105786375703
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "/4R",
+          "texts": [
+            {
+              "text": "/4R",
+              "confidence": 0.9684805870056152,
+              "polygon": [
+                [
+                  340,
+                  297
+                ],
+                [
+                  364,
+                  297
+                ],
+                [
+                  364,
+                  312
+                ],
+                [
+                  340,
+                  312
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-map-return-20261112-d:00000209:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "02/4R",
+      "identity_candidates": [
+        "/4R",
+        "02 | /4R"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "substring_parent_selected"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": "02/4R",
+        "status": "candidate",
+        "candidates": [
+          "/4R",
+          "02/4R"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "02/4R"
+        ],
+        "ignored_substrings": [
+          "/4R"
+        ],
+        "full_support_frames": [
+          "codex-map-return-20261112-d:00000153",
+          "codex-map-return-20261112-d:00000173"
+        ],
+        "compatible_partial_frames": [
+          "codex-map-return-20261112-d:00000184",
+          "codex-map-return-20261112-d:00000209"
+        ],
+        "readings": [
+          {
+            "image_id": "codex-map-return-20261112-d:00000153",
+            "text": "02/4R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000173",
+            "text": "02/4R",
+            "relation": "full_candidate"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000184",
+            "text": "/4R",
+            "relation": "ignored_substring"
+          },
+          {
+            "image_id": "codex-map-return-20261112-d:00000209",
+            "text": "/4R",
+            "relation": "ignored_substring"
+          }
+        ],
+        "reason": "substring_parent_selected"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "d3b0ab2e34064f028e29ab09f8e31e76",
+      "submap_id": "codex-map-return-20261112-d",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "codex-map-return-20261112-d:00000020",
+        "codex-map-return-20261112-d:00000025",
+        "codex-map-return-20261112-d:00000030",
+        "codex-map-return-20261112-d:00000035"
+      ],
+      "geometry": "arrays/a47f23d4d7294616ab9ae8980b2e1f8a.npz",
+      "position": [
+        -4.83936704674949,
+        13.246021443656357,
+        1.467883779894271
+      ],
+      "covariance": [
+        [
+          6.097086197752849e-05,
+          -8.493894610355403e-06,
+          7.697493810721322e-06
+        ],
+        [
+          -8.493894610355403e-06,
+          8.871145717876586e-06,
+          7.607989428815048e-06
+        ],
+        [
+          7.697493810721322e-06,
+          7.607989428815048e-06,
+          0.00020738319672939382
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 16.016667502000928,
+      "last_seen": 19.01666765846312,
+      "confidence": 0.25832465291023254,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-map-return-20261112-d:00000020",
+          "t_obs": 16.016667502000928,
+          "camera_pose": [
+            [
+              0.9895549071146662,
+              0.0076628883241433455,
+              0.1439526517568027,
+              0.019018491512984043
+            ],
+            [
+              -0.14414805512268491,
+              0.06338341144050276,
+              0.9875241168490575,
+              0.13317655932873268
+            ],
+            [
+              -0.001556923129440217,
+              -0.9979598305025588,
+              0.06382595626916508,
+              1.45022200885271
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000025",
+          "t_obs": 17.016667554154992,
+          "camera_pose": [
+            [
+              0.9602796923527173,
+              -0.019444454825160138,
+              -0.2783609628369667,
+              -0.042968222580374936
+            ],
+            [
+              0.27903518174396025,
+              0.06151682618707384,
+              0.9583084302274419,
+              0.12114692904929941
+            ],
+            [
+              -0.0015099020120194512,
+              -0.9979166264134608,
+              0.06449904591148951,
+              1.4503210368989201
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000030",
+          "t_obs": 18.016667606309056,
+          "camera_pose": [
+            [
+              0.8328561503993084,
+              -0.03703429230719191,
+              -0.5522491230734098,
+              -0.08074243742841444
+            ],
+            [
+              0.5534879347576948,
+              0.05334963404311931,
+              0.831146751557826,
+              0.09605405456361336
+            ],
+            [
+              -0.001318643130765972,
+              -0.9978889105209916,
+              0.06493060479868476,
+              1.4503800682990462
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00000035",
+          "t_obs": 19.01666765846312,
+          "camera_pose": [
+            [
+              0.6200465301649893,
+              -0.05183291222684651,
+              -0.7828509753717117,
+              -0.11016413808481465
+            ],
+            [
+              0.784564423005858,
+              0.039713457204318306,
+              0.6187741974827046,
+              0.0593324353496794
+            ],
+            [
+              -0.0009831499585751036,
+              -0.9978658178968578,
+              0.06529045021436261,
+              1.4504263331487262
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999996
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    }
+  ],
+  "instruction": "Circle the central warehouse rack block clockwise, build a semantic map, and return to the starting aisle.",
+  "provider": "codex-session"
+}

@@ -9,24 +9,34 @@ import torch
 from torch.utils.data import Dataset
 
 from .geometry import align_reference, delay_features, transform_points
-from .schema import SemanticSnapshot, fingerprint, load_manifest, validate_record
+from .schema import SemanticSnapshot, file_sha256, fingerprint, load_manifest, validate_record
 
 
 class RecordDataset(Dataset):
     def __init__(self, manifest, split):
         self.manifest_path = Path(manifest).resolve()
         self.manifest = load_manifest(manifest)
-        self.entries = [e for e in self.manifest["records"] if e["split"] == split]
+        diagnostic = self.manifest.get("role") in ("regression", "diagnostic")
+        self.entries = [e for e in self.manifest["records"]
+                        if (split == self.manifest.get("role") if diagnostic else e["split"] == split)]
 
     def __len__(self):
         return len(self.entries)
 
     def __getitem__(self, index):
         entry = self.entries[index]
-        record = validate_record(
-            json.loads((self.manifest_path.parent / entry["path"]).read_text())
-        )
-        for field in ("sample_id", "split", "layout_family", "episode_id"):
+        path = self.manifest_path.parent / entry["path"]
+        if self.manifest["schema_version"] == 2:
+            from .dataset_tools.core import training_record
+            if file_sha256(path) != entry.get("sha256"):
+                raise ValueError("Record hash mismatch")
+            record = training_record(json.loads(path.read_text()))
+            fields = ("sample_id",) if self.manifest.get("role") in ("regression", "diagnostic") else (
+                "sample_id", "split", "layout_family", "episode_id")
+        else:
+            record = validate_record(json.loads(path.read_text()))
+            fields = ("sample_id", "split", "layout_family", "episode_id")
+        for field in fields:
             if record["provenance"][field] != entry[field]:
                 raise ValueError("Record/manifest provenance mismatch")
         return record

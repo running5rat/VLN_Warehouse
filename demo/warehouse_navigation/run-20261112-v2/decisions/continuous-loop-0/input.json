@@ -1,0 +1,1160 @@
+{
+  "source": {
+    "image_id": "codex-continuous-20261112-v2:00000076",
+    "rgb": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/capture/raw/rgb/00000076.png",
+    "depth": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/capture/raw/depth/00000076.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.997947572533238,
+        0.06403619049323889,
+        -9.371302362147266e-05,
+        0.014951230419633532
+      ],
+      [
+        -0.06403618026644929,
+        0.9979475717085756,
+        0.00010834130914035687,
+        0.0026415681969655935
+      ],
+      [
+        0.00010045844907085114,
+        -0.00010211792238774274,
+        0.9999999897400149,
+        -2.3236259889133914e-05
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 27.216668086126447,
+    "odom_epoch": "codex-continuous-20261112-v2",
+    "submap_id": "codex-continuous-20261112-v2",
+    "task_id": "mapping",
+    "rgb_hash": "0ee1ea8df68b4d7dc9d9e504ee54e6400b05945283bc4a70a6b9f7392d7ca968",
+    "depth_hash": "1192f38e2300f0d96e8c5f73ab78450432bd5030bc717ca2eb464d4c867aa915",
+    "geometry": "arrays/813f9973092c422ebce1c456bd37d855.npz",
+    "source_monotonic": 7810.470884969
+  },
+  "map": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/navigation/requests/continuous-loop-0/map-at-submit.png",
+  "landmarks": [
+    {
+      "landmark_uid": "55e63f3db44e4e2f87ebea1fe4fe17d6",
+      "submap_id": "codex-continuous-20261112-v2",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "codex-continuous-20261112-v2:00000000",
+        "codex-continuous-20261112-v2:00000066"
+      ],
+      "geometry": "arrays/1d0b1380e9974d6da8b7bf91fe8a9803.npz",
+      "position": [
+        3.4199653151545393,
+        -1.6713587689215355,
+        2.608769472561276
+      ],
+      "covariance": [
+        [
+          3.9599784959925576e-05,
+          -3.9149917563651145e-05,
+          2.76545769563827e-05
+        ],
+        [
+          -3.9149917563651145e-05,
+          0.0002813551312562548,
+          -1.6586550725717068e-05
+        ],
+        [
+          2.76545769563827e-05,
+          -1.6586550725717068e-05,
+          0.00012757106735589646
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 12.016667293384671,
+      "last_seen": 25.21666798181832,
+      "confidence": 0.40733349323272705,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-continuous-20261112-v2:00000000",
+          "t_obs": 12.016667293384671,
+          "camera_pose": [
+            [
+              -1.2845080937182829e-21,
+              0.06237828615518053,
+              0.9980525784828886,
+              0.14999999999999858
+            ],
+            [
+              -0.9999999999999999,
+              -1.4513893013673124e-22,
+              -1.3676580677408788e-21,
+              -1.7892950625287346e-23
+            ],
+            [
+              1.0587911840678754e-22,
+              -0.9980525784828889,
+              0.06237828615518054,
+              1.45
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "01 | /4R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.983427107334137,
+              "polygon": [
+                [
+                  735,
+                  164
+                ],
+                [
+                  797,
+                  164
+                ],
+                [
+                  797,
+                  205
+                ],
+                [
+                  735,
+                  205
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.944680392742157,
+              "polygon": [
+                [
+                  819,
+                  171
+                ],
+                [
+                  871,
+                  171
+                ],
+                [
+                  871,
+                  201
+                ],
+                [
+                  819,
+                  201
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-continuous-20261112-v2:00000000:0:text:e6ba04f11d9f"
+        },
+        {
+          "image_id": "codex-continuous-20261112-v2:00000066",
+          "t_obs": 25.21666798181832,
+          "camera_pose": [
+            [
+              -0.7948597769446601,
+              0.037288806848257104,
+              0.6056463323420016,
+              0.11990374526331614
+            ],
+            [
+              -0.6067918568059821,
+              -0.050911788464694144,
+              -0.7932286128911854,
+              -0.12179660866380079
+            ],
+            [
+              0.001255989424003539,
+              -0.9980067808783467,
+              0.06309427716843406,
+              1.4500620107562412
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "01 | 14R",
+          "texts": [
+            {
+              "text": "01",
+              "confidence": 0.9797986745834351,
+              "polygon": [
+                [
+                  83,
+                  137
+                ],
+                [
+                  158,
+                  157
+                ],
+                [
+                  146,
+                  206
+                ],
+                [
+                  71,
+                  186
+                ]
+              ],
+              "normalized": "01",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "14R",
+              "confidence": 0.8855120539665222,
+              "polygon": [
+                [
+                  175,
+                  175
+                ],
+                [
+                  222,
+                  186
+                ],
+                [
+                  216,
+                  214
+                ],
+                [
+                  169,
+                  204
+                ]
+              ],
+              "normalized": "14R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-continuous-20261112-v2:00000066:1:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "conflict",
+      "identity_text": null,
+      "identity_candidates": [
+        "01 | /4R",
+        "01 | 14R"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "noncontaining_readings_rejected"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "conflict",
+      "resolved_identity": {
+        "text": null,
+        "status": "conflict",
+        "candidates": [
+          "01/4R",
+          "0114R"
+        ],
+        "registration_status": "rejected",
+        "maximal_candidates": [
+          "01/4R",
+          "0114R"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "codex-continuous-20261112-v2:00000000",
+            "text": "01/4R",
+            "relation": "rejected_noncontaining_reading"
+          },
+          {
+            "image_id": "codex-continuous-20261112-v2:00000066",
+            "text": "0114R",
+            "relation": "rejected_noncontaining_reading"
+          }
+        ],
+        "reason": "noncontaining_readings_rejected"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "conflicting_text_readings"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "96244c53de3349fc87e34797b1011792",
+      "submap_id": "codex-continuous-20261112-v2",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "codex-continuous-20261112-v2:00000061"
+      ],
+      "geometry": "arrays/3613b27ca08b4f4d8c8b0125f48abf9f.npz",
+      "position": [
+        2.855027660496585,
+        -2.8211356572637536,
+        2.858305912899503
+      ],
+      "covariance": [
+        [
+          1.3925018070247484e-05,
+          -6.372618412253015e-06,
+          1.4590816851017073e-05
+        ],
+        [
+          -6.372618412253015e-06,
+          9.463709963685737e-05,
+          1.8854995114209557e-06
+        ],
+        [
+          1.4590816851017073e-05,
+          1.8854995114209557e-06,
+          0.00038272309293963316
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 24.216667929664254,
+      "last_seen": 24.216667929664254,
+      "confidence": 0.3611651062965393,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-continuous-20261112-v2:00000061",
+          "t_obs": 24.216667929664254,
+          "camera_pose": [
+            [
+              -0.9748583739992955,
+              0.012697291555241803,
+              0.22246332154000245,
+              0.0664432962927212
+            ],
+            [
+              -0.22282006109931687,
+              -0.06244833276970389,
+              -0.9728573513655432,
+              -0.15537578136705105
+            ],
+            [
+              0.00153981010063514,
+              -0.9979674265833758,
+              0.0637074914229753,
+              1.4501477187418097
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": "04 | BOXES",
+          "texts": [
+            {
+              "text": "04",
+              "confidence": 0.9701360464096069,
+              "polygon": [
+                [
+                  40,
+                  54
+                ],
+                [
+                  115,
+                  62
+                ],
+                [
+                  106,
+                  147
+                ],
+                [
+                  31,
+                  139
+                ]
+              ],
+              "normalized": "04",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "BOXES",
+              "confidence": 0.9878266453742981,
+              "polygon": [
+                [
+                  43,
+                  152
+                ],
+                [
+                  110,
+                  179
+                ],
+                [
+                  98,
+                  212
+                ],
+                [
+                  31,
+                  186
+                ]
+              ],
+              "normalized": "BOXES",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-continuous-20261112-v2:00000061:0:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "04 | BOXES",
+      "identity_candidates": [
+        "04 | BOXES"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "04 | BOXES",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "04 | BOXES",
+        "status": "candidate",
+        "candidates": [
+          "04 | BOXES"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "04 | BOXES"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "codex-continuous-20261112-v2:00000061"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "codex-continuous-20261112-v2:00000061",
+            "text": "04 | BOXES",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "9ab1e9c5f8344cb2b3bf1f2c2685cd77",
+      "submap_id": "codex-continuous-20261112-v2",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "codex-continuous-20261112-v2:00000021",
+        "codex-continuous-20261112-v2:00000026",
+        "codex-continuous-20261112-v2:00000031"
+      ],
+      "geometry": "arrays/e3e5866dd07d4500910a26bcafeff2e4.npz",
+      "position": [
+        -4.855635406949891,
+        13.250917506762061,
+        1.4991680746936562
+      ],
+      "covariance": [
+        [
+          6.554191487840223e-05,
+          -7.418119298327364e-06,
+          8.79682296710144e-06
+        ],
+        [
+          -7.418119298327364e-06,
+          8.00968150537928e-06,
+          9.0595278462806e-06
+        ],
+        [
+          8.79682296710144e-06,
+          9.0595278462806e-06,
+          0.00021748000435055137
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 16.21666751243174,
+      "last_seen": 18.21666761673987,
+      "confidence": 0.43590131402015686,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-continuous-20261112-v2:00000021",
+          "t_obs": 16.21666751243174,
+          "camera_pose": [
+            [
+              0.9985961793516458,
+              0.0018141537232776827,
+              0.05293750495219486,
+              0.005420786484872674
+            ],
+            [
+              -0.05294506360415825,
+              0.06396454598844645,
+              0.9965467159629008,
+              0.1329075632754614
+            ],
+            [
+              -0.0015782345348440922,
+              -0.9979505226727229,
+              0.06397080172229204,
+              1.450244959402508
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-continuous-20261112-v2:00000026",
+          "t_obs": 17.216667564585805,
+          "camera_pose": [
+            [
+              0.930755055736208,
+              -0.02499964362580552,
+              -0.364787669802682,
+              -0.05521037343075703
+            ],
+            [
+              0.3656403485091351,
+              0.05962505860844493,
+              0.9288444368827632,
+              0.11536523577022331
+            ],
+            [
+              -0.00147029371425803,
+              -0.9979077463395715,
+              0.06463720315632152,
+              1.450340765676232
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        },
+        {
+          "image_id": "codex-continuous-20261112-v2:00000031",
+          "t_obs": 18.21666761673987,
+          "camera_pose": [
+            [
+              0.6954655483983441,
+              -0.04760480313826149,
+              -0.7169807903348302,
+              -0.10308735287813234
+            ],
+            [
+              0.7185585979506677,
+              0.044545841062018136,
+              0.6940383342116254,
+              0.07428661844567615
+            ],
+            [
+              -0.001101045939775884,
+              -0.9978724621725191,
+              0.06518693838180871,
+              1.4504154893534886
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "9d294efc59384c02b24f974b7449a73c",
+      "submap_id": "codex-continuous-20261112-v2",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "codex-continuous-20261112-v2:00000066"
+      ],
+      "geometry": "arrays/ac6489f06e7f461690441eefd1952f16.npz",
+      "position": [
+        2.755521361249862,
+        -2.0434745415906184,
+        1.4520162671930261
+      ],
+      "covariance": [
+        [
+          2.300732720614541e-05,
+          5.173039362105528e-06,
+          5.177534868469277e-05
+        ],
+        [
+          5.173039362105528e-06,
+          2.709152595739488e-05,
+          -2.9684374920308137e-05
+        ],
+        [
+          5.177534868469277e-05,
+          -2.9684374920308137e-05,
+          0.00043593203271916764
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 25.21666798181832,
+      "last_seen": 25.21666798181832,
+      "confidence": 0.5583268404006958,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-continuous-20261112-v2:00000066",
+          "t_obs": 25.21666798181832,
+          "camera_pose": [
+            [
+              -0.7948597769446601,
+              0.037288806848257104,
+              0.6056463323420016,
+              0.11990374526331614
+            ],
+            [
+              -0.6067918568059821,
+              -0.050911788464694144,
+              -0.7932286128911854,
+              -0.12179660866380079
+            ],
+            [
+              0.001255989424003539,
+              -0.9980067808783467,
+              0.06309427716843406,
+              1.4500620107562412
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "c09c5ea3252047f1ae942d8ef16b079a",
+      "submap_id": "codex-continuous-20261112-v2",
+      "category": "fire extinguisher",
+      "name": null,
+      "observation_ids": [
+        "codex-continuous-20261112-v2:00000021"
+      ],
+      "geometry": "arrays/1ad048f789234a4e89f26d6b2073ebaa.npz",
+      "position": [
+        2.751645786772049,
+        7.783510787305014,
+        1.4274077412203672
+      ],
+      "covariance": [
+        [
+          2.7049763204679317e-05,
+          -5.066643322083917e-06,
+          3.3933977274202306e-05
+        ],
+        [
+          -5.066643322083917e-06,
+          2.5124840213448142e-05,
+          4.4348282980703556e-05
+        ],
+        [
+          3.3933977274202306e-05,
+          4.4348282980703556e-05,
+          0.0004548876613825232
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 16.21666751243174,
+      "last_seen": 16.21666751243174,
+      "confidence": 0.29259514808654785,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-continuous-20261112-v2:00000021",
+          "t_obs": 16.21666751243174,
+          "camera_pose": [
+            [
+              0.9985961793516458,
+              0.0018141537232776827,
+              0.05293750495219486,
+              0.005420786484872674
+            ],
+            [
+              -0.05294506360415825,
+              0.06396454598844645,
+              0.9965467159629008,
+              0.1329075632754614
+            ],
+            [
+              -0.0015782345348440922,
+              -0.9979505226727229,
+              0.06397080172229204,
+              1.450244959402508
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              0.9999999999999998
+            ]
+          ],
+          "signature": null,
+          "texts": []
+        }
+      ],
+      "identity_status": "unknown",
+      "identity_text": null,
+      "identity_candidates": [],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "no_eligible_text",
+        "facility_distinctiveness_unverified"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": null,
+      "raw_identity_status": "unknown",
+      "resolved_identity": {
+        "text": null,
+        "status": "unknown",
+        "candidates": [],
+        "registration_status": "no_eligible_text",
+        "maximal_candidates": [],
+        "ignored_substrings": [],
+        "full_support_frames": [],
+        "compatible_partial_frames": [],
+        "readings": [],
+        "reason": "no_eligible_text"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "no_readable_unambiguous_text"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "review",
+        "reason": "facility_distinctiveness_unverified",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    },
+    {
+      "landmark_uid": "daa642deacd847ea84dacdc94ef21cfa",
+      "submap_id": "codex-continuous-20261112-v2",
+      "category": "sign",
+      "name": null,
+      "observation_ids": [
+        "codex-continuous-20261112-v2:00000066"
+      ],
+      "geometry": "arrays/8011769bbc6245698278f94ee242efe5.npz",
+      "position": [
+        2.856758260262815,
+        -2.185541064040842,
+        2.859627834973015
+      ],
+      "covariance": [
+        [
+          3.7749765834064087e-06,
+          3.757913225567014e-06,
+          8.540014818361493e-06
+        ],
+        [
+          3.757913225567014e-06,
+          9.711273700454802e-05,
+          4.223798149135204e-06
+        ],
+        [
+          8.540014818361493e-06,
+          4.223798149135204e-06,
+          0.0003089004536704975
+        ]
+      ],
+      "orientation": null,
+      "orientation_kind": "unobservable",
+      "symmetry": "unknown",
+      "static_confirmed": false,
+      "status": "tentative",
+      "first_seen": 25.21666798181832,
+      "last_seen": 25.21666798181832,
+      "confidence": 0.27904218435287476,
+      "position_kind": "observed_surface_centroid",
+      "potentially_dynamic": false,
+      "text_evidence": [
+        {
+          "image_id": "codex-continuous-20261112-v2:00000066",
+          "t_obs": 25.21666798181832,
+          "camera_pose": [
+            [
+              -0.7948597769446601,
+              0.037288806848257104,
+              0.6056463323420016,
+              0.11990374526331614
+            ],
+            [
+              -0.6067918568059821,
+              -0.050911788464694144,
+              -0.7932286128911854,
+              -0.12179660866380079
+            ],
+            [
+              0.001255989424003539,
+              -0.9980067808783467,
+              0.06309427716843406,
+              1.4500620107562412
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "signature": "03 | BOXES | G-1",
+          "texts": [
+            {
+              "text": "03",
+              "confidence": 0.9926869869232178,
+              "polygon": [
+                [
+                  290,
+                  70
+                ],
+                [
+                  357,
+                  87
+                ],
+                [
+                  341,
+                  153
+                ],
+                [
+                  274,
+                  135
+                ]
+              ],
+              "normalized": "03",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "BOXES",
+              "confidence": 0.9937956929206848,
+              "polygon": [
+                [
+                  289,
+                  170
+                ],
+                [
+                  347,
+                  188
+                ],
+                [
+                  340,
+                  211
+                ],
+                [
+                  282,
+                  192
+                ]
+              ],
+              "normalized": "BOXES",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "G-1",
+              "confidence": 0.8076117038726807,
+              "polygon": [
+                [
+                  298,
+                  194
+                ],
+                [
+                  336,
+                  204
+                ],
+                [
+                  331,
+                  223
+                ],
+                [
+                  293,
+                  213
+                ]
+              ],
+              "normalized": "G-1",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "evidence_id": "rt:codex-continuous-20261112-v2:00000066:2:text:e6ba04f11d9f"
+        }
+      ],
+      "identity_status": "candidate",
+      "identity_text": "03 | BOXES | G-1",
+      "identity_candidates": [
+        "03 | BOXES | G-1"
+      ],
+      "needs_reobservation": true,
+      "reobservation_reasons": [
+        "insufficient_full_views"
+      ],
+      "duplicate_text": false,
+      "raw_identity_text": "03 | BOXES | G-1",
+      "raw_identity_status": "candidate",
+      "resolved_identity": {
+        "text": "03 | BOXES | G-1",
+        "status": "candidate",
+        "candidates": [
+          "03 | BOXES | G-1"
+        ],
+        "registration_status": "accepted",
+        "maximal_candidates": [
+          "03 | BOXES | G-1"
+        ],
+        "ignored_substrings": [],
+        "full_support_frames": [
+          "codex-continuous-20261112-v2:00000066"
+        ],
+        "compatible_partial_frames": [],
+        "readings": [
+          {
+            "image_id": "codex-continuous-20261112-v2:00000066",
+            "text": "03 | BOXES | G-1",
+            "relation": "full_candidate"
+          }
+        ],
+        "reason": "insufficient_full_views"
+      },
+      "raw_duplicate_text": false,
+      "raw_reobservation_reasons": [
+        "insufficient_independent_views"
+      ],
+      "landmark_view": {
+        "policy_version": "landmark-view-v2-substring",
+        "decision": "keep",
+        "reason": "marker_identity_candidate",
+        "duplicate_resolved_text": false,
+        "visible": true,
+        "globally_unique_verified": false
+      }
+    }
+  ],
+  "instruction": "Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.",
+  "previous_route": "Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+  "provider": "codex-reviewed-decision-replay"
+}

@@ -6,7 +6,7 @@ import math
 import numpy as np
 from scipy.ndimage import binary_dilation, label
 from ..schema import SemanticSnapshot, TaskContract, TaskState
-from .route_protocol import parse_route, reference_diagnostics
+from .route_protocol import parse_route, reference_diagnostics, route_completed
 from .execution import ExecutionFacts
 from ..local_context import local_memory, local_context
 from ..geometry import (
@@ -97,12 +97,14 @@ class NavigationState:
         route = result["parsed"]["route"] if mode == "TEXT" else self.state.route
         next_facts = copy.deepcopy(self.facts)
         completion_rejected = False
+        compact = obs.get("route_schema") == "compact-v2"
         if mode == "TEXT":
-            route = parse_route(route, require_structured=self.natural)
-            if isinstance(route, dict):
+            route = parse_route(route, require_structured=self.natural and not compact,
+                                require_compact=compact)
+            if isinstance(route, dict) or compact:
                 completion_rejected = (
-                    route["status"] == "completed"
-                    and not self.facts.completion_evidence()
+                    route_completed(route)
+                    and not self.facts.completion_evidence(task_level=compact)
                 )
         diagnostics = reference_diagnostics(result.get("parsed") or {}, xy, mask, mode)
         diagnostics["format_valid"] = True
@@ -113,6 +115,7 @@ class NavigationState:
             next_state.commit_route(
                 route, obs["task"]["task_id"], obs["route_revision"]
             )
+            next_state.execution["completion_claim_rejected"] = completion_rejected
         if mode == "TEXT" and isinstance(route, dict):
             next_facts.switch(
                 route["current_subgoal"],
@@ -121,6 +124,14 @@ class NavigationState:
             )
             next_state.execution["facts"] = next_facts.record()
             next_state.execution["completion_claim_rejected"] = completion_rejected
+        motion_direction = (route.get("current_subgoal", {}).get("direction", "forward")
+                            if isinstance(route, dict) else "forward")
+        if compact:
+            # No NLP action parser. Preserve the no-physical-reverse diagnostic boundary
+            # conservatively for routes extending behind the source body frame.
+            anchors = np.asarray((result.get("parsed") or {}).get("anchors", []), float).reshape(-1, 2)
+            if (len(anchors) and (anchors[:, 0] < -0.05).any()) or (xy[mask, 0] < -0.05).any():
+                motion_direction = "backward"
         packet = SemanticSnapshot(
             result["z_sem"],
             result["reference_xy"],
@@ -142,11 +153,7 @@ class NavigationState:
             reference_validation=diagnostics,
             reference_usable=diagnostics["consistency_valid"]
             and diagnostics["reference_available"],
-            motion_frame_or_direction=(
-                route.get("current_subgoal", {}).get("direction", "forward")
-                if isinstance(route, dict)
-                else "forward"
-            ),
+            motion_frame_or_direction=motion_direction,
         )
         packet.validate(
             t_use=now,
@@ -202,6 +209,13 @@ class NavigationState:
             )
             if route["status"] == "completed" and not completion_rejected:
                 self.terminal = "completed"
+        elif mode == "TEXT" and compact:
+            # Mode comes from the launch configuration; do not infer a new mode/subgoal.
+            self.status = "completion_without_evidence" if completion_rejected else "active"
+            if route_completed(route):
+                packet.reference_usable = False
+                if not completion_rejected:
+                    self.status = self.terminal = "completed"
         if packet.motion_frame_or_direction == "backward":
             packet.reference_validation["execution"] = "execution_not_evaluated"
             packet.reference_usable = False

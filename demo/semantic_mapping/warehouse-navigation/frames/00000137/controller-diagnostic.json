@@ -1,0 +1,8 @@
+{
+  "v_mps": 0.0,
+  "w_radps": 0.0,
+  "reason": "shield_occupied_or_unknown",
+  "actual_execution": false,
+  "map_context": "same-frame depth only; stricter than live accumulated map",
+  "warning": "Finite command diagnostic, not proof of collision-free execution"
+}

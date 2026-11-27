@@ -47,3 +47,5 @@ _repo/
 
 # Full demo map archives remain local; distribute separately via Releases/LFS.
 demo/semantic_mapping/**/map.tar.gz
+demo/warehouse_navigation/**/map.tar.gz
+demo/warehouse_navigation/**/map-local

@@ -1,0 +1,12 @@
+{
+  "profile_id": "qwen-plus-annotation-v4",
+  "config_file": "configs/dataset_preparation/qwen_plus_teacher.v4.json",
+  "config_sha256": "fc18009617f63070662b036206cf4aa3b3b6ca9a91e735fdc3220066ded6f448",
+  "teacher_instruction_sha256": "2e149d0761e2748c1ef331eeec6f330cca2bffe402290faaf9094287b07f81ee",
+  "teacher_template_version": "v07-teacher-evidence-grounded-route-v4",
+  "local_max_characters": 90,
+  "input_format": "plain-evidence-v2 plus causal completion evidence flag",
+  "route_protocol": "compact-v2",
+  "annotation_failure_policy": "skip_invalid_keep_last_valid_v1",
+  "source": "2026-10-30 user correction: Local OR images OR map support references; valid Previous Route may remain unchanged. No API evaluation yet."
+}

@@ -1,0 +1,5 @@
+<landmark>["sign", "fire extinguisher"]</landmark>
+<local>Beside sign 01/4R, facing the aisle toward signs 02/4R and 04/4R.</local>
+<Route>Continue along this aisle, then inspect the right-hand opening beyond the rack ends.</Route>
+<waypoint>(3.594,0.172);(7.189,0.345);(10.783,0.517);(14.377,0.689);(17.971,0.862)</waypoint>
+<REFLINE>

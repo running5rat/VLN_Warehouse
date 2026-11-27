@@ -1,0 +1,12 @@
+{
+  "profile_id": "qwen-plus-annotation-v6",
+  "config_file": "configs/dataset_preparation/qwen_plus_teacher.v6.json",
+  "config_sha256": "0f28b5fa7615064438800126136f7f8e35a4958d57d91fbe868264dcffc2b2ea",
+  "teacher_instruction_sha256": "f49c8c2278471fd98c00461228064f77fd8513530ae828327ddbdf04249469ed",
+  "teacher_template_version": "v07-teacher-user-supplied-v6",
+  "local_max_characters": 90,
+  "input_format": "plain-evidence-v2 plus causal completion evidence flag",
+  "route_protocol": "compact-v2",
+  "annotation_failure_policy": "skip_invalid_keep_last_valid_v1",
+  "source": "2026-11-04 user-supplied prompt verbatim, including spacing and punctuation. No new API evaluation."
+}

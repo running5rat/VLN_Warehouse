@@ -1,0 +1,5 @@
+<landmark>[]</landmark>
+<local>At the entrance of the starting warehouse aisle, facing along it.</local>
+<Route>Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.</Route>
+<waypoint>(9.965,0.637);(20.244,1.296);(20.942,1.341);(20.987,0.643);(21.262,-3.649)</waypoint>
+<REFLINE>

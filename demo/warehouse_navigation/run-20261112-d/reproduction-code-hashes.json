@@ -1,0 +1,8 @@
+{
+  "scope": "Post-run fixes and reproducible entry, not a hash claim for every intermediate live revision",
+  "sha256": {
+    "DynaNav/warehouse_loop/codex_demo_control.py": "653cae9038404ec90c333a1f9e70a2f65c9a54d307fbd4ff6130fc5d8b7c2dac",
+    "DynaNav/warehouse_loop/codex_demo_agent.py": "04a5eeaf601a1d9bd7f51e299d6385f479870f4dc07ec53760cfa48e34cf9619",
+    "DynaNav/warehouse_loop/codex_demo.py": "3b736fee6a523937d359edba4015f541bf24964e2e7dfca573fdca681db35ca9"
+  }
+}

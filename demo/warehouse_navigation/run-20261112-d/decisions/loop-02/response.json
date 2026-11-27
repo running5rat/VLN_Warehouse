@@ -1,0 +1,31 @@
+{
+  "request_id": "loop-02",
+  "instruction": "Complete the clockwise warehouse circuit and map visible shelf signs.",
+  "landmark": [],
+  "local": "Near the end of the first aisle, facing the warehouse wall.",
+  "route": "Advance into the end cross-aisle, then turn right around the rack block.",
+  "waypoint": [
+    [
+      0.6167321457841759,
+      -0.0010580092092213557
+    ],
+    [
+      1.2334642915683518,
+      -0.0021160184184427114
+    ],
+    [
+      1.850196437352528,
+      -0.0031740276276640673
+    ],
+    [
+      2.4669285831367036,
+      -0.004232036836885423
+    ],
+    [
+      3.0836607289208793,
+      -0.005290046046106778
+    ]
+  ],
+  "source_image_id": "codex-map-return-20261112-d:00001604",
+  "provider": "codex-session"
+}

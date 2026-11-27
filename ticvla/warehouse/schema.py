@@ -162,8 +162,18 @@ def validate_record(record):
 
 def load_manifest(path):
     manifest = json.loads(Path(path).read_text())
-    if manifest.get("schema_version") != SCHEMA_VERSION:
+    if manifest.get("schema_version") not in (SCHEMA_VERSION, 2):
         raise ValueError("Unsupported manifest schema")
+    if manifest.get("schema_version") == 2 and manifest.get("role") in ("regression", "diagnostic"):
+        ids = [e["sample_id"] for e in manifest["records"]]
+        if len(ids) != len(set(ids)):
+            raise ValueError("Duplicate sample ID")
+        if manifest["role"] == "diagnostic" and (
+            manifest.get("evaluation_scope") != "training_examples_only"
+            or not manifest.get("max_optimizer_steps", 0) > 0
+        ):
+            raise ValueError("Diagnostic manifest needs bounded steps and explicit evaluation scope")
+        return manifest
     groups, episodes, ids = {}, {}, set()
     grouping = manifest.get("split_unit", "layout_family")
     for entry in manifest["records"]:

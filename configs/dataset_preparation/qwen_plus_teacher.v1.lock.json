@@ -1,0 +1,15 @@
+{
+  "profile_id": "qwen-plus-annotation-v1",
+  "config_file": "configs/dataset_preparation/qwen_plus_teacher.v1.json",
+  "config_sha256": "7a9ed7c44c8eedc36ea29a8e28a43cf54ca99655d861ddc6e0ba5ac62c3db70a",
+  "teacher_instruction_sha256": "56fd5a34143f17c7a009ebe5a610b4823a7e04599c6e6da5f1c7b160530bb6d7",
+  "teacher_template_version": "v07-teacher-20261029",
+  "input_format": "plain-evidence-v2",
+  "landmark_protocol": "current-categories-v1",
+  "route_protocol": "compact-v2",
+  "annotation_failure_policy": "skip_invalid_keep_last_valid_v1",
+  "source_experiment_config_sha256": "bf537d91c4833c938d504202ba6093726c989b036e5e2fd5f51414cfee35917b",
+  "source": "2026-10-29 real Plus experiment; generation settings and teacher prompt unchanged",
+  "model_alias_note": "qwen3.7-plus is a provider alias; backend weights are not locally pinned. Archive returned model/revision when available.",
+  "selection": "User selected for next phase, not automatically approved labels or validated quality."
+}

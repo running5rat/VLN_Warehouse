@@ -1,0 +1,74 @@
+{
+  "gsplat": {
+    "source_root": "/data/ticvla/outputs/3dgs/warehouse-20261126",
+    "files": {
+      "gsplat-heldout.png": {
+        "source": "/data/ticvla/outputs/3dgs/warehouse-20261126/fit-6000/renders/final_step6000_0005.png",
+        "sha256": "a5894f753bbed5c97f271b1ab0fd0b656881d3ac618dd2d31f41ab995c26ba50"
+      },
+      "gsplat-novel-left.png": {
+        "source": "/data/ticvla/outputs/3dgs/warehouse-20261126/novel_views/0045.png",
+        "sha256": "82a53699c876089f648b0bd9b6bdfcc2c651643c249334ff1ecbc221d5098693"
+      },
+      "gsplat-novel-right.png": {
+        "source": "/data/ticvla/outputs/3dgs/warehouse-20261126/novel_views/0135.png",
+        "sha256": "323849c919dbd81dafbad1f404ed3fd8a6f43fd1e2ee7fe4c0df4def6ef24637"
+      },
+      "gsplat-report.json": {
+        "source": "/data/ticvla/outputs/3dgs/warehouse-20261126/report.json",
+        "sha256": "4d0b1c5f8ffb2a63fb9e4ab5be43c72de341528abdf94ad892d2d72dbf5d2680"
+      }
+    },
+    "heldout_index": 5,
+    "comparison_order": "left GT, right rendered",
+    "novel_views_have_ground_truth": false,
+    "metrics": {
+      "psnr": 36.358604431152344,
+      "ssim": 0.9803971648216248,
+      "lpips": 0.012253843247890472,
+      "ellipse_time": 0.0027992291883988814,
+      "num_GS": 1052135
+    },
+    "training": {
+      "project": "nerfstudio-project/gsplat",
+      "version": "1.5.3",
+      "optimizer_steps": 6000,
+      "initialization_and_initial_eval_seconds": 103.09912688500117,
+      "training_including_periodic_eval_seconds": 89.32354009299888,
+      "total_seconds": 194.90656273400054,
+      "peak_allocated_gpu_gib": 1.7405753135681152,
+      "final_gaussians": 1052135,
+      "checkpoint_tensor_roundtrip": "PASS",
+      "torch": "2.8.0+cu128",
+      "cuda_runtime": "12.8",
+      "gpu": "NVIDIA GeForce RTX 4090",
+      "antialiased": true,
+      "depth_supervision": false,
+      "geometry_initialization": "training RGB-D frames only; simulator camera poses",
+      "training_code": "official examples/simple_trainer.py Runner; unmodified"
+    }
+  },
+  "fmae": {
+    "status": "illustrative simulation, no network inference or scoring",
+    "context_frame": "codex-continuous-20261112-v2:00000197",
+    "candidate_count": 9,
+    "dt_seconds": 0.1,
+    "horizon_points": 30,
+    "longitudinal_profiles": "STOP-YIELD: 0.06*(1-exp(-4*t)); FOLLOW:0.18*t; PROCEED:0.3*t",
+    "lateral_profile": "y=side*0.22*(x/0.9)^2, side in [-1,0,1]",
+    "selected": "CENTER/FOLLOW for illustration, not a measured score"
+  },
+  "reference": {
+    "status": "illustrative curve, decoder not run",
+    "waypoints": [
+      [
+        480,
+        650
+      ],
+      [
+        480,
+        490
+      ]
+    ]
+  }
+}

@@ -1,0 +1,918 @@
+{
+  "completed": true,
+  "distance_to_target_m": 1.7567045517517261,
+  "target": {
+    "landmark_uid": "f5febf048909438fa28ac429d8c6514e",
+    "submap_id": "codex-map-return-20261112-d",
+    "category": "sign",
+    "name": null,
+    "observation_ids": [
+      "codex-map-return-20261112-d:00001438",
+      "codex-map-return-20261112-d:00005554",
+      "codex-map-return-20261112-d:00005620",
+      "codex-map-return-20261112-d:00005625",
+      "codex-map-return-20261112-d:00005630",
+      "codex-map-return-20261112-d:00005635",
+      "codex-map-return-20261112-d:00005640",
+      "codex-map-return-20261112-d:00005679"
+    ],
+    "geometry": "arrays/3d6dfed9c10a47798504d59823d50d7a.npz",
+    "position": [
+      11.405112849934207,
+      -1.685019145852925,
+      2.5853626190055947
+    ],
+    "covariance": [
+      [
+        1.6550829405294684e-05,
+        -6.557178330459542e-06,
+        5.942918091532894e-06
+      ],
+      [
+        -6.557178330459542e-06,
+        0.0002883808562335555,
+        -2.545324671344574e-05
+      ],
+      [
+        5.942918091532894e-06,
+        -2.545324671344574e-05,
+        9.601800368485316e-05
+      ]
+    ],
+    "orientation": null,
+    "orientation_kind": "unobservable",
+    "symmetry": "unknown",
+    "static_confirmed": false,
+    "status": "tentative",
+    "first_seen": 299.61668229289353,
+    "last_seen": 1147.8167265299708,
+    "confidence": 0.29992520809173584,
+    "position_kind": "observed_surface_centroid",
+    "potentially_dynamic": false,
+    "text_evidence": [
+      {
+        "image_id": "codex-map-return-20261112-d:00001438",
+        "t_obs": 299.61668229289353,
+        "camera_pose": [
+          [
+            0.0004307876951014141,
+            0.06237767456823299,
+            0.9980525237368127,
+            8.447543598225783
+          ],
+          [
+            -0.9999999072107006,
+            2.7612385718052427e-05,
+            0.00042990248360077565,
+            0.005410970969266084
+          ],
+          [
+            -7.422940341723509e-07,
+            -0.998052616324919,
+            0.06237768067532841,
+            1.436881645494411
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999998
+          ]
+        ],
+        "signature": "03 | /4R",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.9990494251251221,
+            "polygon": [
+              [
+                760,
+                138
+              ],
+              [
+                829,
+                138
+              ],
+              [
+                829,
+                187
+              ],
+              [
+                760,
+                187
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          },
+          {
+            "text": "/4R",
+            "confidence": 0.967602550983429,
+            "polygon": [
+              [
+                855,
+                149
+              ],
+              [
+                911,
+                149
+              ],
+              [
+                911,
+                181
+              ],
+              [
+                855,
+                181
+              ]
+            ],
+            "normalized": "/4R",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00001438:1:text:e6ba04f11d9f"
+      },
+      {
+        "image_id": "codex-map-return-20261112-d:00005554",
+        "t_obs": 1122.8167252261192,
+        "camera_pose": [
+          [
+            0.00020028749948603787,
+            0.062372291251406635,
+            0.9980529330496288,
+            3.0517441017980067
+          ],
+          [
+            -0.9999999799423654,
+            1.2922313778593428e-05,
+            0.00019987066271171818,
+            -0.013166873181063266
+          ],
+          [
+            -4.3076198127494744e-07,
+            -0.9980529530626437,
+            0.062372292588543654,
+            1.4454113376440658
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999996
+          ]
+        ],
+        "signature": "03 | /4R",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.9997467994689941,
+            "polygon": [
+              [
+                580,
+                308
+              ],
+              [
+                603,
+                308
+              ],
+              [
+                603,
+                323
+              ],
+              [
+                580,
+                323
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              0
+            ],
+            "owner_instance": 0,
+            "status": "bound"
+          },
+          {
+            "text": "/4R",
+            "confidence": 0.9629709124565125,
+            "polygon": [
+              [
+                613,
+                310
+              ],
+              [
+                632,
+                310
+              ],
+              [
+                632,
+                322
+              ],
+              [
+                613,
+                322
+              ]
+            ],
+            "normalized": "/4R",
+            "candidate_instances": [
+              0
+            ],
+            "owner_instance": 0,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00005554:0:text:e6ba04f11d9f"
+      },
+      {
+        "image_id": "codex-map-return-20261112-d:00005620",
+        "t_obs": 1136.0167259145528,
+        "camera_pose": [
+          [
+            -0.0014641560262079808,
+            0.06237675640068359,
+            0.9980516001229897,
+            7.026815743420793
+          ],
+          [
+            -0.9999989281211964,
+            -9.321976929313203e-05,
+            -0.0014611866859280467,
+            -0.013714125953345438
+          ],
+          [
+            1.8940539420123472e-06,
+            -0.9980526697379273,
+            0.062376826028647595,
+            1.4391278943816683
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999996
+          ]
+        ],
+        "signature": "03 | /4R",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.9994094371795654,
+            "polygon": [
+              [
+                667,
+                223
+              ],
+              [
+                714,
+                223
+              ],
+              [
+                714,
+                255
+              ],
+              [
+                667,
+                255
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          },
+          {
+            "text": "/4R",
+            "confidence": 0.9028164744377136,
+            "polygon": [
+              [
+                730,
+                229
+              ],
+              [
+                770,
+                229
+              ],
+              [
+                770,
+                253
+              ],
+              [
+                730,
+                253
+              ]
+            ],
+            "normalized": "/4R",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00005620:1:text:e6ba04f11d9f"
+      },
+      {
+        "image_id": "codex-map-return-20261112-d:00005625",
+        "t_obs": 1137.0167259667069,
+        "camera_pose": [
+          [
+            0.004846515524308634,
+            0.06237171444436292,
+            0.9980412218563636,
+            7.327994290818924
+          ],
+          [
+            -0.9999882555471354,
+            0.0003096954824412705,
+            0.004836616224589911,
+            -0.012293008031096125
+          ],
+          [
+            -7.4208116619912115e-06,
+            -0.9980529411438951,
+            0.06237248286666598,
+            1.438650692101697
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999998
+          ]
+        ],
+        "signature": "03 | /4R",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.9995532631874084,
+            "polygon": [
+              [
+                686,
+                210
+              ],
+              [
+                735,
+                210
+              ],
+              [
+                735,
+                242
+              ],
+              [
+                686,
+                242
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              0
+            ],
+            "owner_instance": 0,
+            "status": "bound"
+          },
+          {
+            "text": "/4R",
+            "confidence": 0.9517267346382141,
+            "polygon": [
+              [
+                754,
+                217
+              ],
+              [
+                795,
+                217
+              ],
+              [
+                795,
+                240
+              ],
+              [
+                754,
+                240
+              ]
+            ],
+            "normalized": "/4R",
+            "candidate_instances": [
+              0
+            ],
+            "owner_instance": 0,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00005625:0:text:e6ba04f11d9f"
+      },
+      {
+        "image_id": "codex-map-return-20261112-d:00005630",
+        "t_obs": 1138.016726018861,
+        "camera_pose": [
+          [
+            0.013137413078883498,
+            0.06236314577639249,
+            0.9979670567841741,
+            7.6291235066347545
+          ],
+          [
+            -0.9999137002598539,
+            0.0008395778451324746,
+            0.013110573659779095,
+            -0.008367335035462648
+          ],
+          [
+            -2.025441469109018e-05,
+            -0.9980531715083695,
+            0.0623687937340811,
+            1.4381741702615858
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999998
+          ]
+        ],
+        "signature": "03 | /4R",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.999640941619873,
+            "polygon": [
+              [
+                709,
+                193
+              ],
+              [
+                764,
+                193
+              ],
+              [
+                764,
+                231
+              ],
+              [
+                709,
+                231
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              0
+            ],
+            "owner_instance": 0,
+            "status": "bound"
+          },
+          {
+            "text": "/4R",
+            "confidence": 0.9663180708885193,
+            "polygon": [
+              [
+                781,
+                200
+              ],
+              [
+                826,
+                200
+              ],
+              [
+                826,
+                228
+              ],
+              [
+                781,
+                228
+              ]
+            ],
+            "normalized": "/4R",
+            "candidate_instances": [
+              0
+            ],
+            "owner_instance": 0,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00005630:0:text:e6ba04f11d9f"
+      },
+      {
+        "image_id": "codex-map-return-20261112-d:00005635",
+        "t_obs": 1139.016726071015,
+        "camera_pose": [
+          [
+            0.037778738408648004,
+            0.06232941819920987,
+            0.9973403684556237,
+            7.929784301633491
+          ],
+          [
+            -0.9992861270221726,
+            0.002413481028104734,
+            0.03770161071297109,
+            0.002042345610894271
+          ],
+          [
+            -5.714259691806435e-05,
+            -0.9980527134055978,
+            0.06237610118024876,
+            1.437699826044432
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "signature": "03 | /4R",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.9993237853050232,
+            "polygon": [
+              [
+                747,
+                173
+              ],
+              [
+                806,
+                173
+              ],
+              [
+                806,
+                215
+              ],
+              [
+                747,
+                215
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          },
+          {
+            "text": "/4R",
+            "confidence": 0.9864675402641296,
+            "polygon": [
+              [
+                830,
+                181
+              ],
+              [
+                878,
+                181
+              ],
+              [
+                878,
+                210
+              ],
+              [
+                830,
+                210
+              ]
+            ],
+            "normalized": "/4R",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00005635:1:text:e6ba04f11d9f"
+      },
+      {
+        "image_id": "codex-map-return-20261112-d:00005640",
+        "t_obs": 1140.016726123169,
+        "camera_pose": [
+          [
+            0.13235324711102622,
+            0.06180508086886827,
+            0.9892738498302481,
+            8.226353162469328
+          ],
+          [
+            -0.9912025897354908,
+            0.008464110814373496,
+            0.1320824928965892,
+            0.03993430993367205
+          ],
+          [
+            -0.00020995433588978963,
+            -0.998052348730724,
+            0.062381608766223645,
+            1.4372303534750632
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999998
+          ]
+        ],
+        "signature": "03",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.9991651773452759,
+            "polygon": [
+              [
+                854,
+                137
+              ],
+              [
+                925,
+                137
+              ],
+              [
+                925,
+                186
+              ],
+              [
+                854,
+                186
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              0
+            ],
+            "owner_instance": 0,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00005640:0:text:e6ba04f11d9f"
+      },
+      {
+        "image_id": "codex-map-return-20261112-d:00005679",
+        "t_obs": 1147.8167265299708,
+        "camera_pose": [
+          [
+            -0.8054698660191818,
+            0.036329267534395165,
+            0.591522171398043,
+            10.224929441725896
+          ],
+          [
+            -0.5926353626954725,
+            -0.051520893257955495,
+            -0.8038214505975236,
+            -0.02147762205468179
+          ],
+          [
+            0.0012735061236695954,
+            -0.9980109127050252,
+            0.0630285356313812,
+            1.434073605881294
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999998
+          ]
+        ],
+        "signature": "03 | 14R",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.9971709251403809,
+            "polygon": [
+              [
+                420,
+                0
+              ],
+              [
+                495,
+                1
+              ],
+              [
+                485,
+                78
+              ],
+              [
+                410,
+                67
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          },
+          {
+            "text": "14R",
+            "confidence": 0.9512142539024353,
+            "polygon": [
+              [
+                511,
+                55
+              ],
+              [
+                557,
+                77
+              ],
+              [
+                539,
+                117
+              ],
+              [
+                493,
+                95
+              ]
+            ],
+            "normalized": "14R",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00005679:1:text:e6ba04f11d9f"
+      }
+    ],
+    "identity_status": "conflict",
+    "identity_text": null,
+    "identity_candidates": [
+      "03",
+      "03 | /4R",
+      "03 | 14R"
+    ],
+    "needs_reobservation": true,
+    "reobservation_reasons": [
+      "noncontaining_readings_rejected"
+    ],
+    "duplicate_text": false,
+    "raw_identity_text": null,
+    "raw_identity_status": "conflict",
+    "resolved_identity": {
+      "text": null,
+      "status": "conflict",
+      "candidates": [
+        "03",
+        "03 | 14R",
+        "03/4R"
+      ],
+      "registration_status": "rejected",
+      "maximal_candidates": [
+        "03 | 14R",
+        "03/4R"
+      ],
+      "ignored_substrings": [
+        "03"
+      ],
+      "full_support_frames": [],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "codex-map-return-20261112-d:00001438",
+          "text": "03/4R",
+          "relation": "rejected_noncontaining_reading"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00005554",
+          "text": "03/4R",
+          "relation": "rejected_noncontaining_reading"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00005620",
+          "text": "03/4R",
+          "relation": "rejected_noncontaining_reading"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00005625",
+          "text": "03/4R",
+          "relation": "rejected_noncontaining_reading"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00005630",
+          "text": "03/4R",
+          "relation": "rejected_noncontaining_reading"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00005635",
+          "text": "03/4R",
+          "relation": "rejected_noncontaining_reading"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00005640",
+          "text": "03",
+          "relation": "ignored_substring"
+        },
+        {
+          "image_id": "codex-map-return-20261112-d:00005679",
+          "text": "03 | 14R",
+          "relation": "rejected_noncontaining_reading"
+        }
+      ],
+      "reason": "noncontaining_readings_rejected"
+    },
+    "raw_duplicate_text": true,
+    "raw_reobservation_reasons": [
+      "conflicting_text_readings",
+      "text_seen_on_other_instance"
+    ],
+    "landmark_view": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    }
+  },
+  "source": {
+    "image_id": "codex-map-return-20261112-d:00005859",
+    "rgb": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/rgb/00005859.png",
+    "depth": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/depth/00005859.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.5483089491570182,
+        0.8362755425023171,
+        0.0007164403545917564,
+        10.36846958244211
+      ],
+      [
+        -0.8362755469058748,
+        0.5483078209619849,
+        0.001320272395794683,
+        -0.26678728254264783
+      ],
+      [
+        0.0007112816643686223,
+        -0.0013230587193008964,
+        0.9999988717963733,
+        -0.016392459657593773
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t_obs": 1183.816728407517,
+    "odom_epoch": "codex-map-return-20261112-d",
+    "submap_id": "codex-map-return-20261112-d",
+    "task_id": "target_navigation",
+    "rgb_hash": "8d7b1b10a8996ac18db79b4a50aff06e1a0991e6aad9d664cc4ad3cd6d8c1670",
+    "depth_hash": "ddb683caae39fc528006d874e17aa6abb1aee09269caabbdf060bee435cc65a2",
+    "geometry": "arrays/726397de96e04718ba3fd2a13704a22d.npz",
+    "source_monotonic": 3802.692951549
+  }
+}

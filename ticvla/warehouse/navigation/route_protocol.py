@@ -2,6 +2,7 @@
 
 import json
 import math
+import re
 import numpy as np
 
 ACTIONS = (
@@ -81,9 +82,10 @@ Never overwrite the original goal, reset a distance on every image, or claim suc
 There is no human-provided task decomposition. If ambiguous or unsupported, return needs_clarification with wait.
 Reply with exactly these tags in this order, no commentary:
 <landmark>JSON array</landmark><local>short relation or unknown</local><Route>JSON object</Route><waypoint>five coordinate pairs or []</waypoint><REFLINE>
-landmark: at most three visible physical object classes, each with image_id from supplied RGB and category (short English class).
+landmark: at most three short English category strings visible in CURRENT RGB only; no image_id or object records.
+Historical images support Local/Route only, not landmark registration. The program supplies the current source ID.
 A sign is an object; an intersection/corridor end is a relation, not a segmentation object. Empty array is allowed.
-local: short observed or cautiously inferred spatial relation (English, at most 80 characters), never a localization transform.
+local: short observed or cautiously inferred spatial relation (English, at most 90 characters), never a localization transform.
 Route: remaining_instruction (remaining task in concise English), current_subgoal (object), status.
 status: active, waiting, needs_clarification, completed. Completion needs measured evidence for the original task.
 current_subgoal.action and parameters:
@@ -112,8 +114,9 @@ End immediately after <REFLINE>. No second question will repair your answer.
 COMPACT_NAVIGATION_SYSTEM = """Update a robot's remaining task using instruction, remaining_route and execution_state.
 Keep the original final goal. Only measured facts establish progress or completion; issued commands do not.
 Return exactly <landmark>...</landmark><local>...</local><Route>...</Route><waypoint>...</waypoint><REFLINE>.
-landmark: [] or up to three visible objects with supplied image_id and short English category. Intersections are not objects.
-local: observed relation in English, at most 80 characters, or unknown.
+landmark: [] or up to three short English category strings visible in CURRENT RGB only.
+Do not emit image_id. History supports Local/Route only. Intersections are not objects.
+local: observed relation in English, at most 90 characters, or unknown.
 Route: JSON with remaining_instruction (remaining task, not protocol text), current_subgoal, status.
 current_subgoal is an object with action and its parameters:
 approach_landmark: target_text and/or category/description; advance_to_intersection: ordinal;
@@ -129,7 +132,43 @@ Stop after <REFLINE>.
 """
 
 
-def parse_route(value, require_structured=False):
+COMPACT_ROUTE_PATTERN = r"[A-Za-z0-9][A-Za-z0-9 ,.';:()_/-]{0,599}"
+COMPACT_ROUTE_SCHEMA = {"type": "string", "minLength": 1, "maxLength": 600,
+                        "description": "Remaining instruction in English, or exactly DONE"}
+SIMPLE_NAVIGATION_SYSTEM = """Navigate from the instruction, observations and past state. Output exactly:
+<landmark>[categories]</landmark><local>relation or unknown</local><Route>remaining instruction or DONE</Route><waypoint>five (x,y) pairs separated by semicolons, or []</waypoint><REFLINE>
+Use English; Local <=90 characters, Route <=600 characters. Route is plain text.
+Waypoints are ordered spatial anchors in the source body frame on the Decoder route,
+not timed actions or wheel commands. Use [] for unavailable routes, waiting or DONE.
+Preserve task-origin distances. Backward requests are reference-only diagnostics;
+unseen rear space does not forbid diagnostic negative-x anchors. No physical reverse.
+End at <REFLINE>.
+"""
+
+
+def route_completed(route):
+    return route == "DONE" if isinstance(route, str) else route.get("status") == "completed"
+
+
+def remaining_instruction(route):
+    return route if isinstance(route, str) else route["remaining_instruction"]
+
+
+def compact_route(route):
+    """Explicit serialization adapter; never infer a subgoal from natural language."""
+    route = parse_route(route)
+    if isinstance(route, dict):
+        if route["status"] not in ("active", "completed"):
+            raise ValueError("Legacy waiting/clarification state needs legacy supervision")
+        route = "DONE" if route_completed(route) else route["remaining_instruction"]
+    return parse_route(route, require_compact=True)
+
+
+def parse_route(value, require_structured=False, require_compact=False):
+    if require_compact:
+        if not isinstance(value, str) or not re.fullmatch(COMPACT_ROUTE_PATTERN, value.strip()):
+            raise ValueError("Compact Route requires English remaining text or DONE, not JSON")
+        return value.strip()
     if isinstance(value, str):
         if not value.strip():
             raise ValueError("Empty Route")
@@ -250,6 +289,10 @@ def reference_diagnostics(
         if endpoint > endpoint_limit:
             result["reasons"].append("endpoint_difference")
     route = parsed.get("route")
+    if route == "DONE":
+        result["completion_claim"] = True
+        if len(anchors):
+            result["reasons"].append("waypoint_for_DONE")
     if isinstance(route, dict):
         g = route["current_subgoal"]
         result["original_instruction_semantics"] = "not_automatically_verified"

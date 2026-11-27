@@ -1,0 +1,111 @@
+{
+  "source": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.0/Isaac/Environments/Simple_Warehouse/full_warehouse.usd",
+  "source_geometry": "Isaac 5.0 static USD triangles in the demo aisle crop",
+  "build": {
+    "recast_version": "1.6.0",
+    "radius_m": 0.35,
+    "effective_erosion_radius_m": 0.4,
+    "height_m": 1.6,
+    "max_climb_m": 0.1,
+    "max_slope_deg": 15,
+    "cell_size_m": 0.1,
+    "cell_height_m": 0.05,
+    "max_walkable_world_z_m": 0.15,
+    "min_region_cells": 16,
+    "merge_region_cells": 64,
+    "max_simplification_error_voxels": 1.0,
+    "max_vertices_per_polygon": 6,
+    "grid_width": 150,
+    "grid_height": 290,
+    "input_triangles": 174239,
+    "navmesh_vertices": 72,
+    "navmesh_polygons": 38,
+    "detail_triangles": 80,
+    "queries": 6,
+    "complete_queries": 5,
+    "disk_reload_passed": true,
+    "elapsed_s": 0.0622822
+  },
+  "walkable_before_m2": 359.93000000000006,
+  "walkable_after_m2": 278.58000000000004,
+  "checks": {
+    "disk_reload": true,
+    "five_requested_routes_complete": true,
+    "rack_target_rejected": true,
+    "paths_inside_polygon_mesh": true,
+    "circular_footprint_raster": true,
+    "fixture_detour_and_rejection": true,
+    "radius_reduces_area": true
+  },
+  "paths": [
+    {
+      "name": "aisle_out",
+      "complete": true,
+      "path_length_m": 21.0,
+      "samples": 421,
+      "inside_navmesh": true,
+      "circular_footprint_raster_pass": true,
+      "unverified_or_blocked_footprint_samples": 0,
+      "max_endpoint_snap_xy_m": 0.0
+    },
+    {
+      "name": "cross_far",
+      "complete": true,
+      "path_length_m": 5.0,
+      "samples": 101,
+      "inside_navmesh": true,
+      "circular_footprint_raster_pass": true,
+      "unverified_or_blocked_footprint_samples": 0,
+      "max_endpoint_snap_xy_m": 0.0
+    },
+    {
+      "name": "aisle_return",
+      "complete": true,
+      "path_length_m": 21.0,
+      "samples": 421,
+      "inside_navmesh": true,
+      "circular_footprint_raster_pass": true,
+      "unverified_or_blocked_footprint_samples": 0,
+      "max_endpoint_snap_xy_m": 0.0
+    },
+    {
+      "name": "cross_near",
+      "complete": true,
+      "path_length_m": 5.0,
+      "samples": 101,
+      "inside_navmesh": true,
+      "circular_footprint_raster_pass": true,
+      "unverified_or_blocked_footprint_samples": 0,
+      "max_endpoint_snap_xy_m": 0.0
+    },
+    {
+      "name": "other_aisle_goal",
+      "complete": true,
+      "path_length_m": 17.878186443512522,
+      "samples": 362,
+      "inside_navmesh": true,
+      "circular_footprint_raster_pass": true,
+      "unverified_or_blocked_footprint_samples": 0,
+      "max_endpoint_snap_xy_m": 0.0
+    },
+    {
+      "name": "blocked_rack",
+      "complete": false,
+      "expected_rejection": true
+    }
+  ],
+  "limits": [
+    "Offline scene mesh, not the robot-observed SLAM map.",
+    "Circular footprint raster check only; rectangular footprint, yaw and dynamics not evaluated.",
+    "No controller or new simulated vehicle motion; path-query success is not navigation success.",
+    "GT scene geometry is an offline Oracle-side asset and is not supplied as a VLM input."
+  ],
+  "hashes": {
+    "scene.bin": "07ec9ba50fe80bcf3a8691520cf3ffcec84a58cc59ef98a176ecd03575885989",
+    "scene_world.npz": "b76db799214bd024a68eafa3a87deda7fa5c4f33efb4c2f13a5dfe717de1a2c6",
+    "scene-source.json": "584f4bd65b0c6887007fb5717b930ba306116caf86ac5840cf195297d84f7756",
+    "radius-035/navmesh.bin": "23c95e0afa8ad44bba23582a6d5b07682f7094d78f5afb462f89fafe0102b0bb",
+    "radius-035/navmesh.json": "feb97e31f10e271fb2cc13e9ae0af1ecef0e889e84b50856ab97e52f8d91087c",
+    "radius-035/queries.json": "d5ea8382cf1b5469c89576f7b16d73eef365a0ac6a53ce2dda12be4c7bc85924"
+  }
+}

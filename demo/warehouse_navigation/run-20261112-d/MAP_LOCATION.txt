@@ -1,0 +1,2 @@
+/data/ticvla/outputs/navigation/codex-map-return-20261112-d/navigation/map
+Complete SQLite + immutable geometry arrays; map-local is a local link, not portable.

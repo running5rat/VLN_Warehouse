@@ -1,0 +1,12 @@
+{
+  "profile_id": "qwen-plus-annotation-v5",
+  "config_file": "configs/dataset_preparation/qwen_plus_teacher.v5.json",
+  "config_sha256": "5c80f070121007e14f69c0ece0023819cf2924abe656cadd992ed9def3a185dd",
+  "teacher_instruction_sha256": "f4a5a1cfc4351133550aa376052c6530493e5a3071b7ebd9a4fe8f0849ee8455",
+  "teacher_template_version": "v07-teacher-concise-route-commands-v5",
+  "local_max_characters": 90,
+  "input_format": "plain-evidence-v2 plus causal completion evidence flag",
+  "route_protocol": "compact-v2",
+  "annotation_failure_policy": "skip_invalid_keep_last_valid_v1",
+  "source": "2026-11-04: concise field-first prompt; Route contains remaining commands only. No new API quality evaluation."
+}

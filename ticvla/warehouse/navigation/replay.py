@@ -87,7 +87,8 @@ def main():
         )
         observation.update(
             task_mode=task,
-            landmark_schema="legacy",
+            landmark_schema="categories",
+            route_schema="compact-v2",
             previous_reference=[],
             follow_target=None,
         )

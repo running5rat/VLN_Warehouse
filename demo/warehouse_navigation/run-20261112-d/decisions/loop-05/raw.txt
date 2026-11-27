@@ -1,0 +1,5 @@
+<landmark>[]</landmark>
+<local>At the open near-end cross-aisle, with the mapped starting aisle to the right.</local>
+<Route>Turn right, return to the starting aisle entrance and stop to finish the circuit.</Route>
+<waypoint>(-0.005,-1.000);(-0.009,-2.000);(-0.014,-3.000);(-0.019,-4.000);(-0.023,-5.000)</waypoint>
+<REFLINE>

@@ -1,0 +1,5 @@
+<landmark>[]</landmark>
+<local>Back at the starting cross-aisle after traversing the warehouse circuit.</local>
+<Route>Stop. The circuit is complete.</Route>
+<waypoint>[]</waypoint>
+<REFLINE>

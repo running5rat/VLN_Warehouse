@@ -1,0 +1,12 @@
+{
+  "profile_id": "qwen-plus-annotation-v2",
+  "config_file": "configs/dataset_preparation/qwen_plus_teacher.v2.json",
+  "config_sha256": "c9c605c8e5685488ca640772ab3b065b66ed2df1f8a09ce18f6312937db3231e",
+  "teacher_instruction_sha256": "255eb659b1bc4b9b0f2361fc683a16ac772f16d73367b2fee48ccb1c3762b7ee",
+  "teacher_template_version": "v07-teacher-local90-done-v2",
+  "local_max_characters": 90,
+  "input_format": "plain-evidence-v2 plus causal completion evidence flag",
+  "route_protocol": "compact-v2",
+  "annotation_failure_policy": "skip_invalid_keep_last_valid_v1",
+  "source": "User requested Local maximum 90, explicit character alphabet and DONE requirements; v1 and historical experiments unchanged."
+}

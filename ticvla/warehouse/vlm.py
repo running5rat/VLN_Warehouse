@@ -183,12 +183,17 @@ class InternVLReference(nn.Module):
             fix_mistral_regex=True,
         )
         self.backbone.requires_grad_(False)
+        self.backbone.language_model.set_attn_implementation(cfg.language_attention)
         if cfg.vlm_checkpoint:
             load_legacy_vlm(self.backbone, cfg.vlm_checkpoint)
         if not install_lora(
             self.backbone.language_model, cfg.lora_rank, cfg.lora_alpha
         ):
             raise ValueError("No language attention projections found for LoRA")
+        if cfg.gradient_checkpointing:
+            self.backbone.language_model.gradient_checkpointing_enable(
+                gradient_checkpointing_kwargs={"use_reentrant": False}
+            )
         llm = self.backbone.config.llm_config
         self.visual_dim = llm.hidden_size
         self.kv_dim = (
@@ -214,77 +219,48 @@ class InternVLReference(nn.Module):
     def build_prompt(self, observation, map_mode="correct", replacement_map=None):
         """Whitelisted fields only; never receives the supervision namespace."""
         obs = observation
+        from .compact_input import model_context, image_label, RULES, render_context
+        from .semantic_input import candidate_image
+        payload = model_context(obs, include_map=map_mode != "removed")
         images, parts = [], []
-        for frame in obs["rgb_history"]:
-            if frame["t_obs"] > obs["t_obs"]:
-                raise ValueError("Future RGB frame")
+        for i, frame in enumerate(obs["rgb_history"]):
+            label = image_label(obs, i)
             if frame.get("path") and Path(frame["path"]).is_file():
-                transform = delay_features(
-                    frame["T_odom_body"],
-                    obs["T_odom_body"],
-                    obs["t_obs"] - frame["t_obs"],
-                )
-                frame_kind = (
-                    "Current source RGB"
-                    if frame["t_obs"] == obs["t_obs"]
-                    else "Historical RGB"
-                )
-                parts.append(
-                    f"{frame_kind} {frame.get('image_id', '')}; age/relative pose {transform.tolist()}: <image>"
-                )
+                parts.append(f"{label}: <image>")
                 images.append(frame["path"])
             else:
-                parts.append("Historical RGB unavailable.")
+                parts.append(label + " unavailable.")
         if map_mode != "removed" and obs.get("map_valid"):
             path = replacement_map if map_mode == "shuffled" else obs["map_image"]
             if not path or not Path(path).is_file():
                 raise FileNotFoundError("Requested map image is missing")
             images.append(path)
-            parts.append(
-                "Local observed geometry with metric legend; gray is unknown: <image>"
-            )
-        else:
-            parts.append("Map unavailable.")
-        task = obs["task"]
-        payload = {
-            "instruction": task["instruction"],
-            "hard_constraints": task.get("hard_constraints", []),
-            "remaining_route": obs["route"],
-            "execution_state": obs.get("execution_state", {}),
-            "robot_state_v_omega": obs["robot_state"],
-            "state_valid": obs["robot_state_mask"],
-        }
-        if "acceptance_criteria" in task:
-            payload["task_acceptance_criteria"] = task["acceptance_criteria"]
-        if "previous_local" in obs:
-            from .local_context import LOCAL_CONTEXT_INSTRUCTION
-            payload["previous_local"] = obs["previous_local"]
-            parts.append(LOCAL_CONTEXT_INSTRUCTION)
-        for key in ("previous_reference", "follow_target", "task_mode"):
-            if key in obs:
-                payload[key] = obs[key]
-        if "map_landmarks" in obs:
-            payload["map_interface"] = "rendered_mapview_baseline"
-            payload["observed_map_landmarks"] = obs["map_landmarks"][:16]
+            parts.append("Past observed map; gray unknown: <image>")
+        overlay = candidate_image(obs)
+        if overlay:
+            images.append(overlay)
+            parts.append("Current detector boxes: <image>")
         if "navigation_object_question" in obs:
-            payload["navigation_object_question"] = obs["navigation_object_question"]
+            payload["object_question"] = obs["navigation_object_question"]
         if "visual_object_evidence" in obs:
-            payload["visual_object_evidence"] = obs["visual_object_evidence"]
-        parts.append(json.dumps(payload, ensure_ascii=False))
-        if "navigation_object_question" in obs:
-            parts.append(obs["navigation_object_question"])
-        if "visual_object_evidence" in obs:
-            parts.append(
-                "Your prior visual object list is supplied above as fallible model evidence. "
-                "Select distinct individual object names from that list when they are visible "
-                "and relevant to this navigation task, then answer in the required format."
-            )
+            evidence = obs["visual_object_evidence"]
+            payload["object_evidence"] = ({k:evidence[k] for k in ("text","categories") if k in evidence}
+                                          if isinstance(evidence,dict) else evidence)
+        parts.append(render_context(payload))
         template = copy.deepcopy(self.backbone.conv_template)
-        if obs.get("route_protocol") == "structured-v1":
+        if obs.get("route_protocol") == "compact-v2":
+            from .navigation.route_protocol import SIMPLE_NAVIGATION_SYSTEM
+            template.system_message = SIMPLE_NAVIGATION_SYSTEM
+        elif obs.get("route_protocol") == "structured-v1":
             from .navigation.route_protocol import NAVIGATION_SYSTEM
             template.system_message = NAVIGATION_SYSTEM
         else:
             template.system_message = getattr(self, "system_prompt", SYSTEM)
+        template.system_message += "\n" + RULES
+        if obs.get("landmark_schema") == "legacy":
+            from .landmark_protocol import LEGACY_LANDMARK_INSTRUCTION
+            # Old supervised records may refer to historical frames. Never relabel them.
+            template.system_message += "\nOverride only the landmark format for this legacy record: " + LEGACY_LANDMARK_INSTRUCTION
         template.append_message(template.roles[0], "\n".join(parts))
         template.append_message(template.roles[1], None)
         prompt = template.get_prompt()
@@ -315,7 +291,9 @@ class InternVLReference(nn.Module):
     def forward_record(self, record):
         prompt, images = self.build_prompt(record["observation"])
         prefix = self.tokenizer.encode(prompt, add_special_tokens=True)
-        answer = target_text(record["supervision"])
+        # Unlabeled text must not fabricate a semantic answer or expose future
+        # geometric labels as prompt tokens. Process only the query in that case.
+        answer = target_text(record["supervision"]) if record["supervision"].get("text_valid") else QUERY
         # Separate marker tokenization guarantees a stable processed query position.
         suffix = (
             self.tokenizer.encode(answer[: -len(QUERY)], add_special_tokens=False)
@@ -328,15 +306,16 @@ class InternVLReference(nn.Module):
         out = self.backbone.language_model(
             inputs_embeds=self._embeddings(ids, images),
             attention_mask=torch.ones_like(ids),
-            use_cache=True,
+            use_cache=False,
             output_hidden_states=True,
             return_dict=True,
         )
         output = self.decoder(out.hidden_states[-1][:, -1].float())
         if (labels != -100).any():
+            supervised = labels[:, 1:] != -100
             text_loss = F.cross_entropy(
-                out.logits[:, :-1].float().reshape(-1, out.logits.shape[-1]),
-                labels[:, 1:].reshape(-1),
+                out.logits[:, :-1][supervised].float(),
+                labels[:, 1:][supervised],
             )
         else:
             text_loss = output["reference_xy"].sum() * 0.0

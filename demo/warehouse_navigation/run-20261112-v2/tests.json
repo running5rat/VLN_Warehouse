@@ -1,0 +1,16 @@
+{
+  "total_tests": 41,
+  "codex_demo": 7,
+  "realtime_perception": 21,
+  "navigation": 13,
+  "result": "passed",
+  "artifact_checks": [
+    "HTML links",
+    "HTTP 200 page and video",
+    "SQLite quick_check",
+    "7 recursive Route and terminal STOP records",
+    "3 handoffs while moving"
+  ],
+  "full_isaac_run": "completed",
+  "trained_vla_inference": "not_run"
+}

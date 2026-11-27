@@ -1,0 +1,11 @@
+{
+  "source_directory": "demo/navmesh/warehouse-20261127",
+  "files": {
+    "02-navmesh-polygons.png": "3bb9bb2b8fda7bbaa4619b9fa3e25d87393e82a13f185678733e138d3e300749",
+    "04-path-query.png": "2386a67638548a95ec02e406b45737775999d8102d57a80000c430427975e5c6",
+    "report.json": "020e704a1b872b3514745022c56380ff810459d78293948a5f0f0c0988e5cc4b",
+    "scene-source.json": "584f4bd65b0c6887007fb5717b930ba306116caf86ac5840cf195297d84f7756",
+    "environment-lock.json": "5f0bea8bcfb16cb1b815259c0d0abfc4ebb9f0829f38a9a58db801e663269949"
+  },
+  "scope": "Actual Recast/Detour build and path queries from static USD render geometry; no vehicle execution."
+}

@@ -1,0 +1,262 @@
+[
+  {
+    "request_id": "loop-01",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "loop-02",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": false
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "loop-02-fresh",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "loop-03",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "loop-04",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "loop-05",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": false
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "loop-05-fresh",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "loop-complete",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "target-03-4R",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  },
+  {
+    "request_id": "target-finish",
+    "status": "review_pending",
+    "approved": false,
+    "checks": {
+      "engineering_accepted": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "User requested waypoint curve fitting; no decoder inference"
+    }
+  }
+]

@@ -1,0 +1,5 @@
+<landmark>["fire extinguisher"]</landmark>
+<local>In the end cross-aisle, with rack ends and a fire extinguisher on the right.</local>
+<Route>Turn right into the parallel aisle and continue toward the starting end of the rack block.</Route>
+<waypoint>(-0.033,-4.200);(-0.066,-8.399);(-0.099,-12.599);(-0.132,-16.799);(-0.165,-20.998)</waypoint>
+<REFLINE>

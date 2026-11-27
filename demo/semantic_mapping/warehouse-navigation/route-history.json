@@ -1,0 +1,298 @@
+[
+  {
+    "frame": 77,
+    "task": "mapping",
+    "previous_route": "Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.",
+    "generated_route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": null
+  },
+  {
+    "frame": 137,
+    "task": "mapping",
+    "previous_route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 77
+  },
+  {
+    "frame": 197,
+    "task": "mapping",
+    "previous_route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 137
+  },
+  {
+    "frame": 257,
+    "task": "mapping",
+    "previous_route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 197
+  },
+  {
+    "frame": 317,
+    "task": "mapping",
+    "previous_route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Turn right across the far cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 257
+  },
+  {
+    "frame": 377,
+    "task": "mapping",
+    "previous_route": "Turn right across the far cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Turn right across the far cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 317
+  },
+  {
+    "frame": 427,
+    "task": "mapping",
+    "previous_route": "Turn right across the far cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Turn right across the far cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 377
+  },
+  {
+    "frame": 437,
+    "task": "mapping",
+    "previous_route": "Turn right across the far cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Cross to the next aisle entrance, turn right into it, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 427
+  },
+  {
+    "frame": 497,
+    "task": "mapping",
+    "previous_route": "Cross to the next aisle entrance, turn right into it, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Turn right into the aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 437
+  },
+  {
+    "frame": 512,
+    "task": "mapping",
+    "previous_route": "Turn right into the aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Finish turning right to face the clear aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 497
+  },
+  {
+    "frame": 524,
+    "task": "mapping",
+    "previous_route": "Finish turning right to face the clear aisle, follow it to the near end, turn right back to the starting point and STOP.",
+    "generated_route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 512
+  },
+  {
+    "frame": 587,
+    "task": "mapping",
+    "previous_route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+    "generated_route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 524
+  },
+  {
+    "frame": 648,
+    "task": "mapping",
+    "previous_route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+    "generated_route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 587
+  },
+  {
+    "frame": 709,
+    "task": "mapping",
+    "previous_route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+    "generated_route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 648
+  },
+  {
+    "frame": 771,
+    "task": "mapping",
+    "previous_route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+    "generated_route": "Turn right across the near cross-aisle, return to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 709
+  },
+  {
+    "frame": 831,
+    "task": "mapping",
+    "previous_route": "Turn right across the near cross-aisle, return to the starting point and STOP.",
+    "generated_route": "Turn right across the near cross-aisle, return to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 771
+  },
+  {
+    "frame": 861,
+    "task": "mapping",
+    "previous_route": "Turn right across the near cross-aisle, return to the starting point and STOP.",
+    "generated_route": "Turn right across the near cross-aisle, return to the starting point and STOP.",
+    "committed": true,
+    "previous_frame": 831
+  },
+  {
+    "frame": 871,
+    "task": "mapping",
+    "previous_route": "Turn right across the near cross-aisle, return to the starting point and STOP.",
+    "generated_route": "Cross to the starting point beside the first aisle and STOP.",
+    "committed": true,
+    "previous_frame": 861
+  },
+  {
+    "frame": 931,
+    "task": "mapping",
+    "previous_route": "Cross to the starting point beside the first aisle and STOP.",
+    "generated_route": "Approach the starting point beside the first aisle and STOP.",
+    "committed": true,
+    "previous_frame": 871
+  },
+  {
+    "frame": 946,
+    "task": "mapping",
+    "previous_route": "Approach the starting point beside the first aisle and STOP.",
+    "generated_route": "Stop at the starting point after the circuit.",
+    "committed": true,
+    "previous_frame": 931
+  },
+  {
+    "frame": 950,
+    "task": "mapping",
+    "previous_route": "Stop at the starting point after the circuit.",
+    "generated_route": "STOP",
+    "committed": true,
+    "previous_frame": 946
+  },
+  {
+    "frame": 951,
+    "task": "target",
+    "previous_route": "Go to sign 04/5R and STOP beside it.",
+    "generated_route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": null
+  },
+  {
+    "frame": 961,
+    "task": "target",
+    "previous_route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 951
+  },
+  {
+    "frame": 966,
+    "task": "target",
+    "previous_route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 961
+  },
+  {
+    "frame": 971,
+    "task": "target",
+    "previous_route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 966
+  },
+  {
+    "frame": 976,
+    "task": "target",
+    "previous_route": "Turn around, follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Finish turning toward the cross-aisle, approach the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 971
+  },
+  {
+    "frame": 986,
+    "task": "target",
+    "previous_route": "Finish turning toward the cross-aisle, approach the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 976
+  },
+  {
+    "frame": 1046,
+    "task": "target",
+    "previous_route": "Follow the cross-aisle to the aisle marked 01/5R, turn left into it, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Turn left into the aisle marked 01/5R, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 986
+  },
+  {
+    "frame": 1061,
+    "task": "target",
+    "previous_route": "Turn left into the aisle marked 01/5R, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Finish turning left to face the aisle, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 1046
+  },
+  {
+    "frame": 1074,
+    "task": "target",
+    "previous_route": "Finish turning left to face the aisle, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 1061
+  },
+  {
+    "frame": 1136,
+    "task": "target",
+    "previous_route": "Continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "committed": true,
+    "previous_frame": 1074
+  },
+  {
+    "frame": 1196,
+    "task": "target",
+    "previous_route": "Continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "generated_route": "Continue past 03/5R to a clear position beside 04/5R and STOP.",
+    "committed": true,
+    "previous_frame": 1136
+  },
+  {
+    "frame": 1256,
+    "task": "target",
+    "previous_route": "Continue past 03/5R to a clear position beside 04/5R and STOP.",
+    "generated_route": "Approach a clear floor position beside 04/5R and STOP.",
+    "committed": true,
+    "previous_frame": 1196
+  },
+  {
+    "frame": 1277,
+    "task": "target",
+    "previous_route": "Approach a clear floor position beside 04/5R and STOP.",
+    "generated_route": "Reobserve 04/5R before confirming the stopping position, then STOP beside it.",
+    "committed": true,
+    "previous_frame": 1256
+  },
+  {
+    "frame": 1292,
+    "task": "target",
+    "previous_route": "Reobserve 04/5R before confirming the stopping position, then STOP beside it.",
+    "generated_route": "Stop beside 04/5R and confirm arrival.",
+    "committed": true,
+    "previous_frame": 1277
+  },
+  {
+    "frame": 1302,
+    "task": "target",
+    "previous_route": "Stop beside 04/5R and confirm arrival.",
+    "generated_route": "Stop beside 04/5R and confirm arrival.",
+    "committed": true,
+    "previous_frame": 1292
+  },
+  {
+    "frame": 1314,
+    "task": "target",
+    "previous_route": "Stop beside 04/5R and confirm arrival.",
+    "generated_route": "STOP",
+    "committed": true,
+    "previous_frame": 1302
+  }
+]

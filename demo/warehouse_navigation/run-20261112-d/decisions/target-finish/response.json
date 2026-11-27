@@ -1,0 +1,12 @@
+{
+  "request_id": "target-finish",
+  "action": "finish",
+  "instruction": "Navigate to shelf sign 03/4R and stop beside it.",
+  "landmark": [
+    "sign"
+  ],
+  "local": "Stopped beside sign 03/4R, now visible above the rack ahead.",
+  "route": "DONE",
+  "source_image_id": "codex-map-return-20261112-d:00005856",
+  "provider": "codex-session"
+}

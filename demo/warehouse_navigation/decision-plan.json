@@ -1,0 +1,39 @@
+{
+  "version": "codex-reviewed-loop-v1",
+  "provider": "codex-reviewed-decision-replay",
+  "scene": "manual-static-004 original warehouse, no dynamic people",
+  "evidence_run": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d",
+  "evidence_requests": [
+    "loop-01",
+    "loop-02-fresh",
+    "loop-03",
+    "loop-04",
+    "loop-05-fresh"
+  ],
+  "loop_instruction": "Complete one clockwise circuit of the warehouse aisles, return to the start and build a semantic map.",
+  "loop_odom_goals": [
+    [
+      18.0,
+      0.0
+    ],
+    [
+      21.0,
+      0.0
+    ],
+    [
+      21.0,
+      -5.0
+    ],
+    [
+      -0.0,
+      -5.0
+    ],
+    [
+      -0.0,
+      -0.0
+    ]
+  ],
+  "target_text": "03/4R",
+  "target_policy": "Query this run map, then follow observed traversed aisle. No saved target coordinates.",
+  "validation": "Loop goals physically executed in evidence_run; automatic replay orchestration has interface tests, not a second full-run validation."
+}

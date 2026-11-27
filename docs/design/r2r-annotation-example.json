@@ -1,0 +1,62 @@
+{
+  "source_root": "/data/ticvla/outputs/stage1a/r2r-extend300-20261113/episodes/r2r-10009/plus/00000002",
+  "files": {
+    "/data/ticvla/outputs/stage1a/r2r-extend300-20261113/episodes/r2r-10009/plus/00000002/input.json": "b111052107d2c5aa32c7833ef17fd032e022283c462456296b195e34ded38f63",
+    "/data/ticvla/outputs/stage1a/r2r-extend300-20261113/episodes/r2r-10009/plus/00000002/sample.json": "c70139ad3743b491ff904a7465bf1a651a31586fd111ba6a5aca4f13aef10f21",
+    "/data/ticvla/outputs/stage1a/r2r-extend300-20261113/episodes/r2r-10009/plus/00000002/raw.txt": "78376c1a88eac34798aa90fb3b43d40647933067dc2b4bb72c9ec33726a20e76",
+    "/data/ticvla/outputs/stage1a/r2r-extend300-20261113/episodes/r2r-10009/plus/00000002/checks.json": "57c2738682c48e7e1f3b335c726910798788546d0f0c5ec490304d8f92d44152"
+  },
+  "model": "qwen3.7-plus",
+  "teacher_template_version": "v07-teacher-v6-route-preserve-v1",
+  "instructions": "Return only an English JSON object with exactly landmark, local and route.\n\nlandmark: Up to three distinct useful object categories, copied from Current detectable categories and supported by current RGB and detections. Rejecthistory-only objects. Use [] if none; no IDs or explanations.\n\nlocal: State current position and heading relative to identifiable landmarks, at most 90 characters including spaces and punctuation. Use supported readable identifiers; mark uncertain OCR as tentative and memory-only localization as Inferred:. Past map evidence may help even if landmark is []. Use unknown when unsupported.\n\nroute: Give only remaining navigation commands: where to go, turn, stop or wait; at most 600 characters. Do not describe current position, heading, scene layout or completed actions. Preserve every unfinished step of Previous Route, in order, including later turns, targets and the final stop or wait requirement. Do not truncate, omit or replace unfinished steps with only the immediate next action. Remove a step only when current observations and relative motion support that it has been completed; if uncertain, retain it. Shorten wording rather than dropping unfinished steps to meet the length limit. Keep Previous Route unchanged when still appropriate.An unseen instructed target may remain a search goal, but do not invent its location or directions.Use exactly \"DONE\" only if Completion evidence: confirmed AND the entire original task is complete. Otherwise give the remaining or waiting command.\n\nUse English letters, digits, spaces and only these punctuation characters inside strings: ',''.'. No symbols, emoji or Markdown. \nMaps and previous Local may be wrong; gray cells are unknown. Motion is current body in the previous Local frame: metres, x forward, y left, yaw counterclockwise radians. Map uses current body frame.",
+  "user_text": "Return the requested annotation as JSON.\nPrevious Route: Turn right into the hall. Stop under the exit sign, close to the near red chair.\nPrevious Local: Inferred: Just passed through the open door into the hall, facing glass partitions.\nMotion since previous Local (1.4 s): x_m=0.741, y_m=0.086, yaw_rad=-0.524\nCurrent detectable categories: desk\nCompletion evidence: unverified",
+  "image_labels": [
+    "Historical RGB, 3.00s ago",
+    "Historical RGB, 2.00s ago",
+    "Historical RGB, 1.00s ago",
+    "Current RGB",
+    "Previous committed semantic map reprojected into current source body frame",
+    "Current RGB detector boxes and IDs; fallible proposals, not map evidence"
+  ],
+  "output": {
+    "landmark": [
+      "desk"
+    ],
+    "local": "Inferred: In hall after turning right, facing glass partition with desk.",
+    "route": "Continue down the hall. Stop under the exit sign, close to the near red chair."
+  },
+  "status": "format valid, human review required",
+  "legacy_geometry": "five metric waypoints, not v0.7 two pixel anchors",
+  "figure_images": [
+    {
+      "path": "docs/design/figures/annotation-assets/input-0.png",
+      "label": "Historical RGB, 3.00s ago",
+      "sha256": "5230441e87bbeeff48dab6668a53307521e96df336b1b74b5834557ae91b1233"
+    },
+    {
+      "path": "docs/design/figures/annotation-assets/input-1.png",
+      "label": "Historical RGB, 2.00s ago",
+      "sha256": "74baa0dae5595740dd77628dabd5325c9e6838b88af491a96d7464205afafdde"
+    },
+    {
+      "path": "docs/design/figures/annotation-assets/input-2.png",
+      "label": "Historical RGB, 1.00s ago",
+      "sha256": "fe02be02d3cb2afac726ab55c4d2ef797f6492af3341874e4b0fa636212199d7"
+    },
+    {
+      "path": "docs/design/figures/annotation-assets/input-3.png",
+      "label": "Current RGB",
+      "sha256": "56b27cfe0b923819bdb2768a0f12fde8bf3b0098f88299012a3086a2e6c0f9ad"
+    },
+    {
+      "path": "docs/design/figures/annotation-assets/input-4.png",
+      "label": "Previous committed semantic map reprojected into current source body frame",
+      "sha256": "8c861a18c834cfd4e020db7fc5e0481eec0052f3155e1bcf05f787d872504d94"
+    },
+    {
+      "path": "docs/design/figures/annotation-assets/input-5.png",
+      "label": "Current RGB detector boxes and IDs; fallible proposals, not map evidence",
+      "sha256": "3f098d8dd4bc184163e6834dd71cc8f30dfc3c46da61aae886d01d0b778b1abc"
+    }
+  ]
+}

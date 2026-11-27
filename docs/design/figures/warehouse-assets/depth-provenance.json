@@ -1,0 +1,21 @@
+{
+  "source_image_id": "codex-continuous-20261112-v2:00000197",
+  "source_depth": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/capture/raw/depth/00000197.npy",
+  "source_depth_sha256": "8ea6e629d5be64c917c62019d918f16813c5d4573cab9f6217c1fc20272dc1ad",
+  "image_sha256": "bd9d06f66ffedef907847026609bd2a69762e6f1d66bbb3805e590d6585bbc90",
+  "shape": [
+    720,
+    960
+  ],
+  "valid_pixels": 691200,
+  "display": {
+    "units": "metres",
+    "colormap": "magma",
+    "range": [
+      0,
+      12
+    ],
+    "invalid": "dark gray",
+    "clipping": "display only"
+  }
+}

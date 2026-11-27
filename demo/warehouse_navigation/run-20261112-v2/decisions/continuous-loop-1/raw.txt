@@ -1,0 +1,5 @@
+<landmark>["fire extinguisher"]</landmark>
+<local>In the far cross-aisle, approaching the entrance of the parallel aisle.</local>
+<Route>Continue across the far cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.</Route>
+<waypoint>(2.092,0.004);(2.093,-0.696);(2.107,-10.996);(2.120,-20.296);(2.121,-20.996)</waypoint>
+<REFLINE>

@@ -13,6 +13,7 @@ from .core import read_json, write_json
 from .semantic_annotation import (validate_sample, assemble_answer, agreement,
                                   render_report)
 from .teacher import teacher_input, TEACHER_INSTRUCTION
+from ..compact_input import VERSION, model_context, image_label, render_context
 
 
 def _samples(bundle):
@@ -91,11 +92,13 @@ def _causal_sample(samples, index, output, report):
 
 
 def _presentation(sample):
-    context, paths = teacher_input(sample)
+    audit, paths = teacher_input(sample)
+    context = model_context(sample["observation"])
     images = [dict(path=p, sha256=file_sha256(p), label=(
-        'RGB '+context['source_rgb'][i]['image_id'] if i < len(context['source_rgb']) else 'Causal observed MapView'))
+        image_label(sample['observation'],i) if i < len(audit['source_rgb']) else 'Observed map / current detector overlay'))
         for i, p in enumerate(paths)]
     result = dict(instructions=TEACHER_INSTRUCTION, context=context, images=images,
+        audit_context=audit, input_format=VERSION, user_text=render_context(context),
         source_binding=sample['provenance']['source_binding'],
         source='codex_conversation_assisted', request_ready=True,
         generation_constraints='Instructions only; post-generation deployment grammar validation; no constrained decoding claim')

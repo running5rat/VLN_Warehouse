@@ -1,0 +1,27 @@
+{
+  "landmark": [],
+  "local": "At the far cross-aisle facing the wall, with open floor on the right.",
+  "route": "Turn right across the far cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+  "waypoint": [
+    [
+      480,
+      710
+    ],
+    [
+      550,
+      700
+    ],
+    [
+      620,
+      690
+    ],
+    [
+      700,
+      680
+    ],
+    [
+      780,
+      670
+    ]
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "request_id": "continuous-finish",
+  "task_id": "target",
+  "action": "finish",
+  "instruction": "Navigate to sign 04/5R in the farther second aisle and STOP beside it.",
+  "landmark": [],
+  "local": "Stopped beside mapped sign 04/5R.",
+  "route": "STOP",
+  "source_image_id": "codex-continuous-20261112-v2:00001309",
+  "provider": "codex-reviewed-decision-replay"
+}

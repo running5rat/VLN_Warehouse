@@ -126,8 +126,16 @@ class ExecutionFacts:
                 d["intersections"].append(pending)
                 self.event("intersection_passed", **pending, exit_image_id=image_id)
 
-    def completion_evidence(self):
+    def completion_evidence(self, *, task_level=False):
         d = self.data
+        if task_level:
+            # Compact Route has no machine subgoal. A completed turn or a stop alone
+            # cannot certify the original task. Only independently recorded arrival
+            # evidence can support DONE; absence remains explicitly unverified.
+            events = {e["kind"] for e in d["events"]}
+            return bool(not d.get("terminal") and {"target_visible", "arrival_confirmed"} <= events
+                        and ("stopped" in events or "observed_stopped" in events)
+                        and "velocity" in d and np.linalg.norm(d["velocity"]) < 0.02)
         g = d.get("subgoal") or {}
         action = g.get("action")
         if d.get("terminal"):

@@ -168,15 +168,40 @@ class Selector:
         return result
 
 
+def load_vocabulary(config=None):
+    if config is None:
+        data = dict(version=VOCAB_VERSION, categories=list(CORE), aliases=dict(ALIASES))
+    else:
+        data = json.loads(Path(config).read_text()) if isinstance(config, (str, Path)) else dict(config)
+    categories = data.get('categories')
+    if (not isinstance(data.get('version'), str) or not data['version']
+            or not isinstance(categories, list) or not categories
+            or any(not isinstance(c, str) or not c or c != ' '.join(c.lower().split()) for c in categories)
+            or len(set(categories)) != len(categories)):
+        raise ValueError('Invalid fixed vocabulary')
+    aliases = data.get('aliases', {})
+    if (not isinstance(aliases, dict) or any(not isinstance(k, str) or not k or v not in categories
+                                           or (k in categories and k != v) for k, v in aliases.items())):
+        raise ValueError('Invalid vocabulary aliases')
+    value = dict(version=data['version'], categories=categories,
+                 aliases={**{c:c for c in categories}, **aliases})
+    value['sha256'] = fingerprint(value)
+    if data.get('sha256', value['sha256']) != value['sha256']:
+        raise ValueError('Vocabulary hash mismatch')
+    return value
+
+
 class FixedSegmenter:
-    def __init__(self, weights, device="cuda:0"):
+    def __init__(self, weights, device="cuda:0", vocabulary=None):
+        self.vocabulary = load_vocabulary(vocabulary)
+        self.categories = self.vocabulary['categories']
         self.weights = str(weights)
         self.engine = Path(weights).suffix == ".engine"
         if self.engine:
             from ultralytics import YOLO
 
             config = json.loads(Path(str(weights) + ".json").read_text())
-            if config["categories"] != list(CORE) or config["sha256"] != file_sha256(
+            if config["categories"] != self.categories or config["sha256"] != file_sha256(
                 weights
             ):
                 raise ValueError("Engine vocabulary/hash mismatch")
@@ -194,8 +219,9 @@ class FixedSegmenter:
                 **self.model.provenance,
                 "backend": "yoloe-realtime",
                 "runtime": "pytorch-fp16",
-                "categories": list(CORE),
+                "categories": self.categories,
             }
+        self.provenance['vocabulary'] = self.vocabulary
         self.device = device
 
     def predict(self, source):
@@ -203,7 +229,7 @@ class FixedSegmenter:
         if file_sha256(source["rgb"]) != source["rgb_hash"]:
             raise ValueError("Segmentation source hash mismatch")
         if not self.engine:
-            data = self.model.segment_instances(source, list(CORE))
+            data = self.model.segment_instances(source, self.categories)
             self.provenance.update(
                 self.model.provenance, backend="yoloe-realtime", runtime="pytorch-fp16"
             )
@@ -218,7 +244,7 @@ class FixedSegmenter:
                 verbose=False,
                 save=False,
             )[0]
-            if [r.names[i] for i in range(len(CORE))] != list(CORE):
+            if [r.names[i] for i in range(len(self.categories))] != self.categories:
                 raise ValueError("Runtime engine class mapping mismatch")
             instances = []
             with Image.open(source["rgb"]) as im:
@@ -234,7 +260,7 @@ class FixedSegmenter:
                         raise ValueError("Mask/source shape mismatch")
                     instances.append(
                         dict(
-                            category=CORE[int(cls)],
+                            category=self.categories[int(cls)],
                             confidence=float(conf),
                             bbox=box.tolist(),
                             mask=mask > 0.5,
@@ -325,7 +351,7 @@ def consume_masks(store, source, batch, selection):
             f"rt:{source['image_id']}:{i}",
             source["image_id"],
             inst["category"],
-            source="llm",
+            source=selection.get("event_source", "llm"),
             request_id=selection.get("request_id"),
         )
         result = (

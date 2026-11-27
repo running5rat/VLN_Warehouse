@@ -1,0 +1,31 @@
+{
+  "request_id": "loop-05",
+  "instruction": "Complete the clockwise warehouse circuit and build the map.",
+  "landmark": [],
+  "local": "At the open near-end cross-aisle, with the mapped starting aisle to the right.",
+  "route": "Turn right, return to the starting aisle entrance and stop to finish the circuit.",
+  "waypoint": [
+    [
+      -0.004690532954820987,
+      -0.9999683018871592
+    ],
+    [
+      -0.009381065909641974,
+      -1.9999366037743185
+    ],
+    [
+      -0.014071598864462962,
+      -2.9999049056614777
+    ],
+    [
+      -0.018762131819283948,
+      -3.999873207548637
+    ],
+    [
+      -0.023452664774104934,
+      -4.999841509435796
+    ]
+  ],
+  "source_image_id": "codex-map-return-20261112-d:00003235",
+  "provider": "codex-session"
+}

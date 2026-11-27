@@ -1,0 +1,5 @@
+<landmark>[]</landmark>
+<local>Near the end of the first aisle, facing the warehouse wall.</local>
+<Route>Advance into the end cross-aisle, then turn right around the rack block.</Route>
+<waypoint>(0.604,-0.001);(1.209,-0.003);(1.813,-0.004);(2.418,-0.006);(3.022,-0.007)</waypoint>
+<REFLINE>

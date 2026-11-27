@@ -6,6 +6,8 @@ Agreement with an incomplete human annotation is not semantic accuracy.
 import base64
 import copy
 import html
+import hashlib
+import io
 import json
 import mimetypes
 import os
@@ -16,12 +18,15 @@ import urllib.error
 import urllib.request
 from urllib.parse import urlparse
 
+from ..text_protocol import LOCAL_MAX_CHARACTERS, COMPLETION_EVENTS, completion_evidence
 from ..schema import file_sha256, fingerprint
 from ..structured_io import parse_structured, response_grammar
 from ..local_context import local_memory, local_context
 from .core import (read_json, write_json, sample_context, tagged_text, verify_observation_files,
                    load_episode, frame_binding)
 from .teacher import teacher_input, TEACHER_INSTRUCTION
+from ..compact_input import VERSION, model_context, image_label, render_context, audit_context
+from .teacher_transport import open_teacher_request, transport_policy
 
 
 def write_bundle(output, samples, *, source, context_mode='recursive', episode_review=False):
@@ -84,7 +89,8 @@ def validate_sample(sample):
         raise ValueError('Future image in teacher input')
     if any(e.get('t_obs', float('inf')) > o['t_obs'] for e in o['execution']['events']):
         raise ValueError('Future execution fact')
-    if o.get('mapview',{}).get('source_until',o['t_obs']) > o['t_obs']:
+    cutoff = o.get('mapview',{}).get('source_until')
+    if cutoff is not None and cutoff > o['t_obs']:
         raise ValueError('Future map')
     for h in o['rgb_history']:
         if file_sha256(h['path']) != h['sha256']:
@@ -108,28 +114,40 @@ def validate_sample(sample):
 def assemble_answer(answer, sample):
     if not isinstance(answer,dict) or set(answer) != {'landmark','local','route'}:
         raise ValueError('Teacher must return exactly landmark, local, route; no geometric fields')
+    if not isinstance(answer['local'], str) or not 1 <= len(answer['local']) <= LOCAL_MAX_CHARACTERS:
+        raise ValueError(f'Local must contain 1 to {LOCAL_MAX_CHARACTERS} characters')
     ids=[h['image_id'] for h in sample['observation']['rgb_history']]
     geometry=sample['geometric_supervision']
     text=tagged_text(answer['landmark'],answer['local'],answer['route'],geometry['waypoint'])
-    parsed=parse_structured(text,ids,structured_route=True)
-    grammar=response_grammar(ids,structured_route=True)
+    compact=isinstance(answer['route'],str)
+    parsed=parse_structured(text,ids,structured_route=not compact,compact_route=compact,
+        current_image_id=sample['observation']['image_id'])
+    grammar=response_grammar(ids,structured_route=not compact,compact_route=compact,
+        categories_only=all(isinstance(x,str) for x in answer['landmark']))
     for ch in text:
         if ch not in grammar.get_allowed_characters():
             raise ValueError('Answer violates deployment English generation grammar')
         grammar=grammar.add_character(ch)
     if not grammar.can_end(): raise ValueError('Truncated protocol')
     return dict(text=text,parsed=parsed,approved=False,semantic_review='required',
+        route_protocol='compact-v2' if compact else 'structured-v1',
         source_image_id=sample['observation']['image_id'],source_binding=sample['provenance']['source_binding'],
-        geometry=copy.deepcopy(geometry),field_sources=dict(landmark='teacher',local='teacher',route='teacher',
+        landmark_protocol=('current-categories-v1' if all(isinstance(x,str) for x in answer['landmark']) else 'legacy-source-records'),
+        geometry=copy.deepcopy(geometry),field_sources=dict(landmark='teacher',
+        landmark_image_id=('request_current_source' if all(isinstance(x,str) for x in answer['landmark']) else 'teacher_source_reference'),local='teacher',route='teacher',
         waypoint=geometry['source'],reference_xy=geometry['source']))
 
 
 def agreement(answer, sample):
     """Deterministic diagnostics only. No model grading itself or invented accuracy."""
     obs=sample['observation']; route=answer['route']
+    from ..navigation.route_protocol import route_completed, remaining_instruction
     events={e['kind'] for e in obs['execution']['events']}
     flags=[]
-    if route['status']=='completed' and not {'target_visible','stopped','arrival_confirmed'} <= events:
+    completion_token=isinstance(route,str) and bool(re.search(r'\bDONE\b',route))
+    if completion_token and route != 'DONE':
+        flags.append('noncanonical_completion_marker')
+    if (route_completed(route) or completion_token) and not COMPLETION_EVENTS <= events:
         flags.append('completed_without_recorded_target_arrival_and_stop_evidence')
     result=dict(rule_flags=flags,semantic_accuracy=None,semantic_review='required')
     human=sample.get('evaluation_only',{}).get('human_text')
@@ -142,32 +160,85 @@ def agreement(answer, sample):
         landmark_agreement=dict(matched=len(expected&actual),human_only=len(expected-actual),teacher_only=len(actual-expected),
             exact=expected==actual,interpretation='Agreement with selected human objects, not exhaustive detection precision/recall'),
         local_exact=answer['local']==human['local'],
-        route_action_exact=route['current_subgoal']['action']==human['route']['current_subgoal']['action'],
-        route_subgoal_exact=route['current_subgoal']==human['route']['current_subgoal'],
-        route_status_exact=route['status']==human['route']['status'],
-        remaining_instruction_exact=route['remaining_instruction']==human['route']['remaining_instruction'],
+        route_action_exact=(route['current_subgoal']['action']==human['route']['current_subgoal']['action']
+                            if isinstance(route,dict) and isinstance(human['route'],dict) else None),
+        route_subgoal_exact=(route['current_subgoal']==human['route']['current_subgoal']
+                            if isinstance(route,dict) and isinstance(human['route'],dict) else None),
+        route_status_exact=(route['status']==human['route']['status']
+                            if isinstance(route,dict) and isinstance(human['route'],dict) else None),
+        completion_claim_exact=route_completed(route)==route_completed(human['route']),
+        remaining_instruction_exact=remaining_instruction(route)==remaining_instruction(human['route']),
         text_exact_is_not_semantic_correctness=True)
     return result
 
 
 def build_request(sample, cfg):
-    context, images=teacher_input(sample)
-    content=[dict(type='input_text',text=json.dumps(context,ensure_ascii=False))]
+    instruction = cfg.get('teacher_instruction', TEACHER_INSTRUCTION)
+    if not isinstance(instruction, str) or not instruction.strip():
+        raise ValueError('Teacher instruction must be a nonempty string')
+    instruction_hash = hashlib.sha256(instruction.encode()).hexdigest()
+    if cfg.get('teacher_instruction_sha256', instruction_hash) != instruction_hash:
+        raise ValueError('Frozen teacher instruction hash mismatch')
+    audit, images=teacher_input(sample)
+    context=model_context(sample["observation"])
+    task_input_mode=cfg.get('task_input_mode','persistent_instruction')
+    if task_input_mode not in ('persistent_instruction','route_only'):
+        raise ValueError('Unknown teacher task_input_mode')
+    if task_input_mode=='route_only':
+        # The episode loop initializes Route once from the original task, then
+        # carries the latest valid model Route. Keep the contract in audit only.
+        context.pop('instruction')
+    user_text = 'Return the requested annotation as JSON.\n' + render_context(context)
+    if cfg.get('completion_evidence_input'):
+        user_text += '\nCompletion evidence: ' + completion_evidence(sample['observation'])
+    content=[dict(type='input_text',text=user_text)]
     descriptions=[]
     for i,path in enumerate(images):
         p=Path(path);mime=mimetypes.guess_type(str(p))[0]
         if mime not in ('image/png','image/jpeg','image/webp'): raise ValueError('Unsupported image MIME')
-        label = ('RGB '+context['source_rgb'][i]['image_id']) if i < len(context['source_rgb']) else 'Causal observed MapView'
+        label = image_label(sample['observation'],i) if i < len(audit['source_rgb']) else 'Causal observed MapView'
+        if path == sample['observation'].get('perception_candidates', {}).get('overlay'):
+            label = 'Current RGB detector boxes and IDs; fallible proposals, not map evidence'
+        elif audit.get('semantic_input') and i >= len(audit['source_rgb']):
+            label = 'Previous committed semantic map reprojected into current source body frame'
+        image_bytes=p.read_bytes();encoding='original_file'
+        if cfg.get('rgb_jpeg_quality') is not None and i<len(audit['source_rgb']):
+            from PIL import Image
+            quality=int(cfg['rgb_jpeg_quality'])
+            if not 1<=quality<=100:raise ValueError('JPEG quality must be in 1..100')
+            with Image.open(p) as source:
+                buf=io.BytesIO();source.convert('RGB').save(buf,format='JPEG',quality=quality,subsampling=0)
+            image_bytes=buf.getvalue();mime='image/jpeg';encoding=f'jpeg_quality_{quality}_444_original_resolution'
         content.extend([dict(type='input_text',text=label),dict(type='input_image',detail='high',
-            image_url=f'data:{mime};base64,'+base64.b64encode(p.read_bytes()).decode())])
-        descriptions.append(dict(path=str(p),sha256=file_sha256(p),label=label,mime_type=mime))
-    request=dict(model=cfg.get('model'),instructions=TEACHER_INSTRUCTION,store=False,
+            image_url=f'data:{mime};base64,'+base64.b64encode(image_bytes).decode())])
+        descriptions.append(dict(path=str(p),sha256=file_sha256(p),label=label,mime_type=mime,
+            transmitted_sha256=hashlib.sha256(image_bytes).hexdigest(),transmitted_bytes=len(image_bytes),encoding=encoding))
+    request=dict(model=cfg.get('model'),instructions=instruction,store=False,
         max_output_tokens=int(cfg.get('max_output_tokens',2048)),text=dict(format=dict(type='json_object')),
         input=[dict(role='user',content=content)])
     if cfg.get('reasoning_effort'): request['reasoning']=dict(effort=cfg['reasoning_effort'])
-    summary=dict(model=cfg.get('model'),instructions=TEACHER_INSTRUCTION,context=context,images=descriptions,
-        max_output_tokens=request['max_output_tokens'],response_format='json_object_then_deployment_grammar_validation',
-        reasoning=request.get('reasoning'),store=False,request_sha256=fingerprint(request))
+    api=cfg.get('api','responses')
+    if api=='chat_completions':
+        chat_content=[]
+        for item in content:
+            if item['type']=='input_text':chat_content.append(dict(type='text',text=item['text']))
+            else:chat_content.append(dict(type='image_url',image_url=dict(url=item['image_url'])))
+        request=dict(model=cfg.get('model'),messages=[dict(role='system',content=instruction),
+            dict(role='user',content=chat_content)],max_tokens=int(cfg.get('max_output_tokens',2048)),
+            response_format=dict(type='json_object'))
+        # Provider-specific parameters must be explicit in the frozen config.
+        for key in ('thinking','enable_thinking','thinking_budget','reasoning_effort'):
+            if key in cfg:request[key]=cfg[key]
+    elif api!='responses':raise ValueError('Unsupported teacher API protocol')
+    summary=dict(model=cfg.get('model'),instructions=instruction,context=context,images=descriptions,
+        task_input_mode=task_input_mode,
+        transport=transport_policy(cfg.get('base_url','https://api.openai.com/v1'),cfg),
+        teacher_instruction_sha256=instruction_hash,
+        teacher_template_version=cfg.get('teacher_template_version','legacy-shared-rules'),
+        audit_context=audit,input_format=VERSION, user_text=user_text,
+        api=api,max_output_tokens=int(cfg.get('max_output_tokens',2048)),response_format='json_object_then_deployment_grammar_validation',
+        reasoning=request.get('reasoning',request.get('thinking')),store=request.get('store'),request_sha256=fingerprint(request),
+        user_text_prefix='Return the requested annotation as JSON.\n')
     return request,summary
 
 
@@ -175,15 +246,30 @@ def send_request(request, cfg):
     base=cfg.get('base_url','https://api.openai.com/v1').rstrip('/')
     url=urlparse(base)
     if url.scheme != 'https' or url.username or url.password or url.query or url.fragment:
-        raise ValueError('Use an HTTPS API base without credentials/query/fragment')
+        from .teacher_budget import RequestNotSent
+        raise RequestNotSent('Use an HTTPS API base without credentials/query/fragment')
+    transport_policy(base, cfg)  # Validate before reserving a paid request.
     key=os.environ[cfg.get('api_key_env','OPENAI_API_KEY')]
-    req=urllib.request.Request(base+'/responses',data=json.dumps(request).encode(),
+    endpoint='/chat/completions' if cfg.get('api')=='chat_completions' else '/responses'
+    req=urllib.request.Request(base+endpoint,data=json.dumps(request).encode(),
         headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'})
-    with urllib.request.urlopen(req,timeout=float(cfg.get('timeout_seconds',180))) as response:
-        return json.load(response)
+    def send():
+        with open_teacher_request(req,cfg) as response:
+            return json.load(response)
+    if cfg.get('budget_file'):
+        from .teacher_budget import budgeted_call
+        return budgeted_call(request,cfg,send)
+    return send()
 
 
 def parse_api_response(raw):
+    if 'choices' in raw:
+        if len(raw['choices'])!=1 or raw['choices'][0].get('finish_reason')!='stop':
+            raise ValueError('Incomplete or failed chat response')
+        message=raw['choices'][0]['message']
+        if message.get('refusal') or not isinstance(message.get('content'),str):
+            raise ValueError('Teacher refused or did not return text')
+        return message['content']
     if raw.get('status') != 'completed': raise ValueError('Incomplete or failed API response')
     contents=[c for x in raw.get('output',[]) if x.get('type')=='message' for c in x.get('content',[])]
     if any(c.get('type')=='refusal' for c in contents): raise ValueError('Teacher refused')
@@ -202,7 +288,7 @@ def render_report(output, report):
     for row in report['samples']:
         folder=output/row['folder'];parts.append('<section><h2>'+html.escape(row['source_image_id'])+'</h2>')
         if (folder/'input.json').exists():
-            inp=read_json(folder/'input.json');current=inp['images'][len(inp['context']['source_rgb'])-1]['path']
+            inp=read_json(folder/'input.json');current=inp['images'][len(audit_context(inp)['source_rgb'])-1]['path']
             suffix=Path(current).suffix;dest=folder/('source'+suffix)
             if not dest.exists(): dest.write_bytes(Path(current).read_bytes())
             parts.append('<img src="'+row['folder']+'/'+dest.name+'"><p><a href="'+row['folder']+'/input.json">Teacher input</a></p>')
@@ -213,7 +299,9 @@ def render_report(output, report):
 
 
 def run_pilot(bundle, config, output, prepare_only=False):
+    from .annotation_policy import failure_policy, must_stop, gap_metadata
     bundle=Path(bundle);manifest=read_json(bundle/'manifest.json');cfg=read_json(config)
+    policy=failure_policy(cfg)
     if manifest.get('protocol')!='semantic-teacher-pilot-v1': raise ValueError('Invalid bundle protocol')
     if not 1 <= len(manifest['records']) <= 6: raise ValueError('At most six pilot requests')
     mode=manifest['context_mode']
@@ -231,12 +319,15 @@ def run_pilot(bundle, config, output, prepare_only=False):
     ready=bool(cfg.get('model') and os.environ.get(cfg.get('api_key_env','OPENAI_API_KEY')))
     report=dict(status='running',actual_api_calls=0,model=cfg.get('model'),context_mode=mode,
         bundle=str(bundle),bundle_sha256=file_sha256(bundle/'manifest.json'),config_sha256=file_sha256(config),
-        samples=[],semantic_accuracy=None,human_approved=False,training=False,
+        samples=[],semantic_accuracy=None,human_approved=False,training=False,annotation_failure_policy=policy,
         waypoint_and_reference_teacher_generated=False,expected_samples=len(samples))
-    previous=None;failed=False
+    previous=None;failed=False;transport_failed=False;rejected=[]
     for i,original in enumerate(samples):
         sample=copy.deepcopy(original);obs=sample['observation'];folder=output/f'{i:08d}';folder.mkdir()
         row=dict(index=i,source_image_id=obs['image_id'],folder=folder.name)
+        row['context_recovery']=dict(gap_metadata(previous,rejected),policy=policy) if mode=='recursive' else None
+        if transport_failed:
+            row.update(status='not_run_provider_error');report['samples'].append(row);continue
         if mode=='recursive':
             if failed:
                 row.update(status='not_run_previous_proposal_failed');report['samples'].append(row);continue
@@ -250,7 +341,7 @@ def run_pilot(bundle, config, output, prepare_only=False):
                 obs['previous_local']=dict(valid=False,reason='external_robot_base_pose_not_audited')
             obs['execution']['route_context_source']='previous_unreviewed_teacher_proposal' if previous else 'original_instruction'
         request,summary=build_request(sample,cfg)
-        summary['request_ready']=bool(mode=='gold_context' or i==0 or previous)
+        summary['request_ready']=bool(mode=='gold_context' or i==0 or previous or (ready and not prepare_only))
         summary['source_binding']=sample['provenance']['source_binding']
         write_json(folder/'input.json',summary)
         # Geometry and human labels are saved separately, never in request/summary.
@@ -258,10 +349,27 @@ def run_pilot(bundle, config, output, prepare_only=False):
         if not ready or prepare_only:
             row.update(status='prepared_no_api_call',recursive_context_pending=(mode=='recursive' and i>0))
             report['samples'].append(row);continue
+        stage='api_request'
         started=time.monotonic();report['actual_api_calls']+=1
         row['status']='request_started';report['samples'].append(row);write_json(output/'report.json',report)
         try:
             raw=send_request(request,cfg);write_json(folder/'response.json',raw)
+            row['usage']=raw.get('usage')
+            if cfg.get('budget_file'):
+                from .teacher_budget import usage_charge
+                row['cost_estimate_usd']=usage_charge(raw,cfg)
+                row['cost_kind']=cfg.get('cost_kind','undiscounted_rate_estimate_not_invoice')
+                if cfg.get('native_currency'):
+                    native_cfg=dict(cfg,usd_per_million_tokens=cfg['native_per_million_tokens'])
+                    row['cost_native_estimate']=usage_charge(raw,native_cfg)
+                    row['native_currency']=cfg['native_currency']
+                    row['budget_accounted_usd']=row.pop('cost_estimate_usd')
+            # Archive partial NTP output even when finish/status validation fails.
+            partial=(raw.get('choices') or [{}])[0].get('message',{}).get('content')
+            if partial is None:
+                partial=''.join(c.get('text','') for item in raw.get('output',[]) for c in item.get('content',[]) if c.get('type')=='output_text')
+            if isinstance(partial,str):(folder/'raw.txt').write_text(partial)
+            stage='response_validation'
             text=parse_api_response(raw);(folder/'raw.txt').write_text(text)
             answer=json.loads(text);proposal=assemble_answer(answer,sample)
             comparison=agreement(proposal['parsed'],sample)
@@ -270,13 +378,31 @@ def run_pilot(bundle, config, output, prepare_only=False):
             write_json(folder/'proposal.json',proposal);write_json(folder/'comparison.json',comparison)
             row.update(status='format_valid_unreviewed',usage=raw.get('usage'),model_returned=raw.get('model'),
                 cost=None,comparison=comparison)
-            previous=dict(parsed=proposal['parsed'],observation=obs,response_hash=proposal['response_sha256'])
             # Unsupported completion is archived, never propagated as accepted progress.
-            if comparison['rule_flags']: failed=True;row['status']='rule_rejected_unreviewed'
+            if comparison['rule_flags']:
+                failed=must_stop(cfg,ValueError('Unsupported completion'),stage)
+                row.update(status='rule_rejected_unreviewed',label_eligible=False,
+                    failure_action='stop_run' if failed else 'skip_frame_keep_last_valid')
+                rejected.append(obs['image_id'])
+            else:
+                previous=dict(parsed=proposal['parsed'],observation=obs,response_hash=proposal['response_sha256'])
+                rejected=[]
         except urllib.error.HTTPError as exc:
-            (folder/'http-error.txt').write_bytes(exc.read());row.update(status='failed',reason=f'HTTP {exc.code}');failed=True
+            body=exc.read();key=os.environ.get(cfg.get('api_key_env','OPENAI_API_KEY'),'')
+            if key:body=body.replace(key.encode(),b'[REDACTED]')
+            (folder/'http-error.txt').write_bytes(body);row.update(status='failed',reason=f'HTTP {exc.code}');failed=True
+            transport_failed=True
+            row.update(failure_stage=stage,failure_action='stop_run',label_eligible=False)
         except (ValueError,KeyError,TypeError,OSError) as exc:
-            row.update(status='failed',reason=str(exc));failed=True
+            failed=must_stop(cfg,exc,stage)
+            row.update(status='failed',reason=str(exc),failure_stage=stage,label_eligible=False,
+                failure_action='stop_run' if failed else 'skip_frame_keep_last_valid')
+            rejected.append(obs['image_id'])
+            if getattr(exc,'request_sent',True) is False:
+                report['actual_api_calls']-=1
+                row['status']='not_sent_preflight_rejected'
+            if stage!='response_validation' or isinstance(exc,OSError) or getattr(exc,'request_sent',True) is False:
+                transport_failed=True
         row['elapsed_seconds']=time.monotonic()-started
         write_json(output/'report.json',report)
     report['status']=('prepared_only' if prepare_only else 'blocked_missing_model_or_credentials') if not ready or prepare_only else 'completed_with_unreviewed_proposals'

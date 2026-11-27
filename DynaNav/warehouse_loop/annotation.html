@@ -27,12 +27,12 @@ body{margin:20px;background:#15202b;color:#e8eef5;font:16px system-ui}button,inp
 <select id="refState"><option value="valid">有效参考线</option><option value="valid_empty">已确认无有效路线</option></select>
 <p class="muted">灰色 unknown 表示深度占据地图缺少覆盖，不等于 RGB 看不见，也不等于路线错误。人工审核的参考线可以经过 unknown，不必因此缩短；地图覆盖诊断会保留，已知障碍冲突仍需核查。</p>
 <label>参考线审核备注（可选；unknown 不阻止批准、不单独关闭参考线监督）<input id="unknown" style="width:90%"></label></div></div>
-<label>Landmark JSON 数组（最多三类，image_id 必须来自上方 RGB）<textarea id="landmark" placeholder='[]'></textarea></label>
+<label>Landmark 类别数组（最多三类，仅当前 RGB；程序自动绑定来源）<textarea id="landmark" placeholder='[]'></textarea></label>
 <details open><summary>Landmark 填写示例（仅示范格式，不会自动写入答案）</summary>
-<p>每项包含 <code>image_id</code>（所依据的源图像）和 <code>category</code>（简短英文物体类别）。仅登记该源图像中实际可见、值得登记的物体；没有则填 <code>[]</code>。最多三项。</p>
-<p>下例动态使用当前图像 ID；只有当前图像确有标牌时才采用：</p><pre id="landmarkExample"></pre>
+<p>每项直接填写简短英文物体类别字符串，如 <code>["sign","fire extinguisher"]</code>，不填写 image_id。仅登记当前 RGB 中实际可见的物体；历史图像只辅助 Local 和 Route。没有则填 <code>[]</code>，最多三类。旧对象格式仍可读取，历史来源不会自动改绑。</p>
+<p>下例自动绑定当前图像；只有当前图像确有标牌时才采用：</p><pre id="landmarkExample"></pre>
 <p>同帧的 01/4R、02/4R 两个牌子均属于 <code>sign</code>，当前类别协议只列一次，不把编号拼进 category。<code>[sign 01/4R 02/4R]</code> 不是合法 JSON。当前 Landmark 协议没有编号字段，后续实例分割／OCR 负责绑定文字；如 Local 需要描述编号，只写当前图像中确实可读的内容。</p>
-<p>其他类别名称示例：<code>fire extinguisher</code>、<code>door</code>。是否可见须由你判断，不要直接照抄。当前可引用的图像：</p><pre id="landmarkSources"></pre>
+<p>其他类别名称示例：<code>fire extinguisher</code>、<code>door</code>。是否可见须由你判断，不要直接照抄。输入图像（类别数组仅绑定标为“当前”的一帧）：</p><pre id="landmarkSources"></pre>
 </details>
 <p>上一已批准 Local 与相对运动显示在上方输入信息中；valid=true 时可结合当前观察推断，以 Inferred: 标明推断。历史判断不等于定位真值，失效或证据不足填 unknown。</p>
 <p>本阶段模型输入和标签统一使用英文：instruction、Local、remaining_instruction 和 description 均写英文，标牌编号保持原样。Local 最多 80 字符，例如 <code>By sign 01/4R, facing toward sign 02/4R.</code>；历史推断以 <code>Inferred:</code> 开头。</p>
@@ -49,50 +49,14 @@ body{margin:20px;background:#15202b;color:#e8eef5;font:16px system-ui}button,inp
 <p><label>核验依据（补记时必填；说明目标、到达位置、历史画面或运动记录）<input id="replayEventNote" style="width:95%"></label></p>
 <p>随“批准本时刻”保存，来源标记为人工回放核验；不会改写原始采集日志。历史事件显示在上方，后续帧无需重复勾选。这里记录一次事件的发生／首次确认，不是累计状态：同一次起步、路口或转弯，不要在以后每帧重复勾选。修改旧事实会使后续批准需要重新审核。</p>
 </fieldset>
-<label>新 Route JSON<textarea id="route" style="height:170px" placeholder='{"remaining_instruction":"...","current_subgoal":{"action":"..."},"status":"active"}'></textarea></label>
-<details open id="routeExamples"><summary>Route 填写示例（按实际进度选择，不会自动写入答案）</summary>
-<p>Route 必须是 JSON 对象，包含三个字段：<code>remaining_instruction</code> 写完整的剩余任务；<code>current_subgoal</code> 只写当前正在执行的一个子目标；<code>status</code> 写任务状态。不能只把一句指令放进大括号。</p>
-<p>下面演示“走到通道尽头左转，然后前往灭火器旁停车”的不同阶段，不代表你的任务已经推进到这些阶段。如果原任务还有其他转弯或要求，必须保留尚未完成的部分。</p>
-<details open><summary>① 尚未到通道尽头：当前子目标是前进，不是左转</summary>
-<pre id="routeExampleAdvance">{
-  "remaining_instruction": "Proceed along the aisle, turn left at its end, then approach the fire extinguisher you see and stop.",
-  "current_subgoal": {
-    "action": "advance_to_corridor_end"
-  },
-  "status": "active"
-}</pre></details>
-<details><summary>② 已到通道尽头，正在左转</summary>
-<pre id="routeExampleTurn">{
-  "remaining_instruction": "Turn left, then approach the fire extinguisher you see and stop beside it.",
-  "current_subgoal": {
-    "action": "turn",
-    "direction": "left"
-  },
-  "status": "active"
-}</pre></details>
-<details><summary>③ 左转已完成，已看到并确定要接近的灭火器</summary>
-<pre id="routeExampleApproach">{
-  "remaining_instruction": "Approach the visible fire extinguisher ahead and stop beside it.",
-  "current_subgoal": {
-    "action": "approach_landmark",
-    "category": "fire extinguisher",
-    "description": "The visible fire extinguisher ahead"
-  },
-  "status": "active"
-}</pre>
-<p>若同时可见多个灭火器，description 应根据当前观测进一步区分；尚未看到时，不要照抄“前方可见”。</p></details>
-<details><summary>④ 已到达指定目标旁并实际停车，任务完成</summary>
-<pre id="routeExampleCompleted">{
-  "remaining_instruction": "Reached the target fire extinguisher vicinity and stopped.",
-  "current_subgoal": {
-    "action": "stop"
-  },
-  "status": "completed"
-}</pre>
-<p>只有已发生的到达、停车事实支持完成时才填写 completed。当前审批还要求记录 target_visible、stopped 和 arrival_confirmed 事件；可在上方回放补记区核验并记录；仅看见目标或发出停车命令不算完成。</p></details>
-<p>状态：<code>active</code> 进行中；<code>waiting</code> 暂时等待；<code>needs_clarification</code> 指令或指代不清；<code>completed</code> 有证据支持的整项任务完成。下一时刻会读取本时刻批准的 Route；改写措辞不代表实际取得进展。</p>
+<label>新 Route（英文剩余指令或 DONE）<textarea id="route" style="height:100px" placeholder="Reach the aisle end, turn left, then stop beside the extinguisher."></textarea></label>
+<details open id="routeExamples"><summary>Route 填写示例（不会自动写入答案）</summary>
+<p>直接写英文剩余任务，不加 JSON 引号、大括号、current_subgoal 或 status。保留尚未完成的步骤和最终目标；历史图像和已发生事实可以辅助判断进度。</p>
+<pre>Reach the aisle end, turn left, then approach the fire extinguisher and stop.</pre>
+<p>完成左转且目标可见后：</p><pre>Approach the visible fire extinguisher and stop beside it.</pre>
+<p>仅在目标到达与实际停车已有证据时：</p><pre>DONE</pre>
+<p>DONE 不表示等待、路线不可用或定位失败；仍需 target_visible、stopped、arrival_confirmed 证据。下一时刻读取本轮批准的 Route。原始 instruction 始终保留。旧 JSON 对象仍可加载、编辑及批准，以兼容几何对照。</p>
 </details>
-<details><summary>Route 动作协议</summary><p>advance_to_intersection: ordinal；advance_to_corridor_end；turn: direction left/right；approach_landmark: target_text/category/description；relative_motion: direction、distance_m、origin=subgoal_start；explore；follow_person: description；wait；stop。status: active/waiting/needs_clarification/completed。</p></details>
 <pre id="preview"></pre><label><input type="checkbox" id="reviewed">我已人工检查来源、任务进度、地标和参考线；未把未来观测当成当前事实。</label>
 <p class="muted">整段验收不要求固定转向次数或单独的 start 标记；请人工核对原始指令是否完成。仍须全部关键帧批准有效，并有目标可见、实际停车和到达事实。</p>
 <button onclick="save(false)">保存草稿</button><button onclick="save(true)">批准本时刻</button><button onclick="exportData()">导出全部批准版本</button><button onclick="finalize()">确认整个任务与标注完成</button>
@@ -153,13 +117,14 @@ canvas.onpointermove=e=>{if(selected>=0){points[selected]=metric(mouse(e));draw(
 function getAnchors(){return ReferenceProjection.anchors(ReferenceProjection.resample(points));}
 function showAnnotationHelp(){
  if(!sample)return;
- $('landmarkExample').textContent=JSON.stringify([{image_id:sample.observation.image_id,category:'sign'}],null,2);
+ $('landmarkExample').textContent=JSON.stringify(['sign'],null,2);
  $('landmarkSources').textContent=sample.observation.rgb_history.map(h=>h.image_id+'  t='+h.t_obs.toFixed(3)+' s'+(h.image_id===sample.observation.image_id?'（当前）':'（历史）')).join('\n');
  if(project)$('annotationCounts').textContent='采集总计 '+project.source_frames+' 帧；本项目选取 '+project.samples.length+' 个关键时刻标注，当前第 '+(index+1)+' 个。无需逐帧填写，未选帧没有自动文本标签。';
 }
 function draw(){ctx.clearRect(0,0,640,640);if(map.complete&&map.naturalWidth)ctx.drawImage(map,0,0,640,640);function line(p,c,w){if(!p.length)return;ctx.strokeStyle=c;ctx.lineWidth=w;ctx.beginPath();p.forEach((q,i)=>{let a=pixel(q);i?ctx.lineTo(...a):ctx.moveTo(...a)});ctx.stroke()};if(sample)line(sample.assistance.future_trajectory,'#925ce5',1);line(ReferenceProjection.resample(points),'#ff9600',3);for(let p of points){ctx.fillStyle='#ff9600';ctx.beginPath();ctx.arc(...pixel(p),4,0,7);ctx.fill()};getAnchors().forEach((p,i)=>{ctx.fillStyle='cyan';ctx.fillText('W'+(i+1),...pixel(p));});$('preview').textContent='waypoint 预览（保存时按批准参考线重新计算）: '+JSON.stringify(getAnchors());drawRGBProjection()}
-async function loadSample(i){try{let s=await api('/sample?index='+i);sample=s;index=i;loadProjectionCamera(s);$('frames').value=i;let a=s.annotation,d=s.draft;if(d?.parent_revision!==s.parent_revision)d=null;let old=d||a;points=structuredClone(old?.control_points||s.assistance.suggested_reference);history=[];$('refState').value=old?.reference_state||(points.length>1?'valid':'valid_empty');$('rgb').src='annotation/'+s.folder+'/rgb.png';$('history').replaceChildren(...s.observation.rgb_history.map(h=>{let im=document.createElement('img');im.src='annotation/'+h.preview;im.title=h.image_id+' t='+h.t_obs;return im}));map.src='annotation/'+s.folder+'/map.png';$('facts').textContent=JSON.stringify({original_instruction:s.observation.task.instruction,source:s.observation.image_id,previous_route:s.observation.route,previous_local:s.observation.previous_local,route_revision:s.observation.route_revision,events:s.observation.execution.events,robot_state:s.observation.robot_state,robot_state_mask:s.observation.robot_state_mask,measured_facts:s.observation.execution.measured_facts,geometry:s.assistance.geometry},null,2);$('landmark').value=JSON.stringify(old?.landmark||a?.parsed.landmark||[],null,2);$('local').value=old?.local||a?.parsed.local||'';$('route').value=JSON.stringify(old?.route||a?.parsed.route||{},null,2);$('unknown').value=old?.unknown_review_note||'';let replayKinds=old?.replay_event_kinds||(old?.replay_events||[]).map(e=>e.kind);document.querySelectorAll('[name=replayEvent]').forEach(e=>e.checked=replayKinds.includes(e.value));$('replayEventNote').value=old?.replay_event_note||old?.replay_events?.[0]?.note||'';$('reviewed').checked=false;$('error').textContent='';showAnnotationHelp();draw()}catch(e){error(e)}}
-async function save(approval){try{if(!sample)throw Error('先加载源帧');let d={index,source_binding:sample.provenance.source_binding,parent_revision:sample.parent_revision,annotator:$('annotator').value,human_reviewed:$('reviewed').checked,landmark:JSON.parse($('landmark').value),local:$('local').value,route:JSON.parse($('route').value),control_points:points,reference_state:$('refState').value,unknown_review_note:$('unknown').value,replay_event_kinds:[...document.querySelectorAll('[name=replayEvent]:checked')].map(e=>e.value),replay_event_note:$('replayEventNote').value};await api(approval?'/approve':'/draft',d);$('error').textContent=approval?'本时刻已批准；可选择下一时刻。':'草稿已保存。'}catch(e){error(e)}}
+async function loadSample(i){try{let s=await api('/sample?index='+i);sample=s;index=i;loadProjectionCamera(s);$('frames').value=i;let a=s.annotation,d=s.draft;if(d?.parent_revision!==s.parent_revision)d=null;let old=d||a;points=structuredClone(old?.control_points||s.assistance.suggested_reference);history=[];$('refState').value=old?.reference_state||(points.length>1?'valid':'valid_empty');$('rgb').src='annotation/'+s.folder+'/rgb.png';$('history').replaceChildren(...s.observation.rgb_history.map(h=>{let im=document.createElement('img');im.src='annotation/'+h.preview;im.title=h.image_id+' t='+h.t_obs;return im}));map.src='annotation/'+s.folder+'/map.png';$('facts').textContent=JSON.stringify({original_instruction:s.observation.task.instruction,source:s.observation.image_id,previous_route:s.observation.route,previous_local:s.observation.previous_local,route_revision:s.observation.route_revision,events:s.observation.execution.events,robot_state:s.observation.robot_state,robot_state_mask:s.observation.robot_state_mask,measured_facts:s.observation.execution.measured_facts,geometry:s.assistance.geometry},null,2);$('landmark').value=JSON.stringify(old?.landmark||a?.parsed.landmark||[],null,2);$('local').value=old?.local||a?.parsed.local||'';let savedRoute=old?.route||a?.parsed.route||'';$('route').value=typeof savedRoute==='string'?savedRoute:JSON.stringify(savedRoute,null,2);$('unknown').value=old?.unknown_review_note||'';let replayKinds=old?.replay_event_kinds||(old?.replay_events||[]).map(e=>e.kind);document.querySelectorAll('[name=replayEvent]').forEach(e=>e.checked=replayKinds.includes(e.value));$('replayEventNote').value=old?.replay_event_note||old?.replay_events?.[0]?.note||'';$('reviewed').checked=false;$('error').textContent='';showAnnotationHelp();draw()}catch(e){error(e)}}
+function readRouteInput(){let value=$('route').value.trim();if(!value)throw Error('请输入剩余指令或 DONE');return value.startsWith('{')?JSON.parse(value):value;}
+async function save(approval){try{if(!sample)throw Error('先加载源帧');let d={index,source_binding:sample.provenance.source_binding,parent_revision:sample.parent_revision,annotator:$('annotator').value,human_reviewed:$('reviewed').checked,landmark:JSON.parse($('landmark').value),local:$('local').value,route:readRouteInput(),control_points:points,reference_state:$('refState').value,unknown_review_note:$('unknown').value,replay_event_kinds:[...document.querySelectorAll('[name=replayEvent]:checked')].map(e=>e.value),replay_event_note:$('replayEventNote').value};await api(approval?'/approve':'/draft',d);$('error').textContent=approval?'本时刻已批准；可选择下一时刻。':'草稿已保存。'}catch(e){error(e)}}
 async function exportData(){try{let r=await api('/export',{});$('error').textContent='导出成功：'+r.records.length+' 个回归样本，见 exports/。'}catch(e){error(e)}}
 async function finalize(){try{await api('/finalize',{annotator:$('annotator').value,human_reviewed:$('reviewed').checked});$('error').textContent='整段任务已人工确认；可进入少量教师对照。'}catch(e){error(e)}}
 async function update(){try{let s=await api('/status');$('status').textContent=JSON.stringify(s,null,2);if(s.source&&s.source.image_id!==source?.image_id){source=s.source;$('liveRgb').src=source.image;$('liveMap').src='navigation/map.png?t='+source.t_obs;}if(s.state!=='recording'&&driveEnabled)stopDrive();if(s.project_ready&&!project){project=await api('annotation/project.json');$('replay').hidden=false;$('live').hidden=true;project.samples.forEach((x,i)=>{let o=document.createElement('option');o.value=i;o.textContent=(i+1)+' / '+project.samples.length+' '+x;$('frames').append(o)});await loadSample(0)}}catch(e){error(e)}setTimeout(update,500)}update();

@@ -1,0 +1,4 @@
+Markdown==3.11.2
+reportlab==5.1.0
+PyMuPDF==2.0
+pdfrw==0.4

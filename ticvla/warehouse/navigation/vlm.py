@@ -7,15 +7,18 @@ from .grammar_decode import GreedyGrammarProcessor
 from ..structured_io import StructuredVLM, response_grammar, parse_structured
 from ..models import pack_last_kv
 from ..vlm import QUERY
+from ..landmark_protocol import current_source_id
 
 
 class NavigationVLM(StructuredVLM):
     def build_prompt(self, observation, *args, **kwargs):
-        from .route_protocol import NAVIGATION_SYSTEM
+        from .route_protocol import NAVIGATION_SYSTEM, SIMPLE_NAVIGATION_SYSTEM
 
         old = self.system_prompt
         if observation.get("route_schema") == "structured-v1":
             self.system_prompt = getattr(self, "navigation_system_override", NAVIGATION_SYSTEM)
+        elif observation.get("route_schema") == "compact-v2":
+            self.system_prompt = SIMPLE_NAVIGATION_SYSTEM
         try:
             return super().build_prompt(observation, *args, **kwargs)
         finally:
@@ -35,7 +38,9 @@ class NavigationVLM(StructuredVLM):
             response_grammar(
                 image_ids,
                 extended=False,
+                categories_only=observation.get("landmark_schema", "categories") == "categories",
                 structured_route=observation.get("route_schema") == "structured-v1",
+                compact_route=observation.get("route_schema") == "compact-v2",
             ),
             ids.shape[1],
         )
@@ -141,7 +146,9 @@ class NavigationVLM(StructuredVLM):
             parsed = parse_structured(
                 text,
                 image_ids,
+                current_image_id=current_source_id(observation),
                 structured_route=observation.get("route_schema") == "structured-v1",
+                compact_route=observation.get("route_schema") == "compact-v2",
             )
         except ValueError as exc:
             return dict(base, valid=False, error=str(exc), parsed=None)

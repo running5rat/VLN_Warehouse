@@ -1,0 +1,5 @@
+<landmark>["sign"]</landmark>
+<local>In the second aisle, approaching the mapped position of sign 04/5R.</local>
+<Route>Continue along the second aisle to sign 04/5R, approach it and STOP beside it.</Route>
+<waypoint>(3.106,-0.001);(4.606,-0.001);(5.306,0.499);(5.706,0.198);(6.105,-0.302)</waypoint>
+<REFLINE>

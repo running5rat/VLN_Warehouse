@@ -1,0 +1,34 @@
+{
+  "planned": 37,
+  "returned": 37,
+  "format_valid": 37,
+  "projected": 24,
+  "empty": 13,
+  "rejected": 0,
+  "request_p50_s": null,
+  "request_p95_s": null,
+  "within_2s": 0,
+  "within_5s_source_age": 0,
+  "estimated_CNY": null,
+  "human_approved": 0,
+  "actual_navigation": "not_run",
+  "reference_decoder": "not_run",
+  "by_task": {
+    "mapping": {
+      "planned": 21,
+      "returned": 21,
+      "format_valid": 21,
+      "projected": 18,
+      "empty": 3,
+      "rejected": 0
+    },
+    "target": {
+      "planned": 16,
+      "returned": 16,
+      "format_valid": 16,
+      "projected": 6,
+      "empty": 10,
+      "rejected": 0
+    }
+  }
+}

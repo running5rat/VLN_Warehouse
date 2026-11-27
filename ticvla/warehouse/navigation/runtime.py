@@ -345,6 +345,20 @@ def run(options):
         folder = root / "inputs" / f"{counter + 1:06d}"
         folder.mkdir(parents=True, exist_ok=True)
         render_map_image(grid, cfg.map_resolution).save(folder / "map.png")
+        semantic_contract = None
+        if options.get("semantic_input_mode", "unified") == "unified":
+            from ..semantic_input import map_records, render_semantic_map
+            # Snapshot before this source's semantic commit. Do not reuse a final map.
+            usable = [x for x in usable if x['last_seen'] < source['t_obs'] or x.get('original_submap_id')]
+            mapped = map_records(usable, source)
+            prior_builder = copy.copy(builder)
+            prior_builder.frames = [f for f in builder.frames if f['t'] < source['t_obs']]
+            prior_grid, _ = render_local(prior_builder, source['T_odom_body'], source['t_obs'], source['odom_epoch'])
+            render_semantic_map(prior_grid, cfg.map_resolution, mapped).save(folder / 'map.png')
+            semantic_contract = dict(version='causal-semantic-map-v1', map_version=store.version,
+                source_until=max((f['t'] for f in prior_builder.frames), default=None),
+                coordinate_frame='current_source_body_flu_metres',
+                update_order='freeze past map -> infer current RGB/candidates -> commit masks/OCR -> next request')
         hist = []
         for offset in (3, 2, 1, 0):
             earlier = [
@@ -381,6 +395,7 @@ def run(options):
         execution["target_binding"] = target_observation
         obs = dict(
             request_trigger=trigger,
+            image_id=source["image_id"],
             task=asdict(nav.state.contract),
             t_obs=source["t_obs"],
             source_monotonic=source["source_monotonic"],
@@ -398,14 +413,17 @@ def run(options):
             map_landmarks=mapped,
             map_version=str(store.version),
             task_mode=options["task_mode"],
-            landmark_schema="legacy",
-            route_schema="structured-v1" if nav.natural else "legacy",
+            landmark_schema="categories",
+            route_schema=("structured-v1" if nav.natural else "legacy")
+                if options["execution_backend"] == "geometry-baseline" else "compact-v2",
             previous_reference=ref.tolist(),
             target_binding_id=(follow or {}).get("binding_id"),
             target_visible=(follow or {}).get("visible", False),
             follow_target=target_observation,
         )
         obs["previous_local"] = nav.local_input(obs)
+        if semantic_contract:
+            obs["semantic_input"] = semantic_contract
         atomic_json(folder / "observation.json", obs)
         return obs
 
@@ -448,6 +466,8 @@ def run(options):
                 result = r["data"]
                 if kind == "vlm":
                     obs = job["observation"]
+                    if result.get("perception_candidates"):
+                        obs["perception_candidates"] = result["perception_candidates"]
                     max_age = 3 if job["mode"] == "PREFILL_FOLLOW" else 10
                     # Recheck live binding: an in-flight visible result must not revive a lost target.
                     binding_ok = (
@@ -549,6 +569,8 @@ def run(options):
                                         source=saved,
                                         categories=list(dict.fromkeys(categories)),
                                         parent_request=r["id"],
+                                        candidate_batch_path=result.get("candidate_batch_path")
+                                            if image_id == obs['image_id'] else None,
                                     ),
                                 )
                         local = result["parsed"]["local"]
@@ -619,19 +641,22 @@ def run(options):
                             source="llm",
                             request_id=str(job["parent_request"]),
                         )
+                        from ..perception.realtime import ALIASES
+                        selected = inst['category'] in {ALIASES.get(' '.join(c.lower().split()), ' '.join(c.lower().split()))
+                                                        for c in job['categories']}
                         outcome = store.consume(
                             event,
                             inst["mask"],
                             inst["confidence"],
                             segmentation=batch["provenance"],
-                        )
+                        ) if selected else dict(status='not_selected', reason='VLM did not select category', landmark_uid=None)
                         accepted.append(
                             dict(
                                 instance_index=i,
                                 category=inst["category"],
                                 bbox=inst["bbox"],
                                 confidence=inst["confidence"],
-                                selected=True,
+                                selected=selected,
                                 parent_event_id=event.message_id,
                                 result=outcome,
                                 geometry_file=(
@@ -974,6 +999,7 @@ def run(options):
                             "vlm",
                             dict(
                                 observation=obs,
+                                source=source,
                                 mode=mode,
                                 reference_check_grid=grid.copy(),
                             ),
@@ -1309,12 +1335,15 @@ def run(options):
                         reason = (
                             "execution_not_evaluated" if backward else "reference_only"
                         )
-                    if nav.natural and (
+                    if nav.natural and options["execution_backend"] == "geometry-baseline" and (
                         not isinstance(nav.state.route, dict)
                         or nav.state.route["status"] != "active"
                     ):
                         command, selected = (0.0, 0.0), None
                         reason = "waiting_active_model_subgoal"
+                    if nav.state.route == "DONE" or nav.state.execution.get("completion_claim_rejected"):
+                        command, selected = (0.0, 0.0), None
+                        reason = "completion_without_evidence" if not nav.terminal else nav.terminal
                     if now - source["source_monotonic"] > 0.6 or (
                         nav.mode == "follow" and not (follow and follow["visible"])
                     ):

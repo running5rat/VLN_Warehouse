@@ -42,11 +42,11 @@ class LocalContextTests(unittest.TestCase):
                    robot_state=[0,0], robot_state_mask=[True,True])
         obs["previous_local"] = local_context(local_memory("Near sign", old, origin="model", revision=1), obs)
         prompt, images = InternVLReference.build_prompt(model, obs)
-        self.assertIn('"previous_local"', prompt)
-        self.assertIn('"x_m": 2.0', prompt)
+        self.assertIn('Previous Local:', prompt)
+        self.assertIn('x_m=2.0', prompt)
         self.assertIn('Near sign', prompt)
-        self.assertIn('"task_acceptance_criteria": {"arrival_radius_m": 4.0}', prompt)
-        self.assertIn('CURRENT body pose in the PREVIOUS', prompt)
+        self.assertNotIn('arrival_radius_m', prompt)
+        self.assertIn('current body in the earlier body frame', prompt)
         self.assertEqual(images, [])
 
     def test_unknown_epoch_expiry_future_invalid_pose(self):

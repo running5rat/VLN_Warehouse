@@ -1,0 +1,34 @@
+{
+  "request_id": "loop-01",
+  "instruction": "Circle the central warehouse rack block clockwise, build a semantic map, and return to the starting aisle.",
+  "landmark": [
+    "sign",
+    "fire extinguisher"
+  ],
+  "local": "Beside sign 01/4R, facing the aisle toward signs 02/4R and 04/4R.",
+  "route": "Continue along this aisle, then inspect the right-hand opening beyond the rack ends.",
+  "waypoint": [
+    [
+      3.5942528868864736,
+      0.17233267690248377
+    ],
+    [
+      7.188505773772947,
+      0.34466535380496754
+    ],
+    [
+      10.782758660659422,
+      0.5169980307074514
+    ],
+    [
+      14.377011547545894,
+      0.6893307076099351
+    ],
+    [
+      17.971264434432367,
+      0.8616633845124189
+    ]
+  ],
+  "source_image_id": "codex-map-return-20261112-d:00000238",
+  "provider": "codex-session"
+}

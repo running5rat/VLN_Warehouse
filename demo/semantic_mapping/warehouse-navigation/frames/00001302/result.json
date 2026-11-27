@@ -1,0 +1,13 @@
+{
+  "frame": 1302,
+  "task": "target",
+  "t_obs": 272.416680874303,
+  "request_elapsed_s": null,
+  "status": "format_valid_unreviewed",
+  "semantic_review": "review_pending",
+  "api_usage": null,
+  "decoder": "not_run",
+  "actual_control": "not_executed",
+  "format_valid": true,
+  "projection_status": "empty"
+}

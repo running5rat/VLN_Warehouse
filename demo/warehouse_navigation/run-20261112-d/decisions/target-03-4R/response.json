@@ -1,0 +1,36 @@
+{
+  "request_id": "target-03-4R",
+  "target_uid": "f5febf048909438fa28ac429d8c6514e",
+  "instruction": "Navigate to shelf sign 03/4R and stop beside it.",
+  "visual_context_source_image_id": "codex-map-return-20261112-d:00005321",
+  "landmark": [
+    "sign",
+    "fire extinguisher"
+  ],
+  "local": "At the near-end cross-aisle facing the wall. Sign 03/4R is mapped along the aisle to the right.",
+  "route": "Turn right into the previously traversed aisle. Approach mapped sign 03/4R and stop beside it.",
+  "waypoint": [
+    [
+      -0.17867864033318334,
+      -1.9990639343767513
+    ],
+    [
+      -0.0869011401812991,
+      -4.997656206516364
+    ],
+    [
+      0.004876359970585137,
+      -7.996248478655977
+    ],
+    [
+      0.5536679743399354,
+      -9.582758607688922
+    ],
+    [
+      -0.22198392074580678,
+      -10.40687061384423
+    ]
+  ],
+  "source_image_id": "codex-map-return-20261112-d:00005484",
+  "provider": "codex-session"
+}

@@ -1,0 +1,5 @@
+<landmark>["fire extinguisher"]</landmark>
+<local>At the starting cross-aisle. Mapped sign 04/5R is in the farther parallel aisle.</local>
+<Route>Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.</Route>
+<waypoint>(-0.624,0.005);(-4.223,0.014);(-4.923,0.015);(-4.925,-0.685);(-4.949,-10.259)</waypoint>
+<REFLINE>

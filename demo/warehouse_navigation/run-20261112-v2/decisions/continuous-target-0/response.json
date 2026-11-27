@@ -1,0 +1,38 @@
+{
+  "request_id": "continuous-target-0",
+  "task_id": "target",
+  "instruction": "Navigate to sign 04/5R in the farther second aisle and STOP beside it.",
+  "initial_route": "Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.",
+  "previous_route_policy": "Retain every unfinished step in order, including final STOP.",
+  "landmark": [
+    "fire extinguisher"
+  ],
+  "local": "At the starting cross-aisle. Mapped sign 04/5R is in the farther parallel aisle.",
+  "route": "Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.",
+  "waypoint": [
+    [
+      -0.6239498116002352,
+      0.004862751580178647
+    ],
+    [
+      -4.223364949903488,
+      0.013746350225395734
+    ],
+    [
+      -4.923361943733547,
+      0.01547398988548121
+    ],
+    [
+      -4.925087831095749,
+      -0.6845230043858187
+    ],
+    [
+      -4.948694350366413,
+      -10.259013725255052
+    ]
+  ],
+  "planning_started_monotonic": 7985.609708549,
+  "target_uid": "dcd8ceacda4e43be8ae1e14c37d312c0",
+  "source_image_id": "codex-continuous-20261112-v2:00000946",
+  "provider": "codex-reviewed-decision-replay"
+}

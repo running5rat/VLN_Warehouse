@@ -1,0 +1,18 @@
+{
+  "isaac_version": "5.0.0-rc.45+release.23960.184afb15.gl",
+  "scene_asset": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.0/Isaac/Environments/Simple_Warehouse/full_warehouse.usd",
+  "robot_asset": "https://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/5.0/Isaac/Robots/NVIDIA/NovaCarter/nova_carter.usd",
+  "shelf_count": 28,
+  "waypoints": [],
+  "navigation_task": "instruction",
+  "execution_source": "navigation_command_watchdog",
+  "reached": [],
+  "loop_complete": false,
+  "navigation_finished": true,
+  "distance_m": 63.46522425384069,
+  "return_error_m": 10.372340202331543,
+  "frames": 5865,
+  "simulation_seconds": 1185.6333951689303,
+  "motion": "PhysX articulation; DifferentialController wheel velocities; no pose teleport after initialization",
+  "odometry": "synchronized simulated pose, not wheel odometry or SLAM"
+}

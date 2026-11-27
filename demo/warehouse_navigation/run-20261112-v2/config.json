@@ -1,0 +1,10 @@
+{
+  "scene_source": "manual-static-004",
+  "landmark_variant": null,
+  "scene_person": false,
+  "provider": "codex-session",
+  "trained_VLA": false,
+  "curve": "PCHIP on five source-frame waypoints",
+  "controller": "Pure Pursuit",
+  "weights": "/data/ticvla/outputs/landmark-realtime-20261012/engines/v8s/model.engine"
+}

@@ -36,8 +36,60 @@ class SemanticTeacherTests(unittest.TestCase):
 
     def tearDown(self):self.tmp.cleanup()
 
+    def test_route_only_uses_initialized_route_then_excludes_original_task_from_payload(self):
+        sample=copy.deepcopy(self.sample)
+        original=sample['observation']['task']['instruction']
+        sample['observation']['route']=original
+        cfg=dict(model='fixture',api='chat_completions',task_input_mode='route_only')
+        request,summary=build_request(sample,cfg)
+        self.assertNotIn('Instruction:',summary['user_text'])
+        self.assertEqual(summary['user_text'].count(original),1)
+        self.assertIn('Previous Route: '+original,summary['user_text'])
+        self.assertNotIn('instruction',summary['context'])
+        sample['observation']['route']='Stop.'
+        request,summary=build_request(sample,cfg)
+        self.assertIn('Previous Route: Stop.',summary['user_text'])
+        self.assertNotIn(original,json.dumps(request))
+        self.assertEqual(sample['observation']['task']['instruction'],original)
+        self.assertEqual(summary['audit_context']['task']['instruction'],original)
+        _,legacy=build_request(sample,dict(model='fixture'))
+        self.assertIn('Instruction: '+original,legacy['user_text'])
+        with self.assertRaises(ValueError):build_request(sample,dict(model='fixture',task_input_mode='typo'))
+
     def answer(self):return dict(landmark=[dict(image_id='e:0',category='sign')],local='Near a sign.',
         route=dict(remaining_instruction='Turn left, then approach the extinguisher.',current_subgoal=dict(action='turn',direction='left'),status='active'))
+
+    def test_compact_teacher_output_binds_current_and_keeps_text_compact(self):
+        from ticvla.warehouse.dataset_tools.semantic_annotation import assemble_answer, agreement
+        answer=self.answer(); answer['landmark']=['sign','fire extinguisher']
+        before=copy.deepcopy(answer)
+        proposal=assemble_answer(answer,self.sample)
+        self.assertEqual(answer,before)
+        self.assertIn('<landmark>["sign", "fire extinguisher"]</landmark>',proposal['text'])
+        self.assertEqual(proposal['parsed']['landmark'],[
+            dict(image_id='e:0',category='sign'), dict(image_id='e:0',category='fire extinguisher')])
+        self.assertFalse(proposal['approved'])
+        self.assertEqual(proposal['geometry'],self.sample['geometric_supervision'])
+        self.assertEqual(agreement(proposal['parsed'],self.sample)['rule_flags'],[])
+        _,summary=build_request(self.sample,read_json(self.config))
+        self.assertEqual(summary['audit_context']['current_image_id'],'e:0')
+        self.assertIn('CURRENT RGB only',summary['instructions'])
+
+    def test_compact_route_teacher_and_completion_guard(self):
+        from ticvla.warehouse.dataset_tools.semantic_annotation import assemble_answer, agreement
+        answer=self.answer();answer.update(landmark=['sign'],route='Turn left, then approach the extinguisher.')
+        proposal=assemble_answer(answer,self.sample)
+        self.assertEqual(proposal['route_protocol'],'compact-v2')
+        self.assertIn('<Route>'+answer['route']+'</Route>',proposal['text'])
+        self.assertNotIn('current_subgoal',proposal['text'])
+        self.assertIsNone(agreement(proposal['parsed'],self.sample)['route_action_exact'])
+        answer['route']='DONE'
+        proposal=assemble_answer(answer,self.sample)
+        self.assertIn('completed_without_recorded_target_arrival_and_stop_evidence',
+                      agreement(proposal['parsed'],self.sample)['rule_flags'])
+        self.sample['observation']['execution']['events']=[dict(kind=k,t_obs=0.)
+            for k in ('target_visible','stopped','arrival_confirmed')]
+        self.assertEqual(agreement(proposal['parsed'],self.sample)['rule_flags'],[])
 
     def raw(self,answer):return dict(status='completed',model='fixture-only',output=[dict(type='message',content=[dict(type='output_text',text=json.dumps(answer))])])
 
@@ -67,7 +119,82 @@ class SemanticTeacherTests(unittest.TestCase):
         self.assertNotIn('HUMAN ANSWER MUST NOT LEAK',text)
         self.assertNotIn('reference_xy',text);self.assertNotIn('reference_mask',text)
         self.assertIn('data:image/jpeg;base64,',text)
-        self.assertIn('unavailable',summary['context']['map_interface'])
+        self.assertIn('JSON',request['input'][0]['content'][0]['text'])
+        self.assertIn('unavailable',summary['context']['map'])
+
+    def test_chat_provider_uses_same_causal_content_and_rejects_truncation(self):
+        from ticvla.warehouse.dataset_tools.semantic_annotation import parse_api_response
+        config=read_json(self.config)
+        first,summary=build_request(self.sample,config)
+        config.update(api='chat_completions',thinking={'type':'enabled'})
+        chat,other=build_request(self.sample,config)
+        self.assertEqual(summary['context'],other['context'])
+        self.assertEqual(summary['images'],other['images'])
+        self.assertEqual(first['instructions'],chat['messages'][0]['content'])
+        self.assertNotIn('reference_xy',json.dumps(chat))
+        self.assertNotIn('HUMAN ANSWER MUST NOT LEAK',json.dumps(chat))
+        raw={'choices':[{'finish_reason':'stop','message':{'content':json.dumps(self.answer())}}]}
+        self.assertEqual(json.loads(parse_api_response(raw)),self.answer())
+        raw['choices'][0]['finish_reason']='length'
+        with self.assertRaises(ValueError):parse_api_response(raw)
+
+    def test_explicit_rgb_encoding_preserves_resolution_and_source(self):
+        import base64,io
+        cfg=read_json(self.config);cfg['rgb_jpeg_quality']=95
+        original=file_sha256(self.image)
+        request,summary=build_request(self.sample,cfg)
+        url=request['input'][0]['content'][2]['image_url']
+        decoded=Image.open(io.BytesIO(base64.b64decode(url.split(',',1)[1])))
+        self.assertEqual(decoded.size,(16,12));self.assertEqual(file_sha256(self.image),original)
+        cfg['api']='chat_completions'
+        chat,other=build_request(self.sample,cfg)
+        self.assertEqual(summary['images'],other['images'])
+        self.assertEqual(url,chat['messages'][1]['content'][2]['image_url']['url'])
+
+    def test_budget_reserves_failures_and_deduplicates_paid_requests(self):
+        from ticvla.warehouse.dataset_tools.teacher_budget import budgeted_call
+        cfg=dict(budget_file=str(self.root/'budget.json'),model='fixture',base_url='https://example.invalid',
+            input_token_reservation=1000,output_token_reservation=1000,
+            usd_per_million_tokens={'input':1.,'output':2.})
+        count=[]
+        def send():
+            count.append(1)
+            return {'usage':{'prompt_tokens':100,'completion_tokens':50}}
+        budgeted_call({'job':1},cfg,send)
+        with self.assertRaisesRegex(ValueError,'already recorded'):budgeted_call({'job':1},cfg,send)
+        self.assertEqual(len(count),1)
+
+        def fail():raise OSError('unknown network outcome')
+        with self.assertRaises(OSError):budgeted_call({'job':2},cfg,fail)
+        ledger=read_json(self.root/'budget.json')
+        self.assertAlmostEqual(sum(c['accounted_usd'] for c in ledger['calls'].values()),.0032)
+        cfg['input_token_reservation']=200000000
+        with self.assertRaisesRegex(ValueError,'exhausted'):budgeted_call({'job':3},cfg,send)
+        self.assertEqual(len(count),1)
+
+    def test_budget_rejection_is_not_counted_as_real_api_call(self):
+        from ticvla.warehouse.dataset_tools.teacher_budget import RequestNotSent
+        write_bundle(self.root/'bundle',[self.sample],source='fixture',context_mode='recursive')
+        with patch.dict(os.environ,{'TEST_SEMANTIC_KEY':'fixture-only'}), patch(
+            'ticvla.warehouse.dataset_tools.semantic_annotation.send_request',
+            side_effect=RequestNotSent('budget exhausted')):
+            report=run_pilot(self.root/'bundle',self.config,self.root/'rejected')
+        self.assertEqual(report['actual_api_calls'],0)
+        self.assertEqual(report['samples'][0]['status'],'not_sent_preflight_rejected')
+
+    def test_transport_failure_stops_remaining_provider_requests(self):
+        import io
+        import urllib.error
+        cfg=read_json(self.config);cfg['stop_on_transport_error']=True;write_json(self.config,cfg)
+        write_bundle(self.root/'bundle',self.sequence(),source='fixture',context_mode='gold_context')
+        error=urllib.error.HTTPError('https://example.invalid',401,'Unauthorized',{},io.BytesIO(b'{"message":"fixture-only"}'))
+        with patch.dict(os.environ,{'TEST_SEMANTIC_KEY':'fixture-only'}), patch(
+            'ticvla.warehouse.dataset_tools.semantic_annotation.send_request',side_effect=error) as send:
+            report=run_pilot(self.root/'bundle',self.config,self.root/'failed')
+        self.assertEqual(send.call_count,1)
+        self.assertEqual(report['actual_api_calls'],1)
+        self.assertEqual(report['samples'][1]['status'],'not_run_provider_error')
+        self.assertNotIn('fixture-only',(self.root/'failed/00000000/http-error.txt').read_text())
 
     def test_source_future_and_file_rejections(self):
         for mutate in (
@@ -89,6 +216,66 @@ class SemanticTeacherTests(unittest.TestCase):
             bad=copy.deepcopy(a);mutate(bad)
             with self.assertRaises(ValueError):assemble_answer(bad,self.sample)
 
+    def test_local_90_limit_is_shared_by_annotation_and_decoder_grammar(self):
+        from ticvla.warehouse.structured_io import response_grammar
+        for length in (80, 81, 90):
+            answer = dict(landmark=[], local='A' * length, route='Wait here.')
+            proposal = assemble_answer(answer, self.sample)
+            parser = response_grammar(['e:0'], categories_only=True, compact_route=True)
+            for char in proposal['text']:
+                self.assertIn(char, parser.get_allowed_characters())
+                parser = parser.add_character(char)
+            self.assertTrue(parser.can_end())
+            self.assertEqual(answer['local'], 'A' * length)
+        with self.assertRaisesRegex(ValueError, '1 to 90'):
+            assemble_answer(dict(landmark=[], local='A' * 91, route='Wait here.'), self.sample)
+        with self.assertRaises(ValueError):
+            assemble_answer(dict(landmark=[], local='Turn ~30 degrees.', route='Wait here.'), self.sample)
+
+    def test_v2_completion_input_matches_guard_without_geometry_leakage(self):
+        cfg = read_json(Path(__file__).resolve().parents[2] /
+                        'configs/dataset_preparation/qwen_plus_teacher.v2.json')
+        sample = copy.deepcopy(self.sample)
+        sample['evaluation_only'] = {}
+        answer = dict(landmark=[], local='unknown', route='DONE')
+        for kinds, expected in (([], 'unverified'),
+                                (['target_visible', 'stopped'], 'unverified'),
+                                (['target_visible', 'stopped', 'arrival_confirmed'], 'confirmed')):
+            sample['observation']['execution']['events'] = [dict(kind=k) for k in kinds]
+            request, summary = build_request(sample, cfg)
+            actual_text = request['messages'][1]['content'][0]['text']
+            self.assertEqual(actual_text, summary['user_text'])
+            self.assertIn('Completion evidence: ' + expected, actual_text)
+            self.assertNotIn('reference_xy', json.dumps(request))
+            self.assertEqual(bool(agreement(answer, sample)['rule_flags']), expected != 'confirmed')
+        answer['route'] = 'Wait here. DONE'
+        self.assertIn('noncanonical_completion_marker', agreement(answer, sample)['rule_flags'])
+
+    def test_v4_route_grounding_reaches_actual_system_without_extra_evidence(self):
+        import hashlib
+        root = Path(__file__).resolve().parents[2]
+        cfg = read_json(root/'configs/dataset_preparation/qwen_plus_teacher.v4.json')
+        previous = read_json(root/'configs/dataset_preparation/qwen_plus_teacher.v2.json')
+        lock = read_json(root/'configs/dataset_preparation/qwen_plus_teacher.v4.lock.json')
+        self.assertEqual(file_sha256(root/lock['config_file']), lock['config_sha256'])
+        self.assertEqual(hashlib.sha256(cfg['teacher_instruction'].encode()).hexdigest(),
+                         lock['teacher_instruction_sha256'])
+        request, summary = build_request(self.sample, cfg)
+        old, _ = build_request(self.sample, previous)
+        self.assertEqual(request['messages'][1], old['messages'][1])
+        for key in ('model', 'max_tokens', 'enable_thinking', 'thinking_budget'):
+            self.assertEqual(request[key], old[key])
+        system = request['messages'][0]['content']
+        self.assertEqual(system, summary['instructions'])
+        self.assertIn('the supplied images OR the observed map', system)
+        self.assertIn('Previous Route may remain unchanged', system)
+        self.assertIn('remain as a search goal even if not yet observed', system)
+        self.assertNotIn('Do not copy', system)
+        self.assertIn('Remove substeps only when evidence supports their completion', system)
+        self.assertIn('This restriction does NOT prevent', system)
+        self.assertIn('must not exceed 90 characters', system)
+        self.assertNotIn('reference_xy', json.dumps(request))
+
     def test_agreement_is_not_semantic_accuracy_and_completion_needs_evidence(self):
         a=self.answer();r=agreement(a,self.sample)
         self.assertIsNone(r['semantic_accuracy']);self.assertTrue(r['route_action_exact'])
@@ -98,23 +285,33 @@ class SemanticTeacherTests(unittest.TestCase):
         s=copy.deepcopy(self.sample);s['evaluation_only']={}
         self.assertFalse(agreement(a,s)['human_reference_available'])
 
+    def test_embedded_DONE_is_rejected_without_rewriting_teacher_text(self):
+        a=self.answer()
+        for route in ('Wait here. DONE','DONE: Go to the sink.'):
+            a['route']=route
+            flags=agreement(a,self.sample)['rule_flags']
+            self.assertIn('noncanonical_completion_marker',flags)
+            self.assertIn('completed_without_recorded_target_arrival_and_stop_evidence',flags)
+            self.assertEqual(a['route'],route)
+
     def test_recursive_uses_teacher_route_not_gold_and_no_approval(self):
         bundle=self.root/'bundle';write_bundle(bundle,self.sequence(),source='fixture')
         calls=[]
         def send(request,cfg):
-            ctx=json.loads(request['input'][0]['content'][0]['text']);calls.append(ctx)
-            answer=self.answer();answer['landmark'][0]['image_id']=ctx['source_rgb'][-1]['image_id']
+            calls.append(request['input'][0]['content'][0]['text'])
+            answer=self.answer();answer['landmark']=['sign']
             return self.raw(answer)
         with patch.dict(os.environ,{'TEST_SEMANTIC_KEY':'fixture'}),patch('ticvla.warehouse.dataset_tools.semantic_annotation.send_request',side_effect=send):
             r=run_pilot(bundle,self.config,self.root/'result')
         self.assertEqual(r['actual_api_calls'],2)
-        self.assertEqual(calls[0]['route'],self.sample['observation']['task']['instruction'])
-        self.assertEqual(calls[1]['route'],self.answer()['route'])
-        self.assertEqual(calls[1]['previous_local']['text'],'Near a sign.')
+        self.assertIn('Previous Route: '+self.sample['observation']['task']['instruction'],calls[0])
+        self.assertIn('Previous Route: '+self.answer()['route']['remaining_instruction'],calls[1])
+        self.assertIn('Previous Local: Near a sign.',calls[1])
         self.assertNotIn('GOLD PREVIOUS',json.dumps(calls))
         self.assertFalse(r['human_approved']);self.assertIsNone(r['semantic_accuracy'])
 
     def test_failed_response_stops_recursive_chain_no_repair(self):
+        cfg=read_json(self.config);cfg['annotation_failure_policy']='stop_on_invalid_v1';write_json(self.config,cfg)
         bundle=self.root/'bundle';write_bundle(bundle,self.sequence(),source='fixture')
         bad=self.raw({'landmark':[]})
         with patch.dict(os.environ,{'TEST_SEMANTIC_KEY':'fixture'}),patch('ticvla.warehouse.dataset_tools.semantic_annotation.send_request',return_value=bad) as send:
@@ -123,6 +320,99 @@ class SemanticTeacherTests(unittest.TestCase):
         self.assertEqual(r['samples'][1]['status'],'not_run_previous_proposal_failed')
         self.assertTrue((self.root/'result/00000000/raw.txt').exists())
         self.assertFalse(r['real_teacher_interface_pass'])
+
+    def test_overlength_frame_skipped_without_corrupting_recursive_context(self):
+        samples=self.sequence();third=copy.deepcopy(samples[1]);third['observation']['image_id']='e:2'
+        third['observation']['t_obs']=2.
+        third['observation']['rgb_history'][-1].update(image_id='e:2',t_obs=2.)
+        samples.append(third)
+        write_bundle(self.root/'bundle',samples,source='fixture')
+        calls=[]
+        good=dict(landmark=['sign'],local='Near a sign.',route='Keep moving toward the aisle end.')
+        bad=dict(good,local='A'*91,route='THIS REJECTED ROUTE MUST NOT PROPAGATE')
+        def send(request,cfg):
+            calls.append(request['input'][0]['content'][0]['text'])
+            return self.raw(bad if len(calls)==2 else good)
+        with patch.dict(os.environ,{'TEST_SEMANTIC_KEY':'fixture'}),patch(
+                'ticvla.warehouse.dataset_tools.semantic_annotation.send_request',side_effect=send):
+            r=run_pilot(self.root/'bundle',self.config,self.root/'result')
+        self.assertEqual(r['actual_api_calls'],3)
+        self.assertEqual([x['status'] for x in r['samples']],['format_valid_unreviewed','failed','format_valid_unreviewed'])
+        self.assertIn(good['route'],calls[2]);self.assertIn(good['local'],calls[2])
+        self.assertNotIn(bad['route'],calls[2])
+        self.assertNotIn('GOLD PREVIOUS',calls[2])
+        self.assertEqual(r['samples'][2]['context_recovery']['skipped_source_image_ids'],['e:1'])
+        self.assertEqual(r['samples'][2]['context_recovery']['context_source_image_id'],'e:0')
+        self.assertEqual(json.loads((self.root/'result/00000001/raw.txt').read_text()),bad)
+        self.assertFalse(r['all_samples_completed'])
+
+    def test_map_loop_skips_invalid_answer_without_committing_it(self):
+        from contextlib import ExitStack
+        from unittest.mock import MagicMock
+        from ticvla.warehouse.dataset_tools import semantic_loop as loop
+        samples=[]
+        for i in range(3):
+            s=copy.deepcopy(self.sample)
+            s['observation'].update(image_id=f'e:{i}',t_obs=float(i))
+            s['provenance'].update(source_episode='fixture',frame_index=i)
+            samples.append(s)
+        prepared=self.root/'prepared';prepared.mkdir()
+        write_json(prepared/'manifest.json',dict(complete=True,records=[
+            dict(folder=f'{i:08d}',geometry_sha256='fixture') for i in range(3)]))
+        cfg=read_json(self.config);cfg['native_per_million_tokens']={'input':1,'output':1}
+        write_json(self.config,cfg)
+        store=MagicMock();store.version=0
+        store.landmark_view.return_value={'landmarks':[]};store.summary.return_value={}
+        def add(source):
+            store.version+=1
+            return source
+        store.add_observation.side_effect=add
+        def load(_,entry):
+            i=int(entry['folder']);s=copy.deepcopy(samples[i]);obs=s['observation']
+            source=dict(image_id=obs['image_id'],t_obs=obs['t_obs'],T_odom_body=np.eye(4).tolist(),submap_id='e')
+            p=dict(source=source,resolution=.1,geometry_source_until=i-.1,
+                geometry_image_id=f'e:prior{i}',candidate_request={},elapsed_s=0,ocr={'elapsed_s':0})
+            return s,p,{'instances':[]},np.zeros((2,2),dtype=np.int8)
+        inputs=[]
+        def request(sample,cfg):
+            inputs.append(copy.deepcopy(sample['observation']))
+            return {},{}
+        good=dict(landmark=[],local='Near the sign.',route='Continue down the aisle.')
+        responses=[self.raw(good),self.raw(dict(good,local='X'*91,route='Rejected route.')),self.raw(good)]
+        with ExitStack() as stack:
+            for name,value in dict(load_credentials=lambda _:None,load_frame=load,
+                validate_sample=lambda s:s,build_request=request,render_report=lambda *a:None,
+                MapStore=lambda _:store,source_from_frame=lambda _,i:dict(image_id=f'e:{i}',t_obs=float(i),
+                    T_odom_body=np.eye(4).tolist(),submap_id='e')).items():
+                stack.enter_context(patch.object(loop,name,value))
+            stack.enter_context(patch.object(loop,'send_request',side_effect=responses))
+            for name,result in [('consume_masks',[]),('consume_text',{'updates':[]}),('save_frame',None)]:
+                stack.enter_context(patch('ticvla.warehouse.perception.realtime.'+name,return_value=result))
+            stack.enter_context(patch('DynaNav.warehouse_loop.realtime_mapping.render'))
+            report=loop.run(prepared,self.config,self.root/'map-run','unused')
+        self.assertEqual(report['actual_api_calls'],3)
+        self.assertTrue(report['all_frames_attempted']);self.assertFalse(report['fatal_stop'])
+        self.assertFalse(report['all_frames_completed'])
+        self.assertEqual([c.args[0]['image_id'] for c in store.add_observation.call_args_list],['e:0','e:2'])
+        self.assertEqual(inputs[2]['route'],good['route'])
+        self.assertEqual(inputs[2]['semantic_input']['map_version'],1)
+        self.assertEqual(inputs[2]['semantic_input']['semantic_source_until'],0.)
+        self.assertEqual(report['samples'][2]['context_recovery']['skipped_source_image_ids'],['e:1'])
+
+    def test_rejected_done_not_used_by_next_frame(self):
+        write_bundle(self.root/'bundle',self.sequence(),source='fixture')
+        answers=[dict(landmark=[],local='unknown',route='DONE'),dict(landmark=[],local='unknown',route='Continue straight.')]
+        calls=[]
+        def send(request,cfg):
+            calls.append(request['input'][0]['content'][0]['text'])
+            return self.raw(answers[len(calls)-1])
+        with patch.dict(os.environ,{'TEST_SEMANTIC_KEY':'fixture'}),patch(
+                'ticvla.warehouse.dataset_tools.semantic_annotation.send_request',side_effect=send):
+            r=run_pilot(self.root/'bundle',self.config,self.root/'result')
+        self.assertEqual(r['actual_api_calls'],2)
+        self.assertEqual(r['samples'][0]['status'],'rule_rejected_unreviewed')
+        self.assertNotIn('Previous Route: DONE',calls[1])
+        self.assertIn(self.sample['observation']['task']['instruction'],calls[1])
 
     def test_missing_key_prepares_without_call_or_fake_proposal(self):
         bundle=self.root/'bundle';write_bundle(bundle,self.sequence(),source='fixture')
@@ -153,7 +443,7 @@ class SemanticTeacherTests(unittest.TestCase):
             self.assertFalse((output/'00000000/comparison.json').exists())
             prepare_next(output)
             second=read_json(output/'00000001/input.json')
-            self.assertEqual(second['context']['route'],self.answer()['route'])
+            self.assertEqual(second['context']['route'],self.answer()['route']['remaining_instruction'])
             self.assertEqual(second['context']['previous_local']['text'],'Near a sign.')
             answer=self.answer();answer['landmark'][0]['image_id']='e:1'
             submit_answer(output,self.session_reply(output,1,answer))

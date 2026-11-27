@@ -1,0 +1,8 @@
+{
+  "recast_version": "1.6.0",
+  "source": "https://codeload.github.com/recastnavigation/recastnavigation/tar.gz/refs/tags/v1.6.0",
+  "sha256": "d48ca0121962fa0639502c0f56c4e3ae72f98e55d88727225444f500775c0074",
+  "compiler": "system g++",
+  "isaac": "/data/isaacsim 5.0",
+  "scope": "Offline static warehouse ground-floor NavMesh; no controller execution"
+}

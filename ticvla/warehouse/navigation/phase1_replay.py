@@ -82,7 +82,7 @@ def main():
     p.add_argument("--model", default="/data/ticvla/models/InternVL3-1B")
     p.add_argument("--cases", nargs="+", choices=list(CASES), default=list(CASES))
     p.add_argument("--rounds", type=int, choices=(1, 2, 3), default=3)
-    p.add_argument("--prompt-style", choices=("original", "compact"), default="original",
+    p.add_argument("--prompt-style", choices=("original", "compact", "simple"), default="simple",
                    help="Offline diagnostic only; does not change the deployed prompt.")
     a = p.parse_args()
     root = a.output.resolve()
@@ -143,14 +143,14 @@ def main():
             obs.update(
                 route=copy.deepcopy(nav.state.route),
                 route_revision=nav.state.route_revision,
-                route_schema="structured-v1",
+                route_schema="compact-v2" if a.prompt_style == "simple" else "structured-v1",
                 execution_state=dict(
                     scope="OFFLINE INJECTED EXECUTION FACTS; images unchanged; NOT real motion or perception evidence",
                     facts=fixture,
                     previous_commit_valid=bool(nav.route_history),
                 ),
                 previous_reference=[],
-                landmark_schema="legacy",
+                landmark_schema="categories",
             )
             obs["source_monotonic"] = time.monotonic()
             source["source_monotonic"] = obs["source_monotonic"]

@@ -1,0 +1,29 @@
+{
+  "landmark": [
+    "fire extinguisher"
+  ],
+  "local": "Inferred: at the mapped 01/5R entrance; rack corner and extinguisher left.",
+  "route": "Turn left into the aisle marked 01/5R, continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+  "waypoint": [
+    [
+      480,
+      710
+    ],
+    [
+      410,
+      700
+    ],
+    [
+      340,
+      690
+    ],
+    [
+      260,
+      680
+    ],
+    [
+      180,
+      670
+    ]
+  ]
+}

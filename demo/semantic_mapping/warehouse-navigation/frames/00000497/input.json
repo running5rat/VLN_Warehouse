@@ -1,0 +1,121 @@
+{
+  "user_text": "Previous Route: Cross to the next aisle entrance, turn right into it, follow it to the near end, turn right back to the starting point and STOP.\nPrevious Local: Along the far cross-aisle; wall left, rack ends and extinguisher right.\nMotion: 12.0s, x=3.540, y=-0.692, yaw=-0.209\nCurrent detectable categories: fire extinguisher\nCompletion evidence: unverified\nImages in order: current original RGB, current segmentation overlay, prior semantic map.",
+  "system_text": "Return only an English JSON object with exactly landmark, local, route and waypoint.\nlandmark: Up to three useful visible object categories from Current detectable categories. No IDs. Use [] if none.\nlocal: Current position and heading relative to supported visible or mapped landmarks, within 90 characters. Mark memory-only localization Inferred. Use unknown if unsupported.\nroute: Remaining navigation commands only, within 600 characters. Preserve ALL unfinished Previous Route steps in order, including the final STOP. Delete a step only with observation or motion evidence. Never describe scene layout as a route. An unseen target may remain a search goal; do not invent its location. STOP alone requires verified completion, otherwise retain remaining commands.\nwaypoint: Exactly five ordered [u,v] PIXEL pairs on visible navigable FLOOR in CURRENT original RGB, or [] when stopped or no safe visible continuation can be specified. Original RGB is 960 by 720; origin top left; u right, v down. These are NOT metres or map coordinates. Order near to far along the intended local route. All points and the connecting route must remain inside the visible image, on unobstructed floor, not on signs or shelves. Show only the currently visible route prefix, not the whole offscreen task. The system uses the same-frame depth to project these pixels to 3D and fits a controller curve. Never invent depth or an offscreen point. If the required turn is not visible, keep that turn in route and return []. No extra rotation action is inferred from empty waypoints.\nThe map is accumulated PAST observed geometry and tentative semantic objects, in odom coordinates, not hidden scene truth. Red marker is current pose; the heading is printed on the map. Blue is observed past travel; background is unobserved, not proven free. OCR may be wrong. Original Instruction is only used to initialize Previous Route for the first frame. Relative motion is current body in previous Local frame, metres x forward y left and counterclockwise yaw radians.\nMap labels use indices linked to an on-image legend. The red arrow shows current heading. No route to the target is supplied. Infer remaining commands from the observed map and localization; if uncertain, preserve the goal and state a reobservation command.\n",
+  "original_instruction_audit_only": "Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.",
+  "map_cutoff": 110.41667242534459,
+  "images": [
+    "rgb.png",
+    "detections.png",
+    "map.png"
+  ],
+  "source": {
+    "image_id": "codex-continuous-20261112-v2:00000497",
+    "t_obs": 111.41667247749865,
+    "rgb_hash": "b08801f97e9732f91b371c009c18f5075708233a91e2795eeccb386953d72fa8",
+    "depth_hash": "19a6d6a93f889627d7307e378b3e7c54e1111e5ec6af1ff90179a98edebc4898",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.0004633563427899899,
+        0.9999986404126745,
+        0.0015825529063214475,
+        21.000367024813112
+      ],
+      [
+        -0.9999986459619302,
+        -0.0004658541037253548,
+        0.001578307403288803,
+        -4.1126389591445545
+      ],
+      [
+        0.0015790424962077033,
+        -0.0015818194447384337,
+        0.9999975022329001,
+        -0.03319982373088333
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999996
+      ]
+    ],
+    "odom_epoch": "codex-continuous-20261112-v2"
+  },
+  "images_sha256": {
+    "rgb.png": "b08801f97e9732f91b371c009c18f5075708233a91e2795eeccb386953d72fa8",
+    "detections.png": "45f06dce4e4ec786d22c6038c48eac82d12630d7faf4d1a54f3af85e60ff525f",
+    "map.png": "bd3aca772e8ccb68bce1b8ba941cf0fb24720d8e61b110cd5590314f595bce01"
+  },
+  "previous": {
+    "landmark": [
+      "fire extinguisher"
+    ],
+    "local": "Along the far cross-aisle; wall left, rack ends and extinguisher right.",
+    "route": "Cross to the next aisle entrance, turn right into it, follow it to the near end, turn right back to the starting point and STOP.",
+    "waypoint": [
+      [
+        480,
+        710
+      ],
+      [
+        480,
+        700
+      ],
+      [
+        480,
+        685
+      ],
+      [
+        480,
+        670
+      ],
+      [
+        480,
+        650
+      ]
+    ]
+  }
+}

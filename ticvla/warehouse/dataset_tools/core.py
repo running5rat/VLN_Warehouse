@@ -173,7 +173,7 @@ def prepare_projection_cameras(root):
         write_projection_camera(root/name,f,binding)
 
 
-def extract(episode, output, *, count=10, indices=None):
+def extract(episode, output, *, count=10, indices=None, config=None):
     meta, frames = load_episode(episode)
     root = Path(output).resolve()
     root.mkdir(parents=True, exist_ok=True)
@@ -201,7 +201,7 @@ def extract(episode, output, *, count=10, indices=None):
     chosen = sorted(set(int(i) for i in chosen))
     if not chosen or any(i not in eligible for i in chosen):
         raise ValueError("Keyframe is outside the recording or episode")
-    cfg = WarehouseConfig(depth_stride=32)
+    cfg = copy.deepcopy(config) if config is not None else WarehouseConfig(depth_stride=32)
     builder = LocalMapBuilder(cfg)
     # Persistent observed history is reconstructed causally, never from final map.
     builder.config.map_max_age = 1e9
@@ -343,8 +343,9 @@ def sample_context(root, index):
 
 def tagged_text(landmark, local, route, waypoint):
     wp = ";".join(f"({x:.3f},{y:.3f})" for x, y in waypoint) if waypoint else "[]"
+    route_text = route if isinstance(route, str) else json.dumps(route, ensure_ascii=False)
     return (f"<landmark>{json.dumps(landmark, ensure_ascii=False)}</landmark>"
-            f"<local>{local}</local><Route>{json.dumps(route, ensure_ascii=False)}</Route>"
+            f"<local>{local}</local><Route>{route_text}</Route>"
             f"<waypoint>{wp}</waypoint><REFLINE>")
 
 
@@ -386,7 +387,9 @@ def approve(root, index, data):
     wp = anchors(line[mask])
     text = tagged_text(data["landmark"], data["local"], data["route"], wp)
     ids = [h["image_id"] for h in sample["observation"]["rgb_history"]]
-    parsed = parse_structured(text, ids, structured_route=True)
+    parsed = parse_structured(text, ids, structured_route=isinstance(data["route"], dict),
+                              compact_route=isinstance(data["route"], str),
+                              current_image_id=sample["observation"]["image_id"])
     replay_kinds = data.get("replay_event_kinds", [])
     allowed = {"start", "intersection", "turn_started", "turn_completed",
                "target_visible", "stopped", "arrival_confirmed"}
@@ -405,7 +408,8 @@ def approve(root, index, data):
     # Revisions replace this frame's earlier manual facts; never silently retain unchecked facts.
     obs["execution"]["events"] = [e for e in obs["execution"]["events"]
         if not (e.get("source") in ("human_replay_review", "user_authorized_replay_correction") and e.get("image_id") == obs["image_id"])] + replay_events
-    if parsed["route"]["status"] == "completed":
+    from ..navigation.route_protocol import route_completed
+    if route_completed(parsed["route"]):
         kinds = {e["kind"] for e in sample["observation"]["execution"]["events"]}
         if not {"target_visible", "stopped", "arrival_confirmed"}.issubset(kinds):
             raise ValueError("Completion needs recorded target_visible, stopped and arrival_confirmed events")
@@ -495,7 +499,11 @@ def validate_v2(r):
             raise ValueError("Anchor/reference mismatch")
     if sup.get("text_state") == "approved":
         from ..structured_io import parse_structured
-        parsed = parse_structured(sup["text"], [h["image_id"] for h in obs["rgb_history"]], structured_route=True)
+        parsed = parse_structured(sup["text"], [h["image_id"] for h in obs["rgb_history"]],
+                                  current_image_id=obs["image_id"])
+        if isinstance(parsed["route"], str):
+            from ..navigation.route_protocol import parse_route
+            parse_route(parsed["route"], require_compact=True)
         if parsed["anchors"] != sup["waypoint"]:
             raise ValueError("Text/anchor mismatch")
     if sup.get("action_state") == "unlabeled" and sup.get("candidates"):
@@ -507,13 +515,55 @@ def training_record(record):
     """Explicit reference-training adapter; preserve full text and causal context.
 
     Missing action arrays are compatibility padding with false masks, never GT.
-    Golden/regression records may be forwarded for diagnostics, not optimizer use.
+    Optimizer eligibility is enforced by the manifest/entrypoint, not this adapter.
     """
     validate_v2(record)
     result = copy.deepcopy(record)
     obs, sup = result["observation"], result["supervision"]
+    original_text = sup.get("text")
+    route_protocol = "compact-v2"
+    obs["landmark_schema"] = "categories"
+    if sup.get("text_state") == "approved":
+        from ..structured_io import parse_structured
+        parsed = parse_structured(sup["text"], [h["image_id"] for h in obs["rgb_history"]],
+                                  current_image_id=obs["image_id"])
+        from ..navigation.route_protocol import compact_route
+        try:
+            compact = compact_route(parsed["route"])
+        except ValueError:
+            # Preserve explicit legacy waiting/clarification examples; do not turn them active.
+            route_protocol = "structured-v1"
+        else:
+            import re
+            sup["text"] = re.sub(r"<Route>.*?</Route>", lambda _: "<Route>" + compact + "</Route>",
+                                  sup["text"], count=1, flags=re.DOTALL)
+        if all(x["image_id"] == obs["image_id"] for x in parsed["landmark"]):
+            # Change only the model-facing serialization on this deep copy.
+            # Original approved records and their hashes remain unchanged.
+            import re
+            categories = list(dict.fromkeys(" ".join(x["category"].split()).lower()
+                                            for x in parsed["landmark"]))
+            old_text = sup["text"]
+            sup["text"] = re.sub(r"<landmark>.*?</landmark>",
+                lambda _: "<landmark>" + json.dumps(categories) + "</landmark>",
+                old_text, count=1, flags=re.DOTALL)
+            if sup["text"] != old_text:
+                sup["source_text"] = old_text
+        else:
+            obs["landmark_schema"] = "legacy"
     view = obs.get("mapview", {})
-    obs.update(route_protocol="structured-v1", map_valid=bool(view.get("arrays")),
+    if sup.get("text") != original_text:
+        sup["source_text"] = original_text
+        sup["source_parsed"] = copy.deepcopy(sup.get("parsed"))
+        sup["parsed"] = parse_structured(sup["text"], [h["image_id"] for h in obs["rgb_history"]],
+            current_image_id=obs["image_id"], compact_route=route_protocol == "compact-v2")
+    if route_protocol == "compact-v2":
+        from ..navigation.route_protocol import compact_route, remaining_instruction
+        try:
+            obs["route"] = compact_route(obs["route"])
+        except ValueError:
+            obs["route"] = remaining_instruction(obs["route"])
+    obs.update(route_protocol=route_protocol, map_valid=bool(view.get("arrays")),
                map_image=view.get("image"), map_grid=view.get("arrays"),
                map_landmarks=view.get("landmarks", []), execution_state=obs.get("execution", {}))
     state = sup["reference_state"]

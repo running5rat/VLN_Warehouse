@@ -1,0 +1,29 @@
+{
+  "landmark": [
+    "sign"
+  ],
+  "local": "Approaching 04/5R on the right near the aisle end.",
+  "route": "Approach a clear floor position beside 04/5R and STOP.",
+  "waypoint": [
+    [
+      480,
+      710
+    ],
+    [
+      480,
+      700
+    ],
+    [
+      480,
+      685
+    ],
+    [
+      480,
+      670
+    ],
+    [
+      480,
+      650
+    ]
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "request_id": "continuous-target-1",
+  "task_id": "target",
+  "instruction": "Navigate to sign 04/5R in the farther second aisle and STOP beside it.",
+  "initial_route": "Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.",
+  "previous_route_policy": "Retain every unfinished step in order, including final STOP.",
+  "landmark": [
+    "sign"
+  ],
+  "local": "In the second aisle, approaching the mapped position of sign 04/5R.",
+  "route": "Continue along the second aisle to sign 04/5R, approach it and STOP beside it.",
+  "waypoint": [
+    [
+      3.105549538802018,
+      -0.0007366224739095983
+    ],
+    [
+      4.60554945486647,
+      -0.0012383763027052908
+    ],
+    [
+      5.305716666973797,
+      0.4985274439374896
+    ],
+    [
+      5.705616293824635,
+      0.1983936597002982
+    ],
+    [
+      6.105449090530126,
+      -0.3015297545627611
+    ]
+  ],
+  "planning_started_monotonic": 8035.966258617,
+  "target_uid": "dcd8ceacda4e43be8ae1e14c37d312c0",
+  "source_image_id": "codex-continuous-20261112-v2:00001196",
+  "provider": "codex-reviewed-decision-replay"
+}

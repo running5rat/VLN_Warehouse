@@ -1,0 +1,9 @@
+{
+  "request_id": "loop-complete",
+  "action": "complete_mapping",
+  "instruction": "Complete the warehouse circuit and build a semantic map.",
+  "local": "Back at the starting cross-aisle after traversing the warehouse circuit.",
+  "route": "Stop. The circuit is complete.",
+  "source_image_id": "codex-map-return-20261112-d:00005295",
+  "provider": "codex-session"
+}

@@ -1,0 +1,9 @@
+<!doctype html><meta charset="utf-8"><title>Warehouse NavMesh</title><style>body{max-width:1200px;margin:32px auto;padding:0 20px;font:16px system-ui;color:#17354b;background:#f5f8fc}img{width:100%;background:white}pre{white-space:pre-wrap;background:white;padding:16px}a{color:#0869bc}</style><h1>Warehouse · Recast / Detour 实测</h1><p>Isaac Sim 5.0 静态场景几何 → 高度场 → 半径收缩 → 多边形 NavMesh → 路径查询。未执行车辆控制。</p><p>174,239 个输入三角形，38 个导航多边形；建网、保存重载与查询合计 0.062 秒（不含 Isaac 导出、编译和绘图）。</p><p><a href="navmesh.obj">OBJ 网格</a> · <a href="navmesh.json">顶点/多边形/邻接 JSON</a> · <a href="navmesh.bin">Detour 二进制</a> · <a href="report.json">完整报告</a></p><h2>静态场景几何</h2><img src="01-scene-geometry.png"><h2>NavMesh 可通行多边形</h2><img src="02-navmesh-polygons.png"><h2>机器人半径收缩对照</h2><img src="03-radius-comparison.png"><h2>跨通道路径查询</h2><img src="04-path-query.png"><h2>四段有序绕环查询</h2><img src="05-loop-queries.png"><h2>验证结果</h2><pre>{
+  "disk_reload": true,
+  "five_requested_routes_complete": true,
+  "rack_target_rejected": true,
+  "paths_inside_polygon_mesh": true,
+  "circular_footprint_raster": true,
+  "fixture_detour_and_rejection": true,
+  "radius_reduces_area": true
+}</pre><p>静态三角形几何与 PhysX 的最终碰撞形状可能不同；实际控制还需要 footprint、转向和执行核验。</p>

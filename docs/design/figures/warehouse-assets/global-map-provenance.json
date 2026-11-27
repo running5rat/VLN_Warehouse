@@ -1,0 +1,22 @@
+{
+  "source_database": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/navigation/map/map.sqlite",
+  "source_database_sha256": "9de325411fb626fd823be1f7333b6a7d4b8cc737f237f59506659cd83c9cefe8",
+  "source_database_unchanged": true,
+  "observations": 1315,
+  "landmarks": 37,
+  "resolution_m": 0.1,
+  "extent_xyxy": [
+    -5.1000000000000005,
+    -12.3,
+    27.1,
+    7.1000000000000005
+  ],
+  "image_hashes": {
+    "global-occupancy.png": "8b096ad155dcfdbe5c6ef1232cee4e2911924eea50c6cd97966ad2e809a2c671",
+    "final-semantic-map.png": "296b9d8d9f028bbe42d11ca30c0115598c5174235a0b367cb8de21c8bf0bb1a9"
+  },
+  "grid_sha256": "0497c191af175007bb6e8bb5f4b35a1751788228598e99f41706322edcc6e19c",
+  "all_objects_tentative": true,
+  "method": "All stored depth-derived geometry, odom camera origins, ray-carved free cells and occupied endpoint union; persistent hits win. No hidden scene map, no invented free space.",
+  "scope": "Matched full-episode result examples, identical grid, view extent and axes. Not causal inputs for frame 197; not a new SLAM localization evaluation."
+}

@@ -369,8 +369,70 @@ class DatasetPreparationTests(unittest.TestCase):
         export_project(self.project,self.root/"export")
         r=read_json(self.root/"export/00000000.json")
         adapted=training_record(r)
-        self.assertEqual(target_text(adapted["supervision"]),r["supervision"]["text"])
+        self.assertEqual(adapted["supervision"]["source_text"],r["supervision"]["text"])
+        self.assertIn("<Route>Continue to the extinguisher.</Route>",target_text(adapted["supervision"]))
+        self.assertEqual(adapted["observation"]["route_protocol"],"compact-v2")
         self.assertFalse(any(adapted["supervision"]["action_mask"]))
+
+    def test_v2_loader_preserves_labels_and_checks_hash(self):
+        from ticvla.warehouse.data import RecordDataset
+        for i in range(3): approve(self.project, i, self.payload(i))
+        export_project(self.project, self.root/"export")
+        data = RecordDataset(self.root/"export/manifest.json", "regression")
+        self.assertEqual(len(data), 3)
+        self.assertEqual(data[1]["schema_version"], 2)
+        self.assertTrue(data[1]["supervision"]["text_valid"])
+        self.assertFalse(any(data[1]["supervision"]["action_mask"]))
+        self.assertEqual(len(RecordDataset(self.root/"export/manifest.json", "train")), 0)
+        path = self.root/"export/00000000.json"
+        path.write_text(path.read_text() + " ")
+        with self.assertRaisesRegex(ValueError, "hash"):
+            data[0]
+
+    def test_v2_missing_supervision_is_masked(self):
+        from ticvla.warehouse.dataset_tools.core import training_record
+        for i in range(3): approve(self.project, i, self.payload(i))
+        export_project(self.project, self.root/"export")
+        r=read_json(self.root/"export/00000000.json")
+        r["supervision"] = dict(reference_state="unlabeled", text_state="unlabeled", action_state="unlabeled")
+        adapted=training_record(r)
+        for key in ("reference_known", "reference_valid", "text_valid"):
+            self.assertFalse(adapted["supervision"][key])
+        self.assertFalse(any(adapted["supervision"]["reference_mask"]))
+
+    def test_compact_training_target_keeps_original_and_history_binding(self):
+        import copy
+        from ticvla.warehouse.dataset_tools.core import training_record
+        for i in range(3): approve(self.project, i, self.payload(i))
+        export_project(self.project, self.root/"export")
+        r=read_json(self.root/"export/00000000.json")
+        source=r['observation']['image_id']
+        r['supervision']['text']=r['supervision']['text'].replace('<landmark>[]</landmark>',
+            '<landmark>'+json.dumps([dict(image_id=source,category='sign')])+'</landmark>')
+        original=copy.deepcopy(r)
+        adapted=training_record(r)
+        self.assertEqual(r,original)
+        self.assertIn('<landmark>["sign"]</landmark>',adapted['supervision']['text'])
+        self.assertEqual(adapted['supervision']['source_text'],r['supervision']['text'])
+        self.assertEqual(adapted['observation']['landmark_schema'],'categories')
+        h=copy.deepcopy(r['observation']['rgb_history'][0])
+        h.update(image_id='historical-source',t_obs=r['observation']['t_obs']-1)
+        r['observation']['rgb_history'].insert(0,h)
+        r['supervision']['text']=r['supervision']['text'].replace(source,'historical-source')
+        adapted=training_record(r)
+        self.assertIn('historical-source',adapted['supervision']['text'])
+        self.assertEqual(adapted['supervision']['source_text'],r['supervision']['text'])
+        self.assertEqual(adapted['observation']['landmark_schema'],'legacy')
+
+    def test_regression_manifest_cannot_enter_formal_training(self):
+        from ticvla.warehouse.train import train
+        from ticvla.warehouse.config import WarehouseConfig
+        for i in range(3): approve(self.project, i, self.payload(i))
+        export_project(self.project, self.root/"export")
+        cfg=WarehouseConfig(manifest=str(self.root/"export/manifest.json"),
+                            output_dir=str(self.root/"train"), device="cpu")
+        with self.assertRaisesRegex(ValueError,"bounded diagnostic"):
+            train(cfg,"reference")
 
     def test_high_rate_source_trace_and_map_mutation(self):
         nav=self.root/"navigation";nav.mkdir()

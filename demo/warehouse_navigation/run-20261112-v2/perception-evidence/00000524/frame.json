@@ -1,0 +1,2817 @@
+{
+  "source": {
+    "image_id": "codex-continuous-20261112-v2:00000524",
+    "rgb": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/capture/raw/rgb/00000524.png",
+    "depth": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/capture/raw/depth/00000524.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        -0.9965620231434861,
+        0.08279000548351775,
+        0.0031542067466140415,
+        20.285153598107375
+      ],
+      [
+        -0.08279000528807723,
+        -0.9965670062275382,
+        0.00013085519045904687,
+        -4.967292793943223
+      ],
+      [
+        0.0031542118764315633,
+        -0.0001307314798891871,
+        0.9999950169159438,
+        -0.03206812907902287
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999996
+      ]
+    ],
+    "t_obs": 116.8166727591306,
+    "odom_epoch": "codex-continuous-20261112-v2",
+    "submap_id": "codex-continuous-20261112-v2",
+    "task_id": "mapping",
+    "rgb_hash": "fb8348dfdc9eec09775fb6342595a19b69ab9b5fe7b6e737c23b7e5bc6ecd7cd",
+    "depth_hash": "3bc0f8e3387d1aa7f05dd7be78d6bc6dcc2a984388a7157c85c46792ee49aed6",
+    "geometry": "arrays/59332e01a34140da991a335d26855a0d.npz",
+    "source_monotonic": 7900.071151566
+  },
+  "selection": {
+    "selected_categories": [
+      "sign",
+      "label",
+      "fire extinguisher",
+      "door"
+    ],
+    "request_id": "codex-demo-mapping-policy",
+    "provider": "codex-authored-category-policy",
+    "event_source": "perception",
+    "note": "Fixed delegate category policy, not an InternVL inference"
+  },
+  "instances": [
+    {
+      "category": "sign",
+      "confidence": 0.34775885939598083,
+      "bbox": [
+        273.02972412109375,
+        227.0928955078125,
+        374.010009765625,
+        286.98779296875
+      ],
+      "texts": [
+        {
+          "text": "04",
+          "confidence": 0.9994139671325684,
+          "polygon": [
+            [
+              278,
+              243
+            ],
+            [
+              322,
+              243
+            ],
+            [
+              322,
+              272
+            ],
+            [
+              278,
+              272
+            ]
+          ],
+          "normalized": "04",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        },
+        {
+          "text": "/5R",
+          "confidence": 0.9867072701454163,
+          "polygon": [
+            [
+              331,
+              247
+            ],
+            [
+              368,
+              244
+            ],
+            [
+              370,
+              268
+            ],
+            [
+              333,
+              272
+            ]
+          ],
+          "normalized": "/5R",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "sign",
+      "bbox": [
+        273.02972412109375,
+        227.0928955078125,
+        374.010009765625,
+        286.98779296875
+      ],
+      "confidence": 0.34775885939598083,
+      "selected": true,
+      "parent_event_id": "rt:codex-continuous-20261112-v2:00000524:0",
+      "result": {
+        "event": {
+          "message_id": "rt:codex-continuous-20261112-v2:00000524:0",
+          "image_id": "codex-continuous-20261112-v2:00000524",
+          "category": "sign",
+          "source": "perception",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "codex-demo-mapping-policy",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "dcd8ceacda4e43be8ae1e14c37d312c0",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "vocabulary": {
+            "version": "warehouse-static-candidates-v1",
+            "categories": [
+              "sign",
+              "label",
+              "storage rack",
+              "door",
+              "pillar",
+              "fire extinguisher",
+              "electrical cabinet"
+            ],
+            "aliases": {
+              "sign": "sign",
+              "label": "label",
+              "storage rack": "storage rack",
+              "door": "door",
+              "pillar": "pillar",
+              "fire extinguisher": "fire extinguisher",
+              "electrical cabinet": "electrical cabinet",
+              "signs": "sign",
+              "labels": "label",
+              "storage racks": "storage rack",
+              "doors": "door",
+              "pillars": "pillar",
+              "fire extinguishers": "fire extinguisher",
+              "electrical cabinets": "electrical cabinet",
+              "shelf": "storage rack",
+              "shelves": "storage rack",
+              "rack": "storage rack",
+              "racks": "storage rack",
+              "column": "pillar",
+              "columns": "pillar",
+              "shelf sign": "sign",
+              "shelf signs": "sign"
+            },
+            "sha256": "78fbd85bd6f868151d98d1028cb7424444f164ddd30af2e60dec10588c25d028"
+          },
+          "category_selection": {
+            "selected_categories": [
+              "sign",
+              "label",
+              "fire extinguisher",
+              "door"
+            ],
+            "request_id": "codex-demo-mapping-policy",
+            "provider": "codex-authored-category-policy",
+            "event_source": "perception",
+            "note": "Fixed delegate category policy, not an InternVL inference"
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 5858,
+          "valid_interior_depth_points": 5562,
+          "filtered_depth_points": 5402,
+          "voxel_points": 196,
+          "depth_retention": 0.9712333692916217
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/navigation/map/arrays/3e09c60e8f474a72973679a3a8dfb49d.npz"
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime",
+    "vocabulary": {
+      "version": "warehouse-static-candidates-v1",
+      "categories": [
+        "sign",
+        "label",
+        "storage rack",
+        "door",
+        "pillar",
+        "fire extinguisher",
+        "electrical cabinet"
+      ],
+      "aliases": {
+        "sign": "sign",
+        "label": "label",
+        "storage rack": "storage rack",
+        "door": "door",
+        "pillar": "pillar",
+        "fire extinguisher": "fire extinguisher",
+        "electrical cabinet": "electrical cabinet",
+        "signs": "sign",
+        "labels": "label",
+        "storage racks": "storage rack",
+        "doors": "door",
+        "pillars": "pillar",
+        "fire extinguishers": "fire extinguisher",
+        "electrical cabinets": "electrical cabinet",
+        "shelf": "storage rack",
+        "shelves": "storage rack",
+        "rack": "storage rack",
+        "racks": "storage rack",
+        "column": "pillar",
+        "columns": "pillar",
+        "shelf sign": "sign",
+        "shelf signs": "sign"
+      },
+      "sha256": "78fbd85bd6f868151d98d1028cb7424444f164ddd30af2e60dec10588c25d028"
+    }
+  },
+  "segmentation_s": 0.026324987411499023,
+  "candidate_request": null,
+  "ocr": {
+    "texts": [
+      {
+        "text": "AGILE",
+        "confidence": 0.9952419400215149,
+        "polygon": [
+          [
+            8,
+            176
+          ],
+          [
+            44,
+            213
+          ],
+          [
+            30,
+            228
+          ],
+          [
+            0,
+            191
+          ]
+        ]
+      },
+      {
+        "text": "_",
+        "confidence": 0.3603403568267822,
+        "polygon": [
+          [
+            522,
+            174
+          ],
+          [
+            536,
+            174
+          ],
+          [
+            536,
+            208
+          ],
+          [
+            522,
+            208
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9613723754882812,
+        "polygon": [
+          [
+            91,
+            196
+          ],
+          [
+            132,
+            244
+          ],
+          [
+            119,
+            256
+          ],
+          [
+            78,
+            208
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9681201577186584,
+        "polygon": [
+          [
+            158,
+            228
+          ],
+          [
+            187,
+            267
+          ],
+          [
+            176,
+            275
+          ],
+          [
+            147,
+            236
+          ]
+        ]
+      },
+      {
+        "text": "1",
+        "confidence": 0.1382131576538086,
+        "polygon": [
+          [
+            77,
+            241
+          ],
+          [
+            90,
+            241
+          ],
+          [
+            90,
+            261
+          ],
+          [
+            77,
+            261
+          ]
+        ]
+      },
+      {
+        "text": "04",
+        "confidence": 0.9994139671325684,
+        "polygon": [
+          [
+            278,
+            243
+          ],
+          [
+            322,
+            243
+          ],
+          [
+            322,
+            272
+          ],
+          [
+            278,
+            272
+          ]
+        ]
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9867072701454163,
+        "polygon": [
+          [
+            331,
+            247
+          ],
+          [
+            368,
+            244
+          ],
+          [
+            370,
+            268
+          ],
+          [
+            333,
+            272
+          ]
+        ]
+      },
+      {
+        "text": "VA",
+        "confidence": 0.29710203409194946,
+        "polygon": [
+          [
+            74,
+            257
+          ],
+          [
+            107,
+            265
+          ],
+          [
+            102,
+            290
+          ],
+          [
+            69,
+            282
+          ]
+        ]
+      },
+      {
+        "text": "FRAGLE",
+        "confidence": 0.9350453019142151,
+        "polygon": [
+          [
+            865,
+            284
+          ],
+          [
+            897,
+            304
+          ],
+          [
+            887,
+            320
+          ],
+          [
+            855,
+            300
+          ]
+        ]
+      },
+      {
+        "text": "AGILE",
+        "confidence": 0.9490383863449097,
+        "polygon": [
+          [
+            7,
+            302
+          ],
+          [
+            45,
+            335
+          ],
+          [
+            30,
+            353
+          ],
+          [
+            0,
+            320
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9548866152763367,
+        "polygon": [
+          [
+            82,
+            307
+          ],
+          [
+            123,
+            345
+          ],
+          [
+            110,
+            360
+          ],
+          [
+            69,
+            322
+          ]
+        ]
+      },
+      {
+        "text": "03",
+        "confidence": 0.999573290348053,
+        "polygon": [
+          [
+            389,
+            311
+          ],
+          [
+            418,
+            311
+          ],
+          [
+            418,
+            330
+          ],
+          [
+            389,
+            330
+          ]
+        ]
+      },
+      {
+        "text": "出",
+        "confidence": 0.22988629341125488,
+        "polygon": [
+          [
+            267,
+            322
+          ],
+          [
+            277,
+            322
+          ],
+          [
+            277,
+            332
+          ],
+          [
+            267,
+            332
+          ]
+        ]
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.8815875053405762,
+        "polygon": [
+          [
+            422,
+            316
+          ],
+          [
+            440,
+            316
+          ],
+          [
+            440,
+            327
+          ],
+          [
+            422,
+            327
+          ]
+        ]
+      },
+      {
+        "text": "02",
+        "confidence": 0.9956936240196228,
+        "polygon": [
+          [
+            437,
+            340
+          ],
+          [
+            451,
+            340
+          ],
+          [
+            451,
+            352
+          ],
+          [
+            437,
+            352
+          ]
+        ]
+      },
+      {
+        "text": "JSR",
+        "confidence": 0.7846693992614746,
+        "polygon": [
+          [
+            456,
+            342
+          ],
+          [
+            468,
+            342
+          ],
+          [
+            468,
+            350
+          ],
+          [
+            456,
+            350
+          ]
+        ]
+      },
+      {
+        "text": "中",
+        "confidence": 0.11054740846157074,
+        "polygon": [
+          [
+            472,
+            355
+          ],
+          [
+            482,
+            352
+          ],
+          [
+            485,
+            359
+          ],
+          [
+            475,
+            363
+          ]
+        ]
+      },
+      {
+        "text": "1",
+        "confidence": 0.19360370934009552,
+        "polygon": [
+          [
+            762,
+            350
+          ],
+          [
+            767,
+            350
+          ],
+          [
+            767,
+            356
+          ],
+          [
+            762,
+            356
+          ]
+        ]
+      },
+      {
+        "text": "CE",
+        "confidence": 0.6961872577667236,
+        "polygon": [
+          [
+            812,
+            348
+          ],
+          [
+            836,
+            342
+          ],
+          [
+            840,
+            357
+          ],
+          [
+            816,
+            363
+          ]
+        ]
+      },
+      {
+        "text": "CE",
+        "confidence": 0.6835668087005615,
+        "polygon": [
+          [
+            58,
+            371
+          ],
+          [
+            101,
+            371
+          ],
+          [
+            101,
+            399
+          ],
+          [
+            58,
+            399
+          ]
+        ]
+      },
+      {
+        "text": "C",
+        "confidence": 0.4877241849899292,
+        "polygon": [
+          [
+            202,
+            386
+          ],
+          [
+            211,
+            386
+          ],
+          [
+            211,
+            394
+          ],
+          [
+            202,
+            394
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9879177808761597,
+        "polygon": [
+          [
+            872,
+            490
+          ],
+          [
+            924,
+            557
+          ],
+          [
+            906,
+            572
+          ],
+          [
+            854,
+            505
+          ]
+        ]
+      },
+      {
+        "text": "色CE",
+        "confidence": 0.757537305355072,
+        "polygon": [
+          [
+            795,
+            550
+          ],
+          [
+            819,
+            550
+          ],
+          [
+            819,
+            573
+          ],
+          [
+            795,
+            573
+          ]
+        ]
+      },
+      {
+        "text": "百家",
+        "confidence": 0.12501317262649536,
+        "polygon": [
+          [
+            855,
+            548
+          ],
+          [
+            870,
+            547
+          ],
+          [
+            875,
+            604
+          ],
+          [
+            860,
+            606
+          ]
+        ]
+      },
+      {
+        "text": "子",
+        "confidence": 0.12206151336431503,
+        "polygon": [
+          [
+            873,
+            590
+          ],
+          [
+            885,
+            590
+          ],
+          [
+            885,
+            613
+          ],
+          [
+            873,
+            613
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/capture/raw/rgb/00000524.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            8,
+            176
+          ],
+          [
+            44,
+            213
+          ],
+          [
+            30,
+            228
+          ],
+          [
+            0,
+            191
+          ]
+        ],
+        [
+          [
+            522,
+            174
+          ],
+          [
+            536,
+            174
+          ],
+          [
+            536,
+            208
+          ],
+          [
+            522,
+            208
+          ]
+        ],
+        [
+          [
+            91,
+            196
+          ],
+          [
+            132,
+            244
+          ],
+          [
+            119,
+            256
+          ],
+          [
+            78,
+            208
+          ]
+        ],
+        [
+          [
+            158,
+            228
+          ],
+          [
+            187,
+            267
+          ],
+          [
+            176,
+            275
+          ],
+          [
+            147,
+            236
+          ]
+        ],
+        [
+          [
+            77,
+            241
+          ],
+          [
+            90,
+            241
+          ],
+          [
+            90,
+            261
+          ],
+          [
+            77,
+            261
+          ]
+        ],
+        [
+          [
+            278,
+            243
+          ],
+          [
+            322,
+            243
+          ],
+          [
+            322,
+            272
+          ],
+          [
+            278,
+            272
+          ]
+        ],
+        [
+          [
+            331,
+            247
+          ],
+          [
+            368,
+            244
+          ],
+          [
+            370,
+            268
+          ],
+          [
+            333,
+            272
+          ]
+        ],
+        [
+          [
+            74,
+            257
+          ],
+          [
+            107,
+            265
+          ],
+          [
+            102,
+            290
+          ],
+          [
+            69,
+            282
+          ]
+        ],
+        [
+          [
+            865,
+            284
+          ],
+          [
+            897,
+            304
+          ],
+          [
+            887,
+            320
+          ],
+          [
+            855,
+            300
+          ]
+        ],
+        [
+          [
+            7,
+            302
+          ],
+          [
+            45,
+            335
+          ],
+          [
+            30,
+            353
+          ],
+          [
+            0,
+            320
+          ]
+        ],
+        [
+          [
+            82,
+            307
+          ],
+          [
+            123,
+            345
+          ],
+          [
+            110,
+            360
+          ],
+          [
+            69,
+            322
+          ]
+        ],
+        [
+          [
+            389,
+            311
+          ],
+          [
+            418,
+            311
+          ],
+          [
+            418,
+            330
+          ],
+          [
+            389,
+            330
+          ]
+        ],
+        [
+          [
+            267,
+            322
+          ],
+          [
+            277,
+            322
+          ],
+          [
+            277,
+            332
+          ],
+          [
+            267,
+            332
+          ]
+        ],
+        [
+          [
+            422,
+            316
+          ],
+          [
+            440,
+            316
+          ],
+          [
+            440,
+            327
+          ],
+          [
+            422,
+            327
+          ]
+        ],
+        [
+          [
+            437,
+            340
+          ],
+          [
+            451,
+            340
+          ],
+          [
+            451,
+            352
+          ],
+          [
+            437,
+            352
+          ]
+        ],
+        [
+          [
+            456,
+            342
+          ],
+          [
+            468,
+            342
+          ],
+          [
+            468,
+            350
+          ],
+          [
+            456,
+            350
+          ]
+        ],
+        [
+          [
+            472,
+            355
+          ],
+          [
+            482,
+            352
+          ],
+          [
+            485,
+            359
+          ],
+          [
+            475,
+            363
+          ]
+        ],
+        [
+          [
+            762,
+            350
+          ],
+          [
+            767,
+            350
+          ],
+          [
+            767,
+            356
+          ],
+          [
+            762,
+            356
+          ]
+        ],
+        [
+          [
+            812,
+            348
+          ],
+          [
+            836,
+            342
+          ],
+          [
+            840,
+            357
+          ],
+          [
+            816,
+            363
+          ]
+        ],
+        [
+          [
+            58,
+            371
+          ],
+          [
+            101,
+            371
+          ],
+          [
+            101,
+            399
+          ],
+          [
+            58,
+            399
+          ]
+        ],
+        [
+          [
+            202,
+            386
+          ],
+          [
+            211,
+            386
+          ],
+          [
+            211,
+            394
+          ],
+          [
+            202,
+            394
+          ]
+        ],
+        [
+          [
+            872,
+            490
+          ],
+          [
+            924,
+            557
+          ],
+          [
+            906,
+            572
+          ],
+          [
+            854,
+            505
+          ]
+        ],
+        [
+          [
+            795,
+            550
+          ],
+          [
+            819,
+            550
+          ],
+          [
+            819,
+            573
+          ],
+          [
+            795,
+            573
+          ]
+        ],
+        [
+          [
+            855,
+            548
+          ],
+          [
+            870,
+            547
+          ],
+          [
+            875,
+            604
+          ],
+          [
+            860,
+            606
+          ]
+        ],
+        [
+          [
+            873,
+            590
+          ],
+          [
+            885,
+            590
+          ],
+          [
+            885,
+            613
+          ],
+          [
+            873,
+            613
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "AGILE",
+        "_",
+        "FRAGILE",
+        "FRAGILE",
+        "1",
+        "04",
+        "/5R",
+        "VA",
+        "FRAGLE",
+        "AGILE",
+        "FRAGILE",
+        "03",
+        "出",
+        "/5R",
+        "02",
+        "JSR",
+        "中",
+        "1",
+        "CE",
+        "CE",
+        "C",
+        "FRAGILE",
+        "色CE",
+        "百家",
+        "子"
+      ],
+      "rec_scores": [
+        0.9952419400215149,
+        0.3603403568267822,
+        0.9613723754882812,
+        0.9681201577186584,
+        0.1382131576538086,
+        0.9994139671325684,
+        0.9867072701454163,
+        0.29710203409194946,
+        0.9350453019142151,
+        0.9490383863449097,
+        0.9548866152763367,
+        0.999573290348053,
+        0.22988629341125488,
+        0.8815875053405762,
+        0.9956936240196228,
+        0.7846693992614746,
+        0.11054740846157074,
+        0.19360370934009552,
+        0.6961872577667236,
+        0.6835668087005615,
+        0.4877241849899292,
+        0.9879177808761597,
+        0.757537305355072,
+        0.12501317262649536,
+        0.12206151336431503
+      ],
+      "rec_polys": [
+        [
+          [
+            8,
+            176
+          ],
+          [
+            44,
+            213
+          ],
+          [
+            30,
+            228
+          ],
+          [
+            0,
+            191
+          ]
+        ],
+        [
+          [
+            522,
+            174
+          ],
+          [
+            536,
+            174
+          ],
+          [
+            536,
+            208
+          ],
+          [
+            522,
+            208
+          ]
+        ],
+        [
+          [
+            91,
+            196
+          ],
+          [
+            132,
+            244
+          ],
+          [
+            119,
+            256
+          ],
+          [
+            78,
+            208
+          ]
+        ],
+        [
+          [
+            158,
+            228
+          ],
+          [
+            187,
+            267
+          ],
+          [
+            176,
+            275
+          ],
+          [
+            147,
+            236
+          ]
+        ],
+        [
+          [
+            77,
+            241
+          ],
+          [
+            90,
+            241
+          ],
+          [
+            90,
+            261
+          ],
+          [
+            77,
+            261
+          ]
+        ],
+        [
+          [
+            278,
+            243
+          ],
+          [
+            322,
+            243
+          ],
+          [
+            322,
+            272
+          ],
+          [
+            278,
+            272
+          ]
+        ],
+        [
+          [
+            331,
+            247
+          ],
+          [
+            368,
+            244
+          ],
+          [
+            370,
+            268
+          ],
+          [
+            333,
+            272
+          ]
+        ],
+        [
+          [
+            74,
+            257
+          ],
+          [
+            107,
+            265
+          ],
+          [
+            102,
+            290
+          ],
+          [
+            69,
+            282
+          ]
+        ],
+        [
+          [
+            865,
+            284
+          ],
+          [
+            897,
+            304
+          ],
+          [
+            887,
+            320
+          ],
+          [
+            855,
+            300
+          ]
+        ],
+        [
+          [
+            7,
+            302
+          ],
+          [
+            45,
+            335
+          ],
+          [
+            30,
+            353
+          ],
+          [
+            0,
+            320
+          ]
+        ],
+        [
+          [
+            82,
+            307
+          ],
+          [
+            123,
+            345
+          ],
+          [
+            110,
+            360
+          ],
+          [
+            69,
+            322
+          ]
+        ],
+        [
+          [
+            389,
+            311
+          ],
+          [
+            418,
+            311
+          ],
+          [
+            418,
+            330
+          ],
+          [
+            389,
+            330
+          ]
+        ],
+        [
+          [
+            267,
+            322
+          ],
+          [
+            277,
+            322
+          ],
+          [
+            277,
+            332
+          ],
+          [
+            267,
+            332
+          ]
+        ],
+        [
+          [
+            422,
+            316
+          ],
+          [
+            440,
+            316
+          ],
+          [
+            440,
+            327
+          ],
+          [
+            422,
+            327
+          ]
+        ],
+        [
+          [
+            437,
+            340
+          ],
+          [
+            451,
+            340
+          ],
+          [
+            451,
+            352
+          ],
+          [
+            437,
+            352
+          ]
+        ],
+        [
+          [
+            456,
+            342
+          ],
+          [
+            468,
+            342
+          ],
+          [
+            468,
+            350
+          ],
+          [
+            456,
+            350
+          ]
+        ],
+        [
+          [
+            472,
+            355
+          ],
+          [
+            482,
+            352
+          ],
+          [
+            485,
+            359
+          ],
+          [
+            475,
+            363
+          ]
+        ],
+        [
+          [
+            762,
+            350
+          ],
+          [
+            767,
+            350
+          ],
+          [
+            767,
+            356
+          ],
+          [
+            762,
+            356
+          ]
+        ],
+        [
+          [
+            812,
+            348
+          ],
+          [
+            836,
+            342
+          ],
+          [
+            840,
+            357
+          ],
+          [
+            816,
+            363
+          ]
+        ],
+        [
+          [
+            58,
+            371
+          ],
+          [
+            101,
+            371
+          ],
+          [
+            101,
+            399
+          ],
+          [
+            58,
+            399
+          ]
+        ],
+        [
+          [
+            202,
+            386
+          ],
+          [
+            211,
+            386
+          ],
+          [
+            211,
+            394
+          ],
+          [
+            202,
+            394
+          ]
+        ],
+        [
+          [
+            872,
+            490
+          ],
+          [
+            924,
+            557
+          ],
+          [
+            906,
+            572
+          ],
+          [
+            854,
+            505
+          ]
+        ],
+        [
+          [
+            795,
+            550
+          ],
+          [
+            819,
+            550
+          ],
+          [
+            819,
+            573
+          ],
+          [
+            795,
+            573
+          ]
+        ],
+        [
+          [
+            855,
+            548
+          ],
+          [
+            870,
+            547
+          ],
+          [
+            875,
+            604
+          ],
+          [
+            860,
+            606
+          ]
+        ],
+        [
+          [
+            873,
+            590
+          ],
+          [
+            885,
+            590
+          ],
+          [
+            885,
+            613
+          ],
+          [
+            873,
+            613
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          0,
+          176,
+          44,
+          228
+        ],
+        [
+          522,
+          174,
+          536,
+          208
+        ],
+        [
+          78,
+          196,
+          132,
+          256
+        ],
+        [
+          147,
+          228,
+          187,
+          275
+        ],
+        [
+          77,
+          241,
+          90,
+          261
+        ],
+        [
+          278,
+          243,
+          322,
+          272
+        ],
+        [
+          331,
+          244,
+          370,
+          272
+        ],
+        [
+          69,
+          257,
+          107,
+          290
+        ],
+        [
+          855,
+          284,
+          897,
+          320
+        ],
+        [
+          0,
+          302,
+          45,
+          353
+        ],
+        [
+          69,
+          307,
+          123,
+          360
+        ],
+        [
+          389,
+          311,
+          418,
+          330
+        ],
+        [
+          267,
+          322,
+          277,
+          332
+        ],
+        [
+          422,
+          316,
+          440,
+          327
+        ],
+        [
+          437,
+          340,
+          451,
+          352
+        ],
+        [
+          456,
+          342,
+          468,
+          350
+        ],
+        [
+          472,
+          352,
+          485,
+          363
+        ],
+        [
+          762,
+          350,
+          767,
+          356
+        ],
+        [
+          812,
+          342,
+          840,
+          363
+        ],
+        [
+          58,
+          371,
+          101,
+          399
+        ],
+        [
+          202,
+          386,
+          211,
+          394
+        ],
+        [
+          854,
+          490,
+          924,
+          572
+        ],
+        [
+          795,
+          550,
+          819,
+          573
+        ],
+        [
+          855,
+          547,
+          875,
+          606
+        ],
+        [
+          873,
+          590,
+          885,
+          613
+        ]
+      ]
+    },
+    "elapsed_s": 0.8210158348083496,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "codex-continuous-20261112-v2:00000524",
+    "rgb_hash": "fb8348dfdc9eec09775fb6342595a19b69ab9b5fe7b6e737c23b7e5bc6ecd7cd"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "AGILE",
+        "confidence": 0.9952419400215149,
+        "polygon": [
+          [
+            8,
+            176
+          ],
+          [
+            44,
+            213
+          ],
+          [
+            30,
+            228
+          ],
+          [
+            0,
+            191
+          ]
+        ],
+        "normalized": "AGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "_",
+        "confidence": 0.3603403568267822,
+        "polygon": [
+          [
+            522,
+            174
+          ],
+          [
+            536,
+            174
+          ],
+          [
+            536,
+            208
+          ],
+          [
+            522,
+            208
+          ]
+        ],
+        "normalized": "_",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9613723754882812,
+        "polygon": [
+          [
+            91,
+            196
+          ],
+          [
+            132,
+            244
+          ],
+          [
+            119,
+            256
+          ],
+          [
+            78,
+            208
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9681201577186584,
+        "polygon": [
+          [
+            158,
+            228
+          ],
+          [
+            187,
+            267
+          ],
+          [
+            176,
+            275
+          ],
+          [
+            147,
+            236
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "1",
+        "confidence": 0.1382131576538086,
+        "polygon": [
+          [
+            77,
+            241
+          ],
+          [
+            90,
+            241
+          ],
+          [
+            90,
+            261
+          ],
+          [
+            77,
+            261
+          ]
+        ],
+        "normalized": "1",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "04",
+        "confidence": 0.9994139671325684,
+        "polygon": [
+          [
+            278,
+            243
+          ],
+          [
+            322,
+            243
+          ],
+          [
+            322,
+            272
+          ],
+          [
+            278,
+            272
+          ]
+        ],
+        "normalized": "04",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.9867072701454163,
+        "polygon": [
+          [
+            331,
+            247
+          ],
+          [
+            368,
+            244
+          ],
+          [
+            370,
+            268
+          ],
+          [
+            333,
+            272
+          ]
+        ],
+        "normalized": "/5R",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "VA",
+        "confidence": 0.29710203409194946,
+        "polygon": [
+          [
+            74,
+            257
+          ],
+          [
+            107,
+            265
+          ],
+          [
+            102,
+            290
+          ],
+          [
+            69,
+            282
+          ]
+        ],
+        "normalized": "VA",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGLE",
+        "confidence": 0.9350453019142151,
+        "polygon": [
+          [
+            865,
+            284
+          ],
+          [
+            897,
+            304
+          ],
+          [
+            887,
+            320
+          ],
+          [
+            855,
+            300
+          ]
+        ],
+        "normalized": "FRAGLE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "AGILE",
+        "confidence": 0.9490383863449097,
+        "polygon": [
+          [
+            7,
+            302
+          ],
+          [
+            45,
+            335
+          ],
+          [
+            30,
+            353
+          ],
+          [
+            0,
+            320
+          ]
+        ],
+        "normalized": "AGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9548866152763367,
+        "polygon": [
+          [
+            82,
+            307
+          ],
+          [
+            123,
+            345
+          ],
+          [
+            110,
+            360
+          ],
+          [
+            69,
+            322
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "03",
+        "confidence": 0.999573290348053,
+        "polygon": [
+          [
+            389,
+            311
+          ],
+          [
+            418,
+            311
+          ],
+          [
+            418,
+            330
+          ],
+          [
+            389,
+            330
+          ]
+        ],
+        "normalized": "03",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "出",
+        "confidence": 0.22988629341125488,
+        "polygon": [
+          [
+            267,
+            322
+          ],
+          [
+            277,
+            322
+          ],
+          [
+            277,
+            332
+          ],
+          [
+            267,
+            332
+          ]
+        ],
+        "normalized": "出",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "/5R",
+        "confidence": 0.8815875053405762,
+        "polygon": [
+          [
+            422,
+            316
+          ],
+          [
+            440,
+            316
+          ],
+          [
+            440,
+            327
+          ],
+          [
+            422,
+            327
+          ]
+        ],
+        "normalized": "/5R",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "02",
+        "confidence": 0.9956936240196228,
+        "polygon": [
+          [
+            437,
+            340
+          ],
+          [
+            451,
+            340
+          ],
+          [
+            451,
+            352
+          ],
+          [
+            437,
+            352
+          ]
+        ],
+        "normalized": "02",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "JSR",
+        "confidence": 0.7846693992614746,
+        "polygon": [
+          [
+            456,
+            342
+          ],
+          [
+            468,
+            342
+          ],
+          [
+            468,
+            350
+          ],
+          [
+            456,
+            350
+          ]
+        ],
+        "normalized": "JSR",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "中",
+        "confidence": 0.11054740846157074,
+        "polygon": [
+          [
+            472,
+            355
+          ],
+          [
+            482,
+            352
+          ],
+          [
+            485,
+            359
+          ],
+          [
+            475,
+            363
+          ]
+        ],
+        "normalized": "中",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "1",
+        "confidence": 0.19360370934009552,
+        "polygon": [
+          [
+            762,
+            350
+          ],
+          [
+            767,
+            350
+          ],
+          [
+            767,
+            356
+          ],
+          [
+            762,
+            356
+          ]
+        ],
+        "normalized": "1",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "CE",
+        "confidence": 0.6961872577667236,
+        "polygon": [
+          [
+            812,
+            348
+          ],
+          [
+            836,
+            342
+          ],
+          [
+            840,
+            357
+          ],
+          [
+            816,
+            363
+          ]
+        ],
+        "normalized": "CE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "CE",
+        "confidence": 0.6835668087005615,
+        "polygon": [
+          [
+            58,
+            371
+          ],
+          [
+            101,
+            371
+          ],
+          [
+            101,
+            399
+          ],
+          [
+            58,
+            399
+          ]
+        ],
+        "normalized": "CE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "C",
+        "confidence": 0.4877241849899292,
+        "polygon": [
+          [
+            202,
+            386
+          ],
+          [
+            211,
+            386
+          ],
+          [
+            211,
+            394
+          ],
+          [
+            202,
+            394
+          ]
+        ],
+        "normalized": "C",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9879177808761597,
+        "polygon": [
+          [
+            872,
+            490
+          ],
+          [
+            924,
+            557
+          ],
+          [
+            906,
+            572
+          ],
+          [
+            854,
+            505
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "色CE",
+        "confidence": 0.757537305355072,
+        "polygon": [
+          [
+            795,
+            550
+          ],
+          [
+            819,
+            550
+          ],
+          [
+            819,
+            573
+          ],
+          [
+            795,
+            573
+          ]
+        ],
+        "normalized": "色CE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "百家",
+        "confidence": 0.12501317262649536,
+        "polygon": [
+          [
+            855,
+            548
+          ],
+          [
+            870,
+            547
+          ],
+          [
+            875,
+            604
+          ],
+          [
+            860,
+            606
+          ]
+        ],
+        "normalized": "百家",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "子",
+        "confidence": 0.12206151336431503,
+        "polygon": [
+          [
+            873,
+            590
+          ],
+          [
+            885,
+            590
+          ],
+          [
+            885,
+            613
+          ],
+          [
+            873,
+            613
+          ]
+        ],
+        "normalized": "子",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": [
+      {
+        "event": {
+          "message_id": "rt:codex-continuous-20261112-v2:00000524:0:text:e6ba04f11d9f",
+          "parent_event_id": "rt:codex-continuous-20261112-v2:00000524:0",
+          "image_id": "codex-continuous-20261112-v2:00000524",
+          "rgb_hash": "fb8348dfdc9eec09775fb6342595a19b69ab9b5fe7b6e737c23b7e5bc6ecd7cd",
+          "depth_hash": "3bc0f8e3387d1aa7f05dd7be78d6bc6dcc2a984388a7157c85c46792ee49aed6",
+          "texts": [
+            {
+              "text": "04",
+              "confidence": 0.9994139671325684,
+              "polygon": [
+                [
+                  278,
+                  243
+                ],
+                [
+                  322,
+                  243
+                ],
+                [
+                  322,
+                  272
+                ],
+                [
+                  278,
+                  272
+                ]
+              ],
+              "normalized": "04",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/5R",
+              "confidence": 0.9867072701454163,
+              "polygon": [
+                [
+                  331,
+                  247
+                ],
+                [
+                  368,
+                  244
+                ],
+                [
+                  370,
+                  268
+                ],
+                [
+                  333,
+                  272
+                ]
+              ],
+              "normalized": "/5R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "provenance": {
+            "backend": "PP-OCRv5_mobile",
+            "device": "cpu",
+            "threads": 4,
+            "det_max_side": 960,
+            "mkldnn": true,
+            "files": {
+              "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+              "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+              "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+              "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+              "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+              "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+              "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+              "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+            }
+          }
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "dcd8ceacda4e43be8ae1e14c37d312c0"
+      }
+    ]
+  }
+}

@@ -2,6 +2,19 @@
 import math
 import numpy as np
 
+LANDMARK_LOCAL_INSTRUCTION = (
+    "Local describes the robot's position and heading relative to identifiable landmarks, "
+    "not a generic scene caption or a progress announcement. Prefer readable sign text or "
+    "distinctive objects and their near/left/right/ahead/behind relations over 'in an aisle'. "
+    "Use current RGB plus observed_map_landmarks; category names alone do not identify instances. "
+    "Preserve supported identifier text exactly; do not guess unreadable or conflicting digits. "
+    "Historical mapped landmarks may support Local even when landmark is [] or the object "
+    "is not currently visible. Prefix historical-only inference with 'Inferred:' and qualify "
+    "unconfirmed OCR identifiers. Do not treat map memory as fresh visibility. "
+    "If no identifiable landmark is supported, use a supported structural relation or unknown. "
+    "Keep Local within 90 characters, prioritizing the useful landmark relation."
+)
+
 LOCAL_CONTEXT_INSTRUCTION = (
     "previous_local is a fallible previous semantic estimate, not a verified localization. "
     "Use it only when valid, together with current/history RGB and observed map. "

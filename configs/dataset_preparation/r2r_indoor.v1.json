@@ -1,0 +1,11 @@
+{
+  "version": "r2r-indoor-v1",
+  "categories": [
+    "door", "window", "staircase", "railing", "pillar",
+    "chair", "sofa", "table", "desk", "bed", "cabinet", "bookshelf",
+    "counter", "sink", "toilet", "bathtub", "shower", "refrigerator", "stove",
+    "mirror", "picture", "television", "lamp", "plant", "rug", "sign"
+  ],
+  "aliases": {},
+  "notes": "Independent indoor vocabulary. No warehouse shelf/rack aliases. Objects remain tentative."
+}

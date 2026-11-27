@@ -1,0 +1,268 @@
+{
+  "instruction": "Navigate to shelf sign 03/4R and stop beside it.",
+  "target": {
+    "landmark_uid": "f5febf048909438fa28ac429d8c6514e",
+    "submap_id": "codex-map-return-20261112-d",
+    "category": "sign",
+    "name": null,
+    "observation_ids": [
+      "codex-map-return-20261112-d:00001438"
+    ],
+    "geometry": "arrays/d5775ee38f9f4e8da7e417a4ee3f5359.npz",
+    "position": [
+      11.40255715394182,
+      -1.6505015151626483,
+      2.5893985999377094
+    ],
+    "covariance": [
+      [
+        4.5003428325802805e-06,
+        -7.378791892925148e-06,
+        5.731828531254771e-06
+      ],
+      [
+        -7.378791892925148e-06,
+        0.00031120678375344833,
+        -1.233741204163505e-05
+      ],
+      [
+        5.731828531254771e-06,
+        -1.233741204163505e-05,
+        0.00010737084528173348
+      ]
+    ],
+    "orientation": null,
+    "orientation_kind": "unobservable",
+    "symmetry": "unknown",
+    "static_confirmed": false,
+    "status": "tentative",
+    "first_seen": 299.61668229289353,
+    "last_seen": 299.61668229289353,
+    "confidence": 0.31997090578079224,
+    "position_kind": "observed_surface_centroid",
+    "potentially_dynamic": false,
+    "text_evidence": [
+      {
+        "image_id": "codex-map-return-20261112-d:00001438",
+        "t_obs": 299.61668229289353,
+        "camera_pose": [
+          [
+            0.0004307876951014141,
+            0.06237767456823299,
+            0.9980525237368127,
+            8.447543598225783
+          ],
+          [
+            -0.9999999072107006,
+            2.7612385718052427e-05,
+            0.00042990248360077565,
+            0.005410970969266084
+          ],
+          [
+            -7.422940341723509e-07,
+            -0.998052616324919,
+            0.06237768067532841,
+            1.436881645494411
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.9999999999999998
+          ]
+        ],
+        "signature": "03 | /4R",
+        "texts": [
+          {
+            "text": "03",
+            "confidence": 0.9990494251251221,
+            "polygon": [
+              [
+                760,
+                138
+              ],
+              [
+                829,
+                138
+              ],
+              [
+                829,
+                187
+              ],
+              [
+                760,
+                187
+              ]
+            ],
+            "normalized": "03",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          },
+          {
+            "text": "/4R",
+            "confidence": 0.967602550983429,
+            "polygon": [
+              [
+                855,
+                149
+              ],
+              [
+                911,
+                149
+              ],
+              [
+                911,
+                181
+              ],
+              [
+                855,
+                181
+              ]
+            ],
+            "normalized": "/4R",
+            "candidate_instances": [
+              1
+            ],
+            "owner_instance": 1,
+            "status": "bound"
+          }
+        ],
+        "evidence_id": "rt:codex-map-return-20261112-d:00001438:1:text:e6ba04f11d9f"
+      }
+    ],
+    "identity_status": "candidate",
+    "identity_text": "03/4R",
+    "identity_candidates": [
+      "03 | /4R"
+    ],
+    "needs_reobservation": true,
+    "reobservation_reasons": [
+      "insufficient_full_views"
+    ],
+    "duplicate_text": false,
+    "raw_identity_text": "03 | /4R",
+    "raw_identity_status": "candidate",
+    "resolved_identity": {
+      "text": "03/4R",
+      "status": "candidate",
+      "candidates": [
+        "03/4R"
+      ],
+      "registration_status": "accepted",
+      "maximal_candidates": [
+        "03/4R"
+      ],
+      "ignored_substrings": [],
+      "full_support_frames": [
+        "codex-map-return-20261112-d:00001438"
+      ],
+      "compatible_partial_frames": [],
+      "readings": [
+        {
+          "image_id": "codex-map-return-20261112-d:00001438",
+          "text": "03/4R",
+          "relation": "full_candidate"
+        }
+      ],
+      "reason": "insufficient_full_views"
+    },
+    "raw_duplicate_text": false,
+    "raw_reobservation_reasons": [
+      "insufficient_independent_views"
+    ],
+    "landmark_view": {
+      "policy_version": "landmark-view-v2-substring",
+      "decision": "keep",
+      "reason": "marker_identity_candidate",
+      "duplicate_resolved_text": false,
+      "visible": true,
+      "globally_unique_verified": false
+    }
+  },
+  "source": {
+    "image_id": "codex-map-return-20261112-d:00005484",
+    "rgb": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/rgb/00005484.png",
+    "depth": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/depth/00005484.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.030592500050628052,
+        -0.9995307573798707,
+        0.001537527975108474,
+        0.007335026204054351
+      ],
+      [
+        0.9995307691125012,
+        0.030590073582105654,
+        -0.001577655099444918,
+        0.23975176200316817
+      ],
+      [
+        0.0015298817025392894,
+        0.001585070933201857,
+        0.9999975735031127,
+        -1.2697833744598416e-05
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t_obs": 1108.8167244959623,
+    "odom_epoch": "codex-map-return-20261112-d",
+    "submap_id": "codex-map-return-20261112-d",
+    "task_id": "target_selection",
+    "rgb_hash": "89eb114466c4107c8a6557c273390b325dc29486037e3320a5b8e9c3eaea4d0b",
+    "depth_hash": "70c325b483b8a0a3e68e6b2093c7d4995b6a3d7fe4fa601d4fbabc43086be808",
+    "geometry": "arrays/41bd96b6590a408d9bb09c7b9c62d15e.npz",
+    "source_monotonic": 3727.691995919
+  },
+  "outside_rgb_frustum": true
+}

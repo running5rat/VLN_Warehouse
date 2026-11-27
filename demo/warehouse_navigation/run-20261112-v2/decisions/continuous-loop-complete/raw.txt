@@ -1,0 +1,5 @@
+<landmark>[]</landmark>
+<local>Back at the starting cross-aisle.</local>
+<Route>STOP</Route>
+<waypoint>[]</waypoint>
+<REFLINE>

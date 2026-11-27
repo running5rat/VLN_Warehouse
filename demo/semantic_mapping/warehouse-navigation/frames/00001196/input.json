@@ -1,0 +1,121 @@
+{
+  "user_text": "Previous Route: Continue past 02/5R and 03/5R to 04/5R and STOP beside it.\nPrevious Local: Alongside 02/5R on the right, facing toward 03/5R and 04/5R.\nMotion: 12.0s, x=3.614, y=-0.001, yaw=0.000\nCurrent detectable categories: sign\nCompletion evidence: unverified\nImages in order: current original RGB, current segmentation overlay, prior semantic map.",
+  "system_text": "Return only an English JSON object with exactly landmark, local, route and waypoint.\nlandmark: Up to three useful visible object categories from Current detectable categories. No IDs. Use [] if none.\nlocal: Current position and heading relative to supported visible or mapped landmarks, within 90 characters. Mark memory-only localization Inferred. Use unknown if unsupported.\nroute: Remaining navigation commands only, within 600 characters. Preserve ALL unfinished Previous Route steps in order, including the final STOP. Delete a step only with observation or motion evidence. Never describe scene layout as a route. An unseen target may remain a search goal; do not invent its location. STOP alone requires verified completion, otherwise retain remaining commands.\nwaypoint: Exactly five ordered [u,v] PIXEL pairs on visible navigable FLOOR in CURRENT original RGB, or [] when stopped or no safe visible continuation can be specified. Original RGB is 960 by 720; origin top left; u right, v down. These are NOT metres or map coordinates. Order near to far along the intended local route. All points and the connecting route must remain inside the visible image, on unobstructed floor, not on signs or shelves. Show only the currently visible route prefix, not the whole offscreen task. The system uses the same-frame depth to project these pixels to 3D and fits a controller curve. Never invent depth or an offscreen point. If the required turn is not visible, keep that turn in route and return []. No extra rotation action is inferred from empty waypoints.\nThe map is accumulated PAST observed geometry and tentative semantic objects, in odom coordinates, not hidden scene truth. Red marker is current pose; the heading is printed on the map. Blue is observed past travel; background is unobserved, not proven free. OCR may be wrong. Original Instruction is only used to initialize Previous Route for the first frame. Relative motion is current body in previous Local frame, metres x forward y left and counterclockwise yaw radians.\nMap labels use indices linked to an on-image legend. The red arrow shows current heading. No route to the target is supplied. Infer remaining commands from the observed map and localization; if uncertain, preserve the goal and state a reobservation command.\n",
+  "original_instruction_audit_only": "Go to sign 04/5R and STOP beside it.",
+  "map_cutoff": 250.21667971648276,
+  "images": [
+    "rgb.png",
+    "detections.png",
+    "map.png"
+  ],
+  "source": {
+    "image_id": "codex-continuous-20261112-v2:00001196",
+    "t_obs": 251.21667976863682,
+    "rgb_hash": "e7084437928c2f53e32365aecd3118e18524ff98e468529cce055ffd0396fdc5",
+    "depth_hash": "a3e91418a84431f578aa0775fd7bad2adc5cbf937d5b3ce9c09a27eb109ea3e2",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.9999999440429675,
+        -0.0003345025525303845,
+        4.701469966743007e-06,
+        8.165897226388225
+      ],
+      [
+        0.00033450255450069875,
+        0.9999999440539311,
+        -4.1824350046243526e-07,
+        -4.999732782576631
+      ],
+      [
+        -4.701329800198403e-06,
+        4.198161307692951e-07,
+        0.9999999999888607,
+        -0.012908522165306887
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "odom_epoch": "codex-continuous-20261112-v2"
+  },
+  "images_sha256": {
+    "rgb.png": "e7084437928c2f53e32365aecd3118e18524ff98e468529cce055ffd0396fdc5",
+    "detections.png": "9ecab6110792510c83e6b294f0c8bb2a89b2a22e26cbceab8c76e546aa91b123",
+    "map.png": "75c98e1b668bb254edf0aaf74d6575c76c5b13bc9b7fea0421a75dc52e6b4e80"
+  },
+  "previous": {
+    "landmark": [
+      "sign"
+    ],
+    "local": "Alongside 02/5R on the right, facing toward 03/5R and 04/5R.",
+    "route": "Continue past 02/5R and 03/5R to 04/5R and STOP beside it.",
+    "waypoint": [
+      [
+        480,
+        710
+      ],
+      [
+        480,
+        670
+      ],
+      [
+        480,
+        630
+      ],
+      [
+        480,
+        590
+      ],
+      [
+        480,
+        560
+      ]
+    ]
+  }
+}

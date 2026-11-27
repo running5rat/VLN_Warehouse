@@ -1,0 +1,33 @@
+{
+  "request_id": "loop-04",
+  "instruction": "Complete the clockwise warehouse circuit and build the map.",
+  "landmark": [
+    "fire extinguisher"
+  ],
+  "local": "In the end cross-aisle, with rack ends and a fire extinguisher on the right.",
+  "route": "Turn right into the parallel aisle and continue toward the starting end of the rack block.",
+  "waypoint": [
+    [
+      -0.033070358852262595,
+      -4.199681125280775
+    ],
+    [
+      -0.06614071770452519,
+      -8.39936225056155
+    ],
+    [
+      -0.09921107655678779,
+      -12.599043375842328
+    ],
+    [
+      -0.13228143540905038,
+      -16.7987245011231
+    ],
+    [
+      -0.16535179426131297,
+      -20.998405626403876
+    ]
+  ],
+  "source_image_id": "codex-map-return-20261112-d:00002418",
+  "provider": "codex-session"
+}

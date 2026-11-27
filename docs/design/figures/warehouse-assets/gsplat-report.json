@@ -1,0 +1,52 @@
+{
+  "project": "https://github.com/nerfstudio-project/gsplat",
+  "version": "v1.5.3",
+  "commit": "937e29912570c372bed6747a5c9bf85fed877bae",
+  "run": {
+    "project": "nerfstudio-project/gsplat",
+    "version": "1.5.3",
+    "optimizer_steps": 6000,
+    "initialization_and_initial_eval_seconds": 103.09912688500117,
+    "training_including_periodic_eval_seconds": 89.32354009299888,
+    "total_seconds": 194.90656273400054,
+    "peak_allocated_gpu_gib": 1.7405753135681152,
+    "final_gaussians": 1052135,
+    "checkpoint_tensor_roundtrip": "PASS",
+    "torch": "2.8.0+cu128",
+    "cuda_runtime": "12.8",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "antialiased": true,
+    "depth_supervision": false,
+    "geometry_initialization": "training RGB-D frames only; simulator camera poses",
+    "training_code": "official examples/simple_trainer.py Runner; unmodified"
+  },
+  "train_views": 70,
+  "held_out_views": 11,
+  "initial": {
+    "psnr": 13.878568649291992,
+    "ssim": 0.4906027615070343,
+    "lpips": 0.6331179738044739,
+    "ellipse_time": 9.056295069781216,
+    "num_GS": 120000
+  },
+  "final": {
+    "psnr": 36.358604431152344,
+    "ssim": 0.9803971648216248,
+    "lpips": 0.012253843247890472,
+    "ellipse_time": 0.0027992291883988814,
+    "num_GS": 1052135
+  },
+  "novel_view_render_ms_p50": 2.028880000580102,
+  "novel_view_render_ms_p95": 3.296411400879151,
+  "novel_view_mean_alpha95_fraction": 0.8491714974244435,
+  "timing_scope": "CUDA synchronized rasterization only, excluding file encoding and CPU transfer; first 5 renders excluded",
+  "novel_view_frames": 180,
+  "novel_view_has_ground_truth": false,
+  "checkpoint_sha256": "2ec7026f11c67e6d139ea5ac66831016282a8c8f6bd7a9f60e950c076ebec1d0",
+  "limitations": [
+    "One warehouse aisle segment, near-view holdout only",
+    "Uses existing simulator camera poses and TRAIN depth initialization; RGB-only SfM not tested",
+    "Novel camera video has no GT; no novel-view accuracy claimed",
+    "No mesh, collision map, full warehouse reconstruction or navigation oracle validated"
+  ]
+}

@@ -1,6 +1,38 @@
 # Warehouse VLN
 
+## 仓库两任务演示
+
+### 1. 环绕仓库并建立语义地图
+
+![仓库环绕建图：RGB、语义地图与 Landmark、Local、Route、Waypoint 输出](demo/semantic_mapping/warehouse-navigation/mapping-preview.gif)
+
+*完整任务的 8 倍速动画预览，3 fps；原视频 174.8 秒。* [完整建图视频（MP4）](demo/semantic_mapping/warehouse-navigation/mapping.mp4)
+
+### 2. 利用地图前往当前视野外的 04/5R 标牌
+
+初始指令：`Go to sign 04/5R and STOP beside it.` 地图与 Local 用于推导剩余 Route，初始指令不提供路径。
+
+![利用已建地图寻找 04/5R：RGB、语义地图与 Landmark、Local、Route、Waypoint 输出](demo/semantic_mapping/warehouse-navigation/target-preview.gif)
+
+*完整任务的 4 倍速动画预览，3 fps；原视频 72.8 秒。* [完整目标导航视频（MP4）](demo/semantic_mapping/warehouse-navigation/target.mp4)
+
+两段动画直接在 README 中播放；完整视频保留正常速度与清晰文字。画面展示 Codex 会话标注的 Landmark、Local、递归 Route、RGB Waypoint 及语义地图。这一版使用既有车辆运动回放，新标注未驱动车辆，不能视为新预测完成了自主导航闭环。
+
+## 实施计划与安排
+
+[**当前落地计划（2026-11-20 更新）**](docs/implementation_plan_20261118.md)：确定前视 VLM／Reference＋多方向 AE、两个 RGB Waypoint＋连续参考线；安排 InternVL3-1B＋LoRA＋完整 Decoder 训练、秩／容量及后续全量 SFT 对照，补充首轮数据配比、重建场景任务与轨迹 Oracle、DriveVLM 部署优化。以上是下一版本设计，运行代码与历史五点数据尚未迁移；300个R2R任务的返回与待审核状态见文档中有日期的库存快照。
+
+## 系统设计 v0.7
+
+[**设计文档 PDF**](dynamic-warehouse-vln-design-v0.7.pdf) · [可编辑源稿](dynamic-warehouse-vln-design-v0.7.md) · [构建与核验说明](docs/design/README.md)
+
+2026-11-23 将 v0.7 精简为 **Model Pipeline、Training Schedule、Data Engine、Deployment Optimization** 四部分的算法方案，目录包含全部编号标题。模型总图参考 ABot-N0、TIC-VLA、AwareVLN 的论文表达重绘，结合仓库示教 RGB、检测与语义地图；VLM 输入输出和两点锚点归入 1.2，1.7.3 补充 Scorer，数据引擎明确静态／动态轨迹 Oracle，目录支持整行点击跳转；移除代码索引及存储、事件等开发细节。纳入前视 VLM／多方向 AE、LoRA／容量／全量 SFT 对照、数据配比及轨迹 Oracle；v0.6 原件和历史 v0.7 源稿保留。
+
 ## 语义建图演示
+
+**连续导航Demo v2：** 两个任务都从完整Route（含最终STOP）开始，后续递归更新剩余步骤；先环绕，再前往第二通道的`04/5R`。三次曲线接管时实测均保持约0.30m/s。[原速视频与七次输出](demo/warehouse_navigation/run-20261112-v2/index.html) · [实跑报告](demo/warehouse_navigation/run-20261112-v2/REPORT.md) · [启动命令](demo/warehouse_navigation/README.md)。视频聚焦Semantic map、Landmark、Local、Route、Waypoint；依旧是Codex代答，OCR冲突没有隐藏。
+
+**2026-11-12：环绕建图＋视野外编号导航 Demo。** 使用人工标注的 `manual-static-004` 原仓库；Codex代答五个waypoint，PCHIP拟合＋Pure Pursuit控制真实Isaac车辆。已完成52.56m环绕，再根据本轮地图导航到开始时看不到的`03/4R`旁停车。[启动说明](demo/warehouse_navigation/README.md) · [视频/全部决策HTML](demo/warehouse_navigation/run-20261112-d/index.html) · [结果与OCR冲突限制](demo/warehouse_navigation/run-20261112-d/REPORT.md)。这是Codex代答工程演示，不是已训练VLA的能力验收；本地页面启动方法见说明。
 
 [**打开完整演示：视频、语义地图与实验报告 →**](https://running5rat.github.io/VLN_Warehouse/)
 
@@ -40,6 +72,20 @@ README 中的 GIF 和地图随代码推送即可显示；完整 HTML 页面通�
 
 ## 人工与辅助标注（第二阶段）
 
+**2026-11-13：R2R 标注扩至累计300任务。** 已冻结新增176任务、2,012关键帧，接续既有120训练池任务和4试点任务；使用原Qwen 3.7 Plus Route递归保留配置，先准备分割/OCR再调用教师。进度页 `http://localhost:8805/progress.html`，规则统计 `http://localhost:8805/statistics.html`。启动不代表已完成，详见[本轮执行说明](docs/r2r_extend300.md)。全量10,819任务的付费标注仍未授权启动。
+
+**2026-11-12：完整 R2R 训练集数据准备。** 用户本轮选择先准备数据、暂不调用 API。已核验原始训练集 10,819 个任务、61 个建筑和完整轨迹；按 3,603 条精确等价回放复用 RGB-D，任务指令、源身份与后续递归上下文仍独立。全量处理状态见本机 `http://localhost:8798/`，命令、文件结构与验收边界见[全量 R2R 准备说明](docs/r2r_full_preparation.md)。该入口不会读取 API 凭据或生成语义标签；启动处理不代表全量已完成。
+
+2026-11-05：修复代理连接后，已在新目录恢复[剩余108个R2R任务、1,154帧的v6标注](docs/r2r_v6_remaining108.md)，使用用户提供的当前prompt；进度页为 `http://localhost:8793/progress.html`。原11月4日的超时记录及预算预留保留。运行进度与最终验收分开记录；旧12任务不重复调用。此前[v5提示与费用估算](docs/qwen_plus_prompt_cost_20261104.md)保留作历史记录。
+
+**R2R v4 扩展标注（2026-10-30）：**[12个新任务的运行与审核说明](docs/r2r_v4_batch12.md)。用户确认12个任务，覆盖12栋建筑、144个关键帧；不自动扩至120个，结果与人工批准分开记录。
+
+**R2R 标注试点：**[实施、运行与审核说明](docs/r2r_semantic_pilot.md)。固定四个完整任务、40个关键帧，独立室内26类词表、Qwen Plus、RGB-D＋理想局部 odom；交付逐任务视频与全部输入输出，标签待人工审核，不自动扩批或训练。
+
+**2026-10-29 当前教师配置：**下一阶段暂定 **Qwen `qwen3.7-plus`**，开启思考（2048 tokens）、输出上限 8192 tokens。模型、模板、输入与失败规则已固定在 [Plus 标注配置说明](docs/qwen_plus_annotation_profile.md) 和 [配置文件](configs/dataset_preparation/qwen_plus_teacher.v1.json)。单帧超长不再中断整段任务；失败帧不入图，后续用最近有效上下文继续。仍需人工审核，本次未重新进行付费评测。
+
+**当前规范（2026-10-28）：**[VLM 标注方案与输入输出规范](docs/vlm_annotation_and_io_spec.md) 统一说明人工/教师标注、语义地图递归、Landmark/Local/Route 与 waypoint/ref_line 的来源和格式。教师可使用详细标注规则；学生训练与车端应共用短模板。证据输入已精简为 `plain-evidence-v2`，**SYSTEM 拆分仍待实施**，本次文档更新不代表已切换模型提示或重新评测。
+
 **当前能力：静态数据采集、人工标注、轨迹提取、会话辅助文本标注和回放已可用；无人值守 API 自动标注尚未验收。** `manual-static-004` 的10个关键帧已由用户批准并统一为英文。最新连续回放为人工任务37次、无行人叉车任务17次更新，54份会话辅助文本通过格式/来源检查，仍待人工审核。无行人叉车版本是静态相机路径重渲染，不是重新驾驶得到的静态专家轨迹。
 
 以下命令均从仓库根目录执行。采集脚本自动桥接宿主 `/data/isaacsim` 的 Isaac Sim 5.0；离线工具使用 `/data/ticvla/envs/warehouse-io/bin/python`，不在 Isaac Python 中运行。`/data/ticvla` 是本机数据路径，换机器需替换；新实验使用新输出目录。
@@ -56,7 +102,7 @@ bash DynaNav/warehouse_loop/run_annotation.sh \
 打开 `http://localhost:8767/`：开始录制 → 点击驾驶区域，W/A/D或方向键驾驶，松键/空格停车 → 标记实际发生的转向、目标可见、停车和到达事件 → 结束采集 → 按关键帧顺序填写 Landmark、Local、Route，审核参考线 → 批准并导出。默认只监听本机；远程可用 `ssh -L 8767:127.0.0.1:8767 用户@服务器` 后打开本机地址。
 
 - 一次 episode 是一个完整场景任务，不必标注每张RGB；默认约10个关键帧，事件帧会追加。
-- Landmark 是带 `image_id/category` 的 JSON 数组；Local、Route 描述和 instruction 采用英文。界面有格式示例。
+- 新 Landmark 使用类别数组（如 `["sign"]`），程序绑定当前源帧；旧 `image_id/category` 数组保留兼容。Local、Route 和 instruction 使用英文，新 Route 为剩余指令字符串或 `DONE`，不再要求 current_subgoal/status。界面有格式示例，旧批准记录不重写。
 - 不编辑参考线时，候选来自后续实际示范轨迹；五个 waypoint 从同一条参考线按弧长抽取，仍需审核后才能成为GT。未来轨迹只用于标签，不进入VLM输入。
 - 首个静态样本不标注ActionExpert；缺失动作标签不等于停车标签。完成状态需要真实的目标可见、停车和到达确认事件。
 
@@ -97,7 +143,7 @@ bash DynaNav/warehouse_loop/run_annotation.sh \
   --output /data/ticvla/outputs/manual-dense-review-new/session
 ```
 
-回答信封格式如下。两个绑定值须复制当前 `input.json`；图像ID只引用当前请求实际提供的图像。示例不是固定答案。
+回答信封格式如下。两个绑定值须复制当前 `input.json`，属于导入时的外部校验信息，不是要求 VLM decode 的字段。示例不是固定答案。
 
 ```json
 {
@@ -106,16 +152,12 @@ bash DynaNav/warehouse_loop/run_annotation.sh \
   "answer": {
     "landmark": [],
     "local": "unknown",
-    "route": {
-      "remaining_instruction": "Continue to the aisle end, then turn left and approach the fire extinguisher.",
-      "current_subgoal": {"action": "advance_to_corridor_end"},
-      "status": "active"
-    }
+    "route": "Continue to the aisle end, then turn left and approach the fire extinguisher."
   }
 }
 ```
 
-输入包含源RGB/历史、因果MapView、原任务、上一Route/Local与已发生事实；不包含未来图像、未来轨迹或当前人工标准答案。`proposal.json` 是未批准提议，格式通过不代表语义正确。密集回放的源时间切换不包含真实模型耗时，也不代表在线推理频率。
+当前模型输入包含原始/历史 RGB、同帧检测叠图与类别、因果语义 MapView、原任务、上一 Route/Local 与相对运动。不发送 Progress/执行事件、到达条件、速度或文字地标表；这些仍可留在外部审计和校验侧。未来图像、未来轨迹和当前人工标准答案不进入模型。`proposal.json` 是未批准提议，格式通过不代表语义正确。密集回放的源时间切换不包含真实模型耗时，也不代表在线推理频率；旧数据缺少语义层时明确标缺失。
 
 ### 3. API 自动标注：已有入口，真实调用待验收
 
@@ -202,6 +244,12 @@ bash DynaNav/warehouse_loop/run_realtime.sh \
 ```bash
 bash demo/semantic_mapping/run_demo.sh
 ```
+### 绕环后超视距地标的 Local / Route 审核
+
+新增[地图记忆问答实验](docs/warehouse_map_memory_review.md)：先沿原轨迹完成一圈，仅运行地标筛选、分割和 OCR 建图；再基于停车源帧与已观测地图，询问当前 RGB 不可见的路标目标。Qwen、GLM 和 Codex 会话结果分别保存，导航车辆不再运动，不生成 waypoint、参考线或 AE 输出。
+
+2026-10-26 的[本机审核页](/data/ticvla/outputs/map-memory-review-20261026/query/index.html)使用新采集的448帧，目标为73/5R。该实验提供理想 odom 位姿，验证地图关系推理，不证明 VLM 独立重定位或导航成功。API 截断、配置变化和会话辅助结果均单独列示，语义正确性等待人工审核。
+
 ## TODO - 后续实现计划
 ### 0．需要实现的能力和当前起点
 当前 [验证记录](/project/docker/VLN/TIC-VLA/docs/warehouse_navigation_validation.md) 中，三种几何对照只验证了短距离运动与观测回流；模型模式尚未产生通过检查的有效前进命令。因此，不能把已有接口当成任务能力已经完成。
@@ -319,3 +367,23 @@ TaskContract、执行事实、旧 Route
 - tentative 对象可用于候选检索，但不能直接升级成永久配准锚点。
 - 再做多机器人地图增量同步、证据去重、位姿图优化和错误融合撤销。
 - 最后在实际工作站—网络—Orin 链路上测量端到端性能。当前 RTX 4090 的前向耗时不能替代文档目标硬件上的验收结果。
+
+## Stage1a 训练链路验收
+
+按“人工数据真实训练 → R2R/RxR 待标注数据 → 教师比较与人工审核 → 首批训练”顺序推进。当前只继续比较 Qwen，GPT 计划 pending，五模型方案作为历史计划保留。近期先冻结教师/学生分离的模板并完成新模板诊断，再扩展审核标签；详见[当前规范与实施顺序](docs/vlm_annotation_and_io_spec.md#6-近期实施顺序与验收)。命令、数据权限与历史验收输出见 [Stage1a 实施说明](docs/stage1a_training_acceptance.md)。人工 demo 的拟合结果不作为独立导航评测。
+
+2026-10-22 已接入外部凭据文件，GLM 国内站与 Qwen 北京区已产生真实图像标注；完整请求、回答、格式失败及用量见本机 `/data/ticvla/outputs/stage1a/oracle-live-20261022-v2/index.html`。OpenAI 请求返回 `credit_balance_exhausted`，暂停等待 API 余额恢复。共同历史上下文和教师提议仍需人工审核，C 阶段尚未完整通过，D 阶段未启动。凭据不写入仓库；调用方式见上述实施说明。
+
+2026-10-26 简化协议的 [Oracle 人工审核页](/data/ticvla/outputs/stage1a/oracle-review-20261026/index.html) 与 [费用报告](/data/ticvla/outputs/stage1a/oracle-review-20261026/REPORT.md) 已保存到本机。逐帧对照 GLM/Qwen 的 Landmark 类别、Local 与自然语言 Route，保留失败、实际 token 用量及人工审核导出；OpenAI 仍无余额，本轮不重试。报告按首批实际 3,458 个关键帧估算 Stage1a 费用，尚未批准为训练标签。打开方法与审核步骤见 [语义教师说明](docs/warehouse_semantic_teacher.md#简化协议的多模型人工审核与费用报告2026-10-26)；这些本机 `/data` 链接不是 GitHub 托管页面。
+
+2026-10-27：**GPT 标注计划按用户要求 pending，当前只比较 Qwen。** 已完成 Max/Plus/Omni 与思考开关的真实小样本对照，新增157次请求，完整对照、打开方式和复现命令见 [Qwen 教师分级实测](docs/qwen_teacher_comparison.md)。准确性优先仍保留Max思考；Plus有限思考为低成本待审核候选，尚未证明等效替代。保留全部失败与原文，未自动批准标签或开展批量训练。
+
+### 建图与导航联合标注：语义地图闭环
+
+后续 VLM 评测与标注质量审核统一遵循 [Agent.md：人工审核标准输出](Agent.md)。以一个完整场景任务为单位展示全部预定关键帧的实际输入、原始输出、地图反馈和逐字段评价；教师标注不要求生成 waypoint，系统评测展示真实 waypoint 与 Decoder 参考线。
+
+新的 [语义地图闭环说明](docs/semantic_mapping_navigation_loop.md) 提供复现命令和输入定义：当前原始 RGB＋同帧检测候选＋上一轮语义地图，经一次 VLM 输出 Landmark/Local/Route，再用同帧 mask、深度与 OCR 更新独立地图，作为下一轮输入。教师与本地训练/导航共享视觉字段构建器，保留旧数据兼容。
+
+2026-10-27 人工 demo 复验：Qwen Plus 完成 10 轮地图反馈；Max 第 3 轮因 Local 超长停止。结果保存在 `/data/ticvla/outputs/stage1a/semantic-loop-20261027/index.html`。标签仍待人工审核，详情与错误归因见上述文档；未重新验收 Isaac 在线性能。
+
+用户指定更新：新标注默认使用Qwen Plus v6原文提示，详见[token来源拆分、单价与R2R预算](docs/qwen_plus_prompt_cost_v6_20261104.md)。历史v4/v5统计保留；v6估算未作为真实API测量。

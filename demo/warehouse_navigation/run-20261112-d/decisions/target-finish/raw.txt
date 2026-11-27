@@ -1,0 +1,5 @@
+<landmark>["sign"]</landmark>
+<local>Stopped beside sign 03/4R, now visible above the rack ahead.</local>
+<Route>DONE</Route>
+<waypoint>[]</waypoint>
+<REFLINE>

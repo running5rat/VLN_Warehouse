@@ -79,6 +79,11 @@ def worker(kind, jobs, replies, root, options):
             )
             model.infer(obs, "PREFILL_FOLLOW")
             model.infer(obs, "TEXT")
+            candidate_model = None
+            if options.get("semantic_input_mode", "unified") == "unified":
+                from ..perception.realtime import FixedSegmenter
+                candidate_model = FixedSegmenter(options["weights"])
+                candidate_model.predict(dict(image_id="warmup", rgb=str(warm), rgb_hash=file_sha256(warm)))
             provenance = dict(
                 model=options["model"],
                 base_files={
@@ -183,7 +188,20 @@ def worker(kind, jobs, replies, root, options):
             write_json(folder / "request.json", clean)
             try:
                 if kind == "vlm":
+                    candidate_path = None
+                    if candidate_model is not None and job["mode"] == "TEXT" and job.get("source"):
+                        from ..perception.instance_selection import candidate_request
+                        candidate_batch = candidate_model.predict(job["source"])
+                        candidate = candidate_request(job["source"], candidate_batch, folder / "candidates")
+                        job["observation"]["perception_candidates"] = candidate
+                        candidate_path = str(folder / "candidate-batch.pt")
+                        torch.save(candidate_batch, candidate_path)
+                        write_json(folder / "request.json", {k:v for k,v in job.items()
+                            if k not in ("batch", "reference_check_grid")})
                     result = cpu_value(model.infer(job["observation"], job["mode"]))
+                    if candidate_path:
+                        result["candidate_batch_path"] = candidate_path
+                        result["perception_candidates"] = candidate
                 elif kind == "flow":
                     with torch.inference_mode():
                         pixels = (
@@ -216,7 +234,13 @@ def worker(kind, jobs, replies, root, options):
                             "Invalid/nonfinite nine-mode trajectory interface"
                         )
                 else:
-                    result = model.segment_instances(job["source"], job["categories"])
+                    if job.get("candidate_batch_path"):
+                        result = torch.load(job["candidate_batch_path"], map_location="cpu", weights_only=False)
+                        if (result["source_image_id"] != job["source"]["image_id"]
+                                or result["rgb_hash"] != job["source"]["rgb_hash"]):
+                            raise ValueError("Reused candidate batch source mismatch")
+                    else:
+                        result = model.segment_instances(job["source"], job["categories"])
                     if kind == "semantic":
                         result = {
                             "segmentation": result,

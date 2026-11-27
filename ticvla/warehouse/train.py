@@ -86,6 +86,8 @@ def train(cfg, stage, resume=None, validation_limit=None):
             "Use --resume or a new output directory; refusing to overwrite a training run"
         )
     manifest = load_manifest(cfg.manifest)
+    if manifest.get("optimizer_updates_permitted") is False or manifest.get("role") in ("regression", "diagnostic"):
+        raise ValueError("Use the bounded diagnostic entrypoint for manual regression data")
     manifest_hash = fingerprint(manifest)
     (output / "config.json").write_text(json.dumps(cfg.to_dict(), indent=2))
     if stage == "reference":

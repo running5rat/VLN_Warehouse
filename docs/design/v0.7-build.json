@@ -1,0 +1,161 @@
+{
+  "version": "v0.7",
+  "date": "2026-11-27",
+  "source_sha256": "4f4f90fdef34ff0acb397e9db43583e0faf50012f789879e00e1c5843c508d59",
+  "pdf_sha256": "d840609007c694b30798f406e9ea22c9663bf52c06c117c4c2455b1674837f38",
+  "baseline_sha256": "570d0e83bc92880cc3b4cb7d21fcaece6843ecdb924b5ded1a43d1da29265f36",
+  "baseline_pages": 28,
+  "pages": 32,
+  "git_head": "8ecfcbf8940ed4994313344790eb47f3f2f92f7e",
+  "working_tree_dirty": true,
+  "fonts": {
+    "Body": {
+      "path": "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+      "sha256": "437a5ecec2ec177cba9284cbffc56055311347f3e9fe4f2b4b40323d0290a6db"
+    },
+    "BodyBold": {
+      "path": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+      "sha256": "aa2ebed70cf6a389400a49feeb976c785de411f387d0cff998472590760cc2b6"
+    },
+    "BodyItalic": {
+      "path": "/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf",
+      "sha256": "4d68313de1145b81d211276cbfda9cefa4c0bfc306a2f9792a6eab5295936be2"
+    },
+    "Mono": {
+      "path": "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+      "sha256": "8c8b4894c328236143c9f57f690e2199482e0a4bed2567747e99ffbbf84ca3af"
+    },
+    "CJK": {
+      "path": "/proc/1/root/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf",
+      "sha256": "acb6440a713d880a13a21b468ba7cd43f5a2b2934972e51be791c880730777b8"
+    }
+  },
+  "dependencies": {
+    "reportlab": "5.1.0",
+    "Markdown": "3.11.2",
+    "pymupdf": "2.0",
+    "pdfrw": "0.4"
+  },
+  "outline_entries": 68,
+  "toc_full_row_links": 67,
+  "render_checks": {
+    "passed": true,
+    "pages_rendered": 32,
+    "report": "docs/design/v0.7-verification.json"
+  },
+  "architecture_files": {
+    "docs/design/figures/model-pipeline-v07.pdf": "6b9719f2967dfe7c4ff0655de379c2886d30a9d8a93bb3f4b6d14c101dec162e",
+    "docs/design/figures/model-pipeline-v07.png": "4d85a1f2456521cfcdb5b0741c4b3001139c250fd928cc14e6db8e34646ab38b"
+  },
+  "training_files": {
+    "docs/design/figures/training-schedule-v07.pdf": "a586fc51178cf4fe9b9ed7e88f52473d53a5bc09e221b425e5e54846084d696f",
+    "docs/design/figures/training-schedule-v07.png": "8b857aa18600813260539ceaaa060899d3c3ae4bd17eef1709f6f54f82c17f24"
+  },
+  "original_figure_source": {
+    "file": "dynamic-warehouse-vln-design-v0.6.pdf",
+    "page": 4,
+    "clip": [
+      76,
+      269,
+      580,
+      716
+    ],
+    "mode": "original vector artwork with image overlays and multiview input",
+    "controller_input": "selected trajectory only"
+  },
+  "structure": "four-part",
+  "diagrams": [
+    "overview",
+    "mapping",
+    "anchors",
+    "fmae",
+    "training",
+    "gsplat",
+    "annotation",
+    "demonstration",
+    "memorytask",
+    "navmesh",
+    "navmeshquery",
+    "deployment"
+  ],
+  "builder_sha256": "22040aeb5e4a6a22ce88e2404663d5312e8a7a6a5d33ce673bce3d3d27babd51",
+  "demo_files": {
+    "docs/design/figures/mapping-demo-v07.pdf": "cf92c0be1b74dcb175510af78baae9e30b30c18c09d028864aa683dcde5f06a1",
+    "docs/design/figures/mapping-demo-v07.png": "18e373bc64bd878c167dcf6d7cd1347cf2fea35577f3097a325e423eebf0ed28",
+    "docs/design/figures/anchors-demo-v07.pdf": "527b40cf14be17baf8fa9c19558592ff7115a160fb7c218d2f1f5101e48fd1bd",
+    "docs/design/figures/anchors-demo-v07.png": "72673b1667ba1cfc0e3cc15b86da795bb5f555818602ff9f1ab67f08bd752201",
+    "docs/design/figures/fmae-demo-v07.pdf": "9888f43aa1196b24dbfe55f7129787c8d980dd5ca73d0c165f5f935b5146bdc2",
+    "docs/design/figures/fmae-demo-v07.png": "4390091c0c8007050c77fdb4f1323deedd5dd2784f055924bf94f8a4dbda3a64",
+    "docs/design/figures/gsplat-demo-v07.pdf": "70e1bf11132ca73f480cf42cf8366a7830e1de70b2ca8080e125e2a0dea8a1b5",
+    "docs/design/figures/gsplat-demo-v07.png": "9ad846138d70790dd269824a00b0896963e656a7a7d7024ffb176110197aec48",
+    "docs/design/figures/annotation-demo-v07.pdf": "744f717dcfe16835d97de436973749ea46da33189de658b1063d9fae6f792226",
+    "docs/design/figures/annotation-demo-v07.png": "a9138c89c75fe9bf66c0c58de6c31f579875227d8e4a06084c8b46a70414b53a",
+    "docs/design/figures/demonstration-demo-v07.pdf": "001acf44fd45ebc62c5fe7fa1c658f8f5864240c50c7724fdbfbe0c43b2d671e",
+    "docs/design/figures/demonstration-demo-v07.png": "46ba06c00b3e7ec748df39a447f9eaa14d2dacf45a55f461b705b2aeb1d2850f",
+    "docs/design/figures/memorytask-demo-v07.pdf": "97e655089df6b08c9ba7e2a7fc7debf2067c4e4de496f29984ea7fc57b6293cb",
+    "docs/design/figures/memorytask-demo-v07.png": "f0cd30a4ce7f49f923d864765624b5df2dfa683a4d4dc729c5440aa1838805c9",
+    "docs/design/figures/navmesh-demo-v07.pdf": "d4329ab8cf96c20ccc9ea4648f96b5234cb26313e132fba39fa867e7c5b2c085",
+    "docs/design/figures/navmesh-demo-v07.png": "553fee79d39f30bf713457a6cb96c40416da4e39ff4259759173a2a1d04dacbb",
+    "docs/design/figures/navmeshquery-demo-v07.pdf": "2f96473dd903c2596800a74fb8418037821367fafd44c127f56992672ba1233c",
+    "docs/design/figures/navmeshquery-demo-v07.png": "986f618b136daddc567947bbaa1bd159bb3a2a2481dc0226a44dc104d0f40e6d"
+  },
+  "demo_builder_sha256": "103a2d1340cf6b8621ce7d3c56cac72e41229dfa2d349f34954fdd25a87b378d",
+  "dataengine_builder_sha256": "efa4f4bb5d5670aec41db610b630b850a3d100ecd27f524caf3ce33020238eb6",
+  "dataengine_assets": {
+    "docs/design/figures/dataengine-assets/navmesh-polygons.png": "3bb9bb2b8fda7bbaa4619b9fa3e25d87393e82a13f185678733e138d3e300749",
+    "docs/design/figures/dataengine-assets/demonstration-bev.png": "622ebe11bac1993c679f46b3e374be17800340fa906e2bf062a18db601ec79bf",
+    "docs/design/figures/dataengine-assets/task-b-rgb.png": "7223b382ed6864b424168a7deefa65ccded3433dcad21471bc75960449994e64",
+    "docs/design/figures/dataengine-assets/demonstration-3d.png": "c2d9f56ee1403ed70a652836358010f8738f7a9c0729ccc2f2cfec695b693c57",
+    "docs/design/figures/dataengine-assets/evidence.json": "89aed0f9755d9c34ced59942e2e53777f002abe6d4052376228b1e54c5889345",
+    "docs/design/figures/dataengine-assets/turn-before-rgb.png": "79b3ed74ac1a3a80df284628188eaafdccbc7e4139aceabb335099b55129c3a6",
+    "docs/design/figures/dataengine-assets/demonstration-rgb.png": "8f0aca4f09c2ee98023b943c7df372ba52ac9000b3dd3da71fc54715d6a4b9a6",
+    "docs/design/figures/dataengine-assets/navmesh-provenance.json": "cd9714356f592439508736434f63c8a048fc1aa9098f709d5cc07695c442cab2",
+    "docs/design/figures/dataengine-assets/task-a-map.png": "bafe8b8aba95a355e23b61114bbd9f06b4858a641c2e91152b875709efa3f592",
+    "docs/design/figures/dataengine-assets/demonstration-topdown.png": "5ca413e85a2add4975c7af418c3b028703000a7f1d6b3c1b885a00b85f7f5808",
+    "docs/design/figures/dataengine-assets/navmesh-query.png": "2386a67638548a95ec02e406b45737775999d8102d57a80000c430427975e5c6",
+    "docs/design/figures/dataengine-assets/oracle-bev.png": "428a443055aa2a82c6354c5952d6ec42eba63eb90b43d34fcc91cc4e734e2f15"
+  },
+  "demo_assets": {
+    "docs/design/figures/warehouse-assets/gsplat-report.json": "4d0b1c5f8ffb2a63fb9e4ab5be43c72de341528abdf94ad892d2d72dbf5d2680",
+    "docs/design/figures/warehouse-assets/gsplat-heldout.png": "a5894f753bbed5c97f271b1ab0fd0b656881d3ac618dd2d31f41ab995c26ba50",
+    "docs/design/figures/warehouse-assets/gsplat-novel-right.png": "323849c919dbd81dafbad1f404ed3fd8a6f43fd1e2ee7fe4c0df4def6ef24637",
+    "docs/design/figures/warehouse-assets/gsplat-novel-left.png": "82a53699c876089f648b0bd9b6bdfcc2c651643c249334ff1ecbc221d5098693"
+  },
+  "illustration_assets": {
+    "demo/semantic_mapping/warehouse-navigation/frames/00000197/rgb.png": "a1fcf434cec731fd0cb4127608ac430c8aa61ea68d71dc077c5d80fc05110fb1",
+    "demo/semantic_mapping/warehouse-navigation/frames/00000197/detections.png": "be7eb4e714c81eb9dc37ad0a2cef65d83af00da5fa87adbabe6c1334fa0ef2cc",
+    "docs/design/figures/warehouse-assets/depth.png": "bd9d06f66ffedef907847026609bd2a69762e6f1d66bbb3805e590d6585bbc90",
+    "docs/design/figures/warehouse-assets/global-occupancy.png": "8b096ad155dcfdbe5c6ef1232cee4e2911924eea50c6cd97966ad2e809a2c671",
+    "docs/design/figures/warehouse-assets/left.png": "632a0c06e634baabe362224249c0546bc60c5c5b6866563185ac11f691d3e88c",
+    "docs/design/figures/warehouse-assets/right.png": "85c0eedf8388289b080d4eb377c3b6d8ddb4e29959f38e60e065c0f1ca2720a8",
+    "demo/semantic_mapping/original-20261013/semantic_bev.png": "a8adfda166504409089e099db7f3126b29508c9896d1632b9ae4f11ee2b32d11"
+  },
+  "annotation_example_sha256": "bd5709a7453f78027c11f4247ac090a01c654122a05da442603f6e74ad24f93f",
+  "displayed_output_source": {
+    "file": "demo/semantic_mapping/warehouse-navigation/frames/00000197/parsed.json",
+    "sha256": "e956bea3521fb6dd43cbecd42acc88552c473765511e5aa2860b3e38bee72e1e",
+    "origin": "existing Codex-session Oracle annotation",
+    "waypoint_protocol": "figure adapted to two illustrative anchors; original five-point annotation unchanged",
+    "figure_waypoints": [
+      [
+        480,
+        650
+      ],
+      [
+        480,
+        490
+      ]
+    ],
+    "decoder": "not run; trajectory overlay illustrative"
+  },
+  "asset_provenance": {
+    "docs/design/figures/warehouse-assets/global-map-provenance.json": "1f5a5dc6d9f5bf6468036120f4c639f1ea9696f64c694e5ac524baa08edb0caa",
+    "docs/design/figures/warehouse-assets/multiview-provenance.json": "34887fea9f0335bb08a44c20ccf8ff228446f807b00ee5e4309d5f5a2a84e403",
+    "docs/design/figures/warehouse-assets/final-map-provenance.json": "1f5a5dc6d9f5bf6468036120f4c639f1ea9696f64c694e5ac524baa08edb0caa",
+    "docs/design/figures/warehouse-assets/occupancy-provenance.json": "257e4550cf42a67a0e0acec94fdd57848750ebc85c102134a4d33485e256e9b0",
+    "docs/design/figures/warehouse-assets/demo-provenance.json": "0ef03ea7c09729121b64eb99f445fec936d25e5de96a061721bd6119b629c1f1",
+    "docs/design/figures/warehouse-assets/depth-provenance.json": "9b3025672c61e26038040fcebb45b3a4bdc48fdc14e9fc7da056e7cd3b90fc41"
+  },
+  "archived_v07_source_sha256": "b688586653e94992ff5298a61e1462eb83d7d59e34c63dacdbf6a07bb1ea8a97",
+  "note": "Documentation build; actual Isaac 5.0 camera re-render and saved map visualization. No model calls, training or navigation validation."
+}

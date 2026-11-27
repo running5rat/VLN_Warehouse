@@ -43,6 +43,8 @@ class WarehouseConfig:
     lora_rank: int = 16
     lora_alpha: float = 32.0
     max_new_tokens: int = 384
+    language_attention: str = "eager"
+    gradient_checkpointing: bool = False
     batch_size: int = 2
     epochs: int = 10
     learning_rate: float = 1.0e-4
@@ -72,6 +74,8 @@ class WarehouseConfig:
     def __post_init__(self):
         if self.pipeline != "warehouse_mvp":
             raise ValueError("Expected pipeline=warehouse_mvp")
+        if self.language_attention not in ("eager", "sdpa"):
+            raise ValueError("Unsupported language attention implementation")
         if (
             self.num_heads < 1
             or self.hidden_dim % self.num_heads

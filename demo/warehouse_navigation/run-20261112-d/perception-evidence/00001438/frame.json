@@ -1,0 +1,2176 @@
+{
+  "source": {
+    "image_id": "codex-map-return-20261112-d:00001438",
+    "rgb": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/rgb/00001438.png",
+    "depth": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/depth/00001438.npy",
+    "K": [
+      [
+        640.0,
+        0.0,
+        480.0
+      ],
+      [
+        0.0,
+        640.0,
+        360.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_body_camera": [
+      [
+        -1.033458777808439e-21,
+        0.06237828615518053,
+        0.9980525784828886,
+        0.14999999999999947
+      ],
+      [
+        -1.0,
+        -5.293955920339377e-23,
+        -7.411538288475128e-22,
+        0.0
+      ],
+      [
+        5.293955920339377e-23,
+        -0.9980525784828889,
+        0.06237828615518054,
+        1.45
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "T_odom_body": [
+      [
+        0.9999999072107922,
+        -0.0004307876951014141,
+        6.069809635790308e-07,
+        8.297542732021768
+      ],
+      [
+        0.0004307876955516997,
+        0.9999999072107006,
+        -7.420326230943236e-07,
+        0.005347428762236817
+      ],
+      [
+        -6.066612486285532e-07,
+        7.422940341723509e-07,
+        0.9999999999995404,
+        -0.01311826350573528
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.9999999999999998
+      ]
+    ],
+    "t_obs": 299.61668229289353,
+    "odom_epoch": "codex-map-return-20261112-d",
+    "submap_id": "codex-map-return-20261112-d",
+    "task_id": "mapping",
+    "rgb_hash": "67efa2240798d04379b035cd6bcb69c86711865daaa7a1ea4f3109f851a3ec2e",
+    "depth_hash": "6afd8b686ce3a51c9bc229d8a488f50e3566c39c4943df52b745c12f366d5e83",
+    "geometry": "arrays/6cb4b1269c394378a71ac281e6414505.npz",
+    "source_monotonic": 2918.494100441
+  },
+  "selection": {
+    "selected_categories": [
+      "sign",
+      "label",
+      "fire extinguisher",
+      "door"
+    ],
+    "request_id": "codex-demo-mapping-policy",
+    "provider": "codex-authored-category-policy",
+    "note": "Fixed delegate category policy, not an InternVL inference"
+  },
+  "instances": [
+    {
+      "category": "sign",
+      "confidence": 0.2681748569011688,
+      "bbox": [
+        596.7373657226562,
+        279.88385009765625,
+        672.634033203125,
+        320.3331298828125
+      ],
+      "texts": [
+        {
+          "text": "04",
+          "confidence": 0.996451735496521,
+          "polygon": [
+            [
+              603,
+              293
+            ],
+            [
+              627,
+              290
+            ],
+            [
+              628,
+              302
+            ],
+            [
+              604,
+              305
+            ]
+          ],
+          "normalized": "04",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        },
+        {
+          "text": "/4R",
+          "confidence": 0.9656360745429993,
+          "polygon": [
+            [
+              642,
+              292
+            ],
+            [
+              664,
+              292
+            ],
+            [
+              664,
+              305
+            ],
+            [
+              642,
+              305
+            ]
+          ],
+          "normalized": "/4R",
+          "candidate_instances": [
+            0
+          ],
+          "owner_instance": 0,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.31997090578079224,
+      "bbox": [
+        747.9195556640625,
+        114.01531219482422,
+        921.1078491210938,
+        209.17239379882812
+      ],
+      "texts": [
+        {
+          "text": "03",
+          "confidence": 0.9990494251251221,
+          "polygon": [
+            [
+              760,
+              138
+            ],
+            [
+              829,
+              138
+            ],
+            [
+              829,
+              187
+            ],
+            [
+              760,
+              187
+            ]
+          ],
+          "normalized": "03",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        },
+        {
+          "text": "/4R",
+          "confidence": 0.967602550983429,
+          "polygon": [
+            [
+              855,
+              149
+            ],
+            [
+              911,
+              149
+            ],
+            [
+              911,
+              181
+            ],
+            [
+              855,
+              181
+            ]
+          ],
+          "normalized": "/4R",
+          "candidate_instances": [
+            1
+          ],
+          "owner_instance": 1,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "sign",
+      "confidence": 0.34775885939598083,
+      "bbox": [
+        891.4075927734375,
+        317.2467956542969,
+        960.0,
+        436.3388671875
+      ],
+      "texts": [
+        {
+          "text": "FRAGILE",
+          "confidence": 0.9931418299674988,
+          "polygon": [
+            [
+              906,
+              345
+            ],
+            [
+              947,
+              374
+            ],
+            [
+              936,
+              390
+            ],
+            [
+              895,
+              360
+            ]
+          ],
+          "normalized": "FRAGILE",
+          "candidate_instances": [
+            2
+          ],
+          "owner_instance": 2,
+          "status": "bound"
+        },
+        {
+          "text": "CE",
+          "confidence": 0.8939403891563416,
+          "polygon": [
+            [
+              896,
+              404
+            ],
+            [
+              927,
+              409
+            ],
+            [
+              924,
+              429
+            ],
+            [
+              893,
+              425
+            ]
+          ],
+          "normalized": "CE",
+          "candidate_instances": [
+            2
+          ],
+          "owner_instance": 2,
+          "status": "bound"
+        }
+      ]
+    },
+    {
+      "category": "storage rack",
+      "confidence": 0.6020615696907043,
+      "bbox": [
+        0.04781341552734375,
+        9.55609130859375,
+        368.51177978515625,
+        712.5552978515625
+      ],
+      "texts": []
+    }
+  ],
+  "rows": [
+    {
+      "instance_index": 0,
+      "category": "sign",
+      "bbox": [
+        596.7373657226562,
+        279.88385009765625,
+        672.634033203125,
+        320.3331298828125
+      ],
+      "confidence": 0.2681748569011688,
+      "selected": true,
+      "parent_event_id": "rt:codex-map-return-20261112-d:00001438:0",
+      "result": {
+        "event": {
+          "message_id": "rt:codex-map-return-20261112-d:00001438:0",
+          "image_id": "codex-map-return-20261112-d:00001438",
+          "category": "sign",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "codex-demo-mapping-policy",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "4e632a3ea1474cb78a336954961a8a66",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "vocabulary": {
+            "version": "warehouse-static-candidates-v1",
+            "categories": [
+              "sign",
+              "label",
+              "storage rack",
+              "door",
+              "pillar",
+              "fire extinguisher",
+              "electrical cabinet"
+            ],
+            "aliases": {
+              "sign": "sign",
+              "label": "label",
+              "storage rack": "storage rack",
+              "door": "door",
+              "pillar": "pillar",
+              "fire extinguisher": "fire extinguisher",
+              "electrical cabinet": "electrical cabinet",
+              "signs": "sign",
+              "labels": "label",
+              "storage racks": "storage rack",
+              "doors": "door",
+              "pillars": "pillar",
+              "fire extinguishers": "fire extinguisher",
+              "electrical cabinets": "electrical cabinet",
+              "shelf": "storage rack",
+              "shelves": "storage rack",
+              "rack": "storage rack",
+              "racks": "storage rack",
+              "column": "pillar",
+              "columns": "pillar",
+              "shelf sign": "sign",
+              "shelf signs": "sign"
+            },
+            "sha256": "78fbd85bd6f868151d98d1028cb7424444f164ddd30af2e60dec10588c25d028"
+          },
+          "category_selection": {
+            "selected_categories": [
+              "sign",
+              "label",
+              "fire extinguisher",
+              "door"
+            ],
+            "request_id": "codex-demo-mapping-policy",
+            "provider": "codex-authored-category-policy",
+            "note": "Fixed delegate category policy, not an InternVL inference"
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 3040,
+          "valid_interior_depth_points": 2820,
+          "filtered_depth_points": 2662,
+          "voxel_points": 179,
+          "depth_retention": 0.9439716312056737
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/navigation/map/arrays/34a2159b8e1947edb6670cd05e013afb.npz"
+    },
+    {
+      "instance_index": 1,
+      "category": "sign",
+      "bbox": [
+        747.9195556640625,
+        114.01531219482422,
+        921.1078491210938,
+        209.17239379882812
+      ],
+      "confidence": 0.31997090578079224,
+      "selected": true,
+      "parent_event_id": "rt:codex-map-return-20261112-d:00001438:1",
+      "result": {
+        "event": {
+          "message_id": "rt:codex-map-return-20261112-d:00001438:1",
+          "image_id": "codex-map-return-20261112-d:00001438",
+          "category": "sign",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "codex-demo-mapping-policy",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "f5febf048909438fa28ac429d8c6514e",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "vocabulary": {
+            "version": "warehouse-static-candidates-v1",
+            "categories": [
+              "sign",
+              "label",
+              "storage rack",
+              "door",
+              "pillar",
+              "fire extinguisher",
+              "electrical cabinet"
+            ],
+            "aliases": {
+              "sign": "sign",
+              "label": "label",
+              "storage rack": "storage rack",
+              "door": "door",
+              "pillar": "pillar",
+              "fire extinguisher": "fire extinguisher",
+              "electrical cabinet": "electrical cabinet",
+              "signs": "sign",
+              "labels": "label",
+              "storage racks": "storage rack",
+              "doors": "door",
+              "pillars": "pillar",
+              "fire extinguishers": "fire extinguisher",
+              "electrical cabinets": "electrical cabinet",
+              "shelf": "storage rack",
+              "shelves": "storage rack",
+              "rack": "storage rack",
+              "racks": "storage rack",
+              "column": "pillar",
+              "columns": "pillar",
+              "shelf sign": "sign",
+              "shelf signs": "sign"
+            },
+            "sha256": "78fbd85bd6f868151d98d1028cb7424444f164ddd30af2e60dec10588c25d028"
+          },
+          "category_selection": {
+            "selected_categories": [
+              "sign",
+              "label",
+              "fire extinguisher",
+              "door"
+            ],
+            "request_id": "codex-demo-mapping-policy",
+            "provider": "codex-authored-category-policy",
+            "note": "Fixed delegate category policy, not an InternVL inference"
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 16229,
+          "valid_interior_depth_points": 15712,
+          "filtered_depth_points": 15596,
+          "voxel_points": 196,
+          "depth_retention": 0.9926171079429735
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/navigation/map/arrays/d5775ee38f9f4e8da7e417a4ee3f5359.npz"
+    },
+    {
+      "instance_index": 2,
+      "category": "sign",
+      "bbox": [
+        891.4075927734375,
+        317.2467956542969,
+        960.0,
+        436.3388671875
+      ],
+      "confidence": 0.34775885939598083,
+      "selected": true,
+      "parent_event_id": "rt:codex-map-return-20261112-d:00001438:2",
+      "result": {
+        "event": {
+          "message_id": "rt:codex-map-return-20261112-d:00001438:2",
+          "image_id": "codex-map-return-20261112-d:00001438",
+          "category": "sign",
+          "source": "llm",
+          "roi": null,
+          "name": null,
+          "static_confirmed": false,
+          "kind": "object",
+          "request_id": "codex-demo-mapping-policy",
+          "navigation_role": null,
+          "reason": null,
+          "text_evidence": []
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "572bbb4bbe294671b7822c4ba98b54b8",
+        "segmentation": {
+          "categories": [
+            "sign",
+            "label",
+            "storage rack",
+            "door",
+            "pillar",
+            "fire extinguisher",
+            "electrical cabinet"
+          ],
+          "vocabulary_version": "warehouse-static-candidates-v1",
+          "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+          "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+          "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+          "tensorrt": "10.13.3.9",
+          "torch": "2.8.0+cu128",
+          "dtype": "fp16",
+          "imgsz": 640,
+          "parameters": 15417846,
+          "runtime": "tensorrt-fp16",
+          "backend": "yoloe-realtime",
+          "vocabulary": {
+            "version": "warehouse-static-candidates-v1",
+            "categories": [
+              "sign",
+              "label",
+              "storage rack",
+              "door",
+              "pillar",
+              "fire extinguisher",
+              "electrical cabinet"
+            ],
+            "aliases": {
+              "sign": "sign",
+              "label": "label",
+              "storage rack": "storage rack",
+              "door": "door",
+              "pillar": "pillar",
+              "fire extinguisher": "fire extinguisher",
+              "electrical cabinet": "electrical cabinet",
+              "signs": "sign",
+              "labels": "label",
+              "storage racks": "storage rack",
+              "doors": "door",
+              "pillars": "pillar",
+              "fire extinguishers": "fire extinguisher",
+              "electrical cabinets": "electrical cabinet",
+              "shelf": "storage rack",
+              "shelves": "storage rack",
+              "rack": "storage rack",
+              "racks": "storage rack",
+              "column": "pillar",
+              "columns": "pillar",
+              "shelf sign": "sign",
+              "shelf signs": "sign"
+            },
+            "sha256": "78fbd85bd6f868151d98d1028cb7424444f164ddd30af2e60dec10588c25d028"
+          },
+          "category_selection": {
+            "selected_categories": [
+              "sign",
+              "label",
+              "fire extinguisher",
+              "door"
+            ],
+            "request_id": "codex-demo-mapping-policy",
+            "provider": "codex-authored-category-policy",
+            "note": "Fixed delegate category policy, not an InternVL inference"
+          }
+        },
+        "projection_diagnostics": {
+          "mask_pixels": 7376,
+          "valid_interior_depth_points": 7034,
+          "filtered_depth_points": 7034,
+          "voxel_points": 116,
+          "depth_retention": 1.0
+        }
+      },
+      "geometry_file": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/navigation/map/arrays/6fea7e925dff468b8cb0276eb91447b2.npz"
+    },
+    {
+      "instance_index": 3,
+      "category": "storage rack",
+      "bbox": [
+        0.04781341552734375,
+        9.55609130859375,
+        368.51177978515625,
+        712.5552978515625
+      ],
+      "confidence": 0.6020615696907043,
+      "selected": false,
+      "parent_event_id": "rt:codex-map-return-20261112-d:00001438:3",
+      "result": {
+        "status": "not_selected",
+        "reason": "LLM did not select category",
+        "landmark_uid": null
+      },
+      "geometry_file": null
+    }
+  ],
+  "provenance": {
+    "categories": [
+      "sign",
+      "label",
+      "storage rack",
+      "door",
+      "pillar",
+      "fire extinguisher",
+      "electrical cabinet"
+    ],
+    "vocabulary_version": "warehouse-static-candidates-v1",
+    "sha256": "0b9eb647142fcecd6dcb1d7e39693d7a3ff62fdeec49ab9e73c7216ac587b9f2",
+    "source_weights": "/data/ticvla/models/yoloe-v8s-seg.pt",
+    "weights_sha256": "ac2b90ed23011495a3e86d89caeb3432a15129cac8d849ba121293c8fc1e0536",
+    "tensorrt": "10.13.3.9",
+    "torch": "2.8.0+cu128",
+    "dtype": "fp16",
+    "imgsz": 640,
+    "parameters": 15417846,
+    "runtime": "tensorrt-fp16",
+    "backend": "yoloe-realtime",
+    "vocabulary": {
+      "version": "warehouse-static-candidates-v1",
+      "categories": [
+        "sign",
+        "label",
+        "storage rack",
+        "door",
+        "pillar",
+        "fire extinguisher",
+        "electrical cabinet"
+      ],
+      "aliases": {
+        "sign": "sign",
+        "label": "label",
+        "storage rack": "storage rack",
+        "door": "door",
+        "pillar": "pillar",
+        "fire extinguisher": "fire extinguisher",
+        "electrical cabinet": "electrical cabinet",
+        "signs": "sign",
+        "labels": "label",
+        "storage racks": "storage rack",
+        "doors": "door",
+        "pillars": "pillar",
+        "fire extinguishers": "fire extinguisher",
+        "electrical cabinets": "electrical cabinet",
+        "shelf": "storage rack",
+        "shelves": "storage rack",
+        "rack": "storage rack",
+        "racks": "storage rack",
+        "column": "pillar",
+        "columns": "pillar",
+        "shelf sign": "sign",
+        "shelf signs": "sign"
+      },
+      "sha256": "78fbd85bd6f868151d98d1028cb7424444f164ddd30af2e60dec10588c25d028"
+    }
+  },
+  "segmentation_s": 0.049832820892333984,
+  "candidate_request": null,
+  "ocr": {
+    "texts": [
+      {
+        "text": "·MBm0",
+        "confidence": 0.4192008078098297,
+        "polygon": [
+          [
+            9,
+            6
+          ],
+          [
+            20,
+            6
+          ],
+          [
+            20,
+            54
+          ],
+          [
+            9,
+            54
+          ]
+        ]
+      },
+      {
+        "text": "03",
+        "confidence": 0.9990494251251221,
+        "polygon": [
+          [
+            760,
+            138
+          ],
+          [
+            829,
+            138
+          ],
+          [
+            829,
+            187
+          ],
+          [
+            760,
+            187
+          ]
+        ]
+      },
+      {
+        "text": "L",
+        "confidence": 0.05434758588671684,
+        "polygon": [
+          [
+            297,
+            154
+          ],
+          [
+            302,
+            154
+          ],
+          [
+            302,
+            161
+          ],
+          [
+            297,
+            161
+          ]
+        ]
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.967602550983429,
+        "polygon": [
+          [
+            855,
+            149
+          ],
+          [
+            911,
+            149
+          ],
+          [
+            911,
+            181
+          ],
+          [
+            855,
+            181
+          ]
+        ]
+      },
+      {
+        "text": "04",
+        "confidence": 0.9996904730796814,
+        "polygon": [
+          [
+            149,
+            287
+          ],
+          [
+            179,
+            287
+          ],
+          [
+            179,
+            309
+          ],
+          [
+            149,
+            309
+          ]
+        ]
+      },
+      {
+        "text": "公",
+        "confidence": 0.1787688434123993,
+        "polygon": [
+          [
+            327,
+            282
+          ],
+          [
+            337,
+            292
+          ],
+          [
+            332,
+            297
+          ],
+          [
+            323,
+            287
+          ]
+        ]
+      },
+      {
+        "text": "04",
+        "confidence": 0.996451735496521,
+        "polygon": [
+          [
+            603,
+            293
+          ],
+          [
+            627,
+            290
+          ],
+          [
+            628,
+            302
+          ],
+          [
+            604,
+            305
+          ]
+        ]
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.9656360745429993,
+        "polygon": [
+          [
+            642,
+            292
+          ],
+          [
+            664,
+            292
+          ],
+          [
+            664,
+            305
+          ],
+          [
+            642,
+            305
+          ]
+        ]
+      },
+      {
+        "text": "ACE",
+        "confidence": 0.6571928858757019,
+        "polygon": [
+          [
+            845,
+            322
+          ],
+          [
+            870,
+            317
+          ],
+          [
+            873,
+            333
+          ],
+          [
+            848,
+            337
+          ]
+        ]
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9931418299674988,
+        "polygon": [
+          [
+            906,
+            345
+          ],
+          [
+            947,
+            374
+          ],
+          [
+            936,
+            390
+          ],
+          [
+            895,
+            360
+          ]
+        ]
+      },
+      {
+        "text": "CE",
+        "confidence": 0.8939403891563416,
+        "polygon": [
+          [
+            896,
+            404
+          ],
+          [
+            927,
+            409
+          ],
+          [
+            924,
+            429
+          ],
+          [
+            893,
+            425
+          ]
+        ]
+      },
+      {
+        "text": "?",
+        "confidence": 0.08559362590312958,
+        "polygon": [
+          [
+            940,
+            636
+          ],
+          [
+            949,
+            636
+          ],
+          [
+            949,
+            648
+          ],
+          [
+            940,
+            648
+          ]
+        ]
+      }
+    ],
+    "raw": {
+      "input_path": "/data/ticvla/outputs/navigation/codex-map-return-20261112-d/capture/raw/rgb/00001438.png",
+      "page_index": null,
+      "model_settings": {
+        "use_doc_preprocessor": false,
+        "use_textline_orientation": false
+      },
+      "dt_polys": [
+        [
+          [
+            9,
+            6
+          ],
+          [
+            20,
+            6
+          ],
+          [
+            20,
+            54
+          ],
+          [
+            9,
+            54
+          ]
+        ],
+        [
+          [
+            760,
+            138
+          ],
+          [
+            829,
+            138
+          ],
+          [
+            829,
+            187
+          ],
+          [
+            760,
+            187
+          ]
+        ],
+        [
+          [
+            297,
+            154
+          ],
+          [
+            302,
+            154
+          ],
+          [
+            302,
+            161
+          ],
+          [
+            297,
+            161
+          ]
+        ],
+        [
+          [
+            855,
+            149
+          ],
+          [
+            911,
+            149
+          ],
+          [
+            911,
+            181
+          ],
+          [
+            855,
+            181
+          ]
+        ],
+        [
+          [
+            149,
+            287
+          ],
+          [
+            179,
+            287
+          ],
+          [
+            179,
+            309
+          ],
+          [
+            149,
+            309
+          ]
+        ],
+        [
+          [
+            327,
+            282
+          ],
+          [
+            337,
+            292
+          ],
+          [
+            332,
+            297
+          ],
+          [
+            323,
+            287
+          ]
+        ],
+        [
+          [
+            603,
+            293
+          ],
+          [
+            627,
+            290
+          ],
+          [
+            628,
+            302
+          ],
+          [
+            604,
+            305
+          ]
+        ],
+        [
+          [
+            642,
+            292
+          ],
+          [
+            664,
+            292
+          ],
+          [
+            664,
+            305
+          ],
+          [
+            642,
+            305
+          ]
+        ],
+        [
+          [
+            845,
+            322
+          ],
+          [
+            870,
+            317
+          ],
+          [
+            873,
+            333
+          ],
+          [
+            848,
+            337
+          ]
+        ],
+        [
+          [
+            906,
+            345
+          ],
+          [
+            947,
+            374
+          ],
+          [
+            936,
+            390
+          ],
+          [
+            895,
+            360
+          ]
+        ],
+        [
+          [
+            896,
+            404
+          ],
+          [
+            927,
+            409
+          ],
+          [
+            924,
+            429
+          ],
+          [
+            893,
+            425
+          ]
+        ],
+        [
+          [
+            940,
+            636
+          ],
+          [
+            949,
+            636
+          ],
+          [
+            949,
+            648
+          ],
+          [
+            940,
+            648
+          ]
+        ]
+      ],
+      "text_det_params": {
+        "limit_side_len": 960,
+        "limit_type": "max",
+        "thresh": 0.3,
+        "max_side_limit": 4000,
+        "box_thresh": 0.6,
+        "unclip_ratio": 1.5
+      },
+      "text_type": "general",
+      "textline_orientation_angles": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "text_rec_score_thresh": 0.0,
+      "return_word_box": false,
+      "rec_texts": [
+        "·MBm0",
+        "03",
+        "L",
+        "/4R",
+        "04",
+        "公",
+        "04",
+        "/4R",
+        "ACE",
+        "FRAGILE",
+        "CE",
+        "?"
+      ],
+      "rec_scores": [
+        0.4192008078098297,
+        0.9990494251251221,
+        0.05434758588671684,
+        0.967602550983429,
+        0.9996904730796814,
+        0.1787688434123993,
+        0.996451735496521,
+        0.9656360745429993,
+        0.6571928858757019,
+        0.9931418299674988,
+        0.8939403891563416,
+        0.08559362590312958
+      ],
+      "rec_polys": [
+        [
+          [
+            9,
+            6
+          ],
+          [
+            20,
+            6
+          ],
+          [
+            20,
+            54
+          ],
+          [
+            9,
+            54
+          ]
+        ],
+        [
+          [
+            760,
+            138
+          ],
+          [
+            829,
+            138
+          ],
+          [
+            829,
+            187
+          ],
+          [
+            760,
+            187
+          ]
+        ],
+        [
+          [
+            297,
+            154
+          ],
+          [
+            302,
+            154
+          ],
+          [
+            302,
+            161
+          ],
+          [
+            297,
+            161
+          ]
+        ],
+        [
+          [
+            855,
+            149
+          ],
+          [
+            911,
+            149
+          ],
+          [
+            911,
+            181
+          ],
+          [
+            855,
+            181
+          ]
+        ],
+        [
+          [
+            149,
+            287
+          ],
+          [
+            179,
+            287
+          ],
+          [
+            179,
+            309
+          ],
+          [
+            149,
+            309
+          ]
+        ],
+        [
+          [
+            327,
+            282
+          ],
+          [
+            337,
+            292
+          ],
+          [
+            332,
+            297
+          ],
+          [
+            323,
+            287
+          ]
+        ],
+        [
+          [
+            603,
+            293
+          ],
+          [
+            627,
+            290
+          ],
+          [
+            628,
+            302
+          ],
+          [
+            604,
+            305
+          ]
+        ],
+        [
+          [
+            642,
+            292
+          ],
+          [
+            664,
+            292
+          ],
+          [
+            664,
+            305
+          ],
+          [
+            642,
+            305
+          ]
+        ],
+        [
+          [
+            845,
+            322
+          ],
+          [
+            870,
+            317
+          ],
+          [
+            873,
+            333
+          ],
+          [
+            848,
+            337
+          ]
+        ],
+        [
+          [
+            906,
+            345
+          ],
+          [
+            947,
+            374
+          ],
+          [
+            936,
+            390
+          ],
+          [
+            895,
+            360
+          ]
+        ],
+        [
+          [
+            896,
+            404
+          ],
+          [
+            927,
+            409
+          ],
+          [
+            924,
+            429
+          ],
+          [
+            893,
+            425
+          ]
+        ],
+        [
+          [
+            940,
+            636
+          ],
+          [
+            949,
+            636
+          ],
+          [
+            949,
+            648
+          ],
+          [
+            940,
+            648
+          ]
+        ]
+      ],
+      "rec_boxes": [
+        [
+          9,
+          6,
+          20,
+          54
+        ],
+        [
+          760,
+          138,
+          829,
+          187
+        ],
+        [
+          297,
+          154,
+          302,
+          161
+        ],
+        [
+          855,
+          149,
+          911,
+          181
+        ],
+        [
+          149,
+          287,
+          179,
+          309
+        ],
+        [
+          323,
+          282,
+          337,
+          297
+        ],
+        [
+          603,
+          290,
+          628,
+          305
+        ],
+        [
+          642,
+          292,
+          664,
+          305
+        ],
+        [
+          845,
+          317,
+          873,
+          337
+        ],
+        [
+          895,
+          345,
+          947,
+          390
+        ],
+        [
+          893,
+          404,
+          927,
+          429
+        ],
+        [
+          940,
+          636,
+          949,
+          648
+        ]
+      ]
+    },
+    "elapsed_s": 0.5143346786499023,
+    "provenance": {
+      "backend": "PP-OCRv5_mobile",
+      "device": "cpu",
+      "threads": 4,
+      "det_max_side": 960,
+      "mkldnn": true,
+      "files": {
+        "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+        "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+        "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+        "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+        "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+        "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+        "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+        "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+      }
+    },
+    "source_image_id": "codex-map-return-20261112-d:00001438",
+    "rgb_hash": "67efa2240798d04379b035cd6bcb69c86711865daaa7a1ea4f3109f851a3ec2e"
+  },
+  "binding": {
+    "texts": [
+      {
+        "text": "·MBm0",
+        "confidence": 0.4192008078098297,
+        "polygon": [
+          [
+            9,
+            6
+          ],
+          [
+            20,
+            6
+          ],
+          [
+            20,
+            54
+          ],
+          [
+            9,
+            54
+          ]
+        ],
+        "normalized": "·MBm0",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "03",
+        "confidence": 0.9990494251251221,
+        "polygon": [
+          [
+            760,
+            138
+          ],
+          [
+            829,
+            138
+          ],
+          [
+            829,
+            187
+          ],
+          [
+            760,
+            187
+          ]
+        ],
+        "normalized": "03",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "L",
+        "confidence": 0.05434758588671684,
+        "polygon": [
+          [
+            297,
+            154
+          ],
+          [
+            302,
+            154
+          ],
+          [
+            302,
+            161
+          ],
+          [
+            297,
+            161
+          ]
+        ],
+        "normalized": "L",
+        "candidate_instances": [
+          3
+        ],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.967602550983429,
+        "polygon": [
+          [
+            855,
+            149
+          ],
+          [
+            911,
+            149
+          ],
+          [
+            911,
+            181
+          ],
+          [
+            855,
+            181
+          ]
+        ],
+        "normalized": "/4R",
+        "candidate_instances": [
+          1
+        ],
+        "owner_instance": 1,
+        "status": "bound"
+      },
+      {
+        "text": "04",
+        "confidence": 0.9996904730796814,
+        "polygon": [
+          [
+            149,
+            287
+          ],
+          [
+            179,
+            287
+          ],
+          [
+            179,
+            309
+          ],
+          [
+            149,
+            309
+          ]
+        ],
+        "normalized": "04",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "unassigned"
+      },
+      {
+        "text": "公",
+        "confidence": 0.1787688434123993,
+        "polygon": [
+          [
+            327,
+            282
+          ],
+          [
+            337,
+            292
+          ],
+          [
+            332,
+            297
+          ],
+          [
+            323,
+            287
+          ]
+        ],
+        "normalized": "公",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "04",
+        "confidence": 0.996451735496521,
+        "polygon": [
+          [
+            603,
+            293
+          ],
+          [
+            627,
+            290
+          ],
+          [
+            628,
+            302
+          ],
+          [
+            604,
+            305
+          ]
+        ],
+        "normalized": "04",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "/4R",
+        "confidence": 0.9656360745429993,
+        "polygon": [
+          [
+            642,
+            292
+          ],
+          [
+            664,
+            292
+          ],
+          [
+            664,
+            305
+          ],
+          [
+            642,
+            305
+          ]
+        ],
+        "normalized": "/4R",
+        "candidate_instances": [
+          0
+        ],
+        "owner_instance": 0,
+        "status": "bound"
+      },
+      {
+        "text": "ACE",
+        "confidence": 0.6571928858757019,
+        "polygon": [
+          [
+            845,
+            322
+          ],
+          [
+            870,
+            317
+          ],
+          [
+            873,
+            333
+          ],
+          [
+            848,
+            337
+          ]
+        ],
+        "normalized": "ACE",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      },
+      {
+        "text": "FRAGILE",
+        "confidence": 0.9931418299674988,
+        "polygon": [
+          [
+            906,
+            345
+          ],
+          [
+            947,
+            374
+          ],
+          [
+            936,
+            390
+          ],
+          [
+            895,
+            360
+          ]
+        ],
+        "normalized": "FRAGILE",
+        "candidate_instances": [
+          2
+        ],
+        "owner_instance": 2,
+        "status": "bound"
+      },
+      {
+        "text": "CE",
+        "confidence": 0.8939403891563416,
+        "polygon": [
+          [
+            896,
+            404
+          ],
+          [
+            927,
+            409
+          ],
+          [
+            924,
+            429
+          ],
+          [
+            893,
+            425
+          ]
+        ],
+        "normalized": "CE",
+        "candidate_instances": [
+          2
+        ],
+        "owner_instance": 2,
+        "status": "bound"
+      },
+      {
+        "text": "?",
+        "confidence": 0.08559362590312958,
+        "polygon": [
+          [
+            940,
+            636
+          ],
+          [
+            949,
+            636
+          ],
+          [
+            949,
+            648
+          ],
+          [
+            940,
+            648
+          ]
+        ],
+        "normalized": "?",
+        "candidate_instances": [],
+        "owner_instance": null,
+        "status": "low_confidence"
+      }
+    ],
+    "updates": [
+      {
+        "event": {
+          "message_id": "rt:codex-map-return-20261112-d:00001438:0:text:e6ba04f11d9f",
+          "parent_event_id": "rt:codex-map-return-20261112-d:00001438:0",
+          "image_id": "codex-map-return-20261112-d:00001438",
+          "rgb_hash": "67efa2240798d04379b035cd6bcb69c86711865daaa7a1ea4f3109f851a3ec2e",
+          "depth_hash": "6afd8b686ce3a51c9bc229d8a488f50e3566c39c4943df52b745c12f366d5e83",
+          "texts": [
+            {
+              "text": "04",
+              "confidence": 0.996451735496521,
+              "polygon": [
+                [
+                  603,
+                  293
+                ],
+                [
+                  627,
+                  290
+                ],
+                [
+                  628,
+                  302
+                ],
+                [
+                  604,
+                  305
+                ]
+              ],
+              "normalized": "04",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.9656360745429993,
+              "polygon": [
+                [
+                  642,
+                  292
+                ],
+                [
+                  664,
+                  292
+                ],
+                [
+                  664,
+                  305
+                ],
+                [
+                  642,
+                  305
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                0
+              ],
+              "owner_instance": 0,
+              "status": "bound"
+            }
+          ],
+          "provenance": {
+            "backend": "PP-OCRv5_mobile",
+            "device": "cpu",
+            "threads": 4,
+            "det_max_side": 960,
+            "mkldnn": true,
+            "files": {
+              "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+              "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+              "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+              "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+              "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+              "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+              "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+              "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+            }
+          }
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "4e632a3ea1474cb78a336954961a8a66"
+      },
+      {
+        "event": {
+          "message_id": "rt:codex-map-return-20261112-d:00001438:1:text:e6ba04f11d9f",
+          "parent_event_id": "rt:codex-map-return-20261112-d:00001438:1",
+          "image_id": "codex-map-return-20261112-d:00001438",
+          "rgb_hash": "67efa2240798d04379b035cd6bcb69c86711865daaa7a1ea4f3109f851a3ec2e",
+          "depth_hash": "6afd8b686ce3a51c9bc229d8a488f50e3566c39c4943df52b745c12f366d5e83",
+          "texts": [
+            {
+              "text": "03",
+              "confidence": 0.9990494251251221,
+              "polygon": [
+                [
+                  760,
+                  138
+                ],
+                [
+                  829,
+                  138
+                ],
+                [
+                  829,
+                  187
+                ],
+                [
+                  760,
+                  187
+                ]
+              ],
+              "normalized": "03",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            },
+            {
+              "text": "/4R",
+              "confidence": 0.967602550983429,
+              "polygon": [
+                [
+                  855,
+                  149
+                ],
+                [
+                  911,
+                  149
+                ],
+                [
+                  911,
+                  181
+                ],
+                [
+                  855,
+                  181
+                ]
+              ],
+              "normalized": "/4R",
+              "candidate_instances": [
+                1
+              ],
+              "owner_instance": 1,
+              "status": "bound"
+            }
+          ],
+          "provenance": {
+            "backend": "PP-OCRv5_mobile",
+            "device": "cpu",
+            "threads": 4,
+            "det_max_side": 960,
+            "mkldnn": true,
+            "files": {
+              "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+              "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+              "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+              "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+              "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+              "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+              "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+              "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+            }
+          }
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "f5febf048909438fa28ac429d8c6514e"
+      },
+      {
+        "event": {
+          "message_id": "rt:codex-map-return-20261112-d:00001438:2:text:e6ba04f11d9f",
+          "parent_event_id": "rt:codex-map-return-20261112-d:00001438:2",
+          "image_id": "codex-map-return-20261112-d:00001438",
+          "rgb_hash": "67efa2240798d04379b035cd6bcb69c86711865daaa7a1ea4f3109f851a3ec2e",
+          "depth_hash": "6afd8b686ce3a51c9bc229d8a488f50e3566c39c4943df52b745c12f366d5e83",
+          "texts": [
+            {
+              "text": "FRAGILE",
+              "confidence": 0.9931418299674988,
+              "polygon": [
+                [
+                  906,
+                  345
+                ],
+                [
+                  947,
+                  374
+                ],
+                [
+                  936,
+                  390
+                ],
+                [
+                  895,
+                  360
+                ]
+              ],
+              "normalized": "FRAGILE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            },
+            {
+              "text": "CE",
+              "confidence": 0.8939403891563416,
+              "polygon": [
+                [
+                  896,
+                  404
+                ],
+                [
+                  927,
+                  409
+                ],
+                [
+                  924,
+                  429
+                ],
+                [
+                  893,
+                  425
+                ]
+              ],
+              "normalized": "CE",
+              "candidate_instances": [
+                2
+              ],
+              "owner_instance": 2,
+              "status": "bound"
+            }
+          ],
+          "provenance": {
+            "backend": "PP-OCRv5_mobile",
+            "device": "cpu",
+            "threads": 4,
+            "det_max_side": 960,
+            "mkldnn": true,
+            "files": {
+              "config.json": "7ac1c33f377ba58561f4b89d3180b6add2b7c5c60a4edac90fa4e0ceccdc6665",
+              "inference.json": "05feef1acb00aa4cd7362b15f7f501fc4f99d7b1fa73c1c871e0c7b1504b0f5c",
+              "inference.pdiparams": "afa1820cb16c1fd0dad589d0f8b389139061c1ef6d68019685fd07be997dda5b",
+              "inference.yml": "98069072e1b6b37d727fd9d9f11725faa46d6ea0de012f2ed26caea011c37699",
+              "rec/config.json": "6df1587ae056f0b987125fc894b17f62ae3a12644fa2488d108f19377da9c1a8",
+              "rec/inference.json": "24587345250c7332d0fc6f9a44e794d078cdaeb64c302fef906f325619de2569",
+              "rec/inference.pdiparams": "2460da90875937c94db97eba74ae3d9e5d4c4c57c42f1f41531c09a26bcc771a",
+              "rec/inference.yml": "5dfeb2777f6d0db8177d8128a8acfcf6e6276dc4ac73ea3bf0dc06d6a5e85d8e"
+            }
+          }
+        },
+        "status": "accepted",
+        "reason": null,
+        "landmark_uid": "572bbb4bbe294671b7822c4ba98b54b8"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "landmark": [
+    "fire extinguisher"
+  ],
+  "local": "Inferred: near the starting aisle entrance, facing the wall extinguisher.",
+  "route": "Approach the starting point beside the first aisle and STOP.",
+  "waypoint": [
+    [
+      480,
+      710
+    ],
+    [
+      480,
+      700
+    ],
+    [
+      480,
+      685
+    ],
+    [
+      480,
+      670
+    ],
+    [
+      480,
+      650
+    ]
+  ]
+}

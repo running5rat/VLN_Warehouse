@@ -1,0 +1,198 @@
+[
+  {
+    "request_id": "continuous-loop-0",
+    "approved": false,
+    "status": "review_pending",
+    "engineering": {
+      "accepted": true,
+      "recursive_route": true,
+      "terminal_stop": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "Waypoint fit requested; no Decoder inference"
+    }
+  },
+  {
+    "request_id": "continuous-loop-1",
+    "approved": false,
+    "status": "review_pending",
+    "engineering": {
+      "accepted": true,
+      "recursive_route": true,
+      "terminal_stop": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "Waypoint fit requested; no Decoder inference"
+    }
+  },
+  {
+    "request_id": "continuous-loop-2",
+    "approved": false,
+    "status": "review_pending",
+    "engineering": {
+      "accepted": true,
+      "recursive_route": true,
+      "terminal_stop": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "Waypoint fit requested; no Decoder inference"
+    }
+  },
+  {
+    "request_id": "continuous-loop-complete",
+    "approved": false,
+    "status": "review_pending",
+    "engineering": {
+      "accepted": true,
+      "recursive_route": true,
+      "terminal_stop": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "Waypoint fit requested; no Decoder inference"
+    }
+  },
+  {
+    "request_id": "continuous-target-0",
+    "approved": false,
+    "status": "review_pending",
+    "engineering": {
+      "accepted": true,
+      "recursive_route": true,
+      "terminal_stop": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "Waypoint fit requested; no Decoder inference"
+    }
+  },
+  {
+    "request_id": "continuous-target-1",
+    "approved": false,
+    "status": "review_pending",
+    "engineering": {
+      "accepted": true,
+      "recursive_route": true,
+      "terminal_stop": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "Waypoint fit requested; no Decoder inference"
+    }
+  },
+  {
+    "request_id": "continuous-finish",
+    "approved": false,
+    "status": "review_pending",
+    "engineering": {
+      "accepted": true,
+      "recursive_route": true,
+      "terminal_stop": true
+    },
+    "fields": {
+      "landmark": {
+        "verdict": "review_pending"
+      },
+      "local": {
+        "verdict": "review_pending"
+      },
+      "route": {
+        "verdict": "review_pending"
+      },
+      "waypoint": {
+        "verdict": "review_pending"
+      }
+    },
+    "decoder": {
+      "verdict": "not_applicable",
+      "reason": "Waypoint fit requested; no Decoder inference"
+    }
+  }
+]

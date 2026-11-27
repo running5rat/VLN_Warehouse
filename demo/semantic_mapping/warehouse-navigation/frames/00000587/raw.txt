@@ -1,0 +1,29 @@
+{
+  "landmark": [
+    "sign"
+  ],
+  "local": "In the aisle; sign 03/5R left, facing toward 02/5R.",
+  "route": "Follow this aisle to the near end, turn right across the cross-aisle, return to the starting point and STOP.",
+  "waypoint": [
+    [
+      480,
+      710
+    ],
+    [
+      480,
+      670
+    ],
+    [
+      480,
+      630
+    ],
+    [
+      480,
+      590
+    ],
+    [
+      480,
+      560
+    ]
+  ]
+}

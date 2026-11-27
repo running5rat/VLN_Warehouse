@@ -103,6 +103,8 @@ def main():
     p.add_argument("--max-steps", type=int, default=3600)
     p.add_argument("--model", default="/data/ticvla/models/InternVL3-1B")
     p.add_argument("--weights", default="/data/ticvla/models/yoloe-v8s-seg.pt")
+    p.add_argument("--semantic-input-mode", choices=("unified", "legacy"), default="unified",
+                   help="Unified: raw RGB, source-bound detections, and past semantic map in one VLM request")
     p.add_argument("--landmark-variant", default="original")
     a = p.parse_args()
     if a.instruction is not None and not a.instruction.strip():

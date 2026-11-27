@@ -1,0 +1,254 @@
+<!doctype html><meta charset="utf-8"><title>Warehouse Codex navigation demo</title><style>body{font:17px sans-serif;max-width:1200px;margin:auto;background:#18222c;color:#eef}a{color:#8df}pre{white-space:pre-wrap}video{width:100%}</style><h1>完整Route → 环绕建图 → 第二通道04/5R</h1><p>人工标注时的原始仓库。Codex代答＋waypoint曲线＋控制器；不是已训练VLA的能力验证。</p><video controls src="live_demo.mp4"></video><p>上方为原速采样录像；<a href="demo_4x.mp4">4倍速概览</a> · <a href="REPORT.md">说明与限制</a> · <a href="report.json">报告</a> · <a href="map-local/">完整本地地图（本机链接）</a> · <a href="landmarks.json">全部地标</a></p><p><a href="continuity.json">Route递归及切换速度</a> · <a href="human-review.json">人工审核表</a> · <a href="semantic-3d.png">三维语义图</a></p><img width="100%" src="motion-continuity.png"><h2>第二通道接近时的04/5R</h2><img width="80%" src="target-approach-rgb.png"><h2>任务2开始与结束</h2><img width="49%" src="target-start-rgb.png"><img width="49%" src="target-final-rgb.png"><img width="100%" src="trajectory-and-landmarks.png"><pre>{
+  &quot;geometry_frames&quot;: 1315,
+  &quot;semantic_frames&quot;: 255,
+  &quot;distance_m&quot;: 70.46984641019212,
+  &quot;loop_complete&quot;: true,
+  &quot;target_reached&quot;: true,
+  &quot;provider&quot;: &quot;codex-reviewed-decision-replay&quot;,
+  &quot;trained_VLA&quot;: false,
+  &quot;api_calls&quot;: 0,
+  &quot;runtime_report_provider&quot;: &quot;codex-session&quot;,
+  &quot;providers&quot;: [
+    &quot;codex-reviewed-decision-replay&quot;
+  ],
+  &quot;actual_perception_results&quot;: 255,
+  &quot;source_capture_frames&quot;: 1317,
+  &quot;accepted_responses&quot;: 7,
+  &quot;rejected_responses&quot;: 0,
+  &quot;full_raw_output&quot;: &quot;/data/ticvla/outputs/navigation/codex-continuous-20261112-v2&quot;,
+  &quot;note&quot;: &quot;Codex-session supplied navigation decisions; fixed Codex category policy, real YOLO-E/OCR. Not trained VLA inference or navigation benchmark.&quot;,
+  &quot;post_task_unconsumed_capture_frames&quot;: 2,
+  &quot;perception_timing_seconds&quot;: {
+    &quot;segmentation_s&quot;: {
+      &quot;n&quot;: 255,
+      &quot;p50&quot;: 0.016630172729492188,
+      &quot;p95&quot;: 0.04812946319580077
+    },
+    &quot;ocr_s&quot;: {
+      &quot;n&quot;: 255,
+      &quot;p50&quot;: 0.4247164726257324,
+      &quot;p95&quot;: 0.8631517887115474
+    },
+    &quot;source_lag_s&quot;: {
+      &quot;n&quot;: 255,
+      &quot;p50&quot;: 0.40000002086162567,
+      &quot;p95&quot;: 1.0000000521540642
+    }
+  },
+  &quot;static_anchor_count&quot;: 0,
+  &quot;human_review&quot;: &quot;pending; assistant visual inspection only&quot;,
+  &quot;map_directory&quot;: &quot;/data/ticvla/outputs/navigation/codex-continuous-20261112-v2/navigation/map&quot;,
+  &quot;target_identity_at_finish&quot;: &quot;conflict&quot;,
+  &quot;target_binding_policy&quot;: &quot;Task-start UID retained; later OCR conflicts remain visible, not overwritten by requested text&quot;
+}</pre><section><h3>continuous-loop-0 — accepted=True</h3><a href="decisions/continuous-loop-0/input.json">输入与来源</a> · <a href="decisions/continuous-loop-0/raw.txt">原文</a><br><img width="480" src="decisions/continuous-loop-0/rgb.png"><img width="480" src="decisions/continuous-loop-0/map-at-submit.png"><pre>{
+  &quot;request_id&quot;: &quot;continuous-loop-0&quot;,
+  &quot;task_id&quot;: &quot;mapping&quot;,
+  &quot;instruction&quot;: &quot;Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.&quot;,
+  &quot;initial_route&quot;: &quot;Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.&quot;,
+  &quot;previous_route_policy&quot;: &quot;Retain every unfinished step in order, including final STOP.&quot;,
+  &quot;landmark&quot;: [],
+  &quot;local&quot;: &quot;At the entrance of the starting warehouse aisle, facing along it.&quot;,
+  &quot;route&quot;: &quot;Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.&quot;,
+  &quot;waypoint&quot;: [
+    [
+      9.964724339500252,
+      0.6367683361526266
+    ],
+    [
+      20.243584336592612,
+      1.296341098232988
+    ],
+    [
+      20.942147637365878,
+      1.341166431578255
+    ],
+    [
+      20.986972963552393,
+      0.6426031313822517
+    ],
+    [
+      21.262328538698124,
+      -3.6485714269646268
+    ]
+  ],
+  &quot;planning_started_monotonic&quot;: 7810.911317321,
+  &quot;source_image_id&quot;: &quot;codex-continuous-20261112-v2:00000076&quot;,
+  &quot;provider&quot;: &quot;codex-reviewed-decision-replay&quot;,
+  &quot;accepted&quot;: true,
+  &quot;wall&quot;: 1794472205.6459656
+}</pre></section><section><h3>continuous-loop-1 — accepted=True</h3><a href="decisions/continuous-loop-1/input.json">输入与来源</a> · <a href="decisions/continuous-loop-1/raw.txt">原文</a><br><img width="480" src="decisions/continuous-loop-1/rgb.png"><img width="480" src="decisions/continuous-loop-1/map-at-submit.png"><pre>{
+  &quot;request_id&quot;: &quot;continuous-loop-1&quot;,
+  &quot;task_id&quot;: &quot;mapping&quot;,
+  &quot;instruction&quot;: &quot;Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.&quot;,
+  &quot;initial_route&quot;: &quot;Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.&quot;,
+  &quot;previous_route_policy&quot;: &quot;Retain every unfinished step in order, including final STOP.&quot;,
+  &quot;landmark&quot;: [
+    &quot;fire extinguisher&quot;
+  ],
+  &quot;local&quot;: &quot;In the far cross-aisle, approaching the entrance of the parallel aisle.&quot;,
+  &quot;route&quot;: &quot;Continue across the far cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.&quot;,
+  &quot;waypoint&quot;: [
+    [
+      2.0919888250807044,
+      0.004436461799205205
+    ],
+    [
+      2.0929460538641416,
+      -0.6955620075008575
+    ],
+    [
+      2.1070309916775636,
+      -10.995539484344622
+    ],
+    [
+      2.119748459800363,
+      -20.295519147902585
+    ],
+    [
+      2.1207056885837994,
+      -20.995517617202648
+    ]
+  ],
+  &quot;planning_started_monotonic&quot;: 7891.86440385,
+  &quot;source_image_id&quot;: &quot;codex-continuous-20261112-v2:00000477&quot;,
+  &quot;provider&quot;: &quot;codex-reviewed-decision-replay&quot;,
+  &quot;accepted&quot;: true,
+  &quot;wall&quot;: 1794472286.5897403
+}</pre></section><section><h3>continuous-loop-2 — accepted=True</h3><a href="decisions/continuous-loop-2/input.json">输入与来源</a> · <a href="decisions/continuous-loop-2/raw.txt">原文</a><br><img width="480" src="decisions/continuous-loop-2/rgb.png"><img width="480" src="decisions/continuous-loop-2/map-at-submit.png"><pre>{
+  &quot;request_id&quot;: &quot;continuous-loop-2&quot;,
+  &quot;task_id&quot;: &quot;mapping&quot;,
+  &quot;instruction&quot;: &quot;Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.&quot;,
+  &quot;initial_route&quot;: &quot;Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.&quot;,
+  &quot;previous_route_policy&quot;: &quot;Retain every unfinished step in order, including final STOP.&quot;,
+  &quot;landmark&quot;: [],
+  &quot;local&quot;: &quot;Near the end of the second aisle, approaching the starting cross-aisle.&quot;,
+  &quot;route&quot;: &quot;Continue to the near end of this aisle, turn right across the cross-aisle, return to the starting point and STOP.&quot;,
+  &quot;waypoint&quot;: [
+    [
+      2.0935068942761643,
+      0.001777964774813512
+    ],
+    [
+      2.0939273120960094,
+      -0.6982219089743422
+    ],
+    [
+      2.0950083864898956,
+      -2.498221584329314
+    ],
+    [
+      2.0960894608837823,
+      -4.2982212596842855
+    ],
+    [
+      2.096509878703627,
+      -4.998221133433441
+    ]
+  ],
+  &quot;planning_started_monotonic&quot;: 7961.800366516,
+  &quot;source_image_id&quot;: &quot;codex-continuous-20261112-v2:00000826&quot;,
+  &quot;provider&quot;: &quot;codex-reviewed-decision-replay&quot;,
+  &quot;accepted&quot;: true,
+  &quot;wall&quot;: 1794472356.677997
+}</pre></section><section><h3>continuous-loop-complete — accepted=True</h3><a href="decisions/continuous-loop-complete/input.json">输入与来源</a> · <a href="decisions/continuous-loop-complete/raw.txt">原文</a><br><img width="480" src="decisions/continuous-loop-complete/rgb.png"><img width="480" src="decisions/continuous-loop-complete/map-at-submit.png"><pre>{
+  &quot;request_id&quot;: &quot;continuous-loop-complete&quot;,
+  &quot;task_id&quot;: &quot;mapping&quot;,
+  &quot;action&quot;: &quot;complete_mapping&quot;,
+  &quot;instruction&quot;: &quot;Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.&quot;,
+  &quot;local&quot;: &quot;Back at the starting cross-aisle.&quot;,
+  &quot;route&quot;: &quot;STOP&quot;,
+  &quot;source_image_id&quot;: &quot;codex-continuous-20261112-v2:00000949&quot;,
+  &quot;provider&quot;: &quot;codex-reviewed-decision-replay&quot;,
+  &quot;accepted&quot;: true,
+  &quot;wall&quot;: 1794472380.2227018
+}</pre></section><section><h3>continuous-target-0 — accepted=True</h3><a href="decisions/continuous-target-0/input.json">输入与来源</a> · <a href="decisions/continuous-target-0/raw.txt">原文</a><br><img width="480" src="decisions/continuous-target-0/rgb.png"><img width="480" src="decisions/continuous-target-0/map-at-submit.png"><pre>{
+  &quot;request_id&quot;: &quot;continuous-target-0&quot;,
+  &quot;task_id&quot;: &quot;target&quot;,
+  &quot;instruction&quot;: &quot;Navigate to sign 04/5R in the farther second aisle and STOP beside it.&quot;,
+  &quot;initial_route&quot;: &quot;Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.&quot;,
+  &quot;previous_route_policy&quot;: &quot;Retain every unfinished step in order, including final STOP.&quot;,
+  &quot;landmark&quot;: [
+    &quot;fire extinguisher&quot;
+  ],
+  &quot;local&quot;: &quot;At the starting cross-aisle. Mapped sign 04/5R is in the farther parallel aisle.&quot;,
+  &quot;route&quot;: &quot;Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.&quot;,
+  &quot;waypoint&quot;: [
+    [
+      -0.6239498116002352,
+      0.004862751580178647
+    ],
+    [
+      -4.223364949903488,
+      0.013746350225395734
+    ],
+    [
+      -4.923361943733547,
+      0.01547398988548121
+    ],
+    [
+      -4.925087831095749,
+      -0.6845230043858187
+    ],
+    [
+      -4.948694350366413,
+      -10.259013725255052
+    ]
+  ],
+  &quot;planning_started_monotonic&quot;: 7985.609708549,
+  &quot;target_uid&quot;: &quot;dcd8ceacda4e43be8ae1e14c37d312c0&quot;,
+  &quot;source_image_id&quot;: &quot;codex-continuous-20261112-v2:00000946&quot;,
+  &quot;provider&quot;: &quot;codex-reviewed-decision-replay&quot;,
+  &quot;accepted&quot;: true,
+  &quot;wall&quot;: 1794472380.427429
+}</pre></section><section><h3>continuous-target-1 — accepted=True</h3><a href="decisions/continuous-target-1/input.json">输入与来源</a> · <a href="decisions/continuous-target-1/raw.txt">原文</a><br><img width="480" src="decisions/continuous-target-1/rgb.png"><img width="480" src="decisions/continuous-target-1/map-at-submit.png"><pre>{
+  &quot;request_id&quot;: &quot;continuous-target-1&quot;,
+  &quot;task_id&quot;: &quot;target&quot;,
+  &quot;instruction&quot;: &quot;Navigate to sign 04/5R in the farther second aisle and STOP beside it.&quot;,
+  &quot;initial_route&quot;: &quot;Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.&quot;,
+  &quot;previous_route_policy&quot;: &quot;Retain every unfinished step in order, including final STOP.&quot;,
+  &quot;landmark&quot;: [
+    &quot;sign&quot;
+  ],
+  &quot;local&quot;: &quot;In the second aisle, approaching the mapped position of sign 04/5R.&quot;,
+  &quot;route&quot;: &quot;Continue along the second aisle to sign 04/5R, approach it and STOP beside it.&quot;,
+  &quot;waypoint&quot;: [
+    [
+      3.105549538802018,
+      -0.0007366224739095983
+    ],
+    [
+      4.60554945486647,
+      -0.0012383763027052908
+    ],
+    [
+      5.305716666973797,
+      0.4985274439374896
+    ],
+    [
+      5.705616293824635,
+      0.1983936597002982
+    ],
+    [
+      6.105449090530126,
+      -0.3015297545627611
+    ]
+  ],
+  &quot;planning_started_monotonic&quot;: 8035.966258617,
+  &quot;target_uid&quot;: &quot;dcd8ceacda4e43be8ae1e14c37d312c0&quot;,
+  &quot;source_image_id&quot;: &quot;codex-continuous-20261112-v2:00001196&quot;,
+  &quot;provider&quot;: &quot;codex-reviewed-decision-replay&quot;,
+  &quot;accepted&quot;: true,
+  &quot;wall&quot;: 1794472430.8584774
+}</pre></section><section><h3>continuous-finish — accepted=True</h3><a href="decisions/continuous-finish/input.json">输入与来源</a> · <a href="decisions/continuous-finish/raw.txt">原文</a><br><img width="480" src="decisions/continuous-finish/rgb.png"><img width="480" src="decisions/continuous-finish/map-at-submit.png"><pre>{
+  &quot;request_id&quot;: &quot;continuous-finish&quot;,
+  &quot;task_id&quot;: &quot;target&quot;,
+  &quot;action&quot;: &quot;finish&quot;,
+  &quot;instruction&quot;: &quot;Navigate to sign 04/5R in the farther second aisle and STOP beside it.&quot;,
+  &quot;landmark&quot;: [],
+  &quot;local&quot;: &quot;Stopped beside mapped sign 04/5R.&quot;,
+  &quot;route&quot;: &quot;STOP&quot;,
+  &quot;source_image_id&quot;: &quot;codex-continuous-20261112-v2:00001309&quot;,
+  &quot;provider&quot;: &quot;codex-reviewed-decision-replay&quot;,
+  &quot;accepted&quot;: true,
+  &quot;wall&quot;: 1794472453.0086358
+}</pre></section>

@@ -1,0 +1,10 @@
+{
+  "request_id": "continuous-loop-complete",
+  "task_id": "mapping",
+  "action": "complete_mapping",
+  "instruction": "Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.",
+  "local": "Back at the starting cross-aisle.",
+  "route": "STOP",
+  "source_image_id": "codex-continuous-20261112-v2:00000949",
+  "provider": "codex-reviewed-decision-replay"
+}

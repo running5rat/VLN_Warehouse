@@ -1,0 +1,29 @@
+{
+  "landmark": [
+    "fire extinguisher"
+  ],
+  "local": "At the next aisle entrance; extinguisher on the right rack end.",
+  "route": "Turn right into the aisle, follow it to the near end, turn right back to the starting point and STOP.",
+  "waypoint": [
+    [
+      480,
+      710
+    ],
+    [
+      550,
+      700
+    ],
+    [
+      620,
+      690
+    ],
+    [
+      700,
+      680
+    ],
+    [
+      780,
+      670
+    ]
+  ]
+}

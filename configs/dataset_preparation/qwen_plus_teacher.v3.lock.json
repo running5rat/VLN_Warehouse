@@ -1,0 +1,12 @@
+{
+  "profile_id": "qwen-plus-annotation-v3",
+  "config_file": "configs/dataset_preparation/qwen_plus_teacher.v3.json",
+  "config_sha256": "b479aa4cd22fe4f002f4e8bb2517102554d2d4b2a0d23d01d619a300bf7d360d",
+  "teacher_instruction_sha256": "fe90c9f78d7c8aad486b597d9fa38f72ae26e24c8fc6ff5a7a421c7060c38125",
+  "teacher_template_version": "v07-teacher-local-grounded-route-v3",
+  "local_max_characters": 90,
+  "input_format": "plain-evidence-v2 plus causal completion evidence flag",
+  "route_protocol": "compact-v2",
+  "annotation_failure_policy": "skip_invalid_keep_last_valid_v1",
+  "source": "2026-10-30: user requested Route grounding in current Local; v1/v2 preserved. No API evaluation yet."
+}

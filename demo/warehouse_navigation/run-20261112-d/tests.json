@@ -1,0 +1,15 @@
+{
+  "codex_demo": 5,
+  "realtime_perception": 21,
+  "navigation": 13,
+  "total": 39,
+  "result": "passed",
+  "extra": [
+    "shell syntax",
+    "CLI help",
+    "SQLite quick_check",
+    "HTML local links",
+    "HTTP index/video 200"
+  ],
+  "full_replay_second_episode": "not_run"
+}

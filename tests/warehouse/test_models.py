@@ -213,6 +213,19 @@ class ModelTests(unittest.TestCase):
         )
         self.assertEqual(result["raw_kv"].shape[1], len(response) + 1)
         self.assertIsNone(parse_response(response.replace("<Route>", "<route>")))
+        # Geometry-only records must not inject an unapproved semantic answer or
+        # future anchors into the language sequence, even if stale text exists.
+        captured = []
+        embed = adapter._embeddings
+        def capture(ids, images):
+            captured.append(ids.detach().clone())
+            return embed(ids, images)
+        adapter._embeddings = capture
+        prediction, loss = adapter.forward_record(dict(observation={}, supervision={
+            "text_valid": False, "text": "UNAPPROVED FUTURE ANSWER", "anchors": [[999,999]]}))
+        self.assertEqual(adapter.tokenizer.decode(captured[0][0].tolist()), "P" + QUERY)
+        self.assertEqual(float(loss), 0.0)
+        self.assertTrue(torch.isfinite(prediction["reference_xy"]).all())
 
 
 if __name__ == "__main__":

@@ -1,0 +1,6 @@
+{
+  "landmark": [],
+  "local": "Inferred: stopped beside 04/5R, now partly cropped in the image.",
+  "route": "STOP",
+  "waypoint": []
+}

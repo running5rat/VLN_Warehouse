@@ -131,8 +131,11 @@ class Panel:
         parsed=proposal['parsed'];route=parsed['route'];geo=proposal['geometry']
         labels='; '.join(x['category']+' @'+x['image_id'].split(':')[-1] for x in parsed['landmark']) or '[]'
         y=700
-        for heading,value in [('landmark',labels),('local',parsed['local']),('Route',route['remaining_instruction']),
-                              ('subgoal / status',json.dumps(route['current_subgoal'])+' / '+route['status'])]:
+        fields=[('landmark',labels),('local',parsed['local']),
+                ('Route',route if isinstance(route,str) else route['remaining_instruction'])]
+        if isinstance(route,dict):
+            fields.append(('subgoal / status',json.dumps(route['current_subgoal'])+' / '+route['status']))
+        for heading,value in fields:
             self.text(d,(1005,y),heading+':',self.font,CYAN);y+=26
             for text in textwrap.wrap(value,width=78):
                 self.text(d,(1005,y),text,self.small);y+=23

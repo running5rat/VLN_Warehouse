@@ -1,0 +1,29 @@
+{
+  "landmark": [
+    "sign"
+  ],
+  "local": "Near sign 04/4R on right, facing the end wall and aisle exit.",
+  "route": "Continue to the far end, turn right across the cross-aisle, turn right into the next parallel aisle, follow it to the near end, turn right back to the starting point and STOP.",
+  "waypoint": [
+    [
+      480,
+      710
+    ],
+    [
+      480,
+      700
+    ],
+    [
+      480,
+      685
+    ],
+    [
+      480,
+      670
+    ],
+    [
+      480,
+      650
+    ]
+  ]
+}

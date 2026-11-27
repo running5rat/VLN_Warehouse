@@ -1,5 +1,67 @@
 # 第二步：英文 Landmark / Local / Route 教师标注试验
 
+**2026-10-28 当前规范：**见 [VLM 标注方案与输入输出规范](vlm_annotation_and_io_spec.md)。教师负责 Landmark/Local/Route，waypoint 与参考线取自独立示范轨迹；详细教师规则无需复制到学生 prompt。学生 SFT/部署共用短模板的拆分尚待实施，当前代码仍附加共同 RULES。模型证据输入已去掉 Progress、文字地标表等，保存的完整审计信息不等于实际 prompt。当前只继续 Qwen 对照，GPT pending；下文 GLM/OpenAI 成本及五模型试验按历史日期解释。
+
+
+## 当前 Landmark 输出协议（2026-10-26）
+
+新导航 TEXT、教师标注和人工标注支持类别数组：
+
+```text
+<landmark>["sign","fire extinguisher"]</landmark>
+```
+
+教师 JSON 中相应使用 `"landmark": ["sign","fire extinguisher"]`。最多三类，允许 `[]`；仅登记当前 RGB 可见对象，历史 RGB 只辅助 Local 和 Route。程序根据请求的当前源帧补充内部 `image_id/category` 记录，再分割、投影和入图。类别按大小写和空白规范化去重；来源不明、错误来源或混合字符串／对象数组会被拒绝。请求、源图像哈希、深度和位姿仍保存在外部元数据中。
+
+旧 `image_id/category` 对象记录继续可解析，历史来源不会改绑。训练适配器只在内存副本中将全为当前帧的旧标签转换为类别数组，保留 `source_text`；含历史来源的标签继续使用旧协议。原人工批准数据与既有 Oracle 响应不被重写。修改协议后重启标注服务／模型进程并刷新页面即可使用新入口；旧已加载进程不会自动更新代码。
+
+Route 同步采用 `compact-v2`：模型只输出英文剩余指令，任务完成声明使用保留值 `DONE`，不生成 `current_subgoal` 或 `status`。
+
+```json
+{"landmark":["sign"],"local":"Near the aisle end.","route":"Turn left, then stop beside the extinguisher."}
+```
+
+这是格式示例，不是模型结果。部署时组装为 `<Route>Turn left, then stop beside the extinguisher.</Route>`，不含 JSON 引号；waypoint 仍由轨迹提供教师监督，ref_line 仍是独立数组。
+
+模型／reference-only 导航、离线回放和新教师请求默认使用简化协议；几何对照保留旧的结构化 Route，因为其规划器依赖动作分派。运行状态由程序维护；DONE 若缺少独立的目标可见、到达和实际停止证据，会停车并记录 `completion_without_evidence`，不宣布成功。自由语言目标尚没有通用的自动到达核验器，不以 DONE 代替该能力；显式任务模式由启动配置决定，不再从子目标枚举自动切换跟随等专用模式。后向参考线继续只做诊断，当前保守地将延伸到源车体后方的路线禁用于运动。
+
+旧 JSON Route 继续可读取。训练适配在副本中把 active 转成 remaining_instruction、completed 转成 DONE，并保留 source_text/source_parsed；waiting/needs_clarification 样本保留旧协议，不伪造 active。人工标注框支持纯文本和旧 JSON；已批准数据不重写。
+
+2026-10-26 已用同一人工源帧执行一次真实 Qwen 请求：[raw.txt](/data/ticvla/outputs/stage1a/compact-route-example-20261026/qwen3.8-max/00000000/raw.txt)、[完整报告](/data/ticvla/outputs/stage1a/compact-route-example-20261026/qwen3.8-max/index.html)。格式和规则检查通过，语义仍待人工审核；这不代表 InternVL 已完成新协议训练或导航验证。
+
+### 简化协议的多模型人工审核与费用报告（2026-10-26）
+
+本机报告目录：`/data/ticvla/outputs/stage1a/oracle-review-20261026`。打开其中 `index.html`，或运行：
+
+```bash
+python -m http.server 8899 --directory /data/ticvla/outputs/stage1a/oracle-review-20261026
+```
+
+浏览器访问 `http://localhost:8899`（远程机器使用对应端口转发）。页面按源帧并排显示 GLM/Qwen 回答、当前及历史 RGB、地图、各自真实递归上下文、组装文本、示范参考线和格式失败原因。人工参考与未来轨迹只在审核侧展示，未输入教师。
+
+填写审核人，逐项判断 Landmark、Local、Route 与完成证据，导出审核 JSON；浏览器草稿不能替代导出留档。记录绑定报告 ID、源图像与响应哈希，导出不自动批准为训练标签。可在命令行核验导出文件：
+
+```bash
+/data/ticvla/envs/warehouse-io/bin/python -m ticvla.warehouse.dataset_tools.oracle_review \
+  --root /data/ticvla/outputs/stage1a/oracle-review-20261026 \
+  --review /path/to/oracle-human-review.json
+```
+
+`REPORT.md` 和 `review-report.json` 包含费用与 Stage1a 估算。首批 200 个训练 episode 实际有 3,458 个关键帧（R2R 1,298、RxR 2,160）；2,000 个 episode 仅按同分布预计 34,580 帧。分别按 R2R/RxR 实测调用均价加权，不把人工仓库样本平均费用套给整个训练集。费用包含 reasoning 和格式失败响应；未计缓存优惠，不是供应商账单。人工审核前不报告语义准确率或每条审核合格标签成本。
+
+每模型准备就绪 42 帧（人工 10、R2R/RxR 各 16）；另 32 帧共同历史上下文未审核，保持暂停。递归失败后的帧保留未调用状态。OpenAI 余额未恢复，本轮三个 OpenAI 候选不调用，费用仅提供明确标注的 token 假设情景。Qwen 一条完全相同的已付费请求按请求哈希复用，新增费用与样本总费用分别记录。
+
+无付费调用的报告再生成命令：
+
+```bash
+/data/ticvla/envs/warehouse-io/bin/python -m ticvla.warehouse.dataset_tools.oracle_review \
+  --root /data/ticvla/outputs/stage1a/oracle-review-20261026 \
+  --stage-b /data/ticvla/datasets/stage1a-20261021/episodes-v4/report.json
+```
+
+付费试验由 `oracle_review_run` 调用已有 `run_pilot`，每个 episode 内顺序递归，每个供应商最多两个独立 episode 并发；共享预算先持久化预留，再发 HTTP。重复请求拒绝重发，格式失败不自动修复。运行记录、配置和来源清单保存在报告目录。重新生成报告无需加载凭据或再次请求 API。
+
+
 本入口只请求三个语义字段。waypoint 和 reference line 来自示范轨迹／人工批准参考线，不送给教师，也不由教师预测。没有启动正式训练。最初各6帧的会话辅助试验已扩展为37＋17份密集提议，仍待人工审核；真实 API 调用尚未验收，不能将会话提议冒充 API 验收。当前调用方法见 [README](../README.md#人工与辅助标注第二阶段)，下一步优先执行[静态数据对齐计划](warehouse_dataset_alignment_plan.md)。
 
 API入口目前仅接受最多6帧的 `semantic-teacher-pilot-v1`，会话导入支持整段 `semantic-episode-review-v1`。两者不可混用；整段API执行和批准提议的统一导出仍需接线。

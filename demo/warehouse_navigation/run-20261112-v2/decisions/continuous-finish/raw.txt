@@ -1,0 +1,5 @@
+<landmark>[]</landmark>
+<local>Stopped beside mapped sign 04/5R.</local>
+<Route>STOP</Route>
+<waypoint>[]</waypoint>
+<REFLINE>

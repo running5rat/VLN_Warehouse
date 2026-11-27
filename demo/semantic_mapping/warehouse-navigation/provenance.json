@@ -1,0 +1,14 @@
+{
+  "provider": "current Codex session assisted visual reannotation",
+  "actual_api_model_id": null,
+  "requested_provider_label": "Codex GPT6",
+  "api_calls": 0,
+  "qwen_calls": 0,
+  "latency": null,
+  "api_tokens": null,
+  "api_cost": null,
+  "human_approval": false,
+  "limitation": "Known prior conversation and recorded episode; not a blind independently callable GPT6 API evaluation.",
+  "method": "Visual review of RGB, causal maps and prior context; manual pixel choices. No future poses used to generate pixels. Original recorded completion events only for stop validation.",
+  "revision": "goal-only-v2; source outputs frozen before depth validation; failures retained without repair"
+}

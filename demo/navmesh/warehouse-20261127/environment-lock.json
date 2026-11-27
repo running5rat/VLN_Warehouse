@@ -1,0 +1,23 @@
+{
+  "python": "3.12.9 | packaged by Anaconda, Inc. | (main, Feb  6 2025, 18:56:27) [GCC 11.2.0]",
+  "numpy": "2.2.3",
+  "matplotlib": "3.10.1",
+  "compiler": "g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0",
+  "cmake": "cmake version 3.16.3",
+  "recast": {
+    "recast_version": "1.6.0",
+    "source": "https://codeload.github.com/recastnavigation/recastnavigation/tar.gz/refs/tags/v1.6.0",
+    "sha256": "d48ca0121962fa0639502c0f56c4e3ae72f98e55d88727225444f500775c0074",
+    "compiler": "system g++",
+    "isaac": "/data/isaacsim 5.0",
+    "scope": "Offline static warehouse ground-floor NavMesh; no controller execution"
+  },
+  "code_sha256": {
+    "export_scene.py": "b4f5d77124efb3c8fca9ad0ae018bb7000041ebd2d66e77c901da0fdb1e1abe2",
+    "build_navmesh.cpp": "af4f669b37fa67c6edafecf69aa34b7addeb9f20dca1ad87e7ea5cf3cc13ad90",
+    "run.sh": "0fdd805fcf8c97fb1b9ba0020fa4f6702e3a236d21ea43f2f2b39aa898539f60",
+    "prepare_queries.py": "98655550ef74cfb853de3f7eb51b5a5def40223dafb98a4e54a8c08cf2d2393c",
+    "render_report.py": "f1ea1219eafa0e7391af2ba8198ec4aaf7532a0586997d7e05a73f2f0281dac8"
+  },
+  "binary_sha256": "a639b18a688e4153223eabec83d154dd2b33416e98395e78f537aee09af30ef0"
+}

@@ -1,0 +1,35 @@
+{
+  "request_id": "continuous-loop-0",
+  "task_id": "mapping",
+  "instruction": "Follow the starting aisle to its far end, turn right across the cross-aisle, turn right into the second parallel aisle, follow it to the near end, turn right back to the starting point, and STOP after completing the circuit and building the semantic map.",
+  "initial_route": "Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+  "previous_route_policy": "Retain every unfinished step in order, including final STOP.",
+  "landmark": [],
+  "local": "At the entrance of the starting warehouse aisle, facing along it.",
+  "route": "Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+  "waypoint": [
+    [
+      9.964724339500252,
+      0.6367683361526266
+    ],
+    [
+      20.243584336592612,
+      1.296341098232988
+    ],
+    [
+      20.942147637365878,
+      1.341166431578255
+    ],
+    [
+      20.986972963552393,
+      0.6426031313822517
+    ],
+    [
+      21.262328538698124,
+      -3.6485714269646268
+    ]
+  ],
+  "planning_started_monotonic": 7810.911317321,
+  "source_image_id": "codex-continuous-20261112-v2:00000076",
+  "provider": "codex-reviewed-decision-replay"
+}

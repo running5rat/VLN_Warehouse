@@ -1,0 +1,119 @@
+{
+  "routes": [
+    {
+      "request_id": "continuous-loop-0",
+      "task_id": "mapping",
+      "accepted": true,
+      "route": "Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+      "previous_route": "Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+      "recursion_matches": true,
+      "ends_with_stop": true,
+      "terminal_stop_command": true,
+      "initial_full_route": "Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP."
+    },
+    {
+      "request_id": "continuous-loop-1",
+      "task_id": "mapping",
+      "accepted": true,
+      "route": "Continue across the far cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+      "previous_route": "Follow this aisle to the far end, turn right across the cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+      "recursion_matches": true,
+      "ends_with_stop": true,
+      "terminal_stop_command": true
+    },
+    {
+      "request_id": "continuous-loop-2",
+      "task_id": "mapping",
+      "accepted": true,
+      "route": "Continue to the near end of this aisle, turn right across the cross-aisle, return to the starting point and STOP.",
+      "previous_route": "Continue across the far cross-aisle, turn right into the second aisle, follow it to the near end, turn right back to the starting point and STOP.",
+      "recursion_matches": true,
+      "ends_with_stop": true,
+      "terminal_stop_command": true
+    },
+    {
+      "request_id": "continuous-loop-complete",
+      "task_id": "mapping",
+      "accepted": true,
+      "route": "STOP",
+      "previous_route": "Continue to the near end of this aisle, turn right across the cross-aisle, return to the starting point and STOP.",
+      "recursion_matches": true,
+      "ends_with_stop": true,
+      "terminal_stop_command": true
+    },
+    {
+      "request_id": "continuous-target-0",
+      "task_id": "target",
+      "accepted": true,
+      "route": "Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.",
+      "previous_route": "Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.",
+      "recursion_matches": true,
+      "ends_with_stop": false,
+      "terminal_stop_command": true,
+      "initial_full_route": "Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it."
+    },
+    {
+      "request_id": "continuous-target-1",
+      "task_id": "target",
+      "accepted": true,
+      "route": "Continue along the second aisle to sign 04/5R, approach it and STOP beside it.",
+      "previous_route": "Turn around, cross the near-end cross-aisle, turn left into the second aisle, follow it to sign 04/5R, approach the sign and STOP beside it.",
+      "recursion_matches": true,
+      "ends_with_stop": false,
+      "terminal_stop_command": true
+    },
+    {
+      "request_id": "continuous-finish",
+      "task_id": "target",
+      "accepted": true,
+      "route": "STOP",
+      "previous_route": "Continue along the second aisle to sign 04/5R, approach it and STOP beside it.",
+      "recursion_matches": true,
+      "ends_with_stop": true,
+      "terminal_stop_command": true
+    }
+  ],
+  "handoffs": [
+    {
+      "request_id": "continuous-loop-1",
+      "measured_v_w": [
+        0.3011526995946546,
+        0.0014171181544217005
+      ],
+      "command_reason": "tracking",
+      "delta_to_command_s": 0.023187158398286556,
+      "timestamp_basis": "accepted_wall_converted_with_local_clock_offset",
+      "moving": true
+    },
+    {
+      "request_id": "continuous-loop-2",
+      "measured_v_w": [
+        0.3009795956160254,
+        0.0015198021393908055
+      ],
+      "command_reason": "tracking",
+      "delta_to_command_s": 0.002258309335957165,
+      "timestamp_basis": "accepted_wall_converted_with_local_clock_offset",
+      "moving": true
+    },
+    {
+      "request_id": "continuous-target-1",
+      "measured_v_w": [
+        0.3012371026105855,
+        -0.0006676019339153467
+      ],
+      "command_reason": "tracking",
+      "delta_to_command_s": 0.005496365888575383,
+      "timestamp_basis": "accepted_wall_converted_with_local_clock_offset",
+      "moving": true
+    }
+  ],
+  "all_handoffs_while_moving": true,
+  "total_recorded_simulated_seconds": 263.0000137165189,
+  "command_samples": 7891,
+  "wall_minus_monotonic_s": 1794464394.7175891,
+  "unmeasured_samples": 1,
+  "expired_command_samples": 9,
+  "stationary_fraction_including_task_stops": 0.012658227848101266,
+  "interpretation": "Codex-authored asynchronous replay; motion samples include required STOPs. Not an LLM latency benchmark."
+}

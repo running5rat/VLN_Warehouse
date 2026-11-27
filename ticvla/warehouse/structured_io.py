@@ -9,37 +9,32 @@ from pathlib import Path
 import numpy as np
 import torch
 
+from .text_protocol import LOCAL_PATTERN
 from .mapping import SemanticEvent
 from .object_io import OBJECT_SYSTEM, object_question
 from .models import ContextCompressor, pack_last_kv
 from .schema import SemanticSnapshot, TaskContract, TaskState
 from .vlm import QUERY, InternVLReference, image_tensor, parse_response
+from .landmark_protocol import bind_landmarks, current_source_id, CATEGORY_PATTERN, CURRENT_LANDMARK_INSTRUCTION
 
 
 SYSTEM = """You are a visual perception assistant for a wheeled robot.
-First inspect the source RGB and identify tangible visible object categories relevant to the task.
-The landmark answer must contain object names, not actions, trajectories, or navigation commands.
-Name individual objects that a segmentation model can outline. Never use the overall room,
-scene, building, or aisle as an object category. List different categories, without repetitions.
+Identify tangible visible object categories relevant to the task, not actions, rooms or trajectories.
 Coordinates are x forward, y left, in metres. Preserve the original task and constraints.
 Reply in this exact order and case:
-<landmark>[{"image_id":"source RGB identifier","category":"visible object class","navigation_role":"localization","reason":"short navigation relevance"}]</landmark>
+<landmark>["visible object class"]</landmark>
 <local>short location description or unknown</local>
 <Route>short remaining instruction</Route>
 <waypoint>(x,y);(x,y);(x,y);(x,y);(x,y)</waypoint><REFLINE>
-The landmark field is a JSON array, at most three objects. Use only supplied source RGB identifiers.
-Answer the navigation_object_question in landmark. Use short English physical object class names,
-one entry per class, using one to three English words, suitable for a text-prompted object segmenter. Do not use instance numbers
-or spatial relations as class names. navigation_role is localization, avoidance, or both.
-reason explains the relevance in at most 120 characters. Neither role nor reason proves staticness.
-Only propose visible physical objects; topology and relations belong in local.
-Empty landmarks and unavailable waypoints are represented by []. Do not infer hidden geometry.
-Use concise English, local at most 80 characters and Route at most 120 characters.
+Answer navigation_object_question with short English physical object categories, not instance numbers
+or spatial relations. Selection never proves staticness. Topology and relations belong in local.
+Empty landmarks and unavailable waypoints are []. Do not infer hidden geometry.
+Use concise English, local at most 90 characters and Route at most 120 characters.
 Map identifiers are provenance, not place identities. End immediately after <REFLINE>.
-"""
+""" + CURRENT_LANDMARK_INSTRUCTION
 
 
-def response_grammar(image_ids, *, extended=False, structured_route=False):
+def response_grammar(image_ids, *, extended=False, structured_route=False, categories_only=False, compact_route=False):
     from lmformatenforcer import (
         JsonSchemaParser,
         RegexParser,
@@ -63,7 +58,10 @@ def response_grammar(image_ids, *, extended=False, structured_route=False):
             "additionalProperties": False,
         },
     }
-    if extended:
+    if categories_only:
+        item = '"' + CATEGORY_PATTERN + '"'
+        landmark_parser = RegexParser(r"\[\s*(" + item + r"(\s*,\s*" + item + r"){0,2})?\s*\]")
+    elif extended:
         # Explicit bounded ASCII syntax: the JSON parser in the pinned enforcer
         # can accept a string token crossing maxLength. No class vocabulary is fixed.
         source = "(" + "|".join(re.escape(x) for x in image_ids) + ")"
@@ -87,7 +85,7 @@ def response_grammar(image_ids, *, extended=False, structured_route=False):
                 max_consecutive_whitespaces=1, force_json_field_order=True
             ),
         )
-    from .navigation.route_protocol import ROUTE_SCHEMA
+    from .navigation.route_protocol import ROUTE_SCHEMA, COMPACT_ROUTE_PATTERN
 
     route_parser = (
         JsonSchemaParser(
@@ -99,6 +97,8 @@ def response_grammar(image_ids, *, extended=False, structured_route=False):
         if structured_route
         else RegexParser(r"[A-Za-z0-9][A-Za-z0-9 ,.';:()_/-]{0,119}")
     )
+    if compact_route:
+        route_parser = RegexParser(COMPACT_ROUTE_PATTERN)
     number = r"-?[0-9]{1,2}(\.[0-9]{1,3})?"
     pair = rf"\({number},{number}\)"
     return SequenceParser(
@@ -106,7 +106,7 @@ def response_grammar(image_ids, *, extended=False, structured_route=False):
             StringParser("<landmark>"),
             landmark_parser,
             StringParser("</landmark><local>"),
-            RegexParser(r"[A-Za-z0-9][A-Za-z0-9 ,.';:()_/-]{0,79}"),
+            RegexParser(LOCAL_PATTERN),
             StringParser("</local><Route>"),
             route_parser,
             StringParser("</Route><waypoint>"),
@@ -116,12 +116,13 @@ def response_grammar(image_ids, *, extended=False, structured_route=False):
     )
 
 
-def parse_structured(text, image_ids, *, structured_route=False):
+def parse_structured(text, image_ids, *, structured_route=False, current_image_id=None, compact_route=False):
     parsed = parse_response(text)
     if parsed is None:
         raise ValueError("Invalid or truncated v0.6 tagged response")
     if not parsed["local"].strip() or len(parsed["landmark"]) > 3:
         raise ValueError("Missing Local or excessive landmarks")
+    parsed["landmark"] = bind_landmarks(parsed["landmark"], image_ids, current_image_id)
     for item in parsed["landmark"]:
         if not isinstance(item, dict) or set(item) not in (
             {"image_id", "category"},
@@ -149,7 +150,8 @@ def parse_structured(text, image_ids, *, structured_route=False):
                 raise ValueError("Invalid navigation reason")
     from .navigation.route_protocol import parse_route
 
-    parsed["route"] = parse_route(parsed["route"], require_structured=structured_route)
+    parsed["route"] = parse_route(parsed["route"], require_structured=structured_route,
+                                  require_compact=compact_route)
     return parsed
 
 
@@ -260,6 +262,7 @@ class StructuredVLM(InternVLReference):
                 response_grammar(
                     image_ids,
                     extended=observation.get("landmark_schema", "extended") != "legacy",
+                    categories_only=observation.get("landmark_schema", "categories") == "categories",
                 ),
             )
         else:
@@ -331,7 +334,7 @@ class StructuredVLM(InternVLReference):
             try:
                 if not complete:
                     raise ValueError("Generation ended before processed REFLINE")
-                parsed = parse_structured(text, image_ids)
+                parsed = parse_structured(text, image_ids, current_image_id=current_source_id(observation))
             except ValueError as exc:
                 error = str(exc)
         if error:
@@ -440,6 +443,7 @@ def make_observation(store, image_id, mapview, task):
         valid = [True, True]
     return {
         "task": task,
+        "image_id": obs["image_id"],
         "t_obs": obs["t_obs"],
         "odom_epoch": obs["odom_epoch"],
         "T_odom_body": obs["T_odom_body"],
